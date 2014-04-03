@@ -15,9 +15,10 @@ import java.util.List;
  */
 public class DateUtil {
 
-    private static String DAY = "d MMMMMM yyyy";
-    private static String HOUR = "HH:mm:ss";
-    private static String COMPLETE = "EEEEE, d MMMMMM yyyy - HH:mm:ss";
+    public static String DAY = "d MMMMMM yyyy";
+    public static String TXTDATE = "yyyy_MM_dd_HH_mm_ss";
+    public static String HOUR = "HH:mm:ss";
+    public static String COMPLETE = "EEEEE, d MMMMMM yyyy - HH:mm:ss";
 
     /**
      * Retorna um array contendo todos ultimos 100 anos
