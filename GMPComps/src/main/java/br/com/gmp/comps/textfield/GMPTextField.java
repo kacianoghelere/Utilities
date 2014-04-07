@@ -7,6 +7,8 @@ import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -246,6 +248,94 @@ public class GMPTextField extends JTextField implements ValidableComponent, KeyL
      * @param value <code>long</code> Valor Boolean do texto
      */
     public void setLong(long value) {
+        setText(String.valueOf(value));
+    }
+
+    /**
+     * Retorna o valor Float do texto
+     *
+     * @return <code>Float</code> Valor Long do texto
+     */
+    public Float getFloat() {
+        try {
+            return Float.parseFloat(getText().replaceAll(",", "."));
+        } catch (NumberFormatException e) {
+            throw e;
+        }
+    }
+
+    /**
+     * Modifica o valor conforme o Float recebido
+     *
+     * @param value <code>Float</code> Valor Boolean do texto
+     */
+    public void setFloat(Float value) {
+        setText(String.valueOf(value));
+    }
+
+    /**
+     * Retorna o valor Double do texto
+     *
+     * @return <code>Double</code> Valor Long do texto
+     */
+    public Double getDouble() {
+        try {
+            return Double.parseDouble(getText().replaceAll(",", "."));
+        } catch (NumberFormatException e) {
+            throw e;
+        }
+    }
+
+    /**
+     * Modifica o valor conforme o Double recebido
+     *
+     * @param value <code>Double</code> Valor Boolean do texto
+     */
+    public void setDouble(Double value) {
+        setText(String.valueOf(value));
+    }
+
+    /**
+     * Retorna o valor BigDecimal do texto
+     *
+     * @return <code>BigDecimal</code> Valor Long do texto
+     */
+    public BigDecimal getBigDecimal() {
+        try {
+            return new BigDecimal(getText().replaceAll(",", "."));
+        } catch (NumberFormatException e) {
+            throw e;
+        }
+    }
+
+    /**
+     * Modifica o valor conforme o BigDecimal recebido
+     *
+     * @param value <code>BigDecimal</code> Valor Boolean do texto
+     */
+    public void setBigDecimal(BigDecimal value) {
+        setText(String.valueOf(value));
+    }
+
+    /**
+     * Retorna o valor BigInteger do texto
+     *
+     * @return <code>BigInteger</code> Valor Long do texto
+     */
+    public BigInteger getBigInteger() {
+        try {
+            return new BigInteger(getText());
+        } catch (NumberFormatException e) {
+            throw e;
+        }
+    }
+
+    /**
+     * Modifica o valor conforme o BigInteger recebido
+     *
+     * @param value <code>BigInteger</code> Valor Boolean do texto
+     */
+    public void setBigInteger(BigInteger value) {
         setText(String.valueOf(value));
     }
 
