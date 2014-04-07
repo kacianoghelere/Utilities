@@ -46,7 +46,7 @@ public class GMPTableModel extends AbstractTableModel {
      * Cria novo GMPTableModel
      *
      * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
-     * @param list <code><b>List</b>(Object)</code> Lista de objetos
+     * @param list <code><b>List</b>Object</code> Lista de objetos
      */
     public GMPTableModel(Class<?> objClass, List list) {
         initialize(objClass, list);

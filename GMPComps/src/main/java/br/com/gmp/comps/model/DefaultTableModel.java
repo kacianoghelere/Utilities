@@ -1,6 +1,7 @@
 package br.com.gmp.comps.model;
 
 import br.com.gmp.comps.annotations.ColumnName;
+import br.com.gmp.utils.annotations.Ignore;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
@@ -80,14 +81,14 @@ public class DefaultTableModel<T> extends AbstractTableModel {
      * @return <code>String[]</code> Colunas do objeto
      */
     private String[] mapColumns(Class<?> cl) {
-        String[] coluna = new String[cl.getDeclaredFields().length];
-        for (int i = 0; i < cl.getDeclaredFields().length; i++) {
-            if (cl.getDeclaredFields()[i]
+        String[] coluna = new String[getFields(cl).length];
+        for (int i = 0; i < getFields(cl).length; i++) {
+            if (getFields(cl)[i]
                     .isAnnotationPresent(ColumnName.class)) {
-                coluna[i] = cl.getDeclaredFields()[i]
+                coluna[i] = getFields(cl)[i]
                         .getAnnotation(ColumnName.class).name();
             } else {
-                coluna[i] = cl.getDeclaredFields()[i].getName();
+                coluna[i] = getFields(cl)[i].getName();
             }
         }
         return coluna;
@@ -136,13 +137,32 @@ public class DefaultTableModel<T> extends AbstractTableModel {
     public Object getValueAt(int row, int column) {
         try {
             Object u = data.get(row);
-            Field f = u.getClass().getDeclaredFields()[column];
+            Field f = getFields(u.getClass())[column];
             f.setAccessible(true);
             return f.get(u);
         } catch (IllegalArgumentException | IllegalAccessException ex) {
             Logger.getLogger(DefaultTableModel.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
+    }
+
+    /**
+     * Retorna os campos mapeaveis da classe
+     *
+     * @param cl <code><b>Class</b>(?)</code> Classe do Field
+     * @return <code>Field[]</code> Fields mapeados
+     */
+    public Field[] getFields(Class<?> cl) {
+        List<Field> fields = new ArrayList<>();
+        for (Field f : cl.getDeclaredFields()) {
+            f.setAccessible(true);
+            if (!f.isAnnotationPresent(Ignore.class)) {
+                fields.add(f);
+            }
+        }
+        Field[] array = fields.toArray(new Field[]{});
+        fields.clear();
+        return array;
     }
 
     /**
@@ -176,7 +196,7 @@ public class DefaultTableModel<T> extends AbstractTableModel {
      */
     private Class<?> getFieldClass(Class<?> cl, int id) {
         try {
-            Field[] f = cl.getDeclaredFields();
+            Field[] f = getFields(cl);
             f[id].setAccessible(true);
             Class<?> c = cl.getDeclaredField(f[id].getName()).getType();
             if (c == boolean.class) {
@@ -293,7 +313,7 @@ public class DefaultTableModel<T> extends AbstractTableModel {
     @Override
     public void setValueAt(Object value, int row, int col) {
         Object object = data.get(row);
-        Field field = object.getClass().getDeclaredFields()[col];
+        Field field = getFields(object.getClass())[col];
         try {
             field.setAccessible(true);
             field.set(object, value);
