@@ -203,7 +203,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
      * @param list <code><b>List</b><Object></code> Lista com os dados da tabela
      */
     private void splitData(List<Object> list, int maxRows) {
-        if (maxRows != 0) {
+        if (maxRows != 0 && !list.isEmpty()) {
             this.pages = new CollectionUtil().splitList(list, maxRows);
         } else {
             this.pages = new ArrayList[1];
