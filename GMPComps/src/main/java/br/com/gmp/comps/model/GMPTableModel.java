@@ -1,6 +1,7 @@
 package br.com.gmp.comps.model;
 
 import br.com.gmp.comps.annotations.ColumnName;
+import br.com.gmp.utils.annotations.Ignore;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +36,7 @@ public class GMPTableModel extends AbstractTableModel {
     /**
      * Cria novo GMPTableModel
      *
-     * @param objClass <code><b>Class</b><Object></code> Classe a ser mapeada
+     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
      */
     public GMPTableModel(Class<?> objClass) {
         initialize(objClass, null);
@@ -44,8 +45,8 @@ public class GMPTableModel extends AbstractTableModel {
     /**
      * Cria novo GMPTableModel
      *
-     * @param objClass <code><b>Class</b><Object></code> Classe a ser mapeada
-     * @param list <code><b>List</b><Object></code> Lista de objetos
+     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
+     * @param list <code><b>List</b>(Object)</code> Lista de objetos
      */
     public GMPTableModel(Class<?> objClass, List list) {
         initialize(objClass, list);
@@ -54,8 +55,8 @@ public class GMPTableModel extends AbstractTableModel {
     /**
      * Metodo de inicialização
      *
-     * @param objClass <code><b>Class</b><Object></code> Classe a ser mapeada
-     * @param list <code><b>List</b><Object></code> Lista de objetos
+     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
+     * @param list <code><b>List</b>(Object)</code> Lista de objetos
      */
     private void initialize(Class<?> objClass, List list) {
         this.objClass = objClass;
@@ -79,17 +80,20 @@ public class GMPTableModel extends AbstractTableModel {
      * @return <code><b>String[]</b></code> Colunas do objeto
      */
     private String[] mapColumns(Class<?> cl) {
-        String[] coluna = new String[cl.getDeclaredFields().length];
-        for (int i = 0; i < cl.getDeclaredFields().length; i++) {
-            if (cl.getDeclaredFields()[i]
-                    .isAnnotationPresent(ColumnName.class)) {
-                coluna[i] = cl.getDeclaredFields()[i]
+        String[] column = new String[getFields(cl).length];
+
+        for (int i = 0; i < getFields(cl).length; i++) {
+            if (getFields(cl)[i]
+                    .isAnnotationPresent(ColumnName.class)
+                    && !getFields(cl)[i]
+                    .isAnnotationPresent(Ignore.class)) {
+                column[i] = getFields(cl)[i]
                         .getAnnotation(ColumnName.class).name();
             } else {
-                coluna[i] = cl.getDeclaredFields()[i].getName();
+                column[i] = getFields(cl)[i].getName();
             }
         }
-        return coluna;
+        return column;
     }
 
     /**
@@ -135,7 +139,7 @@ public class GMPTableModel extends AbstractTableModel {
     public Object getValueAt(int row, int column) {
         try {
             Object u = list.get(row);
-            Field f = u.getClass().getDeclaredFields()[column];
+            Field f = getFields(u.getClass())[column];
             f.setAccessible(true);
             return f.get(u);
         } catch (IllegalArgumentException | IllegalAccessException ex) {
@@ -159,7 +163,7 @@ public class GMPTableModel extends AbstractTableModel {
      * Retorna a classe da coluna recebida
      *
      * @param column <code><b>int</b></code> Index da coluna
-     * @return <code><b>Class</b><?></code> Classe da coluna
+     * @return <code><b>Class</b>(?)</code> Classe da coluna
      */
     @Override
     public Class<?> getColumnClass(int column) {
@@ -171,11 +175,11 @@ public class GMPTableModel extends AbstractTableModel {
      *
      * @param cl <code><b>Class</b></code> Classe a ser mapeada
      * @param id <code><b>int</b></code> ID do Field
-     * @return <code><b>Class</b><?></code> Classe do Field
+     * @return <code><b>Class</b>(?)</code> Classe do Field
      */
     private Class<?> getFieldClass(Class<?> cl, int id) {
         try {
-            Field[] f = cl.getDeclaredFields();
+            Field[] f = getFields(cl);
             f[id].setAccessible(true);
             Class<?> c = cl.getDeclaredField(f[id].getName()).getType();
             if (c == boolean.class) {
@@ -186,6 +190,25 @@ public class GMPTableModel extends AbstractTableModel {
             Logger.getLogger(GMPTableModel.class.getName()).log(Level.SEVERE, null, ex);
             return new Object().getClass();
         }
+    }
+
+    /**
+     * Retorna os campos mapeaveis da classe
+     *
+     * @param cl <code><b>Class</b>(?)</code> Classe do Field
+     * @return <code>Field[]</code> Fields mapeados
+     */
+    public Field[] getFields(Class<?> cl) {
+        List<Field> fields = new ArrayList<>();
+        for (Field f : cl.getDeclaredFields()) {
+            f.setAccessible(true);
+            if (!f.isAnnotationPresent(Ignore.class)) {
+                fields.add(f);
+            }
+        }
+        Field[] array = fields.toArray(new Field[]{});
+        fields.clear();
+        return array;
     }
 
     /**
