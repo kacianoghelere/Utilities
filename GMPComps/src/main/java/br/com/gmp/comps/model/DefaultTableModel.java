@@ -286,11 +286,10 @@ public class DefaultTableModel<T> extends SimpleTableModel {
     public void remove(T... objects) {
         for (T t : objects) {
             if (data.contains(t)) {
-                int row = getObjectRow(t);
-                data.remove(t);
-                this.fireTableRowsDeleted(row, row);
+                data.remove(t);                
             }
         }
+        this.reload();
     }
 
     /**
