@@ -26,7 +26,7 @@ import javax.swing.text.Document;
 public class GMPTextField extends JTextField implements ValidableComponent, KeyListener {
 
     private String placeholder = "";
-    private String invalidMsg = "Invalido";
+    private String invalidMsg = "Campo obrigatório!";
     private Icon icon = new ImageIcon();
     private int minimallength = 0;
     private int maximumlength = 999999;
@@ -131,10 +131,10 @@ public class GMPTextField extends JTextField implements ValidableComponent, KeyL
     @Override
     public boolean validateComponent() {
         if (this.minimallength != 0 && this.minimallength < this.getText().length()) {
-            new BalloonUtil().showModernBallon(this, invalidMsg);
+            new BalloonUtil().showTimedBallon(this, "Minimo: " + minimallength + " caracteres.");
             return false;
-        } else if (this.getText().equals("") || this.getText() == null) {
-            new BalloonUtil().showModernBallon(this, invalidMsg);
+        } else if (this.getText().equals("") || this.getText() == null || getText().isEmpty()) {
+            new BalloonUtil().showTimedBallon(this, invalidMsg);
             return false;
         } else {
             return true;

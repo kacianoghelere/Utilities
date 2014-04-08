@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.AbstractTableModel;
 
 /**
  * Modelo de tabelas padrão para GMPTables. Funcional para todas as JTables,
@@ -30,7 +29,7 @@ import javax.swing.table.AbstractTableModel;
  * @param <T>
  * @see javax.swing.table.TableModel
  */
-public class DefaultTableModel<T> extends AbstractTableModel {
+public class DefaultTableModel<T> extends SimpleTableModel {
 
     private Class<T> objClass;
     private String[] columns = null;
@@ -252,6 +251,18 @@ public class DefaultTableModel<T> extends AbstractTableModel {
     public void remove(int row) {
         data.remove(row);
         this.fireTableRowsDeleted(row, row);
+    }
+
+    /**
+     * Remove as linhas recebidas
+     *
+     * @param row <code>int[]</code> Linhas
+     */
+    public void remove(int... row) {
+        for (int i : row) {
+            data.remove(i);
+        }
+        this.reload();
     }
 
     /**

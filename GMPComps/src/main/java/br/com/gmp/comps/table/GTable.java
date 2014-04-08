@@ -2,7 +2,7 @@ package br.com.gmp.comps.table;
 
 import br.com.gmp.comps.baloontip.src.BalloonUtil;
 import br.com.gmp.comps.interfaces.Exporter;
-import br.com.gmp.comps.model.GMPTableModel;
+import br.com.gmp.comps.model.DefaultTableModel;
 import br.com.gmp.comps.objects.TableObject;
 import br.com.gmp.comps.table.interfaces.TableControl;
 import br.com.gmp.comps.table.interfaces.TableSource;
@@ -31,30 +31,26 @@ import jxl.write.WriteException;
  * @version 1.0
  * @see javax.swing.JTable
  */
-public class GMPTable extends JTable implements TableControl, Exporter {
-    
-    private Class objClass;
+public class GTable extends JTable implements TableControl, Exporter {
+
     private TableSource source;
     private int pageCount;
     private int actualPage;
     private int maxRows;
-    private List<Object> mainList;
-    private List<Object>[] pages;
-    private GMPTableModel gmpModel;
+    private List[] pages;
+    private DefaultTableModel<?> model;
 
     /**
      * Cria nova instancia de GMPTable
      */
-    public GMPTable() {
-        this.objClass = TableObject.class;
+    public GTable() {
         this.source = new TableSource() {
             @Override
             public List<TableObject> getTableData() {
                 return new ArrayList<>();
             }
         };
-        mainList = source.getTableData();
-        this.gmpModel = new GMPTableModel(objClass);
+        this.model = new SimpleModel();
         this.pageCount = 0;
         this.initialize();
     }
@@ -63,29 +59,12 @@ public class GMPTable extends JTable implements TableControl, Exporter {
      * Cria nova instancia de GMPTable
      *
      * @param source <code>TableSource</code> Fonte de dados
-     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
+     * @param model <code>DefaultTableModel</code> Modelo da tabela
      */
-    public GMPTable(TableSource source, Class objClass) {
+    public GTable(TableSource source, DefaultTableModel model) {
         this.source = source;
-        this.objClass = objClass;
-        this.mainList = source.getTableData();
-        this.gmpModel = new GMPTableModel(objClass);
         this.maxRows = 0;
-        this.initialize();
-    }
-
-    /**
-     * Cria nova instancia de GMPTable
-     *
-     * @param source Fonte de dados
-     * @param model <code>GMPTableModel</code> Modelo da tabela
-     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
-     */
-    public GMPTable(TableSource source, GMPTableModel model, Class objClass) {
-        this.source = source;
-        this.mainList = source.getTableData();
-        this.maxRows = 0;
-        this.gmpModel = model;
+        this.model = model;
         this.initialize();
     }
 
@@ -94,15 +73,12 @@ public class GMPTable extends JTable implements TableControl, Exporter {
      *
      * @param source <code>TableSource</code> Fonte de dados
      * @param maxRows <code>Integer</code> Numero máximo de linhas
-     * @param gmpModel <code>GMPTableModel</code> Modelo da tabela
-     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
+     * @param model <code>DefaultTableModel</code> Modelo da tabela
      */
-    public GMPTable(TableSource source, int maxRows, GMPTableModel gmpModel, Class objClass) {
+    public GTable(TableSource source, int maxRows, DefaultTableModel model) {
         this.source = source;
-        this.mainList = source.getTableData();
         this.maxRows = maxRows;
-        this.gmpModel = gmpModel;
-        this.objClass = objClass;
+        this.model = model;
         this.initialize();
     }
 
@@ -115,18 +91,20 @@ public class GMPTable extends JTable implements TableControl, Exporter {
         this.setGridColor(Color.gray.darker());
         this.loadData();
     }
-    
+
+    /**
+     * Carrega os dados da tabela
+     */
     private void loadData() {
-        this.mainList = source.getTableData();
         this.splitData(source.getTableData(), maxRows);
-        this.setModel(gmpModel);
+        this.setModel(model);
     }
-    
+
     @Override
     public void refresh() {
         this.loadData();
     }
-    
+
     @Override
     public void nextPage() {
         if (actualPage < (pageCount - 1)) {
@@ -135,7 +113,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
             new BalloonUtil().showTimedBallon(this, "Esta é a ultima pagina");
         }
     }
-    
+
     @Override
     public void previousPage() {
         if (actualPage > 0) {
@@ -144,54 +122,59 @@ public class GMPTable extends JTable implements TableControl, Exporter {
             new BalloonUtil().showTimedBallon(this, "Esta é a primeira pagina");
         }
     }
-    
+
     @Override
     public int getMaxRows() {
         return this.maxRows;
     }
-    
+
     @Override
     public void setMaxRows(int maxrows) {
         this.maxRows = maxrows;
         loadData();
     }
-    
+
     @Override
     public int getActualPage() {
         return this.actualPage;
     }
-    
+
     @Override
     public void setActualPage(int actualPage) {
         this.actualPage = actualPage;
-        this.getGmpModel().setList(pages[actualPage]);
+        this.getDefaultModel().setData(pages[actualPage]);
         this.repaint();
         this.revalidate();
     }
-    
+
     @Override
     public void gotoPage(int page) {
         this.setActualPage(page);
     }
-    
+
     @Override
     public void gotoFirst() {
         this.setActualPage(0);
     }
-    
+
     @Override
     public void gotoLast() {
         if (pages != null) {
             this.setActualPage(pages.length > 0 ? (pages.length - 1) : 0);
         }
     }
-    
-    public void setTable(TableSource source, int maxRows, GMPTableModel gmpModel, Class objClass) {
+
+    /**
+     * Constroi a tabela baseada nos dados informados
+     *
+     * @param source <code>TableSource</code> Fonte de dados
+     * @param maxrows <code>Integer</code> Numero máximo de linhas
+     * @param model <code>DefaultTableModel</code> Modelo da tabela
+     */
+    public void buildTable(TableSource source, int maxrows, DefaultTableModel model) {
         this.source = source;
-        this.mainList = source.getTableData();
-        this.maxRows = maxRows;
-        this.gmpModel = gmpModel;
-        this.objClass = objClass;
+        this.maxRows = maxrows;
+        this.model = model;
         this.loadData();
         this.repaint();
         this.revalidate();
@@ -212,12 +195,12 @@ public class GMPTable extends JTable implements TableControl, Exporter {
         this.pageCount = pages.length;
         setActualPage(0);
     }
-    
+
     @Override
     public void setModel(TableModel dataModel) {
         super.setModel(dataModel);
-        if (dataModel instanceof GMPTableModel) {
-            setGmpModel((GMPTableModel) dataModel);
+        if (dataModel instanceof DefaultTableModel) {
+            setDefaultModel((DefaultTableModel) dataModel);
         }
     }
 
@@ -228,9 +211,9 @@ public class GMPTable extends JTable implements TableControl, Exporter {
      * @param list <code><b>List</b>(Object)</code> Lista com os dados da tabela
      */
     public void mount(Class<Object> objectclass, List<Object> list) {
-        this.setModel(new GMPTableModel(objectclass, list));
+        this.setModel(new DefaultTableModel(list));
     }
-    
+
     @Override
     public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
         Component c = super.prepareRenderer(renderer, row, column);
@@ -247,7 +230,12 @@ public class GMPTable extends JTable implements TableControl, Exporter {
         }
         return c;
     }
-    
+
+    /**
+     * Reagrupa todas as listas de páginas em uma
+     *
+     * @return <code>List</code> Lista reagrupada
+     */
     private List assemblyData() {
         List data = new ArrayList();
         for (List<Object> list : pages) {
@@ -257,63 +245,54 @@ public class GMPTable extends JTable implements TableControl, Exporter {
         }
         return data;
     }
-    
+
     @Override
     public void exportXLS() {
         try {
             List data = assemblyData();
             new XLSExporter().exportData(data, "TableExport", "TableExport");
         } catch (IllegalAccessException | WriteException | IOException ex) {
-            Logger.getLogger(GMPTable.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GTable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public void exportTXT() {
         try {
             List data = assemblyData();
             new TXTExporter().exportTableList(data, "TableExport");
         } catch (IllegalAccessException | IOException ex) {
-            Logger.getLogger(GMPTable.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GTable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public void exportPDF() {
         try {
             List data = assemblyData();
             new PDFExporter().export(data, "TableExport");
         } catch (DocumentException | IOException | IllegalArgumentException | IllegalAccessException ex) {
-            Logger.getLogger(GMPTable.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GTable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     //<editor-fold desc="Get's & Set's" defaultstate="collapsed">
     /**
-     * Retorna a classe dos objetos mapeados
-     *
-     * @return <code><b>Class</b>(Object)</code> Classe mapeada
-     */
-    public Class getObjClass() {
-        return objClass;
-    }
-
-    /**
      * Retorna o modelo da tabela
      *
-     * @return <code>GMPTableModel</code> Modelo da tabela
+     * @return <code>DefaultTableModel</code> Modelo da tabela
      */
-    public GMPTableModel getGmpModel() {
-        return gmpModel;
+    public DefaultTableModel getDefaultModel() {
+        return model;
     }
 
     /**
      * Modifica o modelo da tabela
      *
-     * @param gmpModel <code>GMPTableModel</code> Modelo da tabela
+     * @param model <code>DefaultTableModel</code> Modelo da tabela
      */
-    public void setGmpModel(GMPTableModel gmpModel) {
-        this.gmpModel = gmpModel;
+    public void setDefaultModel(DefaultTableModel model) {
+        this.model = model;
     }
 
     /**
@@ -424,4 +403,8 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     private javax.swing.JMenuItem jMIExportXLS;
     private javax.swing.JPopupMenu jPop;
     // End of variables declaration//GEN-END:variables
+}
+
+class SimpleModel extends DefaultTableModel<TableObject> {
+
 }

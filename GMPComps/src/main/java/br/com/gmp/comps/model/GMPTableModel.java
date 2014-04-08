@@ -27,7 +27,7 @@ import javax.swing.table.AbstractTableModel;
  * @version 1.1
  * @see javax.swing.table.TableModel
  */
-public class GMPTableModel extends AbstractTableModel {
+public class GMPTableModel extends SimpleTableModel {
 
     private Class<?> objClass;
     private String[] columns = null;
