@@ -13,13 +13,14 @@ public class RegExValidator {
     /**
      * Valida uma String contendo um e-mail<br />
      * Ex:<br />
-     * Valido: <code>teste@teste.com</code> ou <code>teste@teste.com.br</code><br />
+     * Valido: <code>teste@teste.com</code> ou
+     * <code>teste@teste.com.br</code><br />
      * Invalido: <code>test @teste.com</code> ou <code>teste@teste</code>
      *
      * @param email <code>String</code> E-mail à ser validado
      * @return <code>Boolean</code> Resultado da validação
      */
-    public Boolean validateEmail(String email) {
+    public static Boolean validateEmail(String email) {
         VerbalExpression vexp = new VerbalExpression.Builder()
                 .startOfLine()
                 .anythingButNot(" ")
@@ -34,13 +35,15 @@ public class RegExValidator {
     /**
      * Valida uma String contendo um URL<br />
      * Ex:<br />
-     * Valido: <code>http://www.test.com</code> ou <code>https://www.test.com.br</code> <br />
-     * Invalido: <code>http:// test.com</code> ou <code>httpt://www.test.com.br</code>
+     * Valido: <code>http://www.test.com</code> ou
+     * <code>https://www.test.com.br</code> <br />
+     * Invalido: <code>http:// test.com</code> ou
+     * <code>httpt://www.test.com.br</code>
      *
      * @param url <code>String</code> URL à ser validado
      * @return <code>Boolean</code> Resultado da validação
      */
-    public Boolean validateUrl(String url) {
+    public static Boolean validateUrl(String url) {
         VerbalExpression vexp = new VerbalExpression.Builder()
                 .startOfLine()
                 .then("http")
