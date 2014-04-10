@@ -11,11 +11,10 @@ import br.com.gmp.utils.regex.VerbalExpression;
 public class RegExValidator {
 
     /**
-     * <html>Valida uma String contendo um e-mail<br />
+     * Valida uma String contendo um e-mail<br />
      * Ex:<br />
-     * Valido: teste@teste.com ou teste@teste.com.br<br />
-     * Invalido: test @teste.com ou teste@teste
-     * </html>
+     * Valido: <code>teste@teste.com</code> ou <code>teste@teste.com.br</code><br />
+     * Invalido: <code>test @teste.com</code> ou <code>teste@teste</code>
      *
      * @param email <code>String</code> E-mail à ser validado
      * @return <code>Boolean</code> Resultado da validação
@@ -30,6 +29,28 @@ public class RegExValidator {
                 .anythingButNot(" ")
                 .endOfLine().build();
         return vexp.test(email);
+    }
+
+    /**
+     * Valida uma String contendo um URL<br />
+     * Ex:<br />
+     * Valido: <code>http://www.test.com</code> ou <code>https://www.test.com.br</code> <br />
+     * Invalido: <code>http:// test.com</code> ou <code>httpt://www.test.com.br</code>
+     *
+     * @param url <code>String</code> URL à ser validado
+     * @return <code>Boolean</code> Resultado da validação
+     */
+    public Boolean validateUrl(String url) {
+        VerbalExpression vexp = new VerbalExpression.Builder()
+                .startOfLine()
+                .then("http")
+                .maybe("s")
+                .then("://")
+                .maybe("www.")
+                .anythingButNot(" ")
+                .endOfLine()
+                .build();
+        return vexp.test(url);
     }
 
 }
