@@ -1,7 +1,6 @@
 package br.com.gmp.utils.validation;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import br.com.gmp.utils.regex.VerbalExpression;
 
 /**
  * Coleção de métodos utilitários para validação utilizando RegEx
@@ -10,17 +9,6 @@ import java.util.regex.Pattern;
  * @version 1.0
  */
 public class RegExValidator {
-
-    private Pattern pattern;
-    private Matcher matcher;
-
-    private static final String EMAIL_PATTERN
-            = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-    public RegExValidator() {
-        pattern = Pattern.compile(EMAIL_PATTERN);
-    }
 
     /**
      * <html>Valida uma String contendo um e-mail<br />
@@ -33,8 +21,15 @@ public class RegExValidator {
      * @return <code>Boolean</code> Resultado da validação
      */
     public Boolean validateEmail(String email) {
-        matcher = pattern.matcher(email);
-        return matcher.matches();
+        VerbalExpression vexp = new VerbalExpression.Builder()
+                .startOfLine()
+                .anythingButNot(" ")
+                .then("@")
+                .anythingButNot(" ")
+                .then(".")
+                .anythingButNot(" ")
+                .endOfLine().build();
+        return vexp.test(email);
     }
 
 }
