@@ -1,6 +1,7 @@
 package br.com.gmp.utils.logs;
 
 import br.com.gmp.utils.date.DateUtil;
+import br.com.gmp.utils.system.SystemProperties;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -48,7 +49,7 @@ public class CaptureException {
      * @return <code>String</code> Raiz dos logs
      */
     public static String getRoot() {
-        String root = "logs";
+        String root = SystemProperties.USER_HOME + "/log";
         File dir = new File(root);
         if (!dir.exists()) {
             dir.mkdir();
