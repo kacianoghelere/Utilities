@@ -166,6 +166,31 @@ public class GTable extends JTable implements TableControl, Exporter {
     }
 
     /**
+     * Retorna os objetos selecionados na tabela, se não houver nenhum, retorna
+     * null
+     *
+     * @return <code>Object[]</code> Objetos selecionados
+     */
+    public Object[] getSelectedObjects() {
+        try {
+            List list = new ArrayList();
+            if (getSelectedRows() != null) {
+                for (int i : getSelectedRows()) {
+                    list.add(model.getObject(i));
+                }
+            }
+            if (!list.isEmpty()) {
+                return list.toArray();
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            Logger.getLogger(GTable.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+    }
+
+    /**
      * Constroi a tabela baseada nos dados informados
      *
      * @param source <code>TableSource</code> Fonte de dados
