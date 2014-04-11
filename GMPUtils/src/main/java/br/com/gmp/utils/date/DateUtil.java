@@ -15,9 +15,21 @@ import java.util.List;
  */
 public class DateUtil {
 
+    /**
+     * Data do dia
+     */
     public static String DAY = "d MMMMMM yyyy";
+    /**
+     * Data para exportação
+     */
     public static String TXTDATE = "yyyy_MM_dd_HH_mm_ss";
+    /**
+     * Horas 
+     */
     public static String HOUR = "HH:mm:ss";
+    /**
+     * Data completa, por extenso
+     */
     public static String COMPLETE = "EEEEE, d MMMMMM yyyy - HH:mm:ss";
 
     /**
