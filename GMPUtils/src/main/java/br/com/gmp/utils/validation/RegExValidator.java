@@ -11,10 +11,10 @@ import br.com.gmp.utils.regex.VerbalExpression;
 public class RegExValidator {
 
     /**
-     * Valida uma String contendo um e-mail<br />
+     * Valida uma String contendo um e-mail<br>
      * Ex:<br />
      * Valido: <code>teste@teste.com</code> ou
-     * <code>teste@teste.com.br</code><br />
+     * <code>teste@teste.com.br</code><br>
      * Invalido: <code>test@testecom</code> ou <code>teste@teste</code>
      *
      * @param email <code>String</code> E-mail à ser validado
@@ -33,10 +33,10 @@ public class RegExValidator {
     }
 
     /**
-     * Valida uma String contendo um URL<br />
+     * Valida uma String contendo um URL<br>
      * Ex:<br />
      * Valido: <code>http://www.test.com</code> ou
-     * <code>https://www.test.com.br</code> <br />
+     * <code>https://www.test.com.br</code> <br>
      * Invalido: <code>http://test.com</code> ou
      * <code>httpt://www.test.com.br</code>
      *
