@@ -12,7 +12,7 @@ import javax.swing.JComboBox;
  * @author kaciano
  * @param <T> Tipo dos objetos carregados
  */
-public class GMPComboBox<T> extends JComboBox {
+public class GComboBox<T> extends JComboBox {
 
     private List<T> data;
     private GComboBoxModel<T> model;
@@ -20,8 +20,13 @@ public class GMPComboBox<T> extends JComboBox {
     /**
      * Cria nova instancia de GMPComboBox
      */
-    public GMPComboBox() {
-        initialize(new GComboBoxModel<T>());
+    public GComboBox() {
+        SimpleComboModel scm = new SimpleComboModel();
+        scm.addElement("Item 1");
+        scm.addElement("Item 2");
+        scm.addElement("Item 3");
+        scm.addElement("Item 4");
+        initialize(scm);
     }
 
     /**
@@ -29,7 +34,7 @@ public class GMPComboBox<T> extends JComboBox {
      *
      * @param model <code>GComboBoxModel(T)</code> Modelo da combobox
      */
-    public GMPComboBox(GComboBoxModel<T> model) {
+    public GComboBox(GComboBoxModel<T> model) {
         initialize(model);
     }
 
@@ -38,7 +43,7 @@ public class GMPComboBox<T> extends JComboBox {
      *
      * @param data <code>T[]</code> Dados da combobox
      */
-    public GMPComboBox(T[] data) {
+    public GComboBox(T[] data) {
         initialize(new GComboBoxModel<>(data));
     }
 
@@ -47,7 +52,7 @@ public class GMPComboBox<T> extends JComboBox {
      *
      * @param data <code>List(T)</code> Dados da combobox
      */
-    public GMPComboBox(List<T> data) {
+    public GComboBox(List<T> data) {
         initialize(new GComboBoxModel<>(data));
     }
 
@@ -56,14 +61,14 @@ public class GMPComboBox<T> extends JComboBox {
      *
      * @param data <code>Vector(T)</code> Dados da combobox
      */
-    public GMPComboBox(Vector<T> data) {
+    public GComboBox(Vector<T> data) {
         initialize(new GComboBoxModel<>(data));
     }
 
     /**
      * Metodo de inicialização
      */
-    private void initialize(GComboBoxModel<T> model) {
+    private void initialize(GComboBoxModel model) {
         this.model = model;
         this.data = model.getData();
         this.setModel(model);
@@ -121,4 +126,8 @@ public class GMPComboBox<T> extends JComboBox {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+}
+
+class SimpleComboModel extends GComboBoxModel<String> {
+
 }

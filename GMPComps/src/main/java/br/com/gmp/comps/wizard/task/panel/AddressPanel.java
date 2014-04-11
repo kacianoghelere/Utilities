@@ -40,7 +40,7 @@ public class AddressPanel extends WizardTaskPanel {
         jLabel3 = new javax.swing.JLabel();
         numericTextField1 = new br.com.gmp.comps.textfield.NumericTextField();
         jLabel4 = new javax.swing.JLabel();
-        gMPComboBox1 = new br.com.gmp.comps.combobox.GMPComboBox();
+        gMPComboBox1 = new br.com.gmp.comps.combobox.GComboBox();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel1.setText("Rua:");
@@ -110,7 +110,7 @@ public class AddressPanel extends WizardTaskPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private br.com.gmp.comps.combobox.GMPComboBox gMPComboBox1;
+    private br.com.gmp.comps.combobox.GComboBox gMPComboBox1;
     private br.com.gmp.comps.textfield.GTextField gMPTextField1;
     private br.com.gmp.comps.textfield.GTextField gMPTextField2;
     private br.com.gmp.comps.textfield.GTextField gMPTextField4;

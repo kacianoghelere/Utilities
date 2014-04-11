@@ -111,7 +111,7 @@
         <Property name="text" type="java.lang.String" value="Cidade:"/>
       </Properties>
     </Component>
-    <Component class="br.com.gmp.comps.combobox.GMPComboBox" name="gMPComboBox1">
+    <Component class="br.com.gmp.comps.combobox.GComboBox" name="gMPComboBox1">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
