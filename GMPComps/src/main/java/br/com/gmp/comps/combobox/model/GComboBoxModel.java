@@ -60,12 +60,17 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
     }
 
     @Override
+    public int getSize() {
+        return data.size();
+    }
+
+    @Override
     public void addElement(T object) {
         this.data.add(object);
-        fireIntervalAdded(this, data.size() - 1, data.size() - 1);
         if (data.size() == 1 && getSelectedItem() == null && object != null) {
             setSelectedItem(object);
         }
+        fireContentsChanged(this, 0, getSize());
     }
 
     @Override
@@ -78,7 +83,7 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
         if (contains((T) object)) {
             this.data.remove((T) object);
         }
-        fireIntervalRemoved(this, getIndexOf(object), getIndexOf(object));
+        fireContentsChanged(this, 0, getSize());
     }
 
     @Override
@@ -88,16 +93,15 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
     }
 
     @Override
-    public void removeAllElements() {
-        int size = this.data.size();
+    public void removeAllElements() {        
         this.data.clear();
-        fireIntervalRemoved(this, 0, (size - 1));
+        fireContentsChanged(this, 0, getSize());
     }
 
     @Override
     public void insertElementAt(T object, int index) {
         this.data.set(index, object);
-        fireIntervalAdded(this, index, index);
+        fireContentsChanged(this, 0, getSize());
     }
 
     @Override
