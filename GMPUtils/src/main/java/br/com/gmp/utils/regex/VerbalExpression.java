@@ -15,11 +15,14 @@ public class VerbalExpression {
 
     private Pattern pattern;
 
+    /**
+     * Cria novo VerbalExpression
+     */
     public VerbalExpression() {
     }
 
     /**
-     *
+     * Classe construtora
      */
     public static class Builder {
 
@@ -27,6 +30,12 @@ public class VerbalExpression {
         private Pattern pattern;
         private int modifiers = Pattern.MULTILINE;
 
+        /**
+         * Constroi os dados
+         *
+         * @param <code>String</code> Valor
+         * @return <code>String</code> Sanitização dos valores
+         */
         private String sanitize(final String pValue) {
             Matcher matcher = Pattern.compile("").matcher("").usePattern(Pattern.compile("[^\\w]"));
             int lastEnd = 0;
@@ -48,9 +57,10 @@ public class VerbalExpression {
         }
 
         /**
+         * Adiciona
          *
-         * @param pValue <code></code>
-         * @return <code></code>
+         * @param pValue <code>String</code> Valor
+         * @return <code>Builder</code>
          */
         public Builder add(String pValue) {
             this.source += pValue;
@@ -58,8 +68,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Inicia a construção
          *
-         * @return <code></code>
+         * @return <code>VerbalExpression</code>
          */
         public VerbalExpression build() {
             pattern = Pattern.compile(this.prefixes + this.source + this.suffixes, this.modifiers);
@@ -67,9 +78,10 @@ public class VerbalExpression {
         }
 
         /**
+         * Começo da linha
          *
-         * @param pEnable
-         * @return <code></code>
+         * @param pEnable <code>boolean</code> Permitir
+         * @return <code>Builder</code>
          */
         public Builder startOfLine(boolean pEnable) {
             this.prefixes = pEnable ? "^" : "";
@@ -77,17 +89,19 @@ public class VerbalExpression {
         }
 
         /**
+         * Começo da linha
          *
-         * @return <code></code>
+         * @return <code>Builder</code>
          */
         public Builder startOfLine() {
             return startOfLine(true);
         }
 
         /**
+         * Fim da linha
          *
-         * @param pEnable
-         * @return <code></code>
+         * @param pEnable <code>boolean</code> Permitir
+         * @return <code>Builder</code>
          */
         public Builder endOfLine(final boolean pEnable) {
             this.suffixes = pEnable ? "$" : "";
@@ -96,16 +110,17 @@ public class VerbalExpression {
 
         /**
          *
-         * @return <code></code>
+         * @return <code>Builder</code>
          */
         public Builder endOfLine() {
             return endOfLine(true);
         }
 
         /**
+         * Então...
          *
-         * @param pValue <code></code>
-         * @return <code></code>
+         * @param pValue <code>String</code> Valor
+         * @return <code>Builder</code>
          */
         public Builder then(String pValue) {
             this.add("(" + sanitize(pValue) + ")");
@@ -115,7 +130,7 @@ public class VerbalExpression {
         /**
          *
          * @param value
-         * @return <code></code>
+         * @return <code>Builder</code>
          */
         public Builder find(String value) {
             this.then(value);
@@ -123,9 +138,10 @@ public class VerbalExpression {
         }
 
         /**
+         * Talvez
          *
-         * @param pValue <code></code>
-         * @return <code></code>
+         * @param pValue <code></code> Valor
+         * @return <code>Builder</code>
          */
         public Builder maybe(final String pValue) {
             this.add("(" + sanitize(pValue) + ")?");
@@ -143,8 +159,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Qualquer coisa, exceto...
          *
-         * @param pValue <code></code>
+         * @param pValue <code>String</code> Valor
          * @return <code>Builder</code>
          */
         public Builder anythingButNot(final String pValue) {
@@ -153,6 +170,7 @@ public class VerbalExpression {
         }
 
         /**
+         * Alguma coisa...
          *
          * @return <code>Builder</code>
          */
@@ -162,8 +180,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Alguma coisa mas não...
          *
-         * @param pValue <code></code>
+         * @param pValue <code>String</code> Valor
          * @return <code>Builder</code>
          */
         public Builder somethingButNot(final String pValue) {
@@ -172,6 +191,7 @@ public class VerbalExpression {
         }
 
         /**
+         * Quebra de linha
          *
          * @return <code>Builder</code>
          */
@@ -181,6 +201,7 @@ public class VerbalExpression {
         }
 
         /**
+         * Quebra de linha
          *
          * @return <code>Builder</code>
          */
@@ -190,6 +211,7 @@ public class VerbalExpression {
         }
 
         /**
+         * Tabulação
          *
          * @return <code>Builder</code>
          */
@@ -199,6 +221,7 @@ public class VerbalExpression {
         }
 
         /**
+         * Palavra
          *
          * @return <code>Builder</code>
          */
@@ -208,8 +231,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Qualquer um entre
          *
-         * @param pValue <code></code> <code></code>
+         * @param pValue <code>String</code> Valor
          * @return <code>Builder</code>
          */
         public Builder anyOf(final String pValue) {
@@ -218,8 +242,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Qualquer
          *
-         * @param value <code></code>
+         * @param value <code>String</code> Valor
          * @return <code>Builder</code>
          */
         public Builder any(final String value) {
@@ -228,8 +253,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Comprimento
          *
-         * @param pArgs <code></code>
+         * @param pArgs <code>String[]</code> Argumentos
          * @return <code>Builder</code>
          */
         public Builder range(String... pArgs) {
@@ -247,8 +273,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Adiciona modificador
          *
-         * @param pModifier <code></code>
+         * @param pModifier <code>char</code> Modificador
          * @return <code>Builder</code>
          */
         public Builder addModifier(final char pModifier) {
@@ -282,8 +309,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Remove modificador
          *
-         * @param pModifier <code></code>
+         * @param pModifier <code>char</code> Modificador
          * @return <code>Builder</code>
          */
         public Builder removeModifier(final char pModifier) {
@@ -317,8 +345,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Com qualquer tamanho (maiusculo, minusculo)
          *
-         * @param pEnable <code></code>
+         * @param pEnable <code>boolean</code>
          * @return <code>Builder</code>
          */
         public Builder withAnyCase(boolean pEnable) {
@@ -331,6 +360,7 @@ public class VerbalExpression {
         }
 
         /**
+         * Com qualquer tamanho (maiusculo, minusculo)
          *
          * @return <code>Builder</code>
          */
@@ -339,8 +369,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Procura por um
          *
-         * @param pEnable <code></code>
+         * @param pEnable <code>boolean</code>
          * @return <code>Builder</code>
          */
         public Builder searchOneLine(boolean pEnable) {
@@ -353,8 +384,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Multiplo
          *
-         * @param pValue <code></code> <code></code>
+         * @param pValue <code>String</code>
          * @return <code>Builder</code>
          */
         public Builder multiple(final String pValue) {
@@ -371,8 +403,9 @@ public class VerbalExpression {
         }
 
         /**
+         * Ou
          *
-         * @param pValue <code></code> <code></code>
+         * @param pValue <code>String</code>
          * @return <code>Builder</code>
          */
         public Builder or(final String pValue) {
@@ -390,18 +423,30 @@ public class VerbalExpression {
             return this;
         }
 
+        /**
+         * Retorna o Pattern
+         *
+         * @return <code>Pattern</code>
+         */
         public Pattern getPattern() {
             return pattern;
         }
 
+        /**
+         * Modifica o Pattern
+         *
+         * @param pattern <code>Pattern</code>
+         */
         public void setPattern(Pattern pattern) {
             this.pattern = pattern;
         }
 
     }
 
-    /*
-     * @param pToTest <code></code>
+    /**
+     * Testa a String
+     *
+     * @param pToTest <code>String</code>
      * @return <code>Builder</code>
      */
     public boolean testExact(final String pToTest) {
@@ -413,8 +458,9 @@ public class VerbalExpression {
     }
 
     /**
+     * Testa a String
      *
-     * @param pToTest <code></code>
+     * @param pToTest <code>String</code>
      * @return <code>Builder</code>
      */
     public boolean test(final String pToTest) {
@@ -426,8 +472,9 @@ public class VerbalExpression {
     }
 
     /**
+     * Cria nova instancia pridava de VerbalExpression
      *
-     * @param pBuilder <code></code>
+     * @param pBuilder <code>Builder</code>
      */
     private VerbalExpression(final Builder pBuilder) {
         pattern = pBuilder.getPattern();
@@ -436,7 +483,7 @@ public class VerbalExpression {
     /**
      * Retorna texto
      *
-     * @param toTest <code></code>
+     * @param toTest <code>String</code>
      * @return <code>String</code>
      */
     public String getText(String toTest) {
@@ -453,6 +500,11 @@ public class VerbalExpression {
         return pattern.pattern();
     }
 
+    /**
+     * Retorna o construtor
+     *
+     * @return <code>Builder</code>
+     */
     public Builder getBuilder() {
         return new Builder();
     }

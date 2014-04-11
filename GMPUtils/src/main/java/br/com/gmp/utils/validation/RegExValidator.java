@@ -15,7 +15,7 @@ public class RegExValidator {
      * Ex:<br />
      * Valido: <code>teste@teste.com</code> ou
      * <code>teste@teste.com.br</code><br />
-     * Invalido: <code>test @teste.com</code> ou <code>teste@teste</code>
+     * Invalido: <code>test@testecom</code> ou <code>teste@teste</code>
      *
      * @param email <code>String</code> E-mail à ser validado
      * @return <code>Boolean</code> Resultado da validação
@@ -37,7 +37,7 @@ public class RegExValidator {
      * Ex:<br />
      * Valido: <code>http://www.test.com</code> ou
      * <code>https://www.test.com.br</code> <br />
-     * Invalido: <code>http:// test.com</code> ou
+     * Invalido: <code>http://test.com</code> ou
      * <code>httpt://www.test.com.br</code>
      *
      * @param url <code>String</code> URL à ser validado
