@@ -74,11 +74,11 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="br.com.gmp.comps.textfield.GMPTextField" name="gMPTextField1">
+    <Component class="br.com.gmp.comps.textfield.GTextField" name="gMPTextField1">
     </Component>
-    <Component class="br.com.gmp.comps.textfield.GMPTextField" name="gMPTextField2">
+    <Component class="br.com.gmp.comps.textfield.GTextField" name="gMPTextField2">
     </Component>
-    <Component class="br.com.gmp.comps.textfield.GMPTextField" name="gMPTextField4">
+    <Component class="br.com.gmp.comps.textfield.GTextField" name="gMPTextField4">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>

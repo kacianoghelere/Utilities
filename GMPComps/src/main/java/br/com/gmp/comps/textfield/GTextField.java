@@ -23,7 +23,7 @@ import javax.swing.text.Document;
  * @version 1.0
  * @since 1.0
  */
-public class GMPTextField extends JTextField implements ValidableComponent, KeyListener {
+public class GTextField extends JTextField implements ValidableComponent, KeyListener {
 
     private String placeholder = "";
     private String invalidMsg = "Campo obrigatório!";
@@ -35,7 +35,7 @@ public class GMPTextField extends JTextField implements ValidableComponent, KeyL
     /**
      * Cria nova instancia de GMPTextField
      */
-    public GMPTextField() {
+    public GTextField() {
         initialize();
     }
 
@@ -46,7 +46,7 @@ public class GMPTextField extends JTextField implements ValidableComponent, KeyL
      * @param text <code>String</code> Texto do componente
      * @param columns <code>int</code> Quantidade de colunas
      */
-    public GMPTextField(Document doc, String text, int columns) {
+    public GTextField(Document doc, String text, int columns) {
         super(doc, text, columns);
         initialize();
     }
@@ -58,7 +58,7 @@ public class GMPTextField extends JTextField implements ValidableComponent, KeyL
      * enquanto ele estiver vazio
      * @param icon <code>Icon</code> Icone do componente
      */
-    public GMPTextField(String placeholder, Icon icon) {
+    public GTextField(String placeholder, Icon icon) {
         this.placeholder = placeholder;
         this.icon = icon;
         initialize();
@@ -69,7 +69,7 @@ public class GMPTextField extends JTextField implements ValidableComponent, KeyL
      *
      * @param icon <code>Icon</code> Icone do componente
      */
-    public GMPTextField(Icon icon) {
+    public GTextField(Icon icon) {
         this.icon = icon;
         initialize();
     }
@@ -81,7 +81,7 @@ public class GMPTextField extends JTextField implements ValidableComponent, KeyL
      * @param maximumlength <code>int</code> Comprimento máximo do texto
      * @param force <code>boolean</code> Forçar o campo a obedecer as regras?
      */
-    public GMPTextField(int minimallength, int maximumlength, boolean force) {
+    public GTextField(int minimallength, int maximumlength, boolean force) {
         this.minimallength = minimallength;
         this.maximumlength = maximumlength;
         this.force = force;
@@ -98,7 +98,7 @@ public class GMPTextField extends JTextField implements ValidableComponent, KeyL
      * @param maximumlength <code>int</code> Comprimento máximo do texto
      * @param force <code>boolean</code> Forçar o campo a obedecer as regras?
      */
-    public GMPTextField(String placeholder, Icon icon, int minimallength,
+    public GTextField(String placeholder, Icon icon, int minimallength,
             int maximumlength, boolean force) {
         this.placeholder = placeholder;
         this.icon = icon;
@@ -352,7 +352,7 @@ public class GMPTextField extends JTextField implements ValidableComponent, KeyL
         jMIPaste = new javax.swing.JMenuItem();
 
         jMICopy.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jMICopy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/textfield/16/documents.png"))); // NOI18N
+        jMICopy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/toolbar/controls/copy.png"))); // NOI18N
         jMICopy.setMnemonic('c');
         jMICopy.setText("<html>Copiar <b>Ctrl+C</b></html>");
         jMICopy.setToolTipText("Copiar conteudo para a área de transferencia");
@@ -364,7 +364,7 @@ public class GMPTextField extends JTextField implements ValidableComponent, KeyL
         jPopActions.add(jMICopy);
 
         jMICut.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jMICut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/textfield/16/document_remove.png"))); // NOI18N
+        jMICut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/toolbar/controls/cut.png"))); // NOI18N
         jMICut.setMnemonic('x');
         jMICut.setText("<html>Recortar <b>Ctrl+X</b></html>");
         jMICut.setToolTipText("Recortar conteudo para a área de transferencia");
@@ -376,7 +376,7 @@ public class GMPTextField extends JTextField implements ValidableComponent, KeyL
         jPopActions.add(jMICut);
 
         jMIPaste.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jMIPaste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/textfield/16/document_add.png"))); // NOI18N
+        jMIPaste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/toolbar/controls/paste.png"))); // NOI18N
         jMIPaste.setMnemonic('v');
         jMIPaste.setText("<html>Colar <b>Ctrl+V</b></html>");
         jMIPaste.setToolTipText("Colar conteudo da área de transferencia");

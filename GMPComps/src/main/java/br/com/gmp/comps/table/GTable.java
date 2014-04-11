@@ -2,7 +2,7 @@ package br.com.gmp.comps.table;
 
 import br.com.gmp.comps.baloontip.src.BalloonUtil;
 import br.com.gmp.comps.interfaces.Exporter;
-import br.com.gmp.comps.model.DefaultTableModel;
+import br.com.gmp.comps.model.GTableModel;
 import br.com.gmp.comps.objects.TableObject;
 import br.com.gmp.comps.table.interfaces.TableControl;
 import br.com.gmp.comps.table.interfaces.TableSource;
@@ -10,6 +10,7 @@ import br.com.gmp.utils.collections.CollectionUtil;
 import br.com.gmp.utils.export.PDFExporter;
 import br.com.gmp.utils.export.TXTExporter;
 import br.com.gmp.utils.export.XLSExporter;
+import br.com.gmp.utils.export.XMLExporter;
 import com.lowagie.text.DocumentException;
 import java.awt.Color;
 import java.awt.Component;
@@ -38,7 +39,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     private int actualPage;
     private int maxRows;
     private List[] pages;
-    private DefaultTableModel<?> model;
+    private GTableModel<?> model;
 
     /**
      * Cria nova instancia de GMPTable
@@ -59,9 +60,9 @@ public class GTable extends JTable implements TableControl, Exporter {
      * Cria nova instancia de GMPTable
      *
      * @param source <code>TableSource</code> Fonte de dados
-     * @param model <code>DefaultTableModel</code> Modelo da tabela
+     * @param model <code>GTableModel</code> Modelo da tabela
      */
-    public GTable(TableSource source, DefaultTableModel model) {
+    public GTable(TableSource source, GTableModel model) {
         this.source = source;
         this.maxRows = 0;
         this.model = model;
@@ -73,9 +74,9 @@ public class GTable extends JTable implements TableControl, Exporter {
      *
      * @param source <code>TableSource</code> Fonte de dados
      * @param maxRows <code>Integer</code> Numero máximo de linhas
-     * @param model <code>DefaultTableModel</code> Modelo da tabela
+     * @param model <code>GTableModel</code> Modelo da tabela
      */
-    public GTable(TableSource source, int maxRows, DefaultTableModel model) {
+    public GTable(TableSource source, int maxRows, GTableModel model) {
         this.source = source;
         this.maxRows = maxRows;
         this.model = model;
@@ -169,9 +170,9 @@ public class GTable extends JTable implements TableControl, Exporter {
      *
      * @param source <code>TableSource</code> Fonte de dados
      * @param maxrows <code>Integer</code> Numero máximo de linhas
-     * @param model <code>DefaultTableModel</code> Modelo da tabela
+     * @param model <code>GTableModel</code> Modelo da tabela
      */
-    public void buildTable(TableSource source, int maxrows, DefaultTableModel model) {
+    public void buildTable(TableSource source, int maxrows, GTableModel model) {
         this.source = source;
         this.maxRows = maxrows;
         this.model = model;
@@ -199,8 +200,8 @@ public class GTable extends JTable implements TableControl, Exporter {
     @Override
     public void setModel(TableModel dataModel) {
         super.setModel(dataModel);
-        if (dataModel instanceof DefaultTableModel) {
-            setDefaultModel((DefaultTableModel) dataModel);
+        if (dataModel instanceof GTableModel) {
+            setDefaultModel((GTableModel) dataModel);
         }
     }
 
@@ -211,7 +212,7 @@ public class GTable extends JTable implements TableControl, Exporter {
      * @param list <code><b>List</b>(Object)</code> Lista com os dados da tabela
      */
     public void mount(Class<Object> objectclass, List<Object> list) {
-        this.setModel(new DefaultTableModel(list));
+        this.setModel(new GTableModel(list));
     }
 
     @Override
@@ -276,22 +277,41 @@ public class GTable extends JTable implements TableControl, Exporter {
         }
     }
 
+    @Override
+    public void exportXML() {
+        try {
+            List data = assemblyData();
+            new XMLExporter().write(data, "TableExport");
+        } catch (Exception ex) {
+            Logger.getLogger(GTable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * Retorna o GTableModel da tabela
+     *
+     * @return <code>GTableModel(?)</code> Modelo da tabela
+     */
+    public GTableModel<?> getGModel() {
+        return model;
+    }
+
     //<editor-fold desc="Get's & Set's" defaultstate="collapsed">
     /**
      * Retorna o modelo da tabela
      *
-     * @return <code>DefaultTableModel</code> Modelo da tabela
+     * @return <code>GTableModel</code> Modelo da tabela
      */
-    public DefaultTableModel getDefaultModel() {
+    public GTableModel getDefaultModel() {
         return model;
     }
 
     /**
      * Modifica o modelo da tabela
      *
-     * @param model <code>DefaultTableModel</code> Modelo da tabela
+     * @param model <code>GTableModel</code> Modelo da tabela
      */
-    public void setDefaultModel(DefaultTableModel model) {
+    public void setDefaultModel(GTableModel model) {
         this.model = model;
     }
 
@@ -352,6 +372,7 @@ public class GTable extends JTable implements TableControl, Exporter {
         jMIExportXLS = new javax.swing.JMenuItem();
         jMIExportTXT = new javax.swing.JMenuItem();
         jMIExportPDF = new javax.swing.JMenuItem();
+        jMIExportXML = new javax.swing.JMenuItem();
 
         jMIExportXLS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/menubar/menubar/file_xls.png"))); // NOI18N
         jMIExportXLS.setText("<html>Exportar para <b>XLS</b></html>");
@@ -380,6 +401,15 @@ public class GTable extends JTable implements TableControl, Exporter {
         });
         jPop.add(jMIExportPDF);
 
+        jMIExportXML.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/menubar/menubar/file.png"))); // NOI18N
+        jMIExportXML.setText("Exportar para XML");
+        jMIExportXML.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIExportXMLActionPerformed(evt);
+            }
+        });
+        jPop.add(jMIExportXML);
+
         setAutoCreateRowSorter(true);
         setComponentPopupMenu(jPop);
     }// </editor-fold>//GEN-END:initComponents
@@ -396,15 +426,25 @@ public class GTable extends JTable implements TableControl, Exporter {
         exportPDF();
     }//GEN-LAST:event_jMIExportPDFActionPerformed
 
+    private void jMIExportXMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIExportXMLActionPerformed
+        exportXML();
+    }//GEN-LAST:event_jMIExportXMLActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem jMIExportPDF;
     private javax.swing.JMenuItem jMIExportTXT;
     private javax.swing.JMenuItem jMIExportXLS;
+    private javax.swing.JMenuItem jMIExportXML;
     private javax.swing.JPopupMenu jPop;
     // End of variables declaration//GEN-END:variables
 }
 
-class SimpleModel extends DefaultTableModel<TableObject> {
+/**
+ * Modelo exclusivo para construção da tabela
+ *
+ * @author kaciano
+ */
+class SimpleModel extends GTableModel<TableObject> {
 
 }

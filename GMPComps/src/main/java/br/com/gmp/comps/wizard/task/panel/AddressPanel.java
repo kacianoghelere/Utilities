@@ -32,9 +32,9 @@ public class AddressPanel extends WizardTaskPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        gMPTextField1 = new br.com.gmp.comps.textfield.GMPTextField();
-        gMPTextField2 = new br.com.gmp.comps.textfield.GMPTextField();
-        gMPTextField4 = new br.com.gmp.comps.textfield.GMPTextField();
+        gMPTextField1 = new br.com.gmp.comps.textfield.GTextField();
+        gMPTextField2 = new br.com.gmp.comps.textfield.GTextField();
+        gMPTextField4 = new br.com.gmp.comps.textfield.GTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -111,9 +111,9 @@ public class AddressPanel extends WizardTaskPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private br.com.gmp.comps.combobox.GMPComboBox gMPComboBox1;
-    private br.com.gmp.comps.textfield.GMPTextField gMPTextField1;
-    private br.com.gmp.comps.textfield.GMPTextField gMPTextField2;
-    private br.com.gmp.comps.textfield.GMPTextField gMPTextField4;
+    private br.com.gmp.comps.textfield.GTextField gMPTextField1;
+    private br.com.gmp.comps.textfield.GTextField gMPTextField2;
+    private br.com.gmp.comps.textfield.GTextField gMPTextField4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

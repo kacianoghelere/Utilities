@@ -14,7 +14,7 @@
               <Font name="Dialog" size="12" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/res/textfield/16/documents.png"/>
+              <Image iconType="3" name="/ComponentIcons/toolbar/controls/copy.png"/>
             </Property>
             <Property name="mnemonic" type="int" value="99"/>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Copiar &lt;b&gt;Ctrl+C&lt;/b&gt;&lt;/html&gt;"/>
@@ -30,7 +30,7 @@
               <Font name="Dialog" size="12" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/res/textfield/16/document_remove.png"/>
+              <Image iconType="3" name="/ComponentIcons/toolbar/controls/cut.png"/>
             </Property>
             <Property name="mnemonic" type="int" value="120"/>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Recortar &lt;b&gt;Ctrl+X&lt;/b&gt;&lt;/html&gt;"/>
@@ -46,7 +46,7 @@
               <Font name="Dialog" size="12" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/res/textfield/16/document_add.png"/>
+              <Image iconType="3" name="/ComponentIcons/toolbar/controls/paste.png"/>
             </Property>
             <Property name="mnemonic" type="int" value="118"/>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Colar &lt;b&gt;Ctrl+V&lt;/b&gt;&lt;/html&gt;"/>

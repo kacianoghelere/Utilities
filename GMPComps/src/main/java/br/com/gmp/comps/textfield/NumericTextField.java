@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  * @author kaciano
  * @version 1.0
  */
-public class NumericTextField extends GMPTextField {
+public class NumericTextField extends GTextField {
 
     private int limit = 0;
 

@@ -648,15 +648,15 @@ public class GMPButtonFieldBeanInfo extends SimpleBeanInfo {
             methods[METHOD_firePropertyChange41].setDisplayName ( "" );
             methods[METHOD_firePropertyChange42] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("firePropertyChange", new Class[] {java.lang.String.class, char.class, char.class})); // NOI18N
             methods[METHOD_firePropertyChange42].setDisplayName ( "" );
-            methods[METHOD_focusGained43] = new MethodDescriptor(br.com.gmp.comps.textfield.GMPTextField.class.getMethod("focusGained", new Class[] {java.awt.event.FocusEvent.class})); // NOI18N
+            methods[METHOD_focusGained43] = new MethodDescriptor(br.com.gmp.comps.textfield.GTextField.class.getMethod("focusGained", new Class[] {java.awt.event.FocusEvent.class})); // NOI18N
             methods[METHOD_focusGained43].setDisplayName ( "" );
-            methods[METHOD_focusLost44] = new MethodDescriptor(br.com.gmp.comps.textfield.GMPTextField.class.getMethod("focusLost", new Class[] {java.awt.event.FocusEvent.class})); // NOI18N
+            methods[METHOD_focusLost44] = new MethodDescriptor(br.com.gmp.comps.textfield.GTextField.class.getMethod("focusLost", new Class[] {java.awt.event.FocusEvent.class})); // NOI18N
             methods[METHOD_focusLost44].setDisplayName ( "" );
             methods[METHOD_getActionForKeyStroke45] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getActionForKeyStroke", new Class[] {javax.swing.KeyStroke.class})); // NOI18N
             methods[METHOD_getActionForKeyStroke45].setDisplayName ( "" );
             methods[METHOD_getBaseline46] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getBaseline", new Class[] {int.class, int.class})); // NOI18N
             methods[METHOD_getBaseline46].setDisplayName ( "" );
-            methods[METHOD_getBoolean47] = new MethodDescriptor(br.com.gmp.comps.textfield.GMPTextField.class.getMethod("getBoolean", new Class[] {})); // NOI18N
+            methods[METHOD_getBoolean47] = new MethodDescriptor(br.com.gmp.comps.textfield.GTextField.class.getMethod("getBoolean", new Class[] {})); // NOI18N
             methods[METHOD_getBoolean47].setDisplayName ( "" );
             methods[METHOD_getBounds48] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getBounds", new Class[] {java.awt.Rectangle.class})); // NOI18N
             methods[METHOD_getBounds48].setDisplayName ( "" );
@@ -684,7 +684,7 @@ public class GMPButtonFieldBeanInfo extends SimpleBeanInfo {
             methods[METHOD_getListeners59].setDisplayName ( "" );
             methods[METHOD_getLocation60] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getLocation", new Class[] {java.awt.Point.class})); // NOI18N
             methods[METHOD_getLocation60].setDisplayName ( "" );
-            methods[METHOD_getLong61] = new MethodDescriptor(br.com.gmp.comps.textfield.GMPTextField.class.getMethod("getLong", new Class[] {})); // NOI18N
+            methods[METHOD_getLong61] = new MethodDescriptor(br.com.gmp.comps.textfield.GTextField.class.getMethod("getLong", new Class[] {})); // NOI18N
             methods[METHOD_getLong61].setDisplayName ( "" );
             methods[METHOD_getMousePosition62] = new MethodDescriptor(java.awt.Container.class.getMethod("getMousePosition", new Class[] {boolean.class})); // NOI18N
             methods[METHOD_getMousePosition62].setDisplayName ( "" );
@@ -732,11 +732,11 @@ public class GMPButtonFieldBeanInfo extends SimpleBeanInfo {
             methods[METHOD_isLightweightComponent83].setDisplayName ( "" );
             methods[METHOD_keyDown84] = new MethodDescriptor(java.awt.Component.class.getMethod("keyDown", new Class[] {java.awt.Event.class, int.class})); // NOI18N
             methods[METHOD_keyDown84].setDisplayName ( "" );
-            methods[METHOD_keyPressed85] = new MethodDescriptor(br.com.gmp.comps.textfield.GMPTextField.class.getMethod("keyPressed", new Class[] {java.awt.event.KeyEvent.class})); // NOI18N
+            methods[METHOD_keyPressed85] = new MethodDescriptor(br.com.gmp.comps.textfield.GTextField.class.getMethod("keyPressed", new Class[] {java.awt.event.KeyEvent.class})); // NOI18N
             methods[METHOD_keyPressed85].setDisplayName ( "" );
-            methods[METHOD_keyReleased86] = new MethodDescriptor(br.com.gmp.comps.textfield.GMPTextField.class.getMethod("keyReleased", new Class[] {java.awt.event.KeyEvent.class})); // NOI18N
+            methods[METHOD_keyReleased86] = new MethodDescriptor(br.com.gmp.comps.textfield.GTextField.class.getMethod("keyReleased", new Class[] {java.awt.event.KeyEvent.class})); // NOI18N
             methods[METHOD_keyReleased86].setDisplayName ( "" );
-            methods[METHOD_keyTyped87] = new MethodDescriptor(br.com.gmp.comps.textfield.GMPTextField.class.getMethod("keyTyped", new Class[] {java.awt.event.KeyEvent.class})); // NOI18N
+            methods[METHOD_keyTyped87] = new MethodDescriptor(br.com.gmp.comps.textfield.GTextField.class.getMethod("keyTyped", new Class[] {java.awt.event.KeyEvent.class})); // NOI18N
             methods[METHOD_keyTyped87].setDisplayName ( "" );
             methods[METHOD_keyUp88] = new MethodDescriptor(java.awt.Component.class.getMethod("keyUp", new Class[] {java.awt.Event.class, int.class})); // NOI18N
             methods[METHOD_keyUp88].setDisplayName ( "" );
@@ -904,7 +904,7 @@ public class GMPButtonFieldBeanInfo extends SimpleBeanInfo {
             methods[METHOD_updateUI169].setDisplayName ( "" );
             methods[METHOD_validate170] = new MethodDescriptor(java.awt.Container.class.getMethod("validate", new Class[] {})); // NOI18N
             methods[METHOD_validate170].setDisplayName ( "" );
-            methods[METHOD_validateComponent171] = new MethodDescriptor(br.com.gmp.comps.textfield.GMPTextField.class.getMethod("validateComponent", new Class[] {})); // NOI18N
+            methods[METHOD_validateComponent171] = new MethodDescriptor(br.com.gmp.comps.textfield.GTextField.class.getMethod("validateComponent", new Class[] {})); // NOI18N
             methods[METHOD_validateComponent171].setDisplayName ( "" );
             methods[METHOD_viewToModel172] = new MethodDescriptor(javax.swing.text.JTextComponent.class.getMethod("viewToModel", new Class[] {java.awt.Point.class})); // NOI18N
             methods[METHOD_viewToModel172].setDisplayName ( "" );

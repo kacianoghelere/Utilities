@@ -1,7 +1,5 @@
 package br.com.gmp.comps.interfaces;
 
-import java.util.List;
-
 /**
  * Interface para componentes que podem exportar listas de dados
  *
@@ -15,8 +13,7 @@ public interface Exporter {
     void exportXLS();
 
     /**
-     * Exporta os dados no padrão Txt     
-
+     * Exporta os dados no padrão Txt      *
      */
     void exportTXT();
 
@@ -24,4 +21,9 @@ public interface Exporter {
      * Exporta os dados no padrão Pdf
      */
     void exportPDF();
+
+    /**
+     * Exporta os dados no padrão XML
+     */
+    void exportXML();
 }

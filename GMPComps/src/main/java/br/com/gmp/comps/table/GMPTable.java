@@ -288,6 +288,11 @@ public class GMPTable extends JTable implements TableControl, Exporter {
         }
     }
 
+    @Override
+    public void exportXML() {
+        System.out.println("Not supported yet.");
+    }
+
     //<editor-fold desc="Get's & Set's" defaultstate="collapsed">
     /**
      * Retorna a classe dos objetos mapeados

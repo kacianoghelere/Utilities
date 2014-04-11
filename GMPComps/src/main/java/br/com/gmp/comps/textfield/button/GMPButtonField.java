@@ -1,6 +1,6 @@
 package br.com.gmp.comps.textfield.button;
 
-import br.com.gmp.comps.textfield.GMPTextField;
+import br.com.gmp.comps.textfield.GTextField;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +10,7 @@ import javax.swing.Icon;
  *
  * @author kaciano
  */
-public class GMPButtonField extends GMPTextField {
+public class GMPButtonField extends GTextField {
 
     private String buttonPosition;
     private ActionListener actionListener;

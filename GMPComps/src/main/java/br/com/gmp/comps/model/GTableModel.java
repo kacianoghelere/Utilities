@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * Exemplo de uso:
  * <br><code>
- * class NewTableModel extends DefaultTableModel(Object) {<br>
+ class NewTableModel extends GTableModel(Object) {<br>
  * public NewTableModel() {<br>
  * super(Object.class)<br>
  * }<br>
@@ -29,7 +29,7 @@ import java.util.logging.Logger;
  * @param <T>
  * @see javax.swing.table.TableModel
  */
-public class DefaultTableModel<T> extends SimpleTableModel {
+public class GTableModel<T> extends SimpleTableModel {
 
     private Class<T> objClass;
     private String[] columns = null;
@@ -38,7 +38,7 @@ public class DefaultTableModel<T> extends SimpleTableModel {
     /**
      * Cria novo DefaultTableModel
      */
-    public DefaultTableModel() {
+    public GTableModel() {
         initialize(null);
     }
 
@@ -47,7 +47,7 @@ public class DefaultTableModel<T> extends SimpleTableModel {
      *
      * @param list <code>List(Object)</code> Lista de objetos
      */
-    public DefaultTableModel(List<T> list) {
+    public GTableModel(List<T> list) {
         initialize(list);
     }
 
@@ -140,7 +140,7 @@ public class DefaultTableModel<T> extends SimpleTableModel {
             f.setAccessible(true);
             return f.get(u);
         } catch (IllegalArgumentException | IllegalAccessException ex) {
-            Logger.getLogger(DefaultTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GTableModel.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -203,7 +203,7 @@ public class DefaultTableModel<T> extends SimpleTableModel {
             }
             return c;
         } catch (SecurityException | NoSuchFieldException ex) {
-            Logger.getLogger(DefaultTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GTableModel.class.getName()).log(Level.SEVERE, null, ex);
             return new Object().getClass();
         }
     }
