@@ -182,10 +182,12 @@ public class GTable extends JTable implements TableControl, Exporter {
             if (!list.isEmpty()) {
                 return list.toArray();
             } else {
+                new BalloonUtil().showTimedBallon(this, "Nenhum item selecionado");
                 return null;
             }
         } catch (Exception e) {
             Logger.getLogger(GTable.class.getName()).log(Level.SEVERE, null, e);
+            new BalloonUtil().showTimedBallon(this, "Nenhum item selecionado");
             return null;
         }
     }

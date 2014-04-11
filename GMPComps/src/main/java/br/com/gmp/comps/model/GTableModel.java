@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * Exemplo de uso:
  * <br><code>
- class NewTableModel extends GTableModel(Object) {<br>
+ * class NewTableModel extends GTableModel(Object) {<br>
  * public NewTableModel() {<br>
  * super(Object.class)<br>
  * }<br>
@@ -258,9 +258,13 @@ public class GTableModel<T> extends SimpleTableModel {
      *
      * @param row <code>int[]</code> Linhas
      */
-    public void remove(int... row) {
+    public void remove(int[] row) {
+        List<T> list = new ArrayList<>();
         for (int i : row) {
-            data.remove(i);
+            list.add(getObject(i));
+        }
+        for (T t : list) {
+            remove(t);
         }
         this.reload();
     }
@@ -283,10 +287,10 @@ public class GTableModel<T> extends SimpleTableModel {
      *
      * @param objects <code>Object[]</code> Objetos
      */
-    public void remove(T... objects) {
+    public void remove(T[] objects) {
         for (T t : objects) {
             if (data.contains(t)) {
-                data.remove(t);                
+                data.remove(t);
             }
         }
         this.reload();
