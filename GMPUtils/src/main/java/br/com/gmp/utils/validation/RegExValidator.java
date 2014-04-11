@@ -12,7 +12,7 @@ public class RegExValidator {
 
     /**
      * Valida uma String contendo um e-mail<br>
-     * Ex:<br />
+     * Ex:<br>
      * Valido: <code>teste@teste.com</code> ou
      * <code>teste@teste.com.br</code><br>
      * Invalido: <code>test@testecom</code> ou <code>teste@teste</code>
@@ -34,7 +34,7 @@ public class RegExValidator {
 
     /**
      * Valida uma String contendo um URL<br>
-     * Ex:<br />
+     * Ex:<br>
      * Valido: <code>http://www.test.com</code> ou
      * <code>https://www.test.com.br</code> <br>
      * Invalido: <code>http://test.com</code> ou

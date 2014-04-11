@@ -129,7 +129,7 @@ public class VerbalExpression {
 
         /**
          *
-         * @param value
+         * @param value <code>String</code> Valor
          * @return <code>Builder</code>
          */
         public Builder find(String value) {
@@ -140,7 +140,7 @@ public class VerbalExpression {
         /**
          * Talvez
          *
-         * @param pValue <code></code> Valor
+         * @param pValue <code>String</code> Valor
          * @return <code>Builder</code>
          */
         public Builder maybe(final String pValue) {
