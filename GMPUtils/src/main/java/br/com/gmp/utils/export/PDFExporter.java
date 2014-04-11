@@ -69,7 +69,7 @@ public class PDFExporter {
             PdfWriter.getInstance(doc, os);
             doc.open();
 
-            doc.addAuthor(SystemProperties.USER_NAME.toString());
+            doc.addAuthor(SystemProperties.USER_NAME);
             doc.add(new Paragraph(new DateUtil().getCompleteDate(new Date())));
             doc.add(new Paragraph(" "));
             doc.add(new LineSeparator());

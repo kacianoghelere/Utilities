@@ -21,6 +21,12 @@ public class Test {
 
     /**
      * Constroi novo Test
+     */
+    public Test() {
+    }
+
+    /**
+     * Constroi novo Test
      *
      * @param name Nome
      * @param age Idade

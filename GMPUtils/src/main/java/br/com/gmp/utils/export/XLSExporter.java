@@ -89,7 +89,7 @@ public class XLSExporter {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Logger.getLogger(XLSExporter.class.getName()).log(Level.SEVERE, null, e);
         }
         return workBook;
     }
@@ -110,9 +110,9 @@ public class XLSExporter {
                 sheet.addCell(new Label(i, 0, fields[i].getName().toUpperCase()));
             }
         } catch (RowsExceededException e) {
-            e.printStackTrace();
+            Logger.getLogger(XLSExporter.class.getName()).log(Level.SEVERE, null, e);
         } catch (WriteException e) {
-            e.printStackTrace();
+            Logger.getLogger(XLSExporter.class.getName()).log(Level.SEVERE, null, e);
         }
         return sheet;
     }
