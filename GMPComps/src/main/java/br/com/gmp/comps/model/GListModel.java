@@ -63,6 +63,44 @@ public class GListModel<T> extends AbstractListModel<T> {
     }
 
     /**
+     * Remove vários elementos do modelo
+     *
+     * @param elements <code>T[]</code> Elementos
+     */
+    public void remove(T[] elements) {
+        for (T t : elements) {
+            if (data.contains(t)) {
+                data.remove(t);
+            }
+        }
+        refresh();
+    }
+
+    /**
+     * Remove elemento do modelo
+     *
+     * @param index <code>int</code> ID do Elemento
+     */
+    public void remove(int index) {
+        if (index >= 0 && index < data.size()) {
+            data.remove(index);
+        }
+        refresh();
+    }
+
+    /**
+     * Remove vários elementos do modelo
+     *
+     * @param elements <code>int[]</code> IDs dos Elementos
+     */
+    public void remove(int[] elements) {
+        for (int i : elements) {
+            remove(i);
+        }
+        refresh();
+    }
+
+    /**
      * Atualiza o modelo
      */
     public void refresh() {
