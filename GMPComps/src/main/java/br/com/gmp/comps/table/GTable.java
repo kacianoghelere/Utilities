@@ -439,6 +439,7 @@ public class GTable extends JTable implements TableControl, Exporter {
 
         setAutoCreateRowSorter(true);
         setComponentPopupMenu(jPop);
+        setPreferredSize(new java.awt.Dimension(280, 200));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMIExportXLSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIExportXLSActionPerformed
