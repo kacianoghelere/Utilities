@@ -1,5 +1,6 @@
 package br.com.gmp.comps.combobox;
 
+import br.com.gmp.comps.baloontip.src.BalloonUtil;
 import br.com.gmp.comps.combobox.model.GComboBoxModel;
 import br.com.gmp.comps.interfaces.ValidableComponent;
 import java.util.List;
@@ -17,6 +18,7 @@ public class GComboBox<T> extends JComboBox implements ValidableComponent {
 
     private List<T> data;
     private GComboBoxModel<T> model;
+    private String invalidMsg = "Campo obrigatório!";
 
     /**
      * Cria nova instancia de GMPComboBox
@@ -120,10 +122,13 @@ public class GComboBox<T> extends JComboBox implements ValidableComponent {
     @Override
     public boolean validateComponent() {
         if (getItemCount() == 0) {
+            new BalloonUtil().showTimedBallon(this, invalidMsg);
             return false;
         } else if (getSelectedItem() == null) {
+            new BalloonUtil().showTimedBallon(this, invalidMsg);
             return false;
         } else if (getSelectedIndex() == -1) {
+            new BalloonUtil().showTimedBallon(this, invalidMsg);
             return false;
         }
         return true;
