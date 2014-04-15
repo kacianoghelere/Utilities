@@ -33,4 +33,29 @@ public class StringUtil {
         return value.split('[' + split + ']', limit);
     }
 
+    /**
+     * Retorna uma String com a quantidade de zeros à frente do numero recebido
+     *
+     * @param size <code>int</code> Quantidade de numeros da String
+     * @param number <code>Long</code> Numero à ser formatado
+     * @return <code>String</code> String formatada
+     */
+    public String completeWithZeros(int size, Long number) {
+        StringBuilder sb = new StringBuilder();
+        String value = String.valueOf(number);
+        for (int i = 0; i < (size - value.length()); i++) {
+            sb.append("0");
+        }
+        sb.append(value);
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        Long num1 = (long) 1;
+        Long num2 = (long) 111;
+        Long num3 = (long) 110;
+        System.out.println(new StringUtil().completeWithZeros(6, num1));
+        System.out.println(new StringUtil().completeWithZeros(6, num2));
+        System.out.println(new StringUtil().completeWithZeros(6, num3));
+    }
 }
