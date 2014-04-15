@@ -1,6 +1,7 @@
 package br.com.gmp.comps.combobox;
 
 import br.com.gmp.comps.combobox.model.GComboBoxModel;
+import br.com.gmp.comps.interfaces.ValidableComponent;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
@@ -12,7 +13,7 @@ import javax.swing.JComboBox;
  * @author kaciano
  * @param <T> Tipo dos objetos carregados
  */
-public class GComboBox<T> extends JComboBox {
+public class GComboBox<T> extends JComboBox implements ValidableComponent {
 
     private List<T> data;
     private GComboBoxModel<T> model;
@@ -114,6 +115,18 @@ public class GComboBox<T> extends JComboBox {
         this.model = model;
         this.setData(model.getData());
         this.setModel(model);
+    }
+
+    @Override
+    public boolean validateComponent() {
+        if (getItemCount() == 0) {
+            return false;
+        } else if (getSelectedItem() == null) {
+            return false;
+        } else if (getSelectedIndex() == -1) {
+            return false;
+        }
+        return true;
     }
 
     @SuppressWarnings("unchecked")
