@@ -17,14 +17,14 @@ import javax.swing.JWindow;
  *
  * @author kaciano
  */
-public class GMPDialog extends javax.swing.JDialog {
+public class GDialog extends javax.swing.JDialog {
 
     private JComponent parent;
 
     /**
      *
      */
-    public GMPDialog() {
+    public GDialog() {
         initialize();
     }
 
@@ -32,7 +32,7 @@ public class GMPDialog extends javax.swing.JDialog {
      *
      * @param parent
      */
-    public GMPDialog(JInternalFrame parent) {
+    public GDialog(JInternalFrame parent) {
         this.parent = parent;
         initialize();
     }
@@ -42,7 +42,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param parent
      * @param title
      */
-    public GMPDialog(JInternalFrame parent, String title) {
+    public GDialog(JInternalFrame parent, String title) {
         this.parent = parent;
         initialize();
         setTitle(title);
@@ -53,7 +53,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param parent
      * @param modal
      */
-    public GMPDialog(JInternalFrame parent, boolean modal) {
+    public GDialog(JInternalFrame parent, boolean modal) {
         this.parent = parent;
         initialize();
         setModal(modal);
@@ -65,7 +65,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param title
      * @param modal
      */
-    public GMPDialog(JInternalFrame parent, String title, boolean modal) {
+    public GDialog(JInternalFrame parent, String title, boolean modal) {        
         this.parent = parent;
         initialize();
         setTitle(title);
@@ -76,7 +76,7 @@ public class GMPDialog extends javax.swing.JDialog {
      *
      * @param owner
      */
-    public GMPDialog(Frame owner) {
+    public GDialog(Frame owner) {
         super(owner);
         initialize();
     }
@@ -86,7 +86,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param owner
      * @param modal
      */
-    public GMPDialog(Frame owner, boolean modal) {
+    public GDialog(Frame owner, boolean modal) {
         super(owner, modal);
         initialize();
     }
@@ -96,7 +96,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param owner
      * @param title
      */
-    public GMPDialog(Frame owner, String title) {
+    public GDialog(Frame owner, String title) {
         super(owner, title);
         initialize();
     }
@@ -107,7 +107,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param title
      * @param modal
      */
-    public GMPDialog(Frame owner, String title, boolean modal) {
+    public GDialog(Frame owner, String title, boolean modal) {
         super(owner, title, modal);
         initialize();
     }
@@ -119,7 +119,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param modal
      * @param gc
      */
-    public GMPDialog(Frame owner, String title, boolean modal, GraphicsConfiguration gc) {
+    public GDialog(Frame owner, String title, boolean modal, GraphicsConfiguration gc) {
         super(owner, title, modal, gc);
         initialize();
     }
@@ -128,7 +128,7 @@ public class GMPDialog extends javax.swing.JDialog {
      *
      * @param owner
      */
-    public GMPDialog(Dialog owner) {
+    public GDialog(Dialog owner) {
         super(owner);
         initialize();
     }
@@ -138,7 +138,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param owner
      * @param modal
      */
-    public GMPDialog(Dialog owner, boolean modal) {
+    public GDialog(Dialog owner, boolean modal) {
         super(owner, modal);
         initialize();
     }
@@ -148,7 +148,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param owner
      * @param title
      */
-    public GMPDialog(Dialog owner, String title) {
+    public GDialog(Dialog owner, String title) {
         super(owner, title);
         initialize();
     }
@@ -159,7 +159,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param title
      * @param modal
      */
-    public GMPDialog(Dialog owner, String title, boolean modal) {
+    public GDialog(Dialog owner, String title, boolean modal) {
         super(owner, title, modal);
         initialize();
     }
@@ -171,7 +171,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param modal
      * @param gc
      */
-    public GMPDialog(Dialog owner, String title, boolean modal, GraphicsConfiguration gc) {
+    public GDialog(Dialog owner, String title, boolean modal, GraphicsConfiguration gc) {
         super(owner, title, modal, gc);
         initialize();
     }
@@ -180,7 +180,7 @@ public class GMPDialog extends javax.swing.JDialog {
      *
      * @param owner
      */
-    public GMPDialog(Window owner) {
+    public GDialog(Window owner) {
         super(owner);
         initialize();
     }
@@ -190,7 +190,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param owner
      * @param modalityType
      */
-    public GMPDialog(Window owner, ModalityType modalityType) {
+    public GDialog(Window owner, ModalityType modalityType) {
         super(owner, modalityType);
         initialize();
     }
@@ -200,7 +200,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param owner
      * @param title
      */
-    public GMPDialog(Window owner, String title) {
+    public GDialog(Window owner, String title) {
         super(owner, title);
         initialize();
     }
@@ -211,7 +211,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param title
      * @param modalityType
      */
-    public GMPDialog(Window owner, String title, ModalityType modalityType) {
+    public GDialog(Window owner, String title, ModalityType modalityType) {
         super(owner, title, modalityType);
         initialize();
     }
@@ -223,7 +223,7 @@ public class GMPDialog extends javax.swing.JDialog {
      * @param modalityType
      * @param gc
      */
-    public GMPDialog(Window owner, String title, ModalityType modalityType, GraphicsConfiguration gc) {
+    public GDialog(Window owner, String title, ModalityType modalityType, GraphicsConfiguration gc) {
         super(owner, title, modalityType, gc);
         initialize();
     }
