@@ -1,5 +1,6 @@
 package br.com.gmp.comps.textfield;
 
+import br.com.gmp.comps.GColors;
 import br.com.gmp.comps.baloontip.src.BalloonUtil;
 import br.com.gmp.comps.interfaces.ValidableComponent;
 import java.awt.BorderLayout;
@@ -165,7 +166,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
      * @param e FocusEvent
      */
     public void focusGained(FocusEvent e) {
-        this.setBackground(new Color(255, 230, 166));
+        this.setBackground(GColors.FOCUS);
         if (this.getText().equals(this.placeholder)) {
             this.setForeground(new JTextField().getForeground());
             this.setText("");

@@ -1,7 +1,11 @@
 package br.com.gmp.comps.list;
 
+import br.com.gmp.comps.GColors;
 import br.com.gmp.comps.model.GListModel;
+import java.awt.Component;
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
+import javax.swing.ListCellRenderer;
 
 /**
  * Lista customizada
@@ -36,6 +40,25 @@ public class GList extends JList {
     private void initialize() {
         initComponents();
         setModel(model);
+    }
+
+    @Override
+    public ListCellRenderer getCellRenderer() {
+        DefaultListCellRenderer defaultRenderer = new DefaultListCellRenderer() {
+
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                Component comp = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                if (index % 2 == 0 && !isSelected) {
+                    comp.setBackground(GColors.FOCUS);
+                } else if (isSelected) {
+                    comp.setBackground(getSelectionBackground());
+                }
+                return comp;
+            }
+
+        };
+        return defaultRenderer;
     }
 
     /**

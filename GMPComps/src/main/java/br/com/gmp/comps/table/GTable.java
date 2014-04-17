@@ -1,5 +1,6 @@
 package br.com.gmp.comps.table;
 
+import br.com.gmp.comps.GColors;
 import br.com.gmp.comps.baloontip.src.BalloonUtil;
 import br.com.gmp.comps.interfaces.Exporter;
 import br.com.gmp.comps.model.GTableModel;
@@ -250,7 +251,7 @@ public class GTable extends JTable implements TableControl, Exporter {
             check.setOpaque(showVerticalLines);
         }
         if (row % 2 == 0 && !isCellSelected(row, column)) {
-            c.setBackground(new Color(255, 230, 166));
+            c.setBackground(GColors.FOCUS);
         } else if (isCellSelected(row, column)) {
             c.setBackground(getSelectionBackground());
         } else {
