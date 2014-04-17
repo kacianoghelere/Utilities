@@ -179,6 +179,7 @@ public class NumericTextFieldBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_backgroundSet] = new PropertyDescriptor ( "backgroundSet", br.com.gmp.comps.textfield.NumericTextField.class, "isBackgroundSet", null ); // NOI18N
             properties[PROPERTY_baselineResizeBehavior] = new PropertyDescriptor ( "baselineResizeBehavior", br.com.gmp.comps.textfield.NumericTextField.class, "getBaselineResizeBehavior", null ); // NOI18N
             properties[PROPERTY_border] = new PropertyDescriptor ( "border", br.com.gmp.comps.textfield.NumericTextField.class, "getBorder", "setBorder" ); // NOI18N
+            properties[PROPERTY_border].setPreferred ( true );
             properties[PROPERTY_bounds] = new PropertyDescriptor ( "bounds", br.com.gmp.comps.textfield.NumericTextField.class, "getBounds", "setBounds" ); // NOI18N
             properties[PROPERTY_caret] = new PropertyDescriptor ( "caret", br.com.gmp.comps.textfield.NumericTextField.class, "getCaret", "setCaret" ); // NOI18N
             properties[PROPERTY_caretColor] = new PropertyDescriptor ( "caretColor", br.com.gmp.comps.textfield.NumericTextField.class, "getCaretColor", "setCaretColor" ); // NOI18N
@@ -284,8 +285,10 @@ public class NumericTextFieldBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_showing] = new PropertyDescriptor ( "showing", br.com.gmp.comps.textfield.NumericTextField.class, "isShowing", null ); // NOI18N
             properties[PROPERTY_size] = new PropertyDescriptor ( "size", br.com.gmp.comps.textfield.NumericTextField.class, "getSize", "setSize" ); // NOI18N
             properties[PROPERTY_text] = new PropertyDescriptor ( "text", br.com.gmp.comps.textfield.NumericTextField.class, "getText", "setText" ); // NOI18N
+            properties[PROPERTY_text].setPreferred ( true );
             properties[PROPERTY_toolkit] = new PropertyDescriptor ( "toolkit", br.com.gmp.comps.textfield.NumericTextField.class, "getToolkit", null ); // NOI18N
             properties[PROPERTY_toolTipText] = new PropertyDescriptor ( "toolTipText", br.com.gmp.comps.textfield.NumericTextField.class, "getToolTipText", "setToolTipText" ); // NOI18N
+            properties[PROPERTY_toolTipText].setPreferred ( true );
             properties[PROPERTY_topLevelAncestor] = new PropertyDescriptor ( "topLevelAncestor", br.com.gmp.comps.textfield.NumericTextField.class, "getTopLevelAncestor", null ); // NOI18N
             properties[PROPERTY_transferHandler] = new PropertyDescriptor ( "transferHandler", br.com.gmp.comps.textfield.NumericTextField.class, "getTransferHandler", "setTransferHandler" ); // NOI18N
             properties[PROPERTY_treeLock] = new PropertyDescriptor ( "treeLock", br.com.gmp.comps.textfield.NumericTextField.class, "getTreeLock", null ); // NOI18N
