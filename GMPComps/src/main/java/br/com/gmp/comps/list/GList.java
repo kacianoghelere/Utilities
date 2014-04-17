@@ -60,6 +60,7 @@ public class GList extends JList {
      */
     public void setModel(GListModel<?> model) {
         this.model = model;
+        super.setModel(this.model);
     }
 
     /**
