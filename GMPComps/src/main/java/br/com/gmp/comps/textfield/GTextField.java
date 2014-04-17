@@ -161,6 +161,13 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     }
 
     /**
+     * Limpa os dados do componente
+     */
+    public void clear() {
+        this.setText("");
+    }
+
+    /**
      * Ação de componente em foco
      *
      * @param e FocusEvent
