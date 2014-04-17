@@ -9,5 +9,8 @@ import java.awt.Color;
  */
 public class GColors {
 
-    public static Color FOCUS = Color.lightGray;
+    /**
+     * Cor de foco para componentes
+     */
+    public static Color FOCUS = new Color(240,240,240);
 }
