@@ -70,6 +70,8 @@ public class GList extends JList {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setPreferredSize(new java.awt.Dimension(140, 180));
     }// </editor-fold>//GEN-END:initComponents
 
 
