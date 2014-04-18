@@ -1,6 +1,7 @@
 package br.com.gmp.comps.model;
 
 import br.com.gmp.comps.annotations.ColumnName;
+import br.com.gmp.utils.annotations.Editable;
 import br.com.gmp.utils.annotations.Ignore;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -101,8 +102,8 @@ public class GTableModel<T> extends SimpleTableModel {
      * @return <code>boolean</code> É editavel?
      */
     @Override
-    public boolean isCellEditable(int row, int column) {
-        return (column != 0);
+    public boolean isCellEditable(int row, int column) {        
+        return getFields(objClass)[column].isAnnotationPresent(Editable.class);
     }
 
     /**
