@@ -1,6 +1,8 @@
 package br.com.gmp.comps.textarea;
 
-import java.awt.Color;
+import br.com.gmp.comps.GColors;
+import br.com.gmp.comps.baloontip.src.BalloonUtil;
+import br.com.gmp.comps.interfaces.ValidableComponent;
 import java.awt.event.FocusEvent;
 import javax.swing.JTextArea;
 
@@ -8,9 +10,10 @@ import javax.swing.JTextArea;
  *
  * @author kaciano
  */
-public class GMPTextArea extends JTextArea {
+public class GMPTextArea extends JTextArea implements ValidableComponent {
 
     private int maximumlength;
+    private String invalidMsg = "Campo obrigatório!";
 
     /**
      * Creates new form GMPTextArea
@@ -20,6 +23,11 @@ public class GMPTextArea extends JTextArea {
 
     }
 
+    /**
+     * Cria nova instancia de GMPTextArea
+     *
+     * @param maximumlength <code>int</code> Comprimento maximo do texto
+     */
     public GMPTextArea(int maximumlength) {
         this.maximumlength = maximumlength;
         initComponents();
@@ -31,7 +39,7 @@ public class GMPTextArea extends JTextArea {
      * @param e FocusEvent
      */
     public void focusGained(FocusEvent e) {
-        this.setBackground(new Color(255, 230, 166));
+        this.setBackground(GColors.FOCUS);
     }
 
     /**
@@ -68,6 +76,35 @@ public class GMPTextArea extends JTextArea {
      */
     public void setMaximumlength(int maximumlength) {
         this.maximumlength = maximumlength;
+    }
+
+    @Override
+    public boolean validateComponent() {
+        if (this.getText().length() > maximumlength) {
+            return false;
+        } else if (this.getText().equals("") || this.getText() == null || getText().isEmpty()) {
+            new BalloonUtil().showTimedBallon(this, invalidMsg);
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Retorna a mensagem do componente
+     *
+     * @return <code>String</code> Mensagem do componente
+     */
+    public String getInvalidMsg() {
+        return invalidMsg;
+    }
+
+    /**
+     * Modifica a mensagem do componente
+     *
+     * @param invalidMsg <code>String</code> Mensagem do componente
+     */
+    public void setInvalidMsg(String invalidMsg) {
+        this.invalidMsg = invalidMsg;
     }
 
     /**

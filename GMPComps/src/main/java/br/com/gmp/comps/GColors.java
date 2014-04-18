@@ -12,5 +12,5 @@ public class GColors {
     /**
      * Cor de foco para componentes
      */
-    public static Color FOCUS = new Color(240,240,240);
+    public static Color FOCUS = new Color(255, 230, 166);
 }
