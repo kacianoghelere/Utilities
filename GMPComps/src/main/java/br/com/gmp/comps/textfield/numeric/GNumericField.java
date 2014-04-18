@@ -1,32 +1,40 @@
-package br.com.gmp.comps.textfield;
+package br.com.gmp.comps.textfield.numeric;
 
 import br.com.gmp.comps.baloontip.src.BalloonUtil;
+import br.com.gmp.comps.textfield.GTextField;
 
 /**
- * Campo de texto numerico
+ * Campo de texto numérico
  *
  * @author kaciano
  * @version 1.0
  */
-public class NumericTextField extends GTextField {
+public class GNumericField extends GTextField {
 
     private int limit;
 
     /**
      * Cria novo campo de texto numerico
      */
-    public NumericTextField() {        
+    public GNumericField() {
         this.limit = 0;
-        initComponents();
+        initialize();
     }
 
     /**
-     * Cria novo campo de texto numerico
+     * Cria novo GNumericField
      *
      * @param limit <code>int</code> Limite de caracteres
      */
-    public NumericTextField(int limit) {
+    public GNumericField(int limit) {
         this.limit = limit;
+        initialize();
+    }
+
+    /**
+     * Método de inicialização
+     */
+    private void initialize() {
         initComponents();
     }
 
@@ -83,7 +91,6 @@ public class NumericTextField extends GTextField {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setPreferredSize(new java.awt.Dimension(100, 25));
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 formKeyReleased(evt);
