@@ -117,6 +117,9 @@ public class GComboBox<T> extends JComboBox implements ValidableComponent {
         this.model = model;
         this.setData(model.getData());
         this.setModel(model);
+        if (this.model.getSize() > 0) {
+            setSelectedIndex(0);
+        }
     }
 
     @Override
