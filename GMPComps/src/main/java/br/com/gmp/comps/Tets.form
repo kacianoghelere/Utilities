@@ -176,7 +176,9 @@
                               <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="gMPButtonField1" min="-2" pref="146" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="186" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="numericTextField1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="74" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -191,6 +193,7 @@
                           <Component id="gMPDateField2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="gMPButtonField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numericTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane4" pref="370" max="32767" attributes="0"/>
@@ -238,6 +241,14 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="gMPButtonField1" noResource="true"/>
               </Properties>
+            </Component>
+            <Component class="br.com.gmp.comps.textfield.NumericTextField" name="numericTextField1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="numericTextField1" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numericTextField1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

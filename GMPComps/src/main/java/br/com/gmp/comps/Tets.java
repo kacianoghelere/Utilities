@@ -77,6 +77,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         jScrollPane4 = new javax.swing.JScrollPane();
         gTree = new br.com.gmp.comps.tree.GMPTree();
         gMPButtonField1 = new br.com.gmp.comps.textfield.button.GMPButtonField();
+        numericTextField1 = new br.com.gmp.comps.textfield.NumericTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -156,6 +157,13 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         gMPButtonField1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/label/icon.png"))); // NOI18N
         gMPButtonField1.setName("gMPButtonField1"); // NOI18N
 
+        numericTextField1.setName("numericTextField1"); // NOI18N
+        numericTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numericTextField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -170,7 +178,9 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                         .addComponent(jButton4)
                         .addGap(18, 18, 18)
                         .addComponent(gMPButtonField1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 186, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(numericTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 74, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -180,7 +190,8 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gMPDateField2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4)
-                    .addComponent(gMPButtonField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(gMPButtonField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numericTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                 .addContainerGap())
@@ -207,6 +218,10 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
             System.out.println("Válido!");
         } 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void numericTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numericTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numericTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,6 +256,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private br.com.gmp.comps.textfield.NumericTextField numericTextField1;
     // End of variables declaration//GEN-END:variables
 }
 

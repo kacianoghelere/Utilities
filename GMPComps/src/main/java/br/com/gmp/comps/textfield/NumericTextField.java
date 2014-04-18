@@ -15,7 +15,7 @@ public class NumericTextField extends GTextField {
     /**
      * Cria novo campo de texto numerico
      */
-    public NumericTextField() {        
+    public NumericTextField() {
         this.limit = 0;
         initComponents();
     }
@@ -59,10 +59,10 @@ public class NumericTextField extends GTextField {
      */
     private void textControl() {
         String s = getText();
-        new BalloonUtil().showTimedBallon(this, "Somente números!");
         if (s.length() > 0) {
             for (char c : s.toCharArray()) {
-                if (Character.isLetter(c)) {
+                if (Character.isLetter(c) && !" ".equals(Character.toString(c))) {
+                    new BalloonUtil().showTimedBallon(this, "Somente números!");
                     String sub = getText().substring(0, getText().length() - 1);
                     setText(sub);
                     grabFocus();
