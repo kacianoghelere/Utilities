@@ -51,7 +51,6 @@ public class NumericTextField extends GTextField {
     @Override
     public void setText(String t) {
         super.setText(t);
-        textControl();
     }
 
     /**
