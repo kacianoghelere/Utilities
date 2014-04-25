@@ -118,7 +118,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
             this.setLayout(new BorderLayout());
             this.add(new JLabel(icon), BorderLayout.EAST);
         }
-        if (this.getText().equals("") && !this.placeholder.equals("")) {
+        if (this.getText().isEmpty() && !this.placeholder.isEmpty()) {
             this.setForeground(Color.GRAY.brighter());
             this.setText(this.placeholder);
         }
