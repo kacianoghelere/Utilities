@@ -2,10 +2,13 @@ package br.com.gmp.comps.table.decorate;
 
 import br.com.gmp.comps.table.GTable;
 import br.com.gmp.utils.image.ImageUtil;
+import java.awt.Component;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 
 /**
  * Decorador de dados para tabelas
@@ -32,19 +35,23 @@ public class TableDecorator {
      * @return
      */
     public TableDecorator withIcon(int iconcolumn) {
-        this.table.getColumnModel().getColumn(iconcolumn).setCellRenderer((JTable table, Object value, boolean isSelected1, boolean hasFocus, int row, int column) -> {
-            ImageIcon ic = new ImageIcon(getClass().getResource((String) value));
-            Image sc = new ImageUtil().getScaledImage(ic.getImage(), 20, 20);
-            ic.setImage(sc);
-            JLabel label = new JLabel(ic);
-            if (isSelected1) {
-                label.setOpaque(true);
-                label.setBackground(table.getSelectionBackground());
-            } else {
-                label.setOpaque(true);
-                label.setBackground(new JLabel().getBackground());
+        this.table.getColumnModel().getColumn(iconcolumn).setCellRenderer(new TableCellRenderer() {
+
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                ImageIcon ic = new ImageIcon(getClass().getResource((String) value));
+                Image sc = new ImageUtil().getScaledImage(ic.getImage(), 20, 20);
+                ic.setImage(sc);
+                JLabel label = new JLabel(ic);
+                if (isSelected) {
+                    label.setOpaque(true);
+                    label.setBackground(table.getSelectionBackground());
+                } else {
+                    label.setOpaque(true);
+                    label.setBackground(new JLabel().getBackground());
+                }
+                return label;
             }
-            return label;
         });
         return this;
     }
