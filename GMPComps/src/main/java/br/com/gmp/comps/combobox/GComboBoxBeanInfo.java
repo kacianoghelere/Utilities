@@ -267,6 +267,7 @@ public class GComboBoxBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_size] = new PropertyDescriptor ( "size", br.com.gmp.comps.combobox.GComboBox.class, "getSize", "setSize" ); // NOI18N
             properties[PROPERTY_toolkit] = new PropertyDescriptor ( "toolkit", br.com.gmp.comps.combobox.GComboBox.class, "getToolkit", null ); // NOI18N
             properties[PROPERTY_toolTipText] = new PropertyDescriptor ( "toolTipText", br.com.gmp.comps.combobox.GComboBox.class, "getToolTipText", "setToolTipText" ); // NOI18N
+            properties[PROPERTY_toolTipText].setPreferred ( true );
             properties[PROPERTY_topLevelAncestor] = new PropertyDescriptor ( "topLevelAncestor", br.com.gmp.comps.combobox.GComboBox.class, "getTopLevelAncestor", null ); // NOI18N
             properties[PROPERTY_transferHandler] = new PropertyDescriptor ( "transferHandler", br.com.gmp.comps.combobox.GComboBox.class, "getTransferHandler", "setTransferHandler" ); // NOI18N
             properties[PROPERTY_treeLock] = new PropertyDescriptor ( "treeLock", br.com.gmp.comps.combobox.GComboBox.class, "getTreeLock", null ); // NOI18N
