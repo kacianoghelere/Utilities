@@ -2,6 +2,7 @@ package br.com.gmp.comps.list;
 
 import br.com.gmp.comps.GColors;
 import br.com.gmp.comps.model.GListModel;
+import com.lowagie.text.Font;
 import java.awt.Component;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
@@ -51,8 +52,10 @@ public class GList extends JList {
                 Component comp = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 if (index % 2 == 0 && !isSelected) {
                     comp.setBackground(GColors.FOCUS);
+                    comp.getFont().deriveFont(Font.NORMAL);
                 } else if (isSelected) {
                     comp.setBackground(getSelectionBackground());
+                    comp.getFont().deriveFont(Font.BOLD);
                 }
                 return comp;
             }
