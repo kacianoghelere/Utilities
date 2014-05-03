@@ -102,7 +102,7 @@ public class GTableModel<T> extends SimpleTableModel {
      * @return <code>boolean</code> É editavel?
      */
     @Override
-    public boolean isCellEditable(int row, int column) {        
+    public boolean isCellEditable(int row, int column) {
         return getFields(objClass)[column].isAnnotationPresent(Editable.class);
     }
 
@@ -222,6 +222,16 @@ public class GTableModel<T> extends SimpleTableModel {
             }
         }
         return null;
+    }
+
+    /**
+     * Retorna se o modelo contem o objeto, ou não...
+     *
+     * @param t <code>T</code> Objeto
+     * @return <code>boolean</code> Retorna se o modelo contem o objeto ou não
+     */
+    public boolean contains(T t) {
+        return this.data.contains(t);
     }
 
     /**
