@@ -1,5 +1,6 @@
 package br.com.gmp.utils.interceptors;
 
+import br.com.gmp.utils.annotations.Intercept;
 import com.google.inject.AbstractModule;
 import com.google.inject.matcher.Matchers;
 
@@ -12,19 +13,15 @@ import com.google.inject.matcher.Matchers;
 public class InterceptorModule extends AbstractModule {
 
     /**
-     * Configuração do metodo.
+     * Configuração dos metodos anotados
      *
-     * @see InterceptMatcher
-     * @see InvokerInterceptor
+     * @see br.com.gmp.utils.annotations.Intercept
+     * @see Interceptor
      * @see Matchers#any()
-     * @see #bindInterceptor(com.google.inject.matcher.Matcher,
-     * com.google.inject.matcher.Matcher,
-     * org.aopalliance.intercept.MethodInterceptor[]) i
      * @since 1.0
      */
     @Override
     protected void configure() {
-        //Todas as classes, usando o terceptMatcher e o InvokerInterceptor
-        bindInterceptor(Matchers.any(), new InterceptMatcher(), new InvokerInterceptor());
+        bindInterceptor(Matchers.any(), Matchers.annotatedWith(Intercept.class), new Interceptor());
     }
 }
