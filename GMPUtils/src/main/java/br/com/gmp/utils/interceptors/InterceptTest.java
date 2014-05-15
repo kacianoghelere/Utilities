@@ -1,6 +1,7 @@
 package br.com.gmp.utils.interceptors;
 
 import br.com.gmp.utils.annotations.Intercept;
+import com.google.inject.Inject;
 
 /**
  *
@@ -11,8 +12,8 @@ public class InterceptTest {
     /**
      * Cria nova instancia de InterceptTest
      */
-    public InterceptTest() {
-        InterceptorModule interceptorModule = new InterceptorModule();
+    @Inject
+    public InterceptTest() {        
         jaguara();
     }
 
