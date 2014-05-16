@@ -13,7 +13,7 @@ public class Interceptor implements MethodInterceptor {
 
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        System.out.println(invocation.getMethod().getName() + " -> Invoked!");
+        System.out.println(invocation.getMethod().getName().toUpperCase() + " ----> Invoked!");
         return invocation.proceed();
     }
 }

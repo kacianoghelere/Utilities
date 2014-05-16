@@ -1,7 +1,8 @@
 package br.com.gmp.utils.interceptors;
 
 import br.com.gmp.utils.annotations.Intercept;
-import com.google.inject.Inject;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 /**
  *
@@ -9,20 +10,29 @@ import com.google.inject.Inject;
  */
 public class InterceptTest {
 
+    private Injector injector;
+
     /**
      * Cria nova instancia de InterceptTest
      */
-    @Inject
-    public InterceptTest() {        
-        jaguara();
+    public InterceptTest() {
+        injector = Guice.createInjector(new InterceptorModule());
     }
 
-    @Intercept
-    private void jaguara() {
-        System.out.println("Métodozinho jaguara!");
+    public Injector getInjector() {
+        return injector;
     }
 
     public static void main(String[] args) {
-        new InterceptTest();
+        InterceptMember instance = new InterceptTest().getInjector().getInstance(InterceptMember.class);
+        instance.jaguara();
+    }
+}
+
+class InterceptMember {
+
+    @Intercept
+    public void jaguara() {
+        System.out.println("Métodozinho jaguara!");
     }
 }
