@@ -19,9 +19,6 @@ public class InterceptTest {
      */
     public InterceptTest() {
         injector = Guice.createInjector(new InterceptorModule());
-        InterceptMember instance = new InterceptTest().getInjector()
-                .getInstance(InterceptMember.class);
-        instance.jaguara();
     }
 
     /**
@@ -34,7 +31,9 @@ public class InterceptTest {
     }
 
     public static void main(String[] args) {
-        InterceptTest interceptTest = new InterceptTest();
+        InterceptMember instance = new InterceptTest().getInjector()
+                .getInstance(InterceptMember.class);
+        instance.testMethod();
     }
 
 }
@@ -50,7 +49,7 @@ class InterceptMember {
      * Método que será interceptado no teste
      */
     @Intercept
-    public void jaguara() {
+    public void testMethod() {
         System.out.println("Métodozinho jaguara!");
     }
 }
