@@ -12,8 +12,10 @@ import org.aopalliance.intercept.MethodInvocation;
 public class Interceptor implements MethodInterceptor {
 
     @Override
-    public Object invoke(MethodInvocation invocation) throws Throwable {
-        System.out.println(invocation.getMethod().getName().toUpperCase() + " ----> Invoked!");
-        return invocation.proceed();
+    public Object invoke(MethodInvocation method) throws Throwable {
+        String msg = "Method: " + method.getMethod().getName().toUpperCase()
+                + " -> Invoked!";
+        System.out.println(msg);
+        return method.proceed();
     }
 }

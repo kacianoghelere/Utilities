@@ -24,7 +24,8 @@ public class InterceptTest {
     }
 
     public static void main(String[] args) {
-        InterceptMember instance = new InterceptTest().getInjector().getInstance(InterceptMember.class);
+        InterceptMember instance = new InterceptTest().getInjector()
+                .getInstance(InterceptMember.class);
         instance.jaguara();
     }
 }
