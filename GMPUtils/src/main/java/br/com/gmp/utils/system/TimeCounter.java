@@ -26,4 +26,11 @@ public class TimeCounter {
         return System.currentTimeMillis() - before;
     }
 
+    /**
+     * Reinicia o horario inicial do contador
+     */
+    public void reset() {
+        before = System.currentTimeMillis();
+    }
+
 }
