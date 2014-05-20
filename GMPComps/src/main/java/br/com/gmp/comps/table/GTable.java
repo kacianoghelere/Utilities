@@ -440,6 +440,7 @@ public class GTable extends JTable implements TableControl, Exporter {
 
         setAutoCreateRowSorter(true);
         setComponentPopupMenu(jPop);
+        setMaximumSize(new java.awt.Dimension(32768, 32768));
         setPreferredSize(new java.awt.Dimension(280, 200));
     }// </editor-fold>//GEN-END:initComponents
 
