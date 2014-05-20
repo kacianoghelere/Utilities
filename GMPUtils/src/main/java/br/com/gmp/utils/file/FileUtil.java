@@ -60,7 +60,7 @@ public class FileUtil {
     /**
      * Retorna os dados carregados no arquivo em forma de String
      *
-     * @param file <code></code> Caminho do arquivo
+     * @param file <code>String</code> Caminho do arquivo
      * @return <code>String</code> Dados carregados
      * @throws IOException Exceção de I/O
      */
@@ -79,7 +79,7 @@ public class FileUtil {
     /**
      * Retorna os dados carregados no arquivo
      *
-     * @param file <code></code> Caminho do arquivo
+     * @param file <code>String</code> Caminho do arquivo
      * @return <code>List(String)</code> Dados carregados(Linhas)
      * @throws IOException Exceção de I/O
      */
