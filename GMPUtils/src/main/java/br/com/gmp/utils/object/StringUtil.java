@@ -50,6 +50,16 @@ public class StringUtil {
         return sb.toString();
     }
 
+    /**
+     * Torna a primeira letra da String maiuscula
+     *
+     * @param text <code>String</code> String à ser formatada
+     * @return  <code>String</code> String formatada
+     */
+    public String capitalize(String text) {
+        return Character.toString(text.charAt(0)).toUpperCase() + text.substring(1);
+    }
+
     public static void main(String[] args) {
         Long num1 = (long) 1;
         Long num2 = (long) 111;
