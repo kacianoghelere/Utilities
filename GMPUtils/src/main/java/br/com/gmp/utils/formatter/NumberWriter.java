@@ -89,6 +89,11 @@ public class NumberWriter {
         NumberWriter numberWriter = new NumberWriter();
         String number = "1234567";
         int[] lenghts = numberWriter.getLenghts(number);
-        System.out.println(Arrays.toString(lenghts));
+        System.out.println(lenghts[0] + " unidades");
+        System.out.println(lenghts[1] + " dezenas");
+        System.out.println(lenghts[2] + " centenas");
+        System.out.println(lenghts[3] + " milhares");
+        System.out.println(lenghts[4] + " milhões");
+        System.out.println(lenghts[5] + " bilhões");        
     }
 }
