@@ -11,7 +11,7 @@ public enum Numbers {
     /**
      * Descrições das unidades
      */
-    UNITY_BR(new String[]{"um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"}),
+    UNITY_BR(new String[]{"um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "zero"}),
     /**
      * Descrições das dezenas
      */
