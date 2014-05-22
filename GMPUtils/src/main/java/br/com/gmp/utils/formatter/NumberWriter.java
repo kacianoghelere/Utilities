@@ -1,5 +1,6 @@
 package br.com.gmp.utils.formatter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -65,9 +66,11 @@ public class NumberWriter {
         }
         int[] ints = new int[lenghts.length];
         List<String> list = Arrays.asList(lenghts);
-        list.removeAll(Collections.singleton(null));
-        lenghts = list.toArray(new String[]{});
-        for (int i = 0; i < ints.length; i++) {
+        List<String> data = new ArrayList<>();
+        data.addAll(list);
+        data.removeAll(Collections.singleton(null));
+        lenghts = data.toArray(new String[]{});
+        for (int i = 0; i < lenghts.length; i++) {
             String trim = lenghts[i].replaceAll("null", "").trim();
             System.out.println("Convertendo " + trim);
             ints[i] = Integer.parseInt(trim);
@@ -89,11 +92,11 @@ public class NumberWriter {
         NumberWriter numberWriter = new NumberWriter();
         String number = "1234567";
         int[] lenghts = numberWriter.getLenghts(number);
-        System.out.println(lenghts[0] + " unidades");
-        System.out.println(lenghts[1] + " dezenas");
-        System.out.println(lenghts[2] + " centenas");
-        System.out.println(lenghts[3] + " milhares");
+        System.out.println(lenghts[5] + " bilhões");
         System.out.println(lenghts[4] + " milhões");
-        System.out.println(lenghts[5] + " bilhões");        
+        System.out.println(lenghts[3] + " milhares");
+        System.out.println(lenghts[2] + " centenas");
+        System.out.println(lenghts[1] + " dezenas");
+        System.out.println(lenghts[0] + " unidades");
     }
 }
