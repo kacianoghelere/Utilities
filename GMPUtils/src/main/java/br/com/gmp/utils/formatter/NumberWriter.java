@@ -1,5 +1,7 @@
 package br.com.gmp.utils.formatter;
 
+import br.com.gmp.utils.commons.NumberDescription;
+import br.com.gmp.utils.commons.Numbers;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -20,12 +22,14 @@ public class NumberWriter {
      * @return <code>String</code> Descrição do numero
      */
     public String describe(int number) throws NumberFormatException {
+        NumberDescription descriptions = new NumberDescription();
         if (String.valueOf(number).length() > 12) {
             throw new NumberFormatException();
         }
         String value = String.valueOf(number);
         StringBuilder sb = new StringBuilder();
-        int[] values = getLenghts(value);
+        Integer[] values = getLenghts(value);
+        String desc = "";
 
         return sb.toString();
     }
@@ -43,28 +47,37 @@ public class NumberWriter {
      * @param value <code>String</code> Numero em String
      * @return <code>int[]</code> Array com as quantidades
      */
-    public int[] getLenghts(String value) {
+    private Integer[] getLenghts(String value) {
         String toString = new StringBuffer(value).reverse().toString();
         char[] fields = toString.toCharArray();
         String[] lenghts = new String[6];
         for (int i = 0; i < fields.length; i++) {
             if (i < 3) {
                 if (i == 0) {
-                    lenghts[0] = String.valueOf(fields[i]);
+                    lenghts[5] = String.valueOf(fields[i]);
                 } else if (i == 1) {
-                    lenghts[1] = String.valueOf(fields[i]);
+                    lenghts[4] = String.valueOf(fields[i]);
                 } else if (i == 2) {
-                    lenghts[2] = String.valueOf(fields[i]);
+                    lenghts[3] = String.valueOf(fields[i]);
                 }
             } else if (i >= 3 && i < 6) {
-                lenghts[3] += String.valueOf(fields[i]);
+                lenghts[2] += String.valueOf(fields[i]);
             } else if (i >= 6 && i < 9) {
-                lenghts[4] += String.valueOf(fields[i]);
+                lenghts[1] += String.valueOf(fields[i]);
             } else if (i >= 9) {
-                lenghts[5] += String.valueOf(fields[i]);
+                lenghts[0] += String.valueOf(fields[i]);
             }
         }
-        int[] ints = new int[lenghts.length];
+        if (lenghts[2] != null) {
+            lenghts[2] = new StringBuffer(lenghts[2]).reverse().toString();
+        }
+        if (lenghts[1] != null) {
+            lenghts[1] = new StringBuffer(lenghts[1]).reverse().toString();
+        }
+        if (lenghts[0] != null) {
+            lenghts[0] = new StringBuffer(lenghts[0]).reverse().toString();
+        }
+        Integer[] ints = new Integer[lenghts.length];
         List<String> list = Arrays.asList(lenghts);
         List<String> data = new ArrayList<>();
         data.addAll(list);
@@ -90,13 +103,7 @@ public class NumberWriter {
 
     public static void main(String[] args) {
         NumberWriter numberWriter = new NumberWriter();
-        String number = "1234567";
-        int[] lenghts = numberWriter.getLenghts(number);
-        System.out.println(lenghts[5] + " bilhões");
-        System.out.println(lenghts[4] + " milhões");
-        System.out.println(lenghts[3] + " milhares");
-        System.out.println(lenghts[2] + " centenas");
-        System.out.println(lenghts[1] + " dezenas");
-        System.out.println(lenghts[0] + " unidades");
+        System.out.println(numberWriter.describe(1234567));
+        // um milhão duzentos trinta e quatro mil quinhentos e e sessenta e sete
     }
 }
