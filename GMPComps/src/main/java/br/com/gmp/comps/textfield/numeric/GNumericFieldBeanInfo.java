@@ -111,72 +111,71 @@ public class GNumericFieldBeanInfo extends SimpleBeanInfo {
     private static final int PROPERTY_keymap = 84;
     private static final int PROPERTY_layout = 85;
     private static final int PROPERTY_lightweight = 86;
-    private static final int PROPERTY_limit = 87;
-    private static final int PROPERTY_locale = 88;
-    private static final int PROPERTY_location = 89;
-    private static final int PROPERTY_locationOnScreen = 90;
-    private static final int PROPERTY_long = 91;
-    private static final int PROPERTY_managingFocus = 92;
-    private static final int PROPERTY_margin = 93;
-    private static final int PROPERTY_maximumlength = 94;
-    private static final int PROPERTY_maximumSize = 95;
-    private static final int PROPERTY_maximumSizeSet = 96;
-    private static final int PROPERTY_minimallength = 97;
-    private static final int PROPERTY_minimumSize = 98;
-    private static final int PROPERTY_minimumSizeSet = 99;
-    private static final int PROPERTY_mouseListeners = 100;
-    private static final int PROPERTY_mouseMotionListeners = 101;
-    private static final int PROPERTY_mousePosition = 102;
-    private static final int PROPERTY_mouseWheelListeners = 103;
-    private static final int PROPERTY_name = 104;
-    private static final int PROPERTY_navigationFilter = 105;
-    private static final int PROPERTY_nextFocusableComponent = 106;
-    private static final int PROPERTY_opaque = 107;
-    private static final int PROPERTY_optimizedDrawingEnabled = 108;
-    private static final int PROPERTY_paintingForPrint = 109;
-    private static final int PROPERTY_paintingTile = 110;
-    private static final int PROPERTY_parent = 111;
-    private static final int PROPERTY_peer = 112;
-    private static final int PROPERTY_placeholder = 113;
-    private static final int PROPERTY_preferredScrollableViewportSize = 114;
-    private static final int PROPERTY_preferredSize = 115;
-    private static final int PROPERTY_preferredSizeSet = 116;
-    private static final int PROPERTY_propertyChangeListeners = 117;
-    private static final int PROPERTY_registeredKeyStrokes = 118;
-    private static final int PROPERTY_requestFocusEnabled = 119;
-    private static final int PROPERTY_rootPane = 120;
-    private static final int PROPERTY_scrollableTracksViewportHeight = 121;
-    private static final int PROPERTY_scrollableTracksViewportWidth = 122;
-    private static final int PROPERTY_scrollOffset = 123;
-    private static final int PROPERTY_selectedText = 124;
-    private static final int PROPERTY_selectedTextColor = 125;
-    private static final int PROPERTY_selectionColor = 126;
-    private static final int PROPERTY_selectionEnd = 127;
-    private static final int PROPERTY_selectionStart = 128;
-    private static final int PROPERTY_showing = 129;
-    private static final int PROPERTY_size = 130;
-    private static final int PROPERTY_text = 131;
-    private static final int PROPERTY_toolkit = 132;
-    private static final int PROPERTY_toolTipText = 133;
-    private static final int PROPERTY_topLevelAncestor = 134;
-    private static final int PROPERTY_transferHandler = 135;
-    private static final int PROPERTY_treeLock = 136;
-    private static final int PROPERTY_UI = 137;
-    private static final int PROPERTY_UIClassID = 138;
-    private static final int PROPERTY_valid = 139;
-    private static final int PROPERTY_validateRoot = 140;
-    private static final int PROPERTY_verifyInputWhenFocusTarget = 141;
-    private static final int PROPERTY_vetoableChangeListeners = 142;
-    private static final int PROPERTY_visible = 143;
-    private static final int PROPERTY_visibleRect = 144;
-    private static final int PROPERTY_width = 145;
-    private static final int PROPERTY_x = 146;
-    private static final int PROPERTY_y = 147;
+    private static final int PROPERTY_locale = 87;
+    private static final int PROPERTY_location = 88;
+    private static final int PROPERTY_locationOnScreen = 89;
+    private static final int PROPERTY_long = 90;
+    private static final int PROPERTY_managingFocus = 91;
+    private static final int PROPERTY_margin = 92;
+    private static final int PROPERTY_maximumlength = 93;
+    private static final int PROPERTY_maximumSize = 94;
+    private static final int PROPERTY_maximumSizeSet = 95;
+    private static final int PROPERTY_minimallength = 96;
+    private static final int PROPERTY_minimumSize = 97;
+    private static final int PROPERTY_minimumSizeSet = 98;
+    private static final int PROPERTY_mouseListeners = 99;
+    private static final int PROPERTY_mouseMotionListeners = 100;
+    private static final int PROPERTY_mousePosition = 101;
+    private static final int PROPERTY_mouseWheelListeners = 102;
+    private static final int PROPERTY_name = 103;
+    private static final int PROPERTY_navigationFilter = 104;
+    private static final int PROPERTY_nextFocusableComponent = 105;
+    private static final int PROPERTY_opaque = 106;
+    private static final int PROPERTY_optimizedDrawingEnabled = 107;
+    private static final int PROPERTY_paintingForPrint = 108;
+    private static final int PROPERTY_paintingTile = 109;
+    private static final int PROPERTY_parent = 110;
+    private static final int PROPERTY_peer = 111;
+    private static final int PROPERTY_placeholder = 112;
+    private static final int PROPERTY_preferredScrollableViewportSize = 113;
+    private static final int PROPERTY_preferredSize = 114;
+    private static final int PROPERTY_preferredSizeSet = 115;
+    private static final int PROPERTY_propertyChangeListeners = 116;
+    private static final int PROPERTY_registeredKeyStrokes = 117;
+    private static final int PROPERTY_requestFocusEnabled = 118;
+    private static final int PROPERTY_rootPane = 119;
+    private static final int PROPERTY_scrollableTracksViewportHeight = 120;
+    private static final int PROPERTY_scrollableTracksViewportWidth = 121;
+    private static final int PROPERTY_scrollOffset = 122;
+    private static final int PROPERTY_selectedText = 123;
+    private static final int PROPERTY_selectedTextColor = 124;
+    private static final int PROPERTY_selectionColor = 125;
+    private static final int PROPERTY_selectionEnd = 126;
+    private static final int PROPERTY_selectionStart = 127;
+    private static final int PROPERTY_showing = 128;
+    private static final int PROPERTY_size = 129;
+    private static final int PROPERTY_text = 130;
+    private static final int PROPERTY_toolkit = 131;
+    private static final int PROPERTY_toolTipText = 132;
+    private static final int PROPERTY_topLevelAncestor = 133;
+    private static final int PROPERTY_transferHandler = 134;
+    private static final int PROPERTY_treeLock = 135;
+    private static final int PROPERTY_UI = 136;
+    private static final int PROPERTY_UIClassID = 137;
+    private static final int PROPERTY_valid = 138;
+    private static final int PROPERTY_validateRoot = 139;
+    private static final int PROPERTY_verifyInputWhenFocusTarget = 140;
+    private static final int PROPERTY_vetoableChangeListeners = 141;
+    private static final int PROPERTY_visible = 142;
+    private static final int PROPERTY_visibleRect = 143;
+    private static final int PROPERTY_width = 144;
+    private static final int PROPERTY_x = 145;
+    private static final int PROPERTY_y = 146;
 
     // Property array 
     /*lazy PropertyDescriptor*/
     private static PropertyDescriptor[] getPdescriptor(){
-        PropertyDescriptor[] properties = new PropertyDescriptor[148];
+        PropertyDescriptor[] properties = new PropertyDescriptor[147];
     
         try {
             properties[PROPERTY_accessibleContext] = new PropertyDescriptor ( "accessibleContext", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getAccessibleContext", null ); // NOI18N
@@ -193,9 +192,13 @@ public class GNumericFieldBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_backgroundSet] = new PropertyDescriptor ( "backgroundSet", br.com.gmp.comps.textfield.numeric.GNumericField.class, "isBackgroundSet", null ); // NOI18N
             properties[PROPERTY_baselineResizeBehavior] = new PropertyDescriptor ( "baselineResizeBehavior", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getBaselineResizeBehavior", null ); // NOI18N
             properties[PROPERTY_bigDecimal] = new PropertyDescriptor ( "bigDecimal", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getBigDecimal", "setBigDecimal" ); // NOI18N
+            properties[PROPERTY_bigDecimal].setPreferred ( true );
             properties[PROPERTY_bigInteger] = new PropertyDescriptor ( "bigInteger", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getBigInteger", "setBigInteger" ); // NOI18N
+            properties[PROPERTY_bigInteger].setPreferred ( true );
             properties[PROPERTY_boolean] = new PropertyDescriptor ( "boolean", br.com.gmp.comps.textfield.numeric.GNumericField.class, null, "setBoolean" ); // NOI18N
+            properties[PROPERTY_boolean].setPreferred ( true );
             properties[PROPERTY_border] = new PropertyDescriptor ( "border", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getBorder", "setBorder" ); // NOI18N
+            properties[PROPERTY_border].setPreferred ( true );
             properties[PROPERTY_bounds] = new PropertyDescriptor ( "bounds", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getBounds", "setBounds" ); // NOI18N
             properties[PROPERTY_caret] = new PropertyDescriptor ( "caret", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getCaret", "setCaret" ); // NOI18N
             properties[PROPERTY_caretColor] = new PropertyDescriptor ( "caretColor", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getCaretColor", "setCaretColor" ); // NOI18N
@@ -203,6 +206,7 @@ public class GNumericFieldBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_caretPosition] = new PropertyDescriptor ( "caretPosition", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getCaretPosition", "setCaretPosition" ); // NOI18N
             properties[PROPERTY_colorModel] = new PropertyDescriptor ( "colorModel", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getColorModel", null ); // NOI18N
             properties[PROPERTY_columns] = new PropertyDescriptor ( "columns", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getColumns", "setColumns" ); // NOI18N
+            properties[PROPERTY_columns].setPreferred ( true );
             properties[PROPERTY_component] = new IndexedPropertyDescriptor ( "component", br.com.gmp.comps.textfield.numeric.GNumericField.class, null, null, "getComponent", null ); // NOI18N
             properties[PROPERTY_componentCount] = new PropertyDescriptor ( "componentCount", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getComponentCount", null ); // NOI18N
             properties[PROPERTY_componentListeners] = new PropertyDescriptor ( "componentListeners", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getComponentListeners", null ); // NOI18N
@@ -217,6 +221,7 @@ public class GNumericFieldBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_displayable] = new PropertyDescriptor ( "displayable", br.com.gmp.comps.textfield.numeric.GNumericField.class, "isDisplayable", null ); // NOI18N
             properties[PROPERTY_document] = new PropertyDescriptor ( "document", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getDocument", "setDocument" ); // NOI18N
             properties[PROPERTY_double] = new PropertyDescriptor ( "double", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getDouble", "setDouble" ); // NOI18N
+            properties[PROPERTY_double].setPreferred ( true );
             properties[PROPERTY_doubleBuffered] = new PropertyDescriptor ( "doubleBuffered", br.com.gmp.comps.textfield.numeric.GNumericField.class, "isDoubleBuffered", "setDoubleBuffered" ); // NOI18N
             properties[PROPERTY_dragEnabled] = new PropertyDescriptor ( "dragEnabled", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getDragEnabled", "setDragEnabled" ); // NOI18N
             properties[PROPERTY_dropLocation] = new PropertyDescriptor ( "dropLocation", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getDropLocation", null ); // NOI18N
@@ -225,6 +230,7 @@ public class GNumericFieldBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_editable] = new PropertyDescriptor ( "editable", br.com.gmp.comps.textfield.numeric.GNumericField.class, "isEditable", "setEditable" ); // NOI18N
             properties[PROPERTY_enabled] = new PropertyDescriptor ( "enabled", br.com.gmp.comps.textfield.numeric.GNumericField.class, "isEnabled", "setEnabled" ); // NOI18N
             properties[PROPERTY_float] = new PropertyDescriptor ( "float", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getFloat", "setFloat" ); // NOI18N
+            properties[PROPERTY_float].setPreferred ( true );
             properties[PROPERTY_focusable] = new PropertyDescriptor ( "focusable", br.com.gmp.comps.textfield.numeric.GNumericField.class, "isFocusable", "setFocusable" ); // NOI18N
             properties[PROPERTY_focusAccelerator] = new PropertyDescriptor ( "focusAccelerator", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getFocusAccelerator", "setFocusAccelerator" ); // NOI18N
             properties[PROPERTY_focusCycleRoot] = new PropertyDescriptor ( "focusCycleRoot", br.com.gmp.comps.textfield.numeric.GNumericField.class, "isFocusCycleRoot", "setFocusCycleRoot" ); // NOI18N
@@ -260,17 +266,18 @@ public class GNumericFieldBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_inputVerifier] = new PropertyDescriptor ( "inputVerifier", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getInputVerifier", "setInputVerifier" ); // NOI18N
             properties[PROPERTY_insets] = new PropertyDescriptor ( "insets", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getInsets", null ); // NOI18N
             properties[PROPERTY_int] = new PropertyDescriptor ( "int", br.com.gmp.comps.textfield.numeric.GNumericField.class, null, "setInt" ); // NOI18N
+            properties[PROPERTY_int].setPreferred ( true );
             properties[PROPERTY_integer] = new PropertyDescriptor ( "integer", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getInteger", null ); // NOI18N
             properties[PROPERTY_invalidMsg] = new PropertyDescriptor ( "invalidMsg", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getInvalidMsg", "setInvalidMsg" ); // NOI18N
             properties[PROPERTY_keyListeners] = new PropertyDescriptor ( "keyListeners", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getKeyListeners", null ); // NOI18N
             properties[PROPERTY_keymap] = new PropertyDescriptor ( "keymap", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getKeymap", "setKeymap" ); // NOI18N
             properties[PROPERTY_layout] = new PropertyDescriptor ( "layout", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getLayout", "setLayout" ); // NOI18N
             properties[PROPERTY_lightweight] = new PropertyDescriptor ( "lightweight", br.com.gmp.comps.textfield.numeric.GNumericField.class, "isLightweight", null ); // NOI18N
-            properties[PROPERTY_limit] = new PropertyDescriptor ( "limit", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getLimit", "setLimit" ); // NOI18N
             properties[PROPERTY_locale] = new PropertyDescriptor ( "locale", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getLocale", "setLocale" ); // NOI18N
             properties[PROPERTY_location] = new PropertyDescriptor ( "location", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getLocation", "setLocation" ); // NOI18N
             properties[PROPERTY_locationOnScreen] = new PropertyDescriptor ( "locationOnScreen", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getLocationOnScreen", null ); // NOI18N
             properties[PROPERTY_long] = new PropertyDescriptor ( "long", br.com.gmp.comps.textfield.numeric.GNumericField.class, null, "setLong" ); // NOI18N
+            properties[PROPERTY_long].setPreferred ( true );
             properties[PROPERTY_managingFocus] = new PropertyDescriptor ( "managingFocus", br.com.gmp.comps.textfield.numeric.GNumericField.class, "isManagingFocus", null ); // NOI18N
             properties[PROPERTY_margin] = new PropertyDescriptor ( "margin", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getMargin", "setMargin" ); // NOI18N
             properties[PROPERTY_maximumlength] = new PropertyDescriptor ( "maximumlength", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getMaximumlength", "setMaximumlength" ); // NOI18N
@@ -293,6 +300,7 @@ public class GNumericFieldBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_parent] = new PropertyDescriptor ( "parent", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getParent", null ); // NOI18N
             properties[PROPERTY_peer] = new PropertyDescriptor ( "peer", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getPeer", null ); // NOI18N
             properties[PROPERTY_placeholder] = new PropertyDescriptor ( "placeholder", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getPlaceholder", "setPlaceholder" ); // NOI18N
+            properties[PROPERTY_placeholder].setPreferred ( true );
             properties[PROPERTY_preferredScrollableViewportSize] = new PropertyDescriptor ( "preferredScrollableViewportSize", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getPreferredScrollableViewportSize", null ); // NOI18N
             properties[PROPERTY_preferredSize] = new PropertyDescriptor ( "preferredSize", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getPreferredSize", "setPreferredSize" ); // NOI18N
             properties[PROPERTY_preferredSizeSet] = new PropertyDescriptor ( "preferredSizeSet", br.com.gmp.comps.textfield.numeric.GNumericField.class, "isPreferredSizeSet", null ); // NOI18N
@@ -311,8 +319,10 @@ public class GNumericFieldBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_showing] = new PropertyDescriptor ( "showing", br.com.gmp.comps.textfield.numeric.GNumericField.class, "isShowing", null ); // NOI18N
             properties[PROPERTY_size] = new PropertyDescriptor ( "size", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getSize", "setSize" ); // NOI18N
             properties[PROPERTY_text] = new PropertyDescriptor ( "text", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getText", "setText" ); // NOI18N
+            properties[PROPERTY_text].setPreferred ( true );
             properties[PROPERTY_toolkit] = new PropertyDescriptor ( "toolkit", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getToolkit", null ); // NOI18N
             properties[PROPERTY_toolTipText] = new PropertyDescriptor ( "toolTipText", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getToolTipText", "setToolTipText" ); // NOI18N
+            properties[PROPERTY_toolTipText].setPreferred ( true );
             properties[PROPERTY_topLevelAncestor] = new PropertyDescriptor ( "topLevelAncestor", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getTopLevelAncestor", null ); // NOI18N
             properties[PROPERTY_transferHandler] = new PropertyDescriptor ( "transferHandler", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getTransferHandler", "setTransferHandler" ); // NOI18N
             properties[PROPERTY_treeLock] = new PropertyDescriptor ( "treeLock", br.com.gmp.comps.textfield.numeric.GNumericField.class, "getTreeLock", null ); // NOI18N
@@ -924,10 +934,10 @@ public class GNumericFieldBeanInfo extends SimpleBeanInfo {
     private static java.awt.Image iconColor32 = null;
     private static java.awt.Image iconMono16 = null;
     private static java.awt.Image iconMono32 = null;//GEN-END:IconsDef
-    private static String iconNameC16 = null;//GEN-BEGIN:Icons
-    private static String iconNameC32 = null;
-    private static String iconNameM16 = null;
-    private static String iconNameM32 = null;//GEN-END:Icons
+    private static String iconNameC16 = "/ComponentIcons/field/field.png";//GEN-BEGIN:Icons
+    private static String iconNameC32 = "/ComponentIcons/field/field.png";
+    private static String iconNameM16 = "/ComponentIcons/field/field.png";
+    private static String iconNameM32 = "/ComponentIcons/field/field.png";//GEN-END:Icons
 
     private static final int defaultPropertyIndex = -1;//GEN-BEGIN:Idx
     private static final int defaultEventIndex = -1;//GEN-END:Idx
