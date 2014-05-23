@@ -90,6 +90,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         numericTextField1 = new br.com.gmp.comps.textfield.NumericTextField();
         gAutoCB = new br.com.gmp.comps.combobox.GAutoComboBox();
         gGradientPanel1 = new br.com.gmp.comps.panel.gradient.GGradientPanel();
+        gNumericField1 = new br.com.gmp.comps.textfield.numeric.GNumericField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -190,8 +191,10 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         );
         gGradientPanel1Layout.setVerticalGroup(
             gGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 176, Short.MAX_VALUE)
         );
+
+        gNumericField1.setName("gNumericField1"); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -203,7 +206,11 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(gGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(gGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(gNumericField1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(gMPDateField2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -229,7 +236,11 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                    .addComponent(gGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(gGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gNumericField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -284,6 +295,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     private br.com.gmp.comps.textfield.button.GMPButtonField gMPButtonField1;
     private br.com.gmp.comps.datefield.GMPDateField gMPDateField2;
     private br.com.gmp.comps.table.dual.GMPDualTable gMPDualTable1;
+    private br.com.gmp.comps.textfield.numeric.GNumericField gNumericField1;
     private br.com.gmp.comps.table.GMPTable gTable;
     private br.com.gmp.comps.table.bar.GMPTableBar gTableBar;
     private br.com.gmp.comps.tree.GMPTree gTree;

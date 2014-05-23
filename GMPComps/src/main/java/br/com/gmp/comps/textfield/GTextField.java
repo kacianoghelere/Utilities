@@ -34,14 +34,14 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     private boolean force = false;
 
     /**
-     * Cria nova instancia de GMPTextField
+     * Cria nova instancia de GTextField
      */
     public GTextField() {
         initialize();
     }
 
     /**
-     * Cria nova instancia de GMPTextField
+     * Cria nova instancia de GTextField
      *
      * @param doc <code>Document</code> Documento do componente
      * @param text <code>String</code> Texto do componente
@@ -53,7 +53,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     }
 
     /**
-     * Cria nova instancia de GMPTextField
+     * Cria nova instancia de GTextField
      *
      * @param placeholder <code>String</code> Texto que ficará no componente
      * enquanto ele estiver vazio
@@ -66,7 +66,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     }
 
     /**
-     * Cria nova instancia de GMPTextField
+     * Cria nova instancia de GTextField
      *
      * @param icon <code>Icon</code> Icone do componente
      */
@@ -76,7 +76,18 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     }
 
     /**
-     * Cria nova instancia de GMPTextField
+     * Cria nova instancia de GTextField
+     *
+     * @param text <code>String</code> Texto do componente
+     * @param columns <code>int</code> Colunas do componente
+     */
+    public GTextField(String text, int columns) {
+        super(text, columns);
+        initialize();
+    }
+
+    /**
+     * Cria nova instancia de GTextField
      *
      * @param minimallength <code>int</code> Comprimento mínimo do texto
      * @param maximumlength <code>int</code> Comprimento máximo do texto
@@ -90,7 +101,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     }
 
     /**
-     * Cria nova instancia de GMPTextField
+     * Cria nova instancia de GTextField
      *
      * @param placeholder <code>String</code> Texto que ficará no componente
      * enquanto ele estiver vazio

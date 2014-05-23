@@ -1,7 +1,8 @@
 package br.com.gmp.comps.textfield.numeric;
 
-import br.com.gmp.comps.baloontip.src.BalloonUtil;
+import br.com.gmp.comps.document.NumericDocument;
 import br.com.gmp.comps.textfield.GTextField;
+import javax.swing.text.Document;
 
 /**
  * Campo de texto numérico
@@ -11,23 +12,22 @@ import br.com.gmp.comps.textfield.GTextField;
  */
 public class GNumericField extends GTextField {
 
-    private int limit;
-
     /**
      * Cria novo campo de texto numerico
      */
     public GNumericField() {
-        this.limit = 0;
+        super(String.valueOf(0), 5);
         initialize();
     }
 
     /**
-     * Cria novo GNumericField
+     * Cria novo campo de texto numerico
      *
-     * @param limit <code>int</code> Limite de caracteres
+     * @param text <code>String</code> Texto do componente
+     * @param size <code>int</code> Quantidade de colunas
      */
-    public GNumericField(int limit) {
-        this.limit = limit;
+    public GNumericField(String text, int size) {
+        super(text, size);
         initialize();
     }
 
@@ -38,50 +38,9 @@ public class GNumericField extends GTextField {
         initComponents();
     }
 
-    /**
-     * Retorna o limite de caracteresF
-     *
-     * @return <code>int</code> Limite de caracteres
-     */
-    public int getLimit() {
-        return limit;
-    }
-
-    /**
-     * Modifica o limite de caracteres
-     *
-     * @param limit <code>int</code> Limite de caracteres
-     */
-    public void setLimit(int limit) {
-        this.limit = limit;
-    }
-
     @Override
-    public void setText(String t) {
-        super.setText(t);
-        textControl();
-    }
-
-    /**
-     * Controla o texto para não inserir letras e manter dentro do tamanho max.
-     */
-    private void textControl() {
-        String s = getText();
-        new BalloonUtil().showTimedBallon(this, "Somente números!");
-        if (s.length() > 0) {
-            for (char c : s.toCharArray()) {
-                if (Character.isLetter(c)) {
-                    String sub = getText().substring(0, getText().length() - 1);
-                    setText(sub);
-                    grabFocus();
-                    break;
-                }
-            }
-        }
-        if (limit != 0 && getText().length() > limit) {
-            String sub = getText().substring(0, getText().length() - 1);
-            setText(sub);
-        }
+    protected Document createDefaultModel() {
+        return new NumericDocument();
     }
 
     /**
@@ -91,16 +50,18 @@ public class GNumericField extends GTextField {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                formKeyReleased(evt);
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                formFocusLost(evt);
             }
         });
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
-        textControl();
-    }//GEN-LAST:event_formKeyReleased
+    private void formFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusLost
+        if (getText().isEmpty()) {
+            setText("0");
+        }
+    }//GEN-LAST:event_formFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
