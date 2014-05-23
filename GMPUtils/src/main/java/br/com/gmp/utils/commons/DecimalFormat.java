@@ -8,10 +8,29 @@ package br.com.gmp.utils.commons;
  */
 public enum DecimalFormat {
 
+    /**
+     *
+     */
     ONE("#,###,###.0"),
+
+    /**
+     *
+     */
     TWO("#,###,###.00"),
+
+    /**
+     *
+     */
     THREE("#,###,###.000"),
+
+    /**
+     *
+     */
     FOUR("#,###,###.0000"),
+
+    /**
+     *
+     */
     FIVE("#,###,###.00000");
 
     private String format;
