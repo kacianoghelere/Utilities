@@ -1,5 +1,6 @@
 package br.com.gmp.comps;
 
+import br.com.gmp.comps.combobox.model.GComboBoxModel;
 import br.com.gmp.comps.model.GMPTableModel;
 import br.com.gmp.comps.panel.BlurGlassPane;
 import br.com.gmp.comps.table.interfaces.TableSource;
@@ -32,8 +33,17 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
             e.printStackTrace();
             System.exit(0);
         }
-        gTableBar.setTable(gTable);        
-        dual.setSourceElements(getTable().toArray());         
+        gTableBar.setTable(gTable);
+        dual.setSourceElements(getTable().toArray());
+        TestObject[] tos = new TestObject[5];
+        tos[0] = new TestObject("Kaciano");
+        tos[1] = new TestObject("Frávio");
+        tos[2] = new TestObject("Jesus");
+        tos[3] = new TestObject("Hipopotamo");
+        tos[4] = new TestObject("Jaraguá do sul");
+        TestAutoModel model = new TestAutoModel();        
+        model.setData(tos);
+        gAutoCB.setModel(model);
         gTree.mount(Test.class, getTableData());
     }
 
@@ -49,7 +59,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     private List<String> getTable() {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
-            list.add(String.valueOf(i));            
+            list.add(String.valueOf(i));
         }
         return list;
     }
@@ -78,6 +88,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         gTree = new br.com.gmp.comps.tree.GMPTree();
         gMPButtonField1 = new br.com.gmp.comps.textfield.button.GMPButtonField();
         numericTextField1 = new br.com.gmp.comps.textfield.NumericTextField();
+        gAutoCB = new br.com.gmp.comps.combobox.GAutoComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,7 +109,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gTableBar, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+            .addComponent(gTableBar, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -122,7 +133,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(dual, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+                .addComponent(dual, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         jPanel3Layout.setVerticalGroup(
@@ -164,6 +175,8 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
             }
         });
 
+        gAutoCB.setName("gAutoCB"); // NOI18N
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -180,7 +193,8 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                         .addComponent(gMPButtonField1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(numericTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 74, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(gAutoCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -191,7 +205,8 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                     .addComponent(gMPDateField2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4)
                     .addComponent(gMPButtonField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numericTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(numericTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gAutoCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                 .addContainerGap())
@@ -216,7 +231,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (gMPDateField2.validateComponent()) {
             System.out.println("Válido!");
-        } 
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void numericTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numericTextField1ActionPerformed
@@ -243,6 +258,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private br.com.gmp.comps.list.dual.GMPDualList dual;
+    private br.com.gmp.comps.combobox.GAutoComboBox gAutoCB;
     private br.com.gmp.comps.textfield.button.GMPButtonField gMPButtonField1;
     private br.com.gmp.comps.datefield.GMPDateField gMPDateField2;
     private br.com.gmp.comps.table.dual.GMPDualTable gMPDualTable1;
@@ -264,6 +280,33 @@ class DefaultModel extends GMPTableModel {
 
     public DefaultModel() {
         super(Test.class);
+    }
+
+}
+
+class TestAutoModel extends GComboBoxModel<TestObject> {
+
+}
+
+class TestObject {
+
+    private String name;
+
+    public TestObject(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 
 }

@@ -55,7 +55,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="gTableBar" pref="552" max="32767" attributes="0"/>
+                  <Component id="gTableBar" pref="584" max="32767" attributes="0"/>
                   <Component id="jScrollPane2" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
@@ -115,7 +115,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="dual" pref="552" max="32767" attributes="0"/>
+                      <Component id="dual" pref="584" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -178,7 +178,8 @@
                               <Component id="gMPButtonField1" min="-2" pref="146" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="numericTextField1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="74" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="gAutoCB" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -194,6 +195,7 @@
                           <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="gMPButtonField1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="numericTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="gAutoCB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane4" pref="370" max="32767" attributes="0"/>
@@ -249,6 +251,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numericTextField1ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="br.com.gmp.comps.combobox.GAutoComboBox" name="gAutoCB">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="gAutoCB" noResource="true"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
