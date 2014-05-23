@@ -13,10 +13,11 @@ import org.aopalliance.intercept.MethodInvocation;
 public class Interceptor implements MethodInterceptor {
 
     @Override
-    public Object invoke(MethodInvocation method) throws Throwable {        
+    public Object invoke(MethodInvocation method) throws Throwable {
         TimeCounter counter = new TimeCounter();
         Object proceed = method.proceed();
-        String msg = "Method: " + method.getMethod().getName().toUpperCase()
+        String msg = method.getMethod().getDeclaringClass().getSimpleName()
+                + "." + method.getMethod().getName()                
                 + " -> Invoked in " + counter.getTimeSpent() + "ms";
         System.out.println(msg);
         return proceed;

@@ -33,7 +33,7 @@ public class InterceptTest {
     public static void main(String[] args) {
         InterceptMember instance = new InterceptTest().getInjector()
                 .getInstance(InterceptMember.class);
-        instance.testMethod();
+        instance.testMethod("Métodozinho jaguara!");
     }
 
 }
@@ -49,7 +49,7 @@ class InterceptMember {
      * Método que será interceptado no teste
      */
     @Intercept
-    public void testMethod() {
-        System.out.println("Métodozinho jaguara!");
+    public void testMethod(String text) {
+        System.out.println(text);
     }
 }
