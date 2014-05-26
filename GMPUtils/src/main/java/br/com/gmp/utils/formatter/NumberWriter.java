@@ -118,10 +118,12 @@ public class NumberWriter {
                     }
                     break;
                 case -3:
-                    if (1 == value2) {
-                        sb.append(" ").append(FRACTION_SINGULAR);
-                    } else if (value2 > 1) {
-                        sb.append(" ").append(FRACTION_PLURAL);
+                    if (currency) {
+                        if (1 == value2) {
+                            sb.append(" ").append(FRACTION_SINGULAR);
+                        } else if (value2 > 1) {
+                            sb.append(" ").append(FRACTION_PLURAL);
+                        }
                     }
                     break;
             }
@@ -293,10 +295,8 @@ public class NumberWriter {
      */
     public static void main(String[] args) {
         NumberWriter writer = new NumberWriter();
-        for (int i = 0; i < 10; i++) {
-            int nextInt = new Random().nextInt(5000000);
-            System.out.println(nextInt);
-            System.out.println(writer.write(new BigDecimal(nextInt), false));
-        }
+        System.out.println(writer.write(new BigDecimal(0.5), false));
+        System.out.println(writer.write(new BigDecimal(52.56), false));
+        System.out.println(writer.write(new BigDecimal(12.57), true));
     }
 }
