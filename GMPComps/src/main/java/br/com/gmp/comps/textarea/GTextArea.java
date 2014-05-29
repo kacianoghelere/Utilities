@@ -3,6 +3,7 @@ package br.com.gmp.comps.textarea;
 import br.com.gmp.comps.GColors;
 import br.com.gmp.comps.baloontip.src.BalloonUtil;
 import br.com.gmp.comps.interfaces.ValidableComponent;
+import br.com.gmp.comps.textarea.finder.GTextFinder;
 import java.awt.event.FocusEvent;
 import javax.swing.JTextArea;
 
@@ -16,22 +17,26 @@ public class GTextArea extends JTextArea implements ValidableComponent {
 
     private int maximum;
     private String invalidMsg = "Campo obrigatório!";
+    private GTextFinder finder;
 
     /**
-     * Cria nova instancia de GMPTextArea
+     * Cria nova instancia de GTextArea
      */
     public GTextArea() {
         this.maximum = 0;
+        initComponents();
+        this.finder = new GTextFinder(null, this);
     }
 
     /**
-     * Cria nova instancia de GMPTextArea
+     * Cria nova instancia de GTextArea
      *
      * @param maximum <code>int</code> Comprimento maximo do texto
      */
     public GTextArea(int maximum) {
-        this.maximum = maximum;
+        this.maximum = maximum;        
         initComponents();
+        this.finder = new GTextFinder(null, this);
     }
 
     /**
@@ -115,6 +120,60 @@ public class GTextArea extends JTextArea implements ValidableComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu = new javax.swing.JPopupMenu();
+        jMFind = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMICopy = new javax.swing.JMenuItem();
+        jMICut = new javax.swing.JMenuItem();
+        jMIPaste = new javax.swing.JMenuItem();
+
+        jMFind.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/field/search.png"))); // NOI18N
+        jMFind.setText("Buscar");
+        jMFind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMFindActionPerformed(evt);
+            }
+        });
+        jPopupMenu.add(jMFind);
+        jPopupMenu.add(jSeparator1);
+
+        jMICopy.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jMICopy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/toolbar/controls/copy.png"))); // NOI18N
+        jMICopy.setMnemonic('c');
+        jMICopy.setText("<html>Copiar <b>Ctrl+C</b></html>");
+        jMICopy.setToolTipText("Copiar conteudo para a área de transferencia");
+        jMICopy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMICopyActionPerformed(evt);
+            }
+        });
+        jPopupMenu.add(jMICopy);
+
+        jMICut.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jMICut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/toolbar/controls/cut.png"))); // NOI18N
+        jMICut.setMnemonic('x');
+        jMICut.setText("<html>Recortar <b>Ctrl+X</b></html>");
+        jMICut.setToolTipText("Recortar conteudo para a área de transferencia");
+        jMICut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMICutActionPerformed(evt);
+            }
+        });
+        jPopupMenu.add(jMICut);
+
+        jMIPaste.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jMIPaste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/toolbar/controls/paste.png"))); // NOI18N
+        jMIPaste.setMnemonic('v');
+        jMIPaste.setText("<html>Colar <b>Ctrl+V</b></html>");
+        jMIPaste.setToolTipText("Colar conteudo da área de transferencia");
+        jMIPaste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIPasteActionPerformed(evt);
+            }
+        });
+        jPopupMenu.add(jMIPaste);
+
+        setComponentPopupMenu(jPopupMenu);
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 formFocusGained(evt);
@@ -142,7 +201,29 @@ public class GTextArea extends JTextArea implements ValidableComponent {
         controlLength();
     }//GEN-LAST:event_formKeyReleased
 
+    private void jMFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFindActionPerformed
+        finder.setVisible(true);
+    }//GEN-LAST:event_jMFindActionPerformed
+
+    private void jMICopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICopyActionPerformed
+        this.copy();
+    }//GEN-LAST:event_jMICopyActionPerformed
+
+    private void jMICutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICutActionPerformed
+        this.cut();
+    }//GEN-LAST:event_jMICutActionPerformed
+
+    private void jMIPasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIPasteActionPerformed
+        this.paste();
+    }//GEN-LAST:event_jMIPasteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jMFind;
+    private javax.swing.JMenuItem jMICopy;
+    private javax.swing.JMenuItem jMICut;
+    private javax.swing.JMenuItem jMIPaste;
+    private javax.swing.JPopupMenu jPopupMenu;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

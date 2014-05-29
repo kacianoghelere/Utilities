@@ -91,6 +91,8 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         gAutoCB = new br.com.gmp.comps.combobox.GAutoComboBox();
         gGradientPanel1 = new br.com.gmp.comps.panel.gradient.GGradientPanel();
         gNumericField1 = new br.com.gmp.comps.textfield.numeric.GNumericField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        gTextArea1 = new br.com.gmp.comps.textarea.GTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -183,18 +185,32 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         gGradientPanel1.setStartColor(new java.awt.Color(255, 128, 0));
         gGradientPanel1.setName("gGradientPanel1"); // NOI18N
 
+        gNumericField1.setName("gNumericField1"); // NOI18N
+        gNumericField1.setOpaque(false);
+
         javax.swing.GroupLayout gGradientPanel1Layout = new javax.swing.GroupLayout(gGradientPanel1);
         gGradientPanel1.setLayout(gGradientPanel1Layout);
         gGradientPanel1Layout.setHorizontalGroup(
             gGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(gGradientPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(gNumericField1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         gGradientPanel1Layout.setVerticalGroup(
             gGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 176, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(88, Short.MAX_VALUE)
+                .addComponent(gNumericField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
 
-        gNumericField1.setName("gNumericField1"); // NOI18N
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        gTextArea1.setColumns(20);
+        gTextArea1.setRows(5);
+        gTextArea1.setName("gTextArea1"); // NOI18N
+        jScrollPane1.setViewportView(gTextArea1);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -208,9 +224,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(gGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(gNumericField1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(gMPDateField2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -238,9 +252,8 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(gGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(gNumericField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(40, 40, 40)
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
         );
 
@@ -298,11 +311,13 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     private br.com.gmp.comps.textfield.numeric.GNumericField gNumericField1;
     private br.com.gmp.comps.table.GMPTable gTable;
     private br.com.gmp.comps.table.bar.GMPTableBar gTableBar;
+    private br.com.gmp.comps.textarea.GTextArea gTextArea1;
     private br.com.gmp.comps.tree.GMPTree gTree;
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;

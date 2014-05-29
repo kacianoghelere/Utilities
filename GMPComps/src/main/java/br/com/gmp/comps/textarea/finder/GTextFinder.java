@@ -2,33 +2,46 @@ package br.com.gmp.comps.textarea.finder;
 
 import java.awt.HeadlessException;
 import java.awt.Point;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.UIManager;
+import javax.swing.text.JTextComponent;
 
 /**
+ * Localizador de textos para áreas de texto
  *
  * @author kaciano
+ * @version 1.0
  */
 public class GTextFinder extends javax.swing.JDialog {
 
-    private JTextArea textArea;
+    private JTextComponent textArea;
     private int proximo = 0;
 
     /**
-     * Creates new form Localizar
+     * Cria nova instancia de GTextFinder
      *
-     * @param parent
-     * @param textArea
+     * @param parent <code>Frame</code> Componente pai
+     * @param textArea <code>JTextComponent</code> Área de texto
      */
-    public GTextFinder(java.awt.Frame parent, JTextArea textArea) {
+    public GTextFinder(java.awt.Frame parent, JTextComponent textArea) {
         super(parent);
-        initComponents();
-        this.textArea = textArea;
-        setLocationRelativeTo(parent);
+        this.textArea = textArea;        
+        initialize();
+        setLocationRelativeTo(parent != null ? parent : textArea);
     }
 
-    public void localizar() {
+    /**
+     * Método de inicialização
+     */
+    private void initialize() {
+        initComponents();
+    }
+
+    /**
+     * Método de busca
+     */
+    public void find() {
         try {
             if (!jTLocalizar.getText().isEmpty()) {
                 System.out.println("Texto preenchido");
@@ -36,7 +49,7 @@ public class GTextFinder extends javax.swing.JDialog {
                 String text = textArea.getText();
                 String localizar = jTLocalizar.getText();
                 if (text.contains(localizar)) {
-                    Point pegaTexto = pegaTexto(text, localizar, jCBDiferenciar.isSelected());
+                    Point pegaTexto = getLocation(text, localizar, jCBDiferenciar.isSelected());
                     if (pegaTexto != null) {
                         textArea.select(pegaTexto.x, pegaTexto.y);
                     } else {
@@ -44,7 +57,7 @@ public class GTextFinder extends javax.swing.JDialog {
                                 + "\nDeseja voltar ao inicio?", "Erro", JOptionPane.WARNING_MESSAGE, JOptionPane.OK_CANCEL_OPTION);
                         if (opt == JOptionPane.OK_OPTION) {
                             proximo = 0;
-                            localizar();
+                            find();
                         }
                     }
                 } else {
@@ -52,15 +65,23 @@ public class GTextFinder extends javax.swing.JDialog {
                 }
             }
         } catch (HeadlessException e) {
-            e.printStackTrace();
+            Logger.getLogger(GTextFinder.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
-    public Point pegaTexto(String texto, String valor, boolean sensitive) {
+    /**
+     * Retorna a localização do texto conforme a busca realizada
+     *
+     * @param text <code>String</code> Texto principal
+     * @param value <code>String</code> Valor buscado
+     * @param sensitive <code>boolean</code> Case sensitive?
+     * @return <code>Point</code> Localização do texto
+     */
+    public Point getLocation(String text, String value, boolean sensitive) {
         int inicio = -1;
         int fim = -1;
-        String txt = !sensitive ? texto.toUpperCase() : texto;
-        String vl = !sensitive ? valor.toUpperCase() : valor;
+        String txt = !sensitive ? text.toUpperCase() : text;
+        String vl = !sensitive ? value.toUpperCase() : value;
         if (txt.contains(vl)) {
             inicio = txt.indexOf(vl, proximo);
             fim = (inicio + vl.length());
@@ -148,7 +169,7 @@ public class GTextFinder extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBProcurarActionPerformed
-        this.localizar();
+        this.find();
     }//GEN-LAST:event_jBProcurarActionPerformed
 
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
