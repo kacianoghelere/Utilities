@@ -11,12 +11,12 @@ import java.beans.*;
  *
  * @author kaciano
  */
-public class GMPTextAreaBeanInfo extends SimpleBeanInfo {
+public class GTextAreaBeanInfo extends SimpleBeanInfo {
 
     // Bean descriptor//GEN-FIRST:BeanDescriptor
     /*lazy BeanDescriptor*/
     private static BeanDescriptor getBdescriptor(){
-        BeanDescriptor beanDescriptor = new BeanDescriptor  ( br.com.gmp.comps.textarea.GMPTextArea.class , null ); // NOI18N//GEN-HEADEREND:BeanDescriptor
+        BeanDescriptor beanDescriptor = new BeanDescriptor  ( br.com.gmp.comps.textarea.GTextArea.class , null ); // NOI18N//GEN-HEADEREND:BeanDescriptor
     // Here you can add code for customizing the BeanDescriptor.
 
         return beanDescriptor;     }//GEN-LAST:BeanDescriptor
@@ -165,147 +165,147 @@ public class GMPTextAreaBeanInfo extends SimpleBeanInfo {
         PropertyDescriptor[] properties = new PropertyDescriptor[136];
     
         try {
-            properties[PROPERTY_accessibleContext] = new PropertyDescriptor ( "accessibleContext", br.com.gmp.comps.textarea.GMPTextArea.class, "getAccessibleContext", null ); // NOI18N
-            properties[PROPERTY_actionMap] = new PropertyDescriptor ( "actionMap", br.com.gmp.comps.textarea.GMPTextArea.class, "getActionMap", "setActionMap" ); // NOI18N
-            properties[PROPERTY_actions] = new PropertyDescriptor ( "actions", br.com.gmp.comps.textarea.GMPTextArea.class, "getActions", null ); // NOI18N
-            properties[PROPERTY_alignmentX] = new PropertyDescriptor ( "alignmentX", br.com.gmp.comps.textarea.GMPTextArea.class, "getAlignmentX", "setAlignmentX" ); // NOI18N
-            properties[PROPERTY_alignmentY] = new PropertyDescriptor ( "alignmentY", br.com.gmp.comps.textarea.GMPTextArea.class, "getAlignmentY", "setAlignmentY" ); // NOI18N
-            properties[PROPERTY_ancestorListeners] = new PropertyDescriptor ( "ancestorListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getAncestorListeners", null ); // NOI18N
-            properties[PROPERTY_autoscrolls] = new PropertyDescriptor ( "autoscrolls", br.com.gmp.comps.textarea.GMPTextArea.class, "getAutoscrolls", "setAutoscrolls" ); // NOI18N
-            properties[PROPERTY_background] = new PropertyDescriptor ( "background", br.com.gmp.comps.textarea.GMPTextArea.class, "getBackground", "setBackground" ); // NOI18N
+            properties[PROPERTY_accessibleContext] = new PropertyDescriptor ( "accessibleContext", br.com.gmp.comps.textarea.GTextArea.class, "getAccessibleContext", null ); // NOI18N
+            properties[PROPERTY_actionMap] = new PropertyDescriptor ( "actionMap", br.com.gmp.comps.textarea.GTextArea.class, "getActionMap", "setActionMap" ); // NOI18N
+            properties[PROPERTY_actions] = new PropertyDescriptor ( "actions", br.com.gmp.comps.textarea.GTextArea.class, "getActions", null ); // NOI18N
+            properties[PROPERTY_alignmentX] = new PropertyDescriptor ( "alignmentX", br.com.gmp.comps.textarea.GTextArea.class, "getAlignmentX", "setAlignmentX" ); // NOI18N
+            properties[PROPERTY_alignmentY] = new PropertyDescriptor ( "alignmentY", br.com.gmp.comps.textarea.GTextArea.class, "getAlignmentY", "setAlignmentY" ); // NOI18N
+            properties[PROPERTY_ancestorListeners] = new PropertyDescriptor ( "ancestorListeners", br.com.gmp.comps.textarea.GTextArea.class, "getAncestorListeners", null ); // NOI18N
+            properties[PROPERTY_autoscrolls] = new PropertyDescriptor ( "autoscrolls", br.com.gmp.comps.textarea.GTextArea.class, "getAutoscrolls", "setAutoscrolls" ); // NOI18N
+            properties[PROPERTY_background] = new PropertyDescriptor ( "background", br.com.gmp.comps.textarea.GTextArea.class, "getBackground", "setBackground" ); // NOI18N
             properties[PROPERTY_background].setPreferred ( true );
-            properties[PROPERTY_backgroundSet] = new PropertyDescriptor ( "backgroundSet", br.com.gmp.comps.textarea.GMPTextArea.class, "isBackgroundSet", null ); // NOI18N
-            properties[PROPERTY_baselineResizeBehavior] = new PropertyDescriptor ( "baselineResizeBehavior", br.com.gmp.comps.textarea.GMPTextArea.class, "getBaselineResizeBehavior", null ); // NOI18N
-            properties[PROPERTY_border] = new PropertyDescriptor ( "border", br.com.gmp.comps.textarea.GMPTextArea.class, "getBorder", "setBorder" ); // NOI18N
+            properties[PROPERTY_backgroundSet] = new PropertyDescriptor ( "backgroundSet", br.com.gmp.comps.textarea.GTextArea.class, "isBackgroundSet", null ); // NOI18N
+            properties[PROPERTY_baselineResizeBehavior] = new PropertyDescriptor ( "baselineResizeBehavior", br.com.gmp.comps.textarea.GTextArea.class, "getBaselineResizeBehavior", null ); // NOI18N
+            properties[PROPERTY_border] = new PropertyDescriptor ( "border", br.com.gmp.comps.textarea.GTextArea.class, "getBorder", "setBorder" ); // NOI18N
             properties[PROPERTY_border].setPreferred ( true );
-            properties[PROPERTY_bounds] = new PropertyDescriptor ( "bounds", br.com.gmp.comps.textarea.GMPTextArea.class, "getBounds", "setBounds" ); // NOI18N
-            properties[PROPERTY_caret] = new PropertyDescriptor ( "caret", br.com.gmp.comps.textarea.GMPTextArea.class, "getCaret", "setCaret" ); // NOI18N
-            properties[PROPERTY_caretColor] = new PropertyDescriptor ( "caretColor", br.com.gmp.comps.textarea.GMPTextArea.class, "getCaretColor", "setCaretColor" ); // NOI18N
-            properties[PROPERTY_caretListeners] = new PropertyDescriptor ( "caretListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getCaretListeners", null ); // NOI18N
-            properties[PROPERTY_caretPosition] = new PropertyDescriptor ( "caretPosition", br.com.gmp.comps.textarea.GMPTextArea.class, "getCaretPosition", "setCaretPosition" ); // NOI18N
-            properties[PROPERTY_colorModel] = new PropertyDescriptor ( "colorModel", br.com.gmp.comps.textarea.GMPTextArea.class, "getColorModel", null ); // NOI18N
-            properties[PROPERTY_columns] = new PropertyDescriptor ( "columns", br.com.gmp.comps.textarea.GMPTextArea.class, "getColumns", "setColumns" ); // NOI18N
-            properties[PROPERTY_component] = new IndexedPropertyDescriptor ( "component", br.com.gmp.comps.textarea.GMPTextArea.class, null, null, "getComponent", null ); // NOI18N
-            properties[PROPERTY_componentCount] = new PropertyDescriptor ( "componentCount", br.com.gmp.comps.textarea.GMPTextArea.class, "getComponentCount", null ); // NOI18N
-            properties[PROPERTY_componentListeners] = new PropertyDescriptor ( "componentListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getComponentListeners", null ); // NOI18N
-            properties[PROPERTY_componentOrientation] = new PropertyDescriptor ( "componentOrientation", br.com.gmp.comps.textarea.GMPTextArea.class, "getComponentOrientation", "setComponentOrientation" ); // NOI18N
-            properties[PROPERTY_componentPopupMenu] = new PropertyDescriptor ( "componentPopupMenu", br.com.gmp.comps.textarea.GMPTextArea.class, "getComponentPopupMenu", "setComponentPopupMenu" ); // NOI18N
-            properties[PROPERTY_components] = new PropertyDescriptor ( "components", br.com.gmp.comps.textarea.GMPTextArea.class, "getComponents", null ); // NOI18N
-            properties[PROPERTY_containerListeners] = new PropertyDescriptor ( "containerListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getContainerListeners", null ); // NOI18N
-            properties[PROPERTY_cursor] = new PropertyDescriptor ( "cursor", br.com.gmp.comps.textarea.GMPTextArea.class, "getCursor", "setCursor" ); // NOI18N
-            properties[PROPERTY_cursorSet] = new PropertyDescriptor ( "cursorSet", br.com.gmp.comps.textarea.GMPTextArea.class, "isCursorSet", null ); // NOI18N
-            properties[PROPERTY_debugGraphicsOptions] = new PropertyDescriptor ( "debugGraphicsOptions", br.com.gmp.comps.textarea.GMPTextArea.class, "getDebugGraphicsOptions", "setDebugGraphicsOptions" ); // NOI18N
-            properties[PROPERTY_disabledTextColor] = new PropertyDescriptor ( "disabledTextColor", br.com.gmp.comps.textarea.GMPTextArea.class, "getDisabledTextColor", "setDisabledTextColor" ); // NOI18N
-            properties[PROPERTY_displayable] = new PropertyDescriptor ( "displayable", br.com.gmp.comps.textarea.GMPTextArea.class, "isDisplayable", null ); // NOI18N
-            properties[PROPERTY_document] = new PropertyDescriptor ( "document", br.com.gmp.comps.textarea.GMPTextArea.class, "getDocument", "setDocument" ); // NOI18N
-            properties[PROPERTY_doubleBuffered] = new PropertyDescriptor ( "doubleBuffered", br.com.gmp.comps.textarea.GMPTextArea.class, "isDoubleBuffered", "setDoubleBuffered" ); // NOI18N
-            properties[PROPERTY_dragEnabled] = new PropertyDescriptor ( "dragEnabled", br.com.gmp.comps.textarea.GMPTextArea.class, "getDragEnabled", "setDragEnabled" ); // NOI18N
-            properties[PROPERTY_dropLocation] = new PropertyDescriptor ( "dropLocation", br.com.gmp.comps.textarea.GMPTextArea.class, "getDropLocation", null ); // NOI18N
-            properties[PROPERTY_dropMode] = new PropertyDescriptor ( "dropMode", br.com.gmp.comps.textarea.GMPTextArea.class, "getDropMode", "setDropMode" ); // NOI18N
-            properties[PROPERTY_dropTarget] = new PropertyDescriptor ( "dropTarget", br.com.gmp.comps.textarea.GMPTextArea.class, "getDropTarget", "setDropTarget" ); // NOI18N
-            properties[PROPERTY_editable] = new PropertyDescriptor ( "editable", br.com.gmp.comps.textarea.GMPTextArea.class, "isEditable", "setEditable" ); // NOI18N
-            properties[PROPERTY_enabled] = new PropertyDescriptor ( "enabled", br.com.gmp.comps.textarea.GMPTextArea.class, "isEnabled", "setEnabled" ); // NOI18N
-            properties[PROPERTY_focusable] = new PropertyDescriptor ( "focusable", br.com.gmp.comps.textarea.GMPTextArea.class, "isFocusable", "setFocusable" ); // NOI18N
-            properties[PROPERTY_focusAccelerator] = new PropertyDescriptor ( "focusAccelerator", br.com.gmp.comps.textarea.GMPTextArea.class, "getFocusAccelerator", "setFocusAccelerator" ); // NOI18N
-            properties[PROPERTY_focusCycleRoot] = new PropertyDescriptor ( "focusCycleRoot", br.com.gmp.comps.textarea.GMPTextArea.class, "isFocusCycleRoot", "setFocusCycleRoot" ); // NOI18N
-            properties[PROPERTY_focusCycleRootAncestor] = new PropertyDescriptor ( "focusCycleRootAncestor", br.com.gmp.comps.textarea.GMPTextArea.class, "getFocusCycleRootAncestor", null ); // NOI18N
-            properties[PROPERTY_focusListeners] = new PropertyDescriptor ( "focusListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getFocusListeners", null ); // NOI18N
-            properties[PROPERTY_focusOwner] = new PropertyDescriptor ( "focusOwner", br.com.gmp.comps.textarea.GMPTextArea.class, "isFocusOwner", null ); // NOI18N
-            properties[PROPERTY_focusTraversable] = new PropertyDescriptor ( "focusTraversable", br.com.gmp.comps.textarea.GMPTextArea.class, "isFocusTraversable", null ); // NOI18N
-            properties[PROPERTY_focusTraversalKeys] = new IndexedPropertyDescriptor ( "focusTraversalKeys", br.com.gmp.comps.textarea.GMPTextArea.class, null, null, null, "setFocusTraversalKeys" ); // NOI18N
-            properties[PROPERTY_focusTraversalKeysEnabled] = new PropertyDescriptor ( "focusTraversalKeysEnabled", br.com.gmp.comps.textarea.GMPTextArea.class, "getFocusTraversalKeysEnabled", "setFocusTraversalKeysEnabled" ); // NOI18N
-            properties[PROPERTY_focusTraversalPolicy] = new PropertyDescriptor ( "focusTraversalPolicy", br.com.gmp.comps.textarea.GMPTextArea.class, "getFocusTraversalPolicy", "setFocusTraversalPolicy" ); // NOI18N
-            properties[PROPERTY_focusTraversalPolicyProvider] = new PropertyDescriptor ( "focusTraversalPolicyProvider", br.com.gmp.comps.textarea.GMPTextArea.class, "isFocusTraversalPolicyProvider", "setFocusTraversalPolicyProvider" ); // NOI18N
-            properties[PROPERTY_focusTraversalPolicySet] = new PropertyDescriptor ( "focusTraversalPolicySet", br.com.gmp.comps.textarea.GMPTextArea.class, "isFocusTraversalPolicySet", null ); // NOI18N
-            properties[PROPERTY_font] = new PropertyDescriptor ( "font", br.com.gmp.comps.textarea.GMPTextArea.class, "getFont", "setFont" ); // NOI18N
-            properties[PROPERTY_fontSet] = new PropertyDescriptor ( "fontSet", br.com.gmp.comps.textarea.GMPTextArea.class, "isFontSet", null ); // NOI18N
-            properties[PROPERTY_foreground] = new PropertyDescriptor ( "foreground", br.com.gmp.comps.textarea.GMPTextArea.class, "getForeground", "setForeground" ); // NOI18N
+            properties[PROPERTY_bounds] = new PropertyDescriptor ( "bounds", br.com.gmp.comps.textarea.GTextArea.class, "getBounds", "setBounds" ); // NOI18N
+            properties[PROPERTY_caret] = new PropertyDescriptor ( "caret", br.com.gmp.comps.textarea.GTextArea.class, "getCaret", "setCaret" ); // NOI18N
+            properties[PROPERTY_caretColor] = new PropertyDescriptor ( "caretColor", br.com.gmp.comps.textarea.GTextArea.class, "getCaretColor", "setCaretColor" ); // NOI18N
+            properties[PROPERTY_caretListeners] = new PropertyDescriptor ( "caretListeners", br.com.gmp.comps.textarea.GTextArea.class, "getCaretListeners", null ); // NOI18N
+            properties[PROPERTY_caretPosition] = new PropertyDescriptor ( "caretPosition", br.com.gmp.comps.textarea.GTextArea.class, "getCaretPosition", "setCaretPosition" ); // NOI18N
+            properties[PROPERTY_colorModel] = new PropertyDescriptor ( "colorModel", br.com.gmp.comps.textarea.GTextArea.class, "getColorModel", null ); // NOI18N
+            properties[PROPERTY_columns] = new PropertyDescriptor ( "columns", br.com.gmp.comps.textarea.GTextArea.class, "getColumns", "setColumns" ); // NOI18N
+            properties[PROPERTY_component] = new IndexedPropertyDescriptor ( "component", br.com.gmp.comps.textarea.GTextArea.class, null, null, "getComponent", null ); // NOI18N
+            properties[PROPERTY_componentCount] = new PropertyDescriptor ( "componentCount", br.com.gmp.comps.textarea.GTextArea.class, "getComponentCount", null ); // NOI18N
+            properties[PROPERTY_componentListeners] = new PropertyDescriptor ( "componentListeners", br.com.gmp.comps.textarea.GTextArea.class, "getComponentListeners", null ); // NOI18N
+            properties[PROPERTY_componentOrientation] = new PropertyDescriptor ( "componentOrientation", br.com.gmp.comps.textarea.GTextArea.class, "getComponentOrientation", "setComponentOrientation" ); // NOI18N
+            properties[PROPERTY_componentPopupMenu] = new PropertyDescriptor ( "componentPopupMenu", br.com.gmp.comps.textarea.GTextArea.class, "getComponentPopupMenu", "setComponentPopupMenu" ); // NOI18N
+            properties[PROPERTY_components] = new PropertyDescriptor ( "components", br.com.gmp.comps.textarea.GTextArea.class, "getComponents", null ); // NOI18N
+            properties[PROPERTY_containerListeners] = new PropertyDescriptor ( "containerListeners", br.com.gmp.comps.textarea.GTextArea.class, "getContainerListeners", null ); // NOI18N
+            properties[PROPERTY_cursor] = new PropertyDescriptor ( "cursor", br.com.gmp.comps.textarea.GTextArea.class, "getCursor", "setCursor" ); // NOI18N
+            properties[PROPERTY_cursorSet] = new PropertyDescriptor ( "cursorSet", br.com.gmp.comps.textarea.GTextArea.class, "isCursorSet", null ); // NOI18N
+            properties[PROPERTY_debugGraphicsOptions] = new PropertyDescriptor ( "debugGraphicsOptions", br.com.gmp.comps.textarea.GTextArea.class, "getDebugGraphicsOptions", "setDebugGraphicsOptions" ); // NOI18N
+            properties[PROPERTY_disabledTextColor] = new PropertyDescriptor ( "disabledTextColor", br.com.gmp.comps.textarea.GTextArea.class, "getDisabledTextColor", "setDisabledTextColor" ); // NOI18N
+            properties[PROPERTY_displayable] = new PropertyDescriptor ( "displayable", br.com.gmp.comps.textarea.GTextArea.class, "isDisplayable", null ); // NOI18N
+            properties[PROPERTY_document] = new PropertyDescriptor ( "document", br.com.gmp.comps.textarea.GTextArea.class, "getDocument", "setDocument" ); // NOI18N
+            properties[PROPERTY_doubleBuffered] = new PropertyDescriptor ( "doubleBuffered", br.com.gmp.comps.textarea.GTextArea.class, "isDoubleBuffered", "setDoubleBuffered" ); // NOI18N
+            properties[PROPERTY_dragEnabled] = new PropertyDescriptor ( "dragEnabled", br.com.gmp.comps.textarea.GTextArea.class, "getDragEnabled", "setDragEnabled" ); // NOI18N
+            properties[PROPERTY_dropLocation] = new PropertyDescriptor ( "dropLocation", br.com.gmp.comps.textarea.GTextArea.class, "getDropLocation", null ); // NOI18N
+            properties[PROPERTY_dropMode] = new PropertyDescriptor ( "dropMode", br.com.gmp.comps.textarea.GTextArea.class, "getDropMode", "setDropMode" ); // NOI18N
+            properties[PROPERTY_dropTarget] = new PropertyDescriptor ( "dropTarget", br.com.gmp.comps.textarea.GTextArea.class, "getDropTarget", "setDropTarget" ); // NOI18N
+            properties[PROPERTY_editable] = new PropertyDescriptor ( "editable", br.com.gmp.comps.textarea.GTextArea.class, "isEditable", "setEditable" ); // NOI18N
+            properties[PROPERTY_enabled] = new PropertyDescriptor ( "enabled", br.com.gmp.comps.textarea.GTextArea.class, "isEnabled", "setEnabled" ); // NOI18N
+            properties[PROPERTY_focusable] = new PropertyDescriptor ( "focusable", br.com.gmp.comps.textarea.GTextArea.class, "isFocusable", "setFocusable" ); // NOI18N
+            properties[PROPERTY_focusAccelerator] = new PropertyDescriptor ( "focusAccelerator", br.com.gmp.comps.textarea.GTextArea.class, "getFocusAccelerator", "setFocusAccelerator" ); // NOI18N
+            properties[PROPERTY_focusCycleRoot] = new PropertyDescriptor ( "focusCycleRoot", br.com.gmp.comps.textarea.GTextArea.class, "isFocusCycleRoot", "setFocusCycleRoot" ); // NOI18N
+            properties[PROPERTY_focusCycleRootAncestor] = new PropertyDescriptor ( "focusCycleRootAncestor", br.com.gmp.comps.textarea.GTextArea.class, "getFocusCycleRootAncestor", null ); // NOI18N
+            properties[PROPERTY_focusListeners] = new PropertyDescriptor ( "focusListeners", br.com.gmp.comps.textarea.GTextArea.class, "getFocusListeners", null ); // NOI18N
+            properties[PROPERTY_focusOwner] = new PropertyDescriptor ( "focusOwner", br.com.gmp.comps.textarea.GTextArea.class, "isFocusOwner", null ); // NOI18N
+            properties[PROPERTY_focusTraversable] = new PropertyDescriptor ( "focusTraversable", br.com.gmp.comps.textarea.GTextArea.class, "isFocusTraversable", null ); // NOI18N
+            properties[PROPERTY_focusTraversalKeys] = new IndexedPropertyDescriptor ( "focusTraversalKeys", br.com.gmp.comps.textarea.GTextArea.class, null, null, null, "setFocusTraversalKeys" ); // NOI18N
+            properties[PROPERTY_focusTraversalKeysEnabled] = new PropertyDescriptor ( "focusTraversalKeysEnabled", br.com.gmp.comps.textarea.GTextArea.class, "getFocusTraversalKeysEnabled", "setFocusTraversalKeysEnabled" ); // NOI18N
+            properties[PROPERTY_focusTraversalPolicy] = new PropertyDescriptor ( "focusTraversalPolicy", br.com.gmp.comps.textarea.GTextArea.class, "getFocusTraversalPolicy", "setFocusTraversalPolicy" ); // NOI18N
+            properties[PROPERTY_focusTraversalPolicyProvider] = new PropertyDescriptor ( "focusTraversalPolicyProvider", br.com.gmp.comps.textarea.GTextArea.class, "isFocusTraversalPolicyProvider", "setFocusTraversalPolicyProvider" ); // NOI18N
+            properties[PROPERTY_focusTraversalPolicySet] = new PropertyDescriptor ( "focusTraversalPolicySet", br.com.gmp.comps.textarea.GTextArea.class, "isFocusTraversalPolicySet", null ); // NOI18N
+            properties[PROPERTY_font] = new PropertyDescriptor ( "font", br.com.gmp.comps.textarea.GTextArea.class, "getFont", "setFont" ); // NOI18N
+            properties[PROPERTY_fontSet] = new PropertyDescriptor ( "fontSet", br.com.gmp.comps.textarea.GTextArea.class, "isFontSet", null ); // NOI18N
+            properties[PROPERTY_foreground] = new PropertyDescriptor ( "foreground", br.com.gmp.comps.textarea.GTextArea.class, "getForeground", "setForeground" ); // NOI18N
             properties[PROPERTY_foreground].setPreferred ( true );
-            properties[PROPERTY_foregroundSet] = new PropertyDescriptor ( "foregroundSet", br.com.gmp.comps.textarea.GMPTextArea.class, "isForegroundSet", null ); // NOI18N
-            properties[PROPERTY_graphics] = new PropertyDescriptor ( "graphics", br.com.gmp.comps.textarea.GMPTextArea.class, "getGraphics", null ); // NOI18N
-            properties[PROPERTY_graphicsConfiguration] = new PropertyDescriptor ( "graphicsConfiguration", br.com.gmp.comps.textarea.GMPTextArea.class, "getGraphicsConfiguration", null ); // NOI18N
-            properties[PROPERTY_height] = new PropertyDescriptor ( "height", br.com.gmp.comps.textarea.GMPTextArea.class, "getHeight", null ); // NOI18N
-            properties[PROPERTY_hierarchyBoundsListeners] = new PropertyDescriptor ( "hierarchyBoundsListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getHierarchyBoundsListeners", null ); // NOI18N
-            properties[PROPERTY_hierarchyListeners] = new PropertyDescriptor ( "hierarchyListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getHierarchyListeners", null ); // NOI18N
-            properties[PROPERTY_highlighter] = new PropertyDescriptor ( "highlighter", br.com.gmp.comps.textarea.GMPTextArea.class, "getHighlighter", "setHighlighter" ); // NOI18N
-            properties[PROPERTY_ignoreRepaint] = new PropertyDescriptor ( "ignoreRepaint", br.com.gmp.comps.textarea.GMPTextArea.class, "getIgnoreRepaint", "setIgnoreRepaint" ); // NOI18N
-            properties[PROPERTY_inheritsPopupMenu] = new PropertyDescriptor ( "inheritsPopupMenu", br.com.gmp.comps.textarea.GMPTextArea.class, "getInheritsPopupMenu", "setInheritsPopupMenu" ); // NOI18N
-            properties[PROPERTY_inputContext] = new PropertyDescriptor ( "inputContext", br.com.gmp.comps.textarea.GMPTextArea.class, "getInputContext", null ); // NOI18N
-            properties[PROPERTY_inputMap] = new PropertyDescriptor ( "inputMap", br.com.gmp.comps.textarea.GMPTextArea.class, "getInputMap", null ); // NOI18N
-            properties[PROPERTY_inputMethodListeners] = new PropertyDescriptor ( "inputMethodListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getInputMethodListeners", null ); // NOI18N
-            properties[PROPERTY_inputMethodRequests] = new PropertyDescriptor ( "inputMethodRequests", br.com.gmp.comps.textarea.GMPTextArea.class, "getInputMethodRequests", null ); // NOI18N
-            properties[PROPERTY_inputVerifier] = new PropertyDescriptor ( "inputVerifier", br.com.gmp.comps.textarea.GMPTextArea.class, "getInputVerifier", "setInputVerifier" ); // NOI18N
-            properties[PROPERTY_insets] = new PropertyDescriptor ( "insets", br.com.gmp.comps.textarea.GMPTextArea.class, "getInsets", null ); // NOI18N
-            properties[PROPERTY_keyListeners] = new PropertyDescriptor ( "keyListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getKeyListeners", null ); // NOI18N
-            properties[PROPERTY_keymap] = new PropertyDescriptor ( "keymap", br.com.gmp.comps.textarea.GMPTextArea.class, "getKeymap", "setKeymap" ); // NOI18N
-            properties[PROPERTY_layout] = new PropertyDescriptor ( "layout", br.com.gmp.comps.textarea.GMPTextArea.class, "getLayout", "setLayout" ); // NOI18N
-            properties[PROPERTY_lightweight] = new PropertyDescriptor ( "lightweight", br.com.gmp.comps.textarea.GMPTextArea.class, "isLightweight", null ); // NOI18N
-            properties[PROPERTY_lineCount] = new PropertyDescriptor ( "lineCount", br.com.gmp.comps.textarea.GMPTextArea.class, "getLineCount", null ); // NOI18N
-            properties[PROPERTY_lineEndOffset] = new IndexedPropertyDescriptor ( "lineEndOffset", br.com.gmp.comps.textarea.GMPTextArea.class, null, null, "getLineEndOffset", null ); // NOI18N
-            properties[PROPERTY_lineOfOffset] = new IndexedPropertyDescriptor ( "lineOfOffset", br.com.gmp.comps.textarea.GMPTextArea.class, null, null, "getLineOfOffset", null ); // NOI18N
-            properties[PROPERTY_lineStartOffset] = new IndexedPropertyDescriptor ( "lineStartOffset", br.com.gmp.comps.textarea.GMPTextArea.class, null, null, "getLineStartOffset", null ); // NOI18N
-            properties[PROPERTY_lineWrap] = new PropertyDescriptor ( "lineWrap", br.com.gmp.comps.textarea.GMPTextArea.class, "getLineWrap", "setLineWrap" ); // NOI18N
-            properties[PROPERTY_locale] = new PropertyDescriptor ( "locale", br.com.gmp.comps.textarea.GMPTextArea.class, "getLocale", "setLocale" ); // NOI18N
-            properties[PROPERTY_location] = new PropertyDescriptor ( "location", br.com.gmp.comps.textarea.GMPTextArea.class, "getLocation", "setLocation" ); // NOI18N
-            properties[PROPERTY_locationOnScreen] = new PropertyDescriptor ( "locationOnScreen", br.com.gmp.comps.textarea.GMPTextArea.class, "getLocationOnScreen", null ); // NOI18N
-            properties[PROPERTY_managingFocus] = new PropertyDescriptor ( "managingFocus", br.com.gmp.comps.textarea.GMPTextArea.class, "isManagingFocus", null ); // NOI18N
-            properties[PROPERTY_margin] = new PropertyDescriptor ( "margin", br.com.gmp.comps.textarea.GMPTextArea.class, "getMargin", "setMargin" ); // NOI18N
-            properties[PROPERTY_maximumlength] = new PropertyDescriptor ( "maximumlength", br.com.gmp.comps.textarea.GMPTextArea.class, "getMaximumlength", "setMaximumlength" ); // NOI18N
+            properties[PROPERTY_foregroundSet] = new PropertyDescriptor ( "foregroundSet", br.com.gmp.comps.textarea.GTextArea.class, "isForegroundSet", null ); // NOI18N
+            properties[PROPERTY_graphics] = new PropertyDescriptor ( "graphics", br.com.gmp.comps.textarea.GTextArea.class, "getGraphics", null ); // NOI18N
+            properties[PROPERTY_graphicsConfiguration] = new PropertyDescriptor ( "graphicsConfiguration", br.com.gmp.comps.textarea.GTextArea.class, "getGraphicsConfiguration", null ); // NOI18N
+            properties[PROPERTY_height] = new PropertyDescriptor ( "height", br.com.gmp.comps.textarea.GTextArea.class, "getHeight", null ); // NOI18N
+            properties[PROPERTY_hierarchyBoundsListeners] = new PropertyDescriptor ( "hierarchyBoundsListeners", br.com.gmp.comps.textarea.GTextArea.class, "getHierarchyBoundsListeners", null ); // NOI18N
+            properties[PROPERTY_hierarchyListeners] = new PropertyDescriptor ( "hierarchyListeners", br.com.gmp.comps.textarea.GTextArea.class, "getHierarchyListeners", null ); // NOI18N
+            properties[PROPERTY_highlighter] = new PropertyDescriptor ( "highlighter", br.com.gmp.comps.textarea.GTextArea.class, "getHighlighter", "setHighlighter" ); // NOI18N
+            properties[PROPERTY_ignoreRepaint] = new PropertyDescriptor ( "ignoreRepaint", br.com.gmp.comps.textarea.GTextArea.class, "getIgnoreRepaint", "setIgnoreRepaint" ); // NOI18N
+            properties[PROPERTY_inheritsPopupMenu] = new PropertyDescriptor ( "inheritsPopupMenu", br.com.gmp.comps.textarea.GTextArea.class, "getInheritsPopupMenu", "setInheritsPopupMenu" ); // NOI18N
+            properties[PROPERTY_inputContext] = new PropertyDescriptor ( "inputContext", br.com.gmp.comps.textarea.GTextArea.class, "getInputContext", null ); // NOI18N
+            properties[PROPERTY_inputMap] = new PropertyDescriptor ( "inputMap", br.com.gmp.comps.textarea.GTextArea.class, "getInputMap", null ); // NOI18N
+            properties[PROPERTY_inputMethodListeners] = new PropertyDescriptor ( "inputMethodListeners", br.com.gmp.comps.textarea.GTextArea.class, "getInputMethodListeners", null ); // NOI18N
+            properties[PROPERTY_inputMethodRequests] = new PropertyDescriptor ( "inputMethodRequests", br.com.gmp.comps.textarea.GTextArea.class, "getInputMethodRequests", null ); // NOI18N
+            properties[PROPERTY_inputVerifier] = new PropertyDescriptor ( "inputVerifier", br.com.gmp.comps.textarea.GTextArea.class, "getInputVerifier", "setInputVerifier" ); // NOI18N
+            properties[PROPERTY_insets] = new PropertyDescriptor ( "insets", br.com.gmp.comps.textarea.GTextArea.class, "getInsets", null ); // NOI18N
+            properties[PROPERTY_keyListeners] = new PropertyDescriptor ( "keyListeners", br.com.gmp.comps.textarea.GTextArea.class, "getKeyListeners", null ); // NOI18N
+            properties[PROPERTY_keymap] = new PropertyDescriptor ( "keymap", br.com.gmp.comps.textarea.GTextArea.class, "getKeymap", "setKeymap" ); // NOI18N
+            properties[PROPERTY_layout] = new PropertyDescriptor ( "layout", br.com.gmp.comps.textarea.GTextArea.class, "getLayout", "setLayout" ); // NOI18N
+            properties[PROPERTY_lightweight] = new PropertyDescriptor ( "lightweight", br.com.gmp.comps.textarea.GTextArea.class, "isLightweight", null ); // NOI18N
+            properties[PROPERTY_lineCount] = new PropertyDescriptor ( "lineCount", br.com.gmp.comps.textarea.GTextArea.class, "getLineCount", null ); // NOI18N
+            properties[PROPERTY_lineEndOffset] = new IndexedPropertyDescriptor ( "lineEndOffset", br.com.gmp.comps.textarea.GTextArea.class, null, null, "getLineEndOffset", null ); // NOI18N
+            properties[PROPERTY_lineOfOffset] = new IndexedPropertyDescriptor ( "lineOfOffset", br.com.gmp.comps.textarea.GTextArea.class, null, null, "getLineOfOffset", null ); // NOI18N
+            properties[PROPERTY_lineStartOffset] = new IndexedPropertyDescriptor ( "lineStartOffset", br.com.gmp.comps.textarea.GTextArea.class, null, null, "getLineStartOffset", null ); // NOI18N
+            properties[PROPERTY_lineWrap] = new PropertyDescriptor ( "lineWrap", br.com.gmp.comps.textarea.GTextArea.class, "getLineWrap", "setLineWrap" ); // NOI18N
+            properties[PROPERTY_locale] = new PropertyDescriptor ( "locale", br.com.gmp.comps.textarea.GTextArea.class, "getLocale", "setLocale" ); // NOI18N
+            properties[PROPERTY_location] = new PropertyDescriptor ( "location", br.com.gmp.comps.textarea.GTextArea.class, "getLocation", "setLocation" ); // NOI18N
+            properties[PROPERTY_locationOnScreen] = new PropertyDescriptor ( "locationOnScreen", br.com.gmp.comps.textarea.GTextArea.class, "getLocationOnScreen", null ); // NOI18N
+            properties[PROPERTY_managingFocus] = new PropertyDescriptor ( "managingFocus", br.com.gmp.comps.textarea.GTextArea.class, "isManagingFocus", null ); // NOI18N
+            properties[PROPERTY_margin] = new PropertyDescriptor ( "margin", br.com.gmp.comps.textarea.GTextArea.class, "getMargin", "setMargin" ); // NOI18N
+            properties[PROPERTY_maximumlength] = new PropertyDescriptor ( "maximumlength", br.com.gmp.comps.textarea.GTextArea.class, "getMaximumlength", "setMaximumlength" ); // NOI18N
             properties[PROPERTY_maximumlength].setPreferred ( true );
-            properties[PROPERTY_maximumSize] = new PropertyDescriptor ( "maximumSize", br.com.gmp.comps.textarea.GMPTextArea.class, "getMaximumSize", "setMaximumSize" ); // NOI18N
-            properties[PROPERTY_maximumSizeSet] = new PropertyDescriptor ( "maximumSizeSet", br.com.gmp.comps.textarea.GMPTextArea.class, "isMaximumSizeSet", null ); // NOI18N
-            properties[PROPERTY_minimumSize] = new PropertyDescriptor ( "minimumSize", br.com.gmp.comps.textarea.GMPTextArea.class, "getMinimumSize", "setMinimumSize" ); // NOI18N
-            properties[PROPERTY_minimumSizeSet] = new PropertyDescriptor ( "minimumSizeSet", br.com.gmp.comps.textarea.GMPTextArea.class, "isMinimumSizeSet", null ); // NOI18N
-            properties[PROPERTY_mouseListeners] = new PropertyDescriptor ( "mouseListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getMouseListeners", null ); // NOI18N
-            properties[PROPERTY_mouseMotionListeners] = new PropertyDescriptor ( "mouseMotionListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getMouseMotionListeners", null ); // NOI18N
-            properties[PROPERTY_mousePosition] = new PropertyDescriptor ( "mousePosition", br.com.gmp.comps.textarea.GMPTextArea.class, "getMousePosition", null ); // NOI18N
-            properties[PROPERTY_mouseWheelListeners] = new PropertyDescriptor ( "mouseWheelListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getMouseWheelListeners", null ); // NOI18N
-            properties[PROPERTY_name] = new PropertyDescriptor ( "name", br.com.gmp.comps.textarea.GMPTextArea.class, "getName", "setName" ); // NOI18N
-            properties[PROPERTY_navigationFilter] = new PropertyDescriptor ( "navigationFilter", br.com.gmp.comps.textarea.GMPTextArea.class, "getNavigationFilter", "setNavigationFilter" ); // NOI18N
-            properties[PROPERTY_nextFocusableComponent] = new PropertyDescriptor ( "nextFocusableComponent", br.com.gmp.comps.textarea.GMPTextArea.class, "getNextFocusableComponent", "setNextFocusableComponent" ); // NOI18N
-            properties[PROPERTY_opaque] = new PropertyDescriptor ( "opaque", br.com.gmp.comps.textarea.GMPTextArea.class, "isOpaque", "setOpaque" ); // NOI18N
-            properties[PROPERTY_optimizedDrawingEnabled] = new PropertyDescriptor ( "optimizedDrawingEnabled", br.com.gmp.comps.textarea.GMPTextArea.class, "isOptimizedDrawingEnabled", null ); // NOI18N
-            properties[PROPERTY_paintingForPrint] = new PropertyDescriptor ( "paintingForPrint", br.com.gmp.comps.textarea.GMPTextArea.class, "isPaintingForPrint", null ); // NOI18N
-            properties[PROPERTY_paintingTile] = new PropertyDescriptor ( "paintingTile", br.com.gmp.comps.textarea.GMPTextArea.class, "isPaintingTile", null ); // NOI18N
-            properties[PROPERTY_parent] = new PropertyDescriptor ( "parent", br.com.gmp.comps.textarea.GMPTextArea.class, "getParent", null ); // NOI18N
-            properties[PROPERTY_peer] = new PropertyDescriptor ( "peer", br.com.gmp.comps.textarea.GMPTextArea.class, "getPeer", null ); // NOI18N
-            properties[PROPERTY_preferredScrollableViewportSize] = new PropertyDescriptor ( "preferredScrollableViewportSize", br.com.gmp.comps.textarea.GMPTextArea.class, "getPreferredScrollableViewportSize", null ); // NOI18N
-            properties[PROPERTY_preferredSize] = new PropertyDescriptor ( "preferredSize", br.com.gmp.comps.textarea.GMPTextArea.class, "getPreferredSize", "setPreferredSize" ); // NOI18N
-            properties[PROPERTY_preferredSizeSet] = new PropertyDescriptor ( "preferredSizeSet", br.com.gmp.comps.textarea.GMPTextArea.class, "isPreferredSizeSet", null ); // NOI18N
-            properties[PROPERTY_propertyChangeListeners] = new PropertyDescriptor ( "propertyChangeListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getPropertyChangeListeners", null ); // NOI18N
-            properties[PROPERTY_registeredKeyStrokes] = new PropertyDescriptor ( "registeredKeyStrokes", br.com.gmp.comps.textarea.GMPTextArea.class, "getRegisteredKeyStrokes", null ); // NOI18N
-            properties[PROPERTY_requestFocusEnabled] = new PropertyDescriptor ( "requestFocusEnabled", br.com.gmp.comps.textarea.GMPTextArea.class, "isRequestFocusEnabled", "setRequestFocusEnabled" ); // NOI18N
-            properties[PROPERTY_rootPane] = new PropertyDescriptor ( "rootPane", br.com.gmp.comps.textarea.GMPTextArea.class, "getRootPane", null ); // NOI18N
-            properties[PROPERTY_rows] = new PropertyDescriptor ( "rows", br.com.gmp.comps.textarea.GMPTextArea.class, "getRows", "setRows" ); // NOI18N
-            properties[PROPERTY_scrollableTracksViewportHeight] = new PropertyDescriptor ( "scrollableTracksViewportHeight", br.com.gmp.comps.textarea.GMPTextArea.class, "getScrollableTracksViewportHeight", null ); // NOI18N
-            properties[PROPERTY_scrollableTracksViewportWidth] = new PropertyDescriptor ( "scrollableTracksViewportWidth", br.com.gmp.comps.textarea.GMPTextArea.class, "getScrollableTracksViewportWidth", null ); // NOI18N
-            properties[PROPERTY_selectedText] = new PropertyDescriptor ( "selectedText", br.com.gmp.comps.textarea.GMPTextArea.class, "getSelectedText", null ); // NOI18N
-            properties[PROPERTY_selectedTextColor] = new PropertyDescriptor ( "selectedTextColor", br.com.gmp.comps.textarea.GMPTextArea.class, "getSelectedTextColor", "setSelectedTextColor" ); // NOI18N
-            properties[PROPERTY_selectionColor] = new PropertyDescriptor ( "selectionColor", br.com.gmp.comps.textarea.GMPTextArea.class, "getSelectionColor", "setSelectionColor" ); // NOI18N
-            properties[PROPERTY_selectionEnd] = new PropertyDescriptor ( "selectionEnd", br.com.gmp.comps.textarea.GMPTextArea.class, "getSelectionEnd", "setSelectionEnd" ); // NOI18N
-            properties[PROPERTY_selectionStart] = new PropertyDescriptor ( "selectionStart", br.com.gmp.comps.textarea.GMPTextArea.class, "getSelectionStart", "setSelectionStart" ); // NOI18N
-            properties[PROPERTY_showing] = new PropertyDescriptor ( "showing", br.com.gmp.comps.textarea.GMPTextArea.class, "isShowing", null ); // NOI18N
-            properties[PROPERTY_size] = new PropertyDescriptor ( "size", br.com.gmp.comps.textarea.GMPTextArea.class, "getSize", "setSize" ); // NOI18N
-            properties[PROPERTY_tabSize] = new PropertyDescriptor ( "tabSize", br.com.gmp.comps.textarea.GMPTextArea.class, "getTabSize", "setTabSize" ); // NOI18N
-            properties[PROPERTY_text] = new PropertyDescriptor ( "text", br.com.gmp.comps.textarea.GMPTextArea.class, "getText", "setText" ); // NOI18N
+            properties[PROPERTY_maximumSize] = new PropertyDescriptor ( "maximumSize", br.com.gmp.comps.textarea.GTextArea.class, "getMaximumSize", "setMaximumSize" ); // NOI18N
+            properties[PROPERTY_maximumSizeSet] = new PropertyDescriptor ( "maximumSizeSet", br.com.gmp.comps.textarea.GTextArea.class, "isMaximumSizeSet", null ); // NOI18N
+            properties[PROPERTY_minimumSize] = new PropertyDescriptor ( "minimumSize", br.com.gmp.comps.textarea.GTextArea.class, "getMinimumSize", "setMinimumSize" ); // NOI18N
+            properties[PROPERTY_minimumSizeSet] = new PropertyDescriptor ( "minimumSizeSet", br.com.gmp.comps.textarea.GTextArea.class, "isMinimumSizeSet", null ); // NOI18N
+            properties[PROPERTY_mouseListeners] = new PropertyDescriptor ( "mouseListeners", br.com.gmp.comps.textarea.GTextArea.class, "getMouseListeners", null ); // NOI18N
+            properties[PROPERTY_mouseMotionListeners] = new PropertyDescriptor ( "mouseMotionListeners", br.com.gmp.comps.textarea.GTextArea.class, "getMouseMotionListeners", null ); // NOI18N
+            properties[PROPERTY_mousePosition] = new PropertyDescriptor ( "mousePosition", br.com.gmp.comps.textarea.GTextArea.class, "getMousePosition", null ); // NOI18N
+            properties[PROPERTY_mouseWheelListeners] = new PropertyDescriptor ( "mouseWheelListeners", br.com.gmp.comps.textarea.GTextArea.class, "getMouseWheelListeners", null ); // NOI18N
+            properties[PROPERTY_name] = new PropertyDescriptor ( "name", br.com.gmp.comps.textarea.GTextArea.class, "getName", "setName" ); // NOI18N
+            properties[PROPERTY_navigationFilter] = new PropertyDescriptor ( "navigationFilter", br.com.gmp.comps.textarea.GTextArea.class, "getNavigationFilter", "setNavigationFilter" ); // NOI18N
+            properties[PROPERTY_nextFocusableComponent] = new PropertyDescriptor ( "nextFocusableComponent", br.com.gmp.comps.textarea.GTextArea.class, "getNextFocusableComponent", "setNextFocusableComponent" ); // NOI18N
+            properties[PROPERTY_opaque] = new PropertyDescriptor ( "opaque", br.com.gmp.comps.textarea.GTextArea.class, "isOpaque", "setOpaque" ); // NOI18N
+            properties[PROPERTY_optimizedDrawingEnabled] = new PropertyDescriptor ( "optimizedDrawingEnabled", br.com.gmp.comps.textarea.GTextArea.class, "isOptimizedDrawingEnabled", null ); // NOI18N
+            properties[PROPERTY_paintingForPrint] = new PropertyDescriptor ( "paintingForPrint", br.com.gmp.comps.textarea.GTextArea.class, "isPaintingForPrint", null ); // NOI18N
+            properties[PROPERTY_paintingTile] = new PropertyDescriptor ( "paintingTile", br.com.gmp.comps.textarea.GTextArea.class, "isPaintingTile", null ); // NOI18N
+            properties[PROPERTY_parent] = new PropertyDescriptor ( "parent", br.com.gmp.comps.textarea.GTextArea.class, "getParent", null ); // NOI18N
+            properties[PROPERTY_peer] = new PropertyDescriptor ( "peer", br.com.gmp.comps.textarea.GTextArea.class, "getPeer", null ); // NOI18N
+            properties[PROPERTY_preferredScrollableViewportSize] = new PropertyDescriptor ( "preferredScrollableViewportSize", br.com.gmp.comps.textarea.GTextArea.class, "getPreferredScrollableViewportSize", null ); // NOI18N
+            properties[PROPERTY_preferredSize] = new PropertyDescriptor ( "preferredSize", br.com.gmp.comps.textarea.GTextArea.class, "getPreferredSize", "setPreferredSize" ); // NOI18N
+            properties[PROPERTY_preferredSizeSet] = new PropertyDescriptor ( "preferredSizeSet", br.com.gmp.comps.textarea.GTextArea.class, "isPreferredSizeSet", null ); // NOI18N
+            properties[PROPERTY_propertyChangeListeners] = new PropertyDescriptor ( "propertyChangeListeners", br.com.gmp.comps.textarea.GTextArea.class, "getPropertyChangeListeners", null ); // NOI18N
+            properties[PROPERTY_registeredKeyStrokes] = new PropertyDescriptor ( "registeredKeyStrokes", br.com.gmp.comps.textarea.GTextArea.class, "getRegisteredKeyStrokes", null ); // NOI18N
+            properties[PROPERTY_requestFocusEnabled] = new PropertyDescriptor ( "requestFocusEnabled", br.com.gmp.comps.textarea.GTextArea.class, "isRequestFocusEnabled", "setRequestFocusEnabled" ); // NOI18N
+            properties[PROPERTY_rootPane] = new PropertyDescriptor ( "rootPane", br.com.gmp.comps.textarea.GTextArea.class, "getRootPane", null ); // NOI18N
+            properties[PROPERTY_rows] = new PropertyDescriptor ( "rows", br.com.gmp.comps.textarea.GTextArea.class, "getRows", "setRows" ); // NOI18N
+            properties[PROPERTY_scrollableTracksViewportHeight] = new PropertyDescriptor ( "scrollableTracksViewportHeight", br.com.gmp.comps.textarea.GTextArea.class, "getScrollableTracksViewportHeight", null ); // NOI18N
+            properties[PROPERTY_scrollableTracksViewportWidth] = new PropertyDescriptor ( "scrollableTracksViewportWidth", br.com.gmp.comps.textarea.GTextArea.class, "getScrollableTracksViewportWidth", null ); // NOI18N
+            properties[PROPERTY_selectedText] = new PropertyDescriptor ( "selectedText", br.com.gmp.comps.textarea.GTextArea.class, "getSelectedText", null ); // NOI18N
+            properties[PROPERTY_selectedTextColor] = new PropertyDescriptor ( "selectedTextColor", br.com.gmp.comps.textarea.GTextArea.class, "getSelectedTextColor", "setSelectedTextColor" ); // NOI18N
+            properties[PROPERTY_selectionColor] = new PropertyDescriptor ( "selectionColor", br.com.gmp.comps.textarea.GTextArea.class, "getSelectionColor", "setSelectionColor" ); // NOI18N
+            properties[PROPERTY_selectionEnd] = new PropertyDescriptor ( "selectionEnd", br.com.gmp.comps.textarea.GTextArea.class, "getSelectionEnd", "setSelectionEnd" ); // NOI18N
+            properties[PROPERTY_selectionStart] = new PropertyDescriptor ( "selectionStart", br.com.gmp.comps.textarea.GTextArea.class, "getSelectionStart", "setSelectionStart" ); // NOI18N
+            properties[PROPERTY_showing] = new PropertyDescriptor ( "showing", br.com.gmp.comps.textarea.GTextArea.class, "isShowing", null ); // NOI18N
+            properties[PROPERTY_size] = new PropertyDescriptor ( "size", br.com.gmp.comps.textarea.GTextArea.class, "getSize", "setSize" ); // NOI18N
+            properties[PROPERTY_tabSize] = new PropertyDescriptor ( "tabSize", br.com.gmp.comps.textarea.GTextArea.class, "getTabSize", "setTabSize" ); // NOI18N
+            properties[PROPERTY_text] = new PropertyDescriptor ( "text", br.com.gmp.comps.textarea.GTextArea.class, "getText", "setText" ); // NOI18N
             properties[PROPERTY_text].setPreferred ( true );
-            properties[PROPERTY_toolkit] = new PropertyDescriptor ( "toolkit", br.com.gmp.comps.textarea.GMPTextArea.class, "getToolkit", null ); // NOI18N
-            properties[PROPERTY_toolTipText] = new PropertyDescriptor ( "toolTipText", br.com.gmp.comps.textarea.GMPTextArea.class, "getToolTipText", "setToolTipText" ); // NOI18N
-            properties[PROPERTY_topLevelAncestor] = new PropertyDescriptor ( "topLevelAncestor", br.com.gmp.comps.textarea.GMPTextArea.class, "getTopLevelAncestor", null ); // NOI18N
-            properties[PROPERTY_transferHandler] = new PropertyDescriptor ( "transferHandler", br.com.gmp.comps.textarea.GMPTextArea.class, "getTransferHandler", "setTransferHandler" ); // NOI18N
-            properties[PROPERTY_treeLock] = new PropertyDescriptor ( "treeLock", br.com.gmp.comps.textarea.GMPTextArea.class, "getTreeLock", null ); // NOI18N
-            properties[PROPERTY_UI] = new PropertyDescriptor ( "UI", br.com.gmp.comps.textarea.GMPTextArea.class, "getUI", "setUI" ); // NOI18N
-            properties[PROPERTY_UIClassID] = new PropertyDescriptor ( "UIClassID", br.com.gmp.comps.textarea.GMPTextArea.class, "getUIClassID", null ); // NOI18N
-            properties[PROPERTY_valid] = new PropertyDescriptor ( "valid", br.com.gmp.comps.textarea.GMPTextArea.class, "isValid", null ); // NOI18N
-            properties[PROPERTY_validateRoot] = new PropertyDescriptor ( "validateRoot", br.com.gmp.comps.textarea.GMPTextArea.class, "isValidateRoot", null ); // NOI18N
-            properties[PROPERTY_verifyInputWhenFocusTarget] = new PropertyDescriptor ( "verifyInputWhenFocusTarget", br.com.gmp.comps.textarea.GMPTextArea.class, "getVerifyInputWhenFocusTarget", "setVerifyInputWhenFocusTarget" ); // NOI18N
-            properties[PROPERTY_vetoableChangeListeners] = new PropertyDescriptor ( "vetoableChangeListeners", br.com.gmp.comps.textarea.GMPTextArea.class, "getVetoableChangeListeners", null ); // NOI18N
-            properties[PROPERTY_visible] = new PropertyDescriptor ( "visible", br.com.gmp.comps.textarea.GMPTextArea.class, "isVisible", "setVisible" ); // NOI18N
-            properties[PROPERTY_visibleRect] = new PropertyDescriptor ( "visibleRect", br.com.gmp.comps.textarea.GMPTextArea.class, "getVisibleRect", null ); // NOI18N
-            properties[PROPERTY_width] = new PropertyDescriptor ( "width", br.com.gmp.comps.textarea.GMPTextArea.class, "getWidth", null ); // NOI18N
-            properties[PROPERTY_wrapStyleWord] = new PropertyDescriptor ( "wrapStyleWord", br.com.gmp.comps.textarea.GMPTextArea.class, "getWrapStyleWord", "setWrapStyleWord" ); // NOI18N
-            properties[PROPERTY_x] = new PropertyDescriptor ( "x", br.com.gmp.comps.textarea.GMPTextArea.class, "getX", null ); // NOI18N
-            properties[PROPERTY_y] = new PropertyDescriptor ( "y", br.com.gmp.comps.textarea.GMPTextArea.class, "getY", null ); // NOI18N
+            properties[PROPERTY_toolkit] = new PropertyDescriptor ( "toolkit", br.com.gmp.comps.textarea.GTextArea.class, "getToolkit", null ); // NOI18N
+            properties[PROPERTY_toolTipText] = new PropertyDescriptor ( "toolTipText", br.com.gmp.comps.textarea.GTextArea.class, "getToolTipText", "setToolTipText" ); // NOI18N
+            properties[PROPERTY_topLevelAncestor] = new PropertyDescriptor ( "topLevelAncestor", br.com.gmp.comps.textarea.GTextArea.class, "getTopLevelAncestor", null ); // NOI18N
+            properties[PROPERTY_transferHandler] = new PropertyDescriptor ( "transferHandler", br.com.gmp.comps.textarea.GTextArea.class, "getTransferHandler", "setTransferHandler" ); // NOI18N
+            properties[PROPERTY_treeLock] = new PropertyDescriptor ( "treeLock", br.com.gmp.comps.textarea.GTextArea.class, "getTreeLock", null ); // NOI18N
+            properties[PROPERTY_UI] = new PropertyDescriptor ( "UI", br.com.gmp.comps.textarea.GTextArea.class, "getUI", "setUI" ); // NOI18N
+            properties[PROPERTY_UIClassID] = new PropertyDescriptor ( "UIClassID", br.com.gmp.comps.textarea.GTextArea.class, "getUIClassID", null ); // NOI18N
+            properties[PROPERTY_valid] = new PropertyDescriptor ( "valid", br.com.gmp.comps.textarea.GTextArea.class, "isValid", null ); // NOI18N
+            properties[PROPERTY_validateRoot] = new PropertyDescriptor ( "validateRoot", br.com.gmp.comps.textarea.GTextArea.class, "isValidateRoot", null ); // NOI18N
+            properties[PROPERTY_verifyInputWhenFocusTarget] = new PropertyDescriptor ( "verifyInputWhenFocusTarget", br.com.gmp.comps.textarea.GTextArea.class, "getVerifyInputWhenFocusTarget", "setVerifyInputWhenFocusTarget" ); // NOI18N
+            properties[PROPERTY_vetoableChangeListeners] = new PropertyDescriptor ( "vetoableChangeListeners", br.com.gmp.comps.textarea.GTextArea.class, "getVetoableChangeListeners", null ); // NOI18N
+            properties[PROPERTY_visible] = new PropertyDescriptor ( "visible", br.com.gmp.comps.textarea.GTextArea.class, "isVisible", "setVisible" ); // NOI18N
+            properties[PROPERTY_visibleRect] = new PropertyDescriptor ( "visibleRect", br.com.gmp.comps.textarea.GTextArea.class, "getVisibleRect", null ); // NOI18N
+            properties[PROPERTY_width] = new PropertyDescriptor ( "width", br.com.gmp.comps.textarea.GTextArea.class, "getWidth", null ); // NOI18N
+            properties[PROPERTY_wrapStyleWord] = new PropertyDescriptor ( "wrapStyleWord", br.com.gmp.comps.textarea.GTextArea.class, "getWrapStyleWord", "setWrapStyleWord" ); // NOI18N
+            properties[PROPERTY_x] = new PropertyDescriptor ( "x", br.com.gmp.comps.textarea.GTextArea.class, "getX", null ); // NOI18N
+            properties[PROPERTY_y] = new PropertyDescriptor ( "y", br.com.gmp.comps.textarea.GTextArea.class, "getY", null ); // NOI18N
         }
         catch(IntrospectionException e) {
             e.printStackTrace();
@@ -336,20 +336,20 @@ public class GMPTextAreaBeanInfo extends SimpleBeanInfo {
         EventSetDescriptor[] eventSets = new EventSetDescriptor[14];
     
         try {
-            eventSets[EVENT_ancestorListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "ancestorListener", javax.swing.event.AncestorListener.class, new String[] {"ancestorAdded", "ancestorRemoved", "ancestorMoved"}, "addAncestorListener", "removeAncestorListener" ); // NOI18N
-            eventSets[EVENT_caretListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "caretListener", javax.swing.event.CaretListener.class, new String[] {"caretUpdate"}, "addCaretListener", "removeCaretListener" ); // NOI18N
-            eventSets[EVENT_componentListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "componentListener", java.awt.event.ComponentListener.class, new String[] {"componentResized", "componentMoved", "componentShown", "componentHidden"}, "addComponentListener", "removeComponentListener" ); // NOI18N
-            eventSets[EVENT_containerListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "containerListener", java.awt.event.ContainerListener.class, new String[] {"componentAdded", "componentRemoved"}, "addContainerListener", "removeContainerListener" ); // NOI18N
-            eventSets[EVENT_focusListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "focusListener", java.awt.event.FocusListener.class, new String[] {"focusGained", "focusLost"}, "addFocusListener", "removeFocusListener" ); // NOI18N
-            eventSets[EVENT_hierarchyBoundsListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "hierarchyBoundsListener", java.awt.event.HierarchyBoundsListener.class, new String[] {"ancestorMoved", "ancestorResized"}, "addHierarchyBoundsListener", "removeHierarchyBoundsListener" ); // NOI18N
-            eventSets[EVENT_hierarchyListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "hierarchyListener", java.awt.event.HierarchyListener.class, new String[] {"hierarchyChanged"}, "addHierarchyListener", "removeHierarchyListener" ); // NOI18N
-            eventSets[EVENT_inputMethodListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "inputMethodListener", java.awt.event.InputMethodListener.class, new String[] {"inputMethodTextChanged", "caretPositionChanged"}, "addInputMethodListener", "removeInputMethodListener" ); // NOI18N
-            eventSets[EVENT_keyListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "keyListener", java.awt.event.KeyListener.class, new String[] {"keyTyped", "keyPressed", "keyReleased"}, "addKeyListener", "removeKeyListener" ); // NOI18N
-            eventSets[EVENT_mouseListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "mouseListener", java.awt.event.MouseListener.class, new String[] {"mouseClicked", "mousePressed", "mouseReleased", "mouseEntered", "mouseExited"}, "addMouseListener", "removeMouseListener" ); // NOI18N
-            eventSets[EVENT_mouseMotionListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "mouseMotionListener", java.awt.event.MouseMotionListener.class, new String[] {"mouseDragged", "mouseMoved"}, "addMouseMotionListener", "removeMouseMotionListener" ); // NOI18N
-            eventSets[EVENT_mouseWheelListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "mouseWheelListener", java.awt.event.MouseWheelListener.class, new String[] {"mouseWheelMoved"}, "addMouseWheelListener", "removeMouseWheelListener" ); // NOI18N
-            eventSets[EVENT_propertyChangeListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "propertyChangeListener", java.beans.PropertyChangeListener.class, new String[] {"propertyChange"}, "addPropertyChangeListener", "removePropertyChangeListener" ); // NOI18N
-            eventSets[EVENT_vetoableChangeListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GMPTextArea.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[] {"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener" ); // NOI18N
+            eventSets[EVENT_ancestorListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "ancestorListener", javax.swing.event.AncestorListener.class, new String[] {"ancestorAdded", "ancestorRemoved", "ancestorMoved"}, "addAncestorListener", "removeAncestorListener" ); // NOI18N
+            eventSets[EVENT_caretListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "caretListener", javax.swing.event.CaretListener.class, new String[] {"caretUpdate"}, "addCaretListener", "removeCaretListener" ); // NOI18N
+            eventSets[EVENT_componentListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "componentListener", java.awt.event.ComponentListener.class, new String[] {"componentResized", "componentMoved", "componentShown", "componentHidden"}, "addComponentListener", "removeComponentListener" ); // NOI18N
+            eventSets[EVENT_containerListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "containerListener", java.awt.event.ContainerListener.class, new String[] {"componentAdded", "componentRemoved"}, "addContainerListener", "removeContainerListener" ); // NOI18N
+            eventSets[EVENT_focusListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "focusListener", java.awt.event.FocusListener.class, new String[] {"focusGained", "focusLost"}, "addFocusListener", "removeFocusListener" ); // NOI18N
+            eventSets[EVENT_hierarchyBoundsListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "hierarchyBoundsListener", java.awt.event.HierarchyBoundsListener.class, new String[] {"ancestorMoved", "ancestorResized"}, "addHierarchyBoundsListener", "removeHierarchyBoundsListener" ); // NOI18N
+            eventSets[EVENT_hierarchyListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "hierarchyListener", java.awt.event.HierarchyListener.class, new String[] {"hierarchyChanged"}, "addHierarchyListener", "removeHierarchyListener" ); // NOI18N
+            eventSets[EVENT_inputMethodListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "inputMethodListener", java.awt.event.InputMethodListener.class, new String[] {"inputMethodTextChanged", "caretPositionChanged"}, "addInputMethodListener", "removeInputMethodListener" ); // NOI18N
+            eventSets[EVENT_keyListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "keyListener", java.awt.event.KeyListener.class, new String[] {"keyTyped", "keyPressed", "keyReleased"}, "addKeyListener", "removeKeyListener" ); // NOI18N
+            eventSets[EVENT_mouseListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "mouseListener", java.awt.event.MouseListener.class, new String[] {"mouseClicked", "mousePressed", "mouseReleased", "mouseEntered", "mouseExited"}, "addMouseListener", "removeMouseListener" ); // NOI18N
+            eventSets[EVENT_mouseMotionListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "mouseMotionListener", java.awt.event.MouseMotionListener.class, new String[] {"mouseDragged", "mouseMoved"}, "addMouseMotionListener", "removeMouseMotionListener" ); // NOI18N
+            eventSets[EVENT_mouseWheelListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "mouseWheelListener", java.awt.event.MouseWheelListener.class, new String[] {"mouseWheelMoved"}, "addMouseWheelListener", "removeMouseWheelListener" ); // NOI18N
+            eventSets[EVENT_propertyChangeListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "propertyChangeListener", java.beans.PropertyChangeListener.class, new String[] {"propertyChange"}, "addPropertyChangeListener", "removePropertyChangeListener" ); // NOI18N
+            eventSets[EVENT_vetoableChangeListener] = new EventSetDescriptor ( br.com.gmp.comps.textarea.GTextArea.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[] {"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener" ); // NOI18N
         }
         catch(IntrospectionException e) {
             e.printStackTrace();
@@ -624,9 +624,9 @@ public class GMPTextAreaBeanInfo extends SimpleBeanInfo {
             methods[METHOD_firePropertyChange42].setDisplayName ( "" );
             methods[METHOD_firePropertyChange43] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("firePropertyChange", new Class[] {java.lang.String.class, char.class, char.class})); // NOI18N
             methods[METHOD_firePropertyChange43].setDisplayName ( "" );
-            methods[METHOD_focusGained44] = new MethodDescriptor(br.com.gmp.comps.textarea.GMPTextArea.class.getMethod("focusGained", new Class[] {java.awt.event.FocusEvent.class})); // NOI18N
+            methods[METHOD_focusGained44] = new MethodDescriptor(br.com.gmp.comps.textarea.GTextArea.class.getMethod("focusGained", new Class[] {java.awt.event.FocusEvent.class})); // NOI18N
             methods[METHOD_focusGained44].setDisplayName ( "" );
-            methods[METHOD_focusLost45] = new MethodDescriptor(br.com.gmp.comps.textarea.GMPTextArea.class.getMethod("focusLost", new Class[] {java.awt.event.FocusEvent.class})); // NOI18N
+            methods[METHOD_focusLost45] = new MethodDescriptor(br.com.gmp.comps.textarea.GTextArea.class.getMethod("focusLost", new Class[] {java.awt.event.FocusEvent.class})); // NOI18N
             methods[METHOD_focusLost45].setDisplayName ( "" );
             methods[METHOD_getActionForKeyStroke46] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("getActionForKeyStroke", new Class[] {javax.swing.KeyStroke.class})); // NOI18N
             methods[METHOD_getActionForKeyStroke46].setDisplayName ( "" );

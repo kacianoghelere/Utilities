@@ -7,29 +7,30 @@ import java.awt.event.FocusEvent;
 import javax.swing.JTextArea;
 
 /**
+ * Área de texto customizada
  *
  * @author kaciano
+ * @version 1.0
  */
-public class GMPTextArea extends JTextArea implements ValidableComponent {
+public class GTextArea extends JTextArea implements ValidableComponent {
 
-    private int maximumlength;
+    private int maximum;
     private String invalidMsg = "Campo obrigatório!";
 
     /**
-     * Creates new form GMPTextArea
+     * Cria nova instancia de GMPTextArea
      */
-    public GMPTextArea() {
-        this.maximumlength = 0;
-
+    public GTextArea() {
+        this.maximum = 0;
     }
 
     /**
      * Cria nova instancia de GMPTextArea
      *
-     * @param maximumlength <code>int</code> Comprimento maximo do texto
+     * @param maximum <code>int</code> Comprimento maximo do texto
      */
-    public GMPTextArea(int maximumlength) {
-        this.maximumlength = maximumlength;
+    public GTextArea(int maximum) {
+        this.maximum = maximum;
         initComponents();
     }
 
@@ -55,8 +56,8 @@ public class GMPTextArea extends JTextArea implements ValidableComponent {
      * Controla o comprimento do texto
      */
     private void controlLength() {
-        if (this.maximumlength != 0 && this.maximumlength < this.getText().length()) {
-            this.setText(this.getText().substring(0, maximumlength - 1));
+        if (this.maximum != 0 && this.maximum < this.getText().length()) {
+            this.setText(this.getText().substring(0, maximum - 1));
         }
     }
 
@@ -65,22 +66,22 @@ public class GMPTextArea extends JTextArea implements ValidableComponent {
      *
      * @return <code>int</code> Comprimento maximo do texto
      */
-    public int getMaximumlength() {
-        return maximumlength;
+    public int getMaximum() {
+        return maximum;
     }
 
     /**
      * Modifica o comprimento maximo do texto
      *
-     * @param maximumlength <code>int</code> Comprimento maximo do texto
+     * @param maximum <code>int</code> Comprimento maximo do texto
      */
-    public void setMaximumlength(int maximumlength) {
-        this.maximumlength = maximumlength;
+    public void setMaximum(int maximum) {
+        this.maximum = maximum;
     }
 
     @Override
     public boolean validateComponent() {
-        if (this.getText().length() > maximumlength) {
+        if (this.getText().length() > maximum) {
             return false;
         } else if (this.getText().equals("") || this.getText() == null || getText().isEmpty()) {
             new BalloonUtil().showTimedBallon(this, invalidMsg);
