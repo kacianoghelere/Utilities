@@ -38,6 +38,19 @@ public class TextBuilder {
     }
 
     /**
+     * Concatena o texto original com o texto recebido
+     *
+     * @param text <code>String[]</code> Variaeis de texto a serem concatenadas
+     * @return <code>TextBuilder</code> Construtor de texto
+     */
+    public TextBuilder append(String... text) {
+        for (String value : text) {
+            this.text += value;
+        }
+        return this;
+    }
+
+    /**
      * Concatena o texto original com o numero inteiro recebido
      *
      * @param number <code>int</code> Numero a ser concatenado
@@ -75,4 +88,10 @@ public class TextBuilder {
         return text;
     }
 
+    public static void main(String[] args) {
+        TextBuilder builder = new TextBuilder();
+        builder.append("K","a","c","i","a","n","o"); 
+        String text = builder.getText();
+        System.out.println(text);
+    }
 }
