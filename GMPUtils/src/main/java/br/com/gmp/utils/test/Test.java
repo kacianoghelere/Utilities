@@ -1,5 +1,6 @@
 package br.com.gmp.utils.test;
 
+import br.com.gmp.utils.annotations.Editable;
 import br.com.gmp.utils.annotations.TreeItem;
 import br.com.gmp.utils.annotations.TreeLeaf;
 
@@ -11,13 +12,15 @@ import br.com.gmp.utils.annotations.TreeLeaf;
 @TreeItem(title = "Test")
 public class Test {
 
+    @Editable
     @TreeLeaf
     private String name;
+    @Editable
     @TreeLeaf
     private int age;
+    @Editable
     @TreeLeaf
     private boolean alive;
-    private Test test;
 
     /**
      * Constroi novo Test
@@ -36,21 +39,6 @@ public class Test {
         this.name = name;
         this.age = age;
         this.alive = alive;
-    }
-
-    /**
-     * Constroi novo Test
-     *
-     * @param name Nome
-     * @param age Idade
-     * @param alive Vivo?
-     * @param test Test
-     */
-    public Test(String name, int age, boolean alive, Test test) {
-        this.name = name;
-        this.age = age;
-        this.alive = alive;
-        this.test = test;
     }
 
     @Override
@@ -111,21 +99,4 @@ public class Test {
     public void setAlive(boolean alive) {
         this.alive = alive;
     }
-
-    /**
-     *
-     * @return Test
-     */
-    public Test getTest() {
-        return test;
-    }
-
-    /**
-     *
-     * @param test Test
-     */
-    public void setTest(Test test) {
-        this.test = test;
-    }
-
 }
