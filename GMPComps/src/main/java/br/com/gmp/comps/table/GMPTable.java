@@ -4,6 +4,7 @@ import br.com.gmp.comps.baloontip.src.BalloonUtil;
 import br.com.gmp.comps.interfaces.Exporter;
 import br.com.gmp.comps.model.GMPTableModel;
 import br.com.gmp.comps.objects.TableObject;
+import br.com.gmp.comps.table.bar.GMPTableBar;
 import br.com.gmp.comps.table.interfaces.TableControl;
 import br.com.gmp.comps.table.interfaces.TableSource;
 import br.com.gmp.utils.collections.CollectionUtil;
@@ -11,6 +12,7 @@ import br.com.gmp.utils.export.PDFExporter;
 import br.com.gmp.utils.export.TXTExporter;
 import br.com.gmp.utils.export.XLSExporter;
 import com.lowagie.text.DocumentException;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.io.IOException;
@@ -32,7 +34,7 @@ import jxl.write.WriteException;
  * @see javax.swing.JTable
  */
 public class GMPTable extends JTable implements TableControl, Exporter {
-    
+
     private Class objClass;
     private TableSource source;
     private int pageCount;
@@ -111,22 +113,24 @@ public class GMPTable extends JTable implements TableControl, Exporter {
      */
     private void initialize() {
         this.initComponents();
+        this.setLayout(new BorderLayout());
+        this.add(new GMPTableBar(this), BorderLayout.SOUTH);
         this.setShowGrid(true);
         this.setGridColor(Color.gray.darker());
         this.loadData();
     }
-    
+
     private void loadData() {
         this.mainList = source.getTableData();
         this.splitData(source.getTableData(), maxRows);
         this.setModel(gmpModel);
     }
-    
+
     @Override
     public void refresh() {
         this.loadData();
     }
-    
+
     @Override
     public void nextPage() {
         if (actualPage < (pageCount - 1)) {
@@ -135,7 +139,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
             new BalloonUtil().showTimedBallon(this, "Esta é a ultima pagina");
         }
     }
-    
+
     @Override
     public void previousPage() {
         if (actualPage > 0) {
@@ -144,23 +148,23 @@ public class GMPTable extends JTable implements TableControl, Exporter {
             new BalloonUtil().showTimedBallon(this, "Esta é a primeira pagina");
         }
     }
-    
+
     @Override
     public int getMaxRows() {
         return this.maxRows;
     }
-    
+
     @Override
     public void setMaxRows(int maxrows) {
         this.maxRows = maxrows;
         loadData();
     }
-    
+
     @Override
     public int getActualPage() {
         return this.actualPage;
     }
-    
+
     @Override
     public void setActualPage(int actualPage) {
         this.actualPage = actualPage;
@@ -168,24 +172,24 @@ public class GMPTable extends JTable implements TableControl, Exporter {
         this.repaint();
         this.revalidate();
     }
-    
+
     @Override
     public void gotoPage(int page) {
         this.setActualPage(page);
     }
-    
+
     @Override
     public void gotoFirst() {
         this.setActualPage(0);
     }
-    
+
     @Override
     public void gotoLast() {
         if (pages != null) {
             this.setActualPage(pages.length > 0 ? (pages.length - 1) : 0);
         }
     }
-    
+
     public void setTable(TableSource source, int maxRows, GMPTableModel gmpModel, Class objClass) {
         this.source = source;
         this.mainList = source.getTableData();
@@ -212,7 +216,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
         this.pageCount = pages.length;
         setActualPage(0);
     }
-    
+
     @Override
     public void setModel(TableModel dataModel) {
         super.setModel(dataModel);
@@ -230,7 +234,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     public void mount(Class<Object> objectclass, List<Object> list) {
         this.setModel(new GMPTableModel(objectclass, list));
     }
-    
+
     @Override
     public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
         Component c = super.prepareRenderer(renderer, row, column);
@@ -247,7 +251,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
         }
         return c;
     }
-    
+
     private List assemblyData() {
         List data = new ArrayList();
         for (List<Object> list : pages) {
@@ -257,7 +261,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
         }
         return data;
     }
-    
+
     @Override
     public void exportXLS() {
         try {
@@ -267,7 +271,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
             Logger.getLogger(GMPTable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public void exportTXT() {
         try {
@@ -277,7 +281,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
             Logger.getLogger(GMPTable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public void exportPDF() {
         try {
