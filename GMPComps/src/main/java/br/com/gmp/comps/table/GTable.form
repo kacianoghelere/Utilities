@@ -94,6 +94,8 @@
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="gTSearchFocusLost"/>
           </Events>
         </Component>
+        <Component class="br.com.gmp.comps.combobox.GComboBox" name="gCBFilter">
+        </Component>
       </SubComponents>
     </Container>
   </NonVisualComponents>

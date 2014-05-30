@@ -63,7 +63,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     public List<Test> getTableData() {
         List<Test> list = new ArrayList<>();
         for (int i = 0; i < 200; i++) {
-            list.add(new Test("Kaciano" +  i, i, true));
+            list.add(new Test("Kaciano" + (i + 1), i, true));
         }
         return list;
     }

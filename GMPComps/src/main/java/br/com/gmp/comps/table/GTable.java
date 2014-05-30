@@ -2,9 +2,11 @@ package br.com.gmp.comps.table;
 
 import br.com.gmp.comps.GColors;
 import br.com.gmp.comps.baloontip.src.BalloonUtil;
+import br.com.gmp.comps.combobox.model.GComboBoxModel;
 import br.com.gmp.comps.interfaces.Exporter;
 import br.com.gmp.comps.model.GTableModel;
 import br.com.gmp.comps.objects.TableObject;
+import br.com.gmp.comps.table.column.GTableColumn;
 import br.com.gmp.comps.table.interfaces.TableControl;
 import br.com.gmp.comps.table.interfaces.TableSource;
 import br.com.gmp.utils.collections.CollectionUtil;
@@ -16,9 +18,9 @@ import com.lowagie.text.DocumentException;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Rectangle;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +30,8 @@ import javax.swing.RowFilter;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import jxl.write.WriteException;
@@ -48,6 +52,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     private List[] pages;
     private GTableModel model;
     private TableRowSorter<GTableModel> rowSorter;
+    private GComboBoxModel<GTableColumn> boxModel;
 
     /**
      * Cria nova instancia de GMPTable
@@ -60,6 +65,7 @@ public class GTable extends JTable implements TableControl, Exporter {
             }
         };
         this.model = new SimpleModel();
+        this.boxModel = new GComboBoxModel<>();
         this.pageCount = 0;
         this.initialize();
     }
@@ -95,7 +101,7 @@ public class GTable extends JTable implements TableControl, Exporter {
      * Metodo de inicialização
      */
     private void initialize() {
-        this.initComponents();        
+        this.initComponents();
         this.getTableHeader().setLayout(new BorderLayout());
         this.getTableHeader().add(jTBSearch, BorderLayout.NORTH);
         this.jTBSearch.setBorderPainted(false);
@@ -103,6 +109,7 @@ public class GTable extends JTable implements TableControl, Exporter {
         this.setShowGrid(true);
         this.setGridColor(Color.gray.darker());
         this.loadData();
+        this.loadFilter();
     }
 
     /**
@@ -225,7 +232,7 @@ public class GTable extends JTable implements TableControl, Exporter {
             public void caretUpdate(CaretEvent arg0) {
                 String text = gTSearch.getText().trim();
                 if (!text.isEmpty()) {
-                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text, 0));
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text, gCBFilter.getSelectedIndex()));
                 }
             }
         });
@@ -266,6 +273,21 @@ public class GTable extends JTable implements TableControl, Exporter {
      */
     public void mount(Class<Object> objectclass, List<Object> list) {
         this.setModel(new GTableModel(list));
+    }
+
+    /**
+     * Carrega todos os dados no filtro da tabela
+     */
+    private void loadFilter() {        
+        List<GTableColumn> list = new ArrayList<>();
+        for (int i = 0; i < getColumnCount(); i++) {
+            list.add(new GTableColumn(i, getColumnName(i)));
+        }
+        boxModel.setData(list);
+        this.gCBFilter.setGModel(boxModel);
+        if (!boxModel.getData().isEmpty()) {
+            gCBFilter.setSelectedIndex(0);
+        }
     }
 
     @Override
@@ -431,6 +453,7 @@ public class GTable extends JTable implements TableControl, Exporter {
         jTBSearch = new javax.swing.JToolBar();
         jLSeach = new javax.swing.JLabel();
         gTSearch = new br.com.gmp.comps.textfield.GTextField();
+        gCBFilter = new br.com.gmp.comps.combobox.GComboBox();
 
         jMISearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/field/search.png"))); // NOI18N
         jMISearch.setText("Filtrar");
@@ -493,6 +516,7 @@ public class GTable extends JTable implements TableControl, Exporter {
             }
         });
         jTBSearch.add(gTSearch);
+        jTBSearch.add(gCBFilter);
 
         setComponentPopupMenu(jPop);
     }// </editor-fold>//GEN-END:initComponents
@@ -523,6 +547,7 @@ public class GTable extends JTable implements TableControl, Exporter {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private br.com.gmp.comps.combobox.GComboBox gCBFilter;
     private br.com.gmp.comps.textfield.GTextField gTSearch;
     private javax.swing.JLabel jLSeach;
     private javax.swing.JMenuItem jMIExportPDF;
