@@ -13,8 +13,10 @@ import br.com.gmp.utils.export.TXTExporter;
 import br.com.gmp.utils.export.XLSExporter;
 import br.com.gmp.utils.export.XMLExporter;
 import com.lowagie.text.DocumentException;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Rectangle;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import jxl.write.WriteException;
 
 /**
@@ -40,7 +46,8 @@ public class GTable extends JTable implements TableControl, Exporter {
     private int actualPage;
     private int maxRows;
     private List[] pages;
-    private GTableModel<?> model;
+    private GTableModel model;
+    private TableRowSorter<GTableModel> rowSorter;
 
     /**
      * Cria nova instancia de GMPTable
@@ -88,7 +95,11 @@ public class GTable extends JTable implements TableControl, Exporter {
      * Metodo de inicialização
      */
     private void initialize() {
-        this.initComponents();
+        this.initComponents();        
+        this.getTableHeader().setLayout(new BorderLayout());
+        this.getTableHeader().add(jTBSearch, BorderLayout.NORTH);
+        this.jTBSearch.setBorderPainted(false);
+        this.jTBSearch.setVisible(false);
         this.setShowGrid(true);
         this.setGridColor(Color.gray.darker());
         this.loadData();
@@ -204,6 +215,20 @@ public class GTable extends JTable implements TableControl, Exporter {
         this.source = source;
         this.maxRows = maxrows;
         this.model = model;
+        if (rowSorter == null) {
+            this.rowSorter = (TableRowSorter<GTableModel>) new TableRowSorter<>(model);
+            this.setRowSorter(rowSorter);
+        }
+        this.gTSearch.setColumns(10);
+        this.gTSearch.addCaretListener(new CaretListener() {
+            @Override
+            public void caretUpdate(CaretEvent arg0) {
+                String text = gTSearch.getText().trim();
+                if (!text.isEmpty()) {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text, 0));
+                }
+            }
+        });
         this.loadData();
         this.repaint();
         this.revalidate();
@@ -397,10 +422,25 @@ public class GTable extends JTable implements TableControl, Exporter {
     private void initComponents() {
 
         jPop = new javax.swing.JPopupMenu();
+        jMISearch = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMIExportXLS = new javax.swing.JMenuItem();
         jMIExportTXT = new javax.swing.JMenuItem();
         jMIExportPDF = new javax.swing.JMenuItem();
         jMIExportXML = new javax.swing.JMenuItem();
+        jTBSearch = new javax.swing.JToolBar();
+        jLSeach = new javax.swing.JLabel();
+        gTSearch = new br.com.gmp.comps.textfield.GTextField();
+
+        jMISearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/field/search.png"))); // NOI18N
+        jMISearch.setText("Filtrar");
+        jMISearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMISearchActionPerformed(evt);
+            }
+        });
+        jPop.add(jMISearch);
+        jPop.add(jSeparator1);
 
         jMIExportXLS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/menubar/menubar/file_xls.png"))); // NOI18N
         jMIExportXLS.setText("<html>Exportar para <b>XLS</b></html>");
@@ -438,6 +478,22 @@ public class GTable extends JTable implements TableControl, Exporter {
         });
         jPop.add(jMIExportXML);
 
+        jTBSearch.setFloatable(false);
+        jTBSearch.setRollover(true);
+        jTBSearch.setPreferredSize(new java.awt.Dimension(100, 23));
+
+        jLSeach.setText("Filtrar:");
+        jLSeach.setToolTipText("");
+        jTBSearch.add(jLSeach);
+
+        gTSearch.setPreferredSize(new java.awt.Dimension(250, 28));
+        gTSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                gTSearchFocusLost(evt);
+            }
+        });
+        jTBSearch.add(gTSearch);
+
         setComponentPopupMenu(jPop);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -457,13 +513,26 @@ public class GTable extends JTable implements TableControl, Exporter {
         exportXML();
     }//GEN-LAST:event_jMIExportXMLActionPerformed
 
+    private void gTSearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_gTSearchFocusLost
+        jTBSearch.setVisible(false);
+    }//GEN-LAST:event_gTSearchFocusLost
+
+    private void jMISearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMISearchActionPerformed
+        jTBSearch.setVisible(true);
+    }//GEN-LAST:event_jMISearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private br.com.gmp.comps.textfield.GTextField gTSearch;
+    private javax.swing.JLabel jLSeach;
     private javax.swing.JMenuItem jMIExportPDF;
     private javax.swing.JMenuItem jMIExportTXT;
     private javax.swing.JMenuItem jMIExportXLS;
     private javax.swing.JMenuItem jMIExportXML;
+    private javax.swing.JMenuItem jMISearch;
     private javax.swing.JPopupMenu jPop;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JToolBar jTBSearch;
     // End of variables declaration//GEN-END:variables
 }
 

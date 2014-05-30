@@ -3,6 +3,7 @@ package br.com.gmp.comps;
 import br.com.gmp.comps.combobox.model.GComboBoxModel;
 import br.com.gmp.comps.model.GListModel;
 import br.com.gmp.comps.model.GMPTableModel;
+import br.com.gmp.comps.model.GTableModel;
 import br.com.gmp.comps.panel.BlurGlassPane;
 import br.com.gmp.comps.table.interfaces.TableSource;
 import br.com.gmp.utils.test.Test;
@@ -25,17 +26,15 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     public Tets() {
         initialize();
     }
-    
+
     private void initialize() {
-        DefaultModel mdl = new DefaultModel();
+        OtherModel mdl = new OtherModel();
         GListModel<TestObject> gListModel = new GListModel<>();
         for (int i = 0; i < 20; i++) {
             mdl.add(new Test("bosta", 22, false));
             gListModel.add(new TestObject("Test" + i));
         }
-        
         initComponents();
-        gList1.setModel(gListModel);
         try {
             setGlassPane(new BlurGlassPane());
         } catch (Exception e) {
@@ -43,7 +42,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
             System.exit(0);
         }
         gTableBar.setTable(gTable);
-        gTable.setModel(mdl);
+        gTable2.buildTable(this, 0, mdl);
         //gTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         dual.setSourceElements(getTable().toArray());
         TestObject[] tos = new TestObject[5];
@@ -52,22 +51,23 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         tos[2] = new TestObject("Jesus");
         tos[3] = new TestObject("Hipopotamo");
         tos[4] = new TestObject("Jaraguá do sul");
-        
+
         TestAutoModel model = new TestAutoModel();
         model.setData(tos);
         gAutoCB.setModel(model);
         gTree.mount(Test.class, getTableData());
+        setLocationRelativeTo(null);
     }
-    
+
     @Override
     public List<Test> getTableData() {
         List<Test> list = new ArrayList<>();
         for (int i = 0; i < 200; i++) {
-            list.add(new Test("Kaciano", i, true, new Test("Kaciano", 132, true)));
+            list.add(new Test("Kaciano" +  i, i, true));
         }
         return list;
     }
-    
+
     private List<String> getTable() {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
@@ -105,13 +105,8 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         gNumericField1 = new br.com.gmp.comps.textfield.numeric.GNumericField();
         jScrollPane1 = new javax.swing.JScrollPane();
         gTextArea1 = new br.com.gmp.comps.textarea.GTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        gTable1 = new br.com.gmp.comps.table.GTable();
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        gList1 = new br.com.gmp.comps.list.GList();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        gList2 = new br.com.gmp.comps.list.GList();
+        gTable2 = new br.com.gmp.comps.table.GTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -286,92 +281,20 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
 
         jTabbedPane1.addTab("Outros", jPanel4);
 
-        jScrollPane3.setName("jScrollPane3"); // NOI18N
-
-        gTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "a", "b", "c"
-            }
-        ));
-        gTable1.setName("gTable1"); // NOI18N
-        gTable1.setPreferredScrollableViewportSize(new java.awt.Dimension(430, 300));
-        gTable1.setShowGrid(true);
-        jScrollPane3.setViewportView(gTable1);
-
-        jTabbedPane1.addTab("Tabela2", jScrollPane3);
-
-        jPanel1.setName("jPanel1"); // NOI18N
-
         jScrollPane5.setName("jScrollPane5"); // NOI18N
 
-        gList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        gList1.setName("gList1"); // NOI18N
-        jScrollPane5.setViewportView(gList1);
+        gTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jScrollPane6.setName("jScrollPane6"); // NOI18N
+            },
+            new String [] {
 
-        gList2.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        gList2.setName("gList2"); // NOI18N
-        jScrollPane6.setViewportView(gList2);
+            }
+        ));
+        gTable2.setName("gTable2"); // NOI18N
+        jScrollPane5.setViewportView(gTable2);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(278, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Listas", jPanel1);
+        jTabbedPane1.addTab("tab5", jScrollPane5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -419,64 +342,63 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     private br.com.gmp.comps.list.dual.GMPDualList dual;
     private br.com.gmp.comps.combobox.GAutoComboBox gAutoCB;
     private br.com.gmp.comps.panel.gradient.GGradientPanel gGradientPanel1;
-    private br.com.gmp.comps.list.GList gList1;
-    private br.com.gmp.comps.list.GList gList2;
     private br.com.gmp.comps.textfield.button.GMPButtonField gMPButtonField1;
     private br.com.gmp.comps.datefield.GMPDateField gMPDateField2;
     private br.com.gmp.comps.table.dual.GMPDualTable gMPDualTable1;
     private br.com.gmp.comps.textfield.numeric.GNumericField gNumericField1;
     private br.com.gmp.comps.table.GMPTable gTable;
-    private br.com.gmp.comps.table.GTable gTable1;
+    private br.com.gmp.comps.table.GTable gTable2;
     private br.com.gmp.comps.table.bar.GMPTableBar gTableBar;
     private br.com.gmp.comps.textarea.GTextArea gTextArea1;
     private br.com.gmp.comps.tree.GMPTree gTree;
     private javax.swing.JButton jButton4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private br.com.gmp.comps.textfield.NumericTextField numericTextField1;
     // End of variables declaration//GEN-END:variables
 }
 
+class OtherModel extends GTableModel<Test> {
+
+}
+
 class DefaultModel extends GMPTableModel {
-    
+
     public DefaultModel() {
         super(Test.class);
     }
-    
+
 }
 
 class TestAutoModel extends GComboBoxModel<TestObject> {
-    
+
 }
 
 class TestObject {
-    
+
     private String name;
-    
+
     public TestObject(String name) {
         this.name = name;
     }
-    
+
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
-    
+
     @Override
     public String toString() {
         return name;
     }
-    
+
 }
