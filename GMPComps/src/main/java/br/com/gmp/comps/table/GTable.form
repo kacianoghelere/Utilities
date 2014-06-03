@@ -21,6 +21,9 @@
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jMIPageBar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ComponentIcons/transition/right.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Pagina&#xe7;&#xe3;o"/>
           </Properties>
           <Events>
@@ -107,6 +110,9 @@
       </SubComponents>
     </Container>
     <Container class="br.com.gmp.comps.table.bar.GTableBar" name="gTableBar">
+      <Properties>
+        <Property name="visible" type="boolean" value="false"/>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
     </Container>

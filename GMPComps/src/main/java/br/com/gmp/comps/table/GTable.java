@@ -6,6 +6,7 @@ import br.com.gmp.comps.combobox.model.GComboBoxModel;
 import br.com.gmp.comps.interfaces.Exporter;
 import br.com.gmp.comps.model.GTableModel;
 import br.com.gmp.comps.objects.TableObject;
+import br.com.gmp.comps.table.bar.GTableBar;
 import br.com.gmp.comps.table.column.GTableColumn;
 import br.com.gmp.comps.table.interfaces.TableControl;
 import br.com.gmp.comps.table.interfaces.TableSource;
@@ -100,13 +101,12 @@ public class GTable extends JTable implements TableControl, Exporter {
     private void initialize() {
         this.initComponents();
         this.getTableHeader().setLayout(new BorderLayout());
-        this.getTableHeader().add(jTBSearch, BorderLayout.NORTH);        
+        this.getTableHeader().add(jTBSearch, BorderLayout.NORTH);
         this.jTBSearch.setBorderPainted(false);
         this.jTBSearch.setVisible(false);
-        this.gTableBar.setTable(this);
-        this.gTableBar.setVisible(false);        
         this.getTableHeader().add(gTableBar, BorderLayout.NORTH);
-        this.jMIPageBar.setEnabled((maxRows > 0));
+        this.gTableBar.setTable(this);
+        this.gTableBar.setVisible(false);
         this.setShowGrid(true);
         this.setGridColor(Color.gray.darker());
         this.loadData();
@@ -153,7 +153,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     public void setMaxRows(int maxrows) {
         this.maxRows = maxrows;
         loadData();
-        this.jMIPageBar.setEnabled((maxRows > 0));
+
     }
 
     @Override
@@ -239,7 +239,7 @@ public class GTable extends JTable implements TableControl, Exporter {
             }
         });
         this.loadData();
-        this.jMIPageBar.setEnabled((maxRows > 0));
+
         this.repaint();
         this.revalidate();
     }
@@ -374,6 +374,15 @@ public class GTable extends JTable implements TableControl, Exporter {
         return model;
     }
 
+    /**
+     * Define se a barra pode ser paginada, ou não
+     *
+     * @param paginate <code>boolean</code> Paginar?
+     */
+    public void setPaginated(boolean paginate) {
+        jMIPageBar.setEnabled(paginate);
+    }
+
     //<editor-fold desc="Get's & Set's" defaultstate="collapsed">
     /**
      * Retorna o modelo da tabela
@@ -438,6 +447,15 @@ public class GTable extends JTable implements TableControl, Exporter {
         this.pages = pages;
     }
 
+    /**
+     * Retorna a barra de páginação da tabela
+     *
+     * @return <code>GTableBar</code> Barra de páginação da tabela
+     */
+    public GTableBar getTableBar() {
+        return gTableBar;
+    }
+
     //</editor-fold>
     /**
      * Código gerado automaticamente
@@ -469,6 +487,7 @@ public class GTable extends JTable implements TableControl, Exporter {
         });
         jPop.add(jMISearch);
 
+        jMIPageBar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/right.png"))); // NOI18N
         jMIPageBar.setText("Paginação");
         jMIPageBar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -531,6 +550,8 @@ public class GTable extends JTable implements TableControl, Exporter {
         jTBSearch.add(gTSearch);
         jTBSearch.add(gCBFilter);
 
+        gTableBar.setVisible(false);
+
         setComponentPopupMenu(jPop);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -559,7 +580,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     }//GEN-LAST:event_jMISearchActionPerformed
 
     private void jMIPageBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIPageBarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jMIPageBarActionPerformed
 
 

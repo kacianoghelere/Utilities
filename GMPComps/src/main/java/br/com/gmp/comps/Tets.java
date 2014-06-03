@@ -56,7 +56,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         model.setData(tos);
         gAutoCB.setModel(model);
         gTree.mount(Test.class, getTableData());
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null);        
     }
 
     @Override
