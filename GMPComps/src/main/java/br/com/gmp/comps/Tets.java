@@ -41,7 +41,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
             Logger.getLogger(Tets.class.getName()).log(Level.SEVERE, null, e);
             System.exit(0);
         }
-        gTableBar.setTable(gTable);
+        
         gTable2.buildTable(this, 0, mdl);
         //gTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         dual.setSourceElements(getTable().toArray());

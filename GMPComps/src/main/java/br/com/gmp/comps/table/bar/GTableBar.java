@@ -1,7 +1,7 @@
 package br.com.gmp.comps.table.bar;
 
 import br.com.gmp.comps.table.GTable;
-import java.awt.FlowLayout;
+import javax.swing.JToolBar;
 
 /**
  * Barra de controles padronizados para GTables
@@ -9,17 +9,16 @@ import java.awt.FlowLayout;
  * @author kaciano
  * @version 1.0
  */
-public class GMPTableBar extends javax.swing.JPanel {
+public class GTableBar extends JToolBar {
 
     private GTable gTable;
 
     /**
      * Cria nova instancia da barra de controle para tabelas
      */
-    public GMPTableBar() {
+    public GTableBar() {
         this.gTable = null;
-        initComponents();
-        jTBPage.setLayout(new FlowLayout(FlowLayout.CENTER));
+        this.initialize();
     }
 
     /**
@@ -27,11 +26,17 @@ public class GMPTableBar extends javax.swing.JPanel {
      *
      * @param gTable <code>GTable</code> Tabela
      */
-    public GMPTableBar(GTable gTable) {
+    public GTableBar(GTable gTable) {
         this.gTable = gTable;
+        this.initialize();
+    }
+
+    /**
+     * Método de inicialização
+     */
+    private void initialize() {
         initComponents();
-        jTBPage.setLayout(new FlowLayout(FlowLayout.CENTER));
-        setPages(gTable.getActualPage(), gTable.getPageCount());
+        setTable(gTable);
     }
 
     /**
@@ -44,7 +49,55 @@ public class GMPTableBar extends javax.swing.JPanel {
         this.jLPages.setText(String.format("%s/%d", actualpage + 1, pages));
     }
 
-    //<editor-fold desc="Get's & Set's" defaultstate="collapsed">
+    /**
+     * Ir para primeira página
+     */
+    private void gotoFirst() {
+        this.gTable.gotoFirst();
+        setPages(gTable.getActualPage(), gTable.getPageCount());
+    }
+
+    /**
+     * Ir para ultima página
+     */
+    private void gotoLast() {
+        this.gTable.gotoLast();
+        setPages(gTable.getActualPage(), gTable.getPageCount());
+    }
+
+    /**
+     * Ir para próxima página
+     */
+    private void goNext() {
+        this.gTable.nextPage();
+        setPages(gTable.getActualPage(), gTable.getPageCount());
+    }
+
+    /**
+     * Voltar para página anterior
+     */
+    private void goPrevious() {
+        this.gTable.previousPage();
+        setPages(gTable.getActualPage(), gTable.getPageCount());
+    }
+
+    /**
+     * Atualizar a tabela
+     */
+    private void refresh() {
+        this.gTable.refresh();
+        setPages(gTable.getActualPage(), gTable.getPageCount());
+    }
+
+    /**
+     * Mudar a quantidade máxima de linhas
+     */
+    private void changeMax() {
+        int max = Integer.parseInt((String) jCBMaxRows.getSelectedItem());
+        gTable.setMaxRows(max);
+        setPages(gTable.getActualPage(), gTable.getPageCount());
+    }
+
     /**
      * Retorna a tabela que está sendo utilizada
      *
@@ -60,22 +113,21 @@ public class GMPTableBar extends javax.swing.JPanel {
      * @param table <code>GTable</code> Tabela
      */
     public void setTable(GTable table) {
-        this.gTable = table;
-        setPages(gTable.getActualPage(), gTable.getPageCount());
+        if (table != null) {
+            this.gTable = table;
+            setPages(gTable.getActualPage(), gTable.getPageCount());
+        }
     }
-    //</editor-fold>
 
     /**
-     * Código gerado automaticamente
+     * Método gerado automaticamente
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTBPrevious = new javax.swing.JToolBar();
         jBFirst = new javax.swing.JButton();
         jBPrevious = new javax.swing.JButton();
-        jTBPage = new javax.swing.JToolBar();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         gNumericField1 = new br.com.gmp.comps.textfield.numeric.GNumericField();
         jSeparator1 = new javax.swing.JToolBar.Separator();
@@ -84,19 +136,15 @@ public class GMPTableBar extends javax.swing.JPanel {
         jCBMaxRows = new javax.swing.JComboBox();
         jSeparator3 = new javax.swing.JToolBar.Separator();
         jBRefresh = new javax.swing.JButton();
-        jTBNext = new javax.swing.JToolBar();
         jSeparator5 = new javax.swing.JToolBar.Separator();
         jBNext = new javax.swing.JButton();
         jBLast = new javax.swing.JButton();
 
-        setMinimumSize(new java.awt.Dimension(363, 23));
-        setPreferredSize(new java.awt.Dimension(363, 23));
-
-        jTBPrevious.setFloatable(false);
-        jTBPrevious.setRollover(true);
-        jTBPrevious.setMaximumSize(new java.awt.Dimension(60, 23));
-        jTBPrevious.setMinimumSize(new java.awt.Dimension(60, 23));
-        jTBPrevious.setPreferredSize(new java.awt.Dimension(60, 23));
+        setFloatable(false);
+        setRollover(true);
+        setMaximumSize(new java.awt.Dimension(32767, 23));
+        setMinimumSize(new java.awt.Dimension(12, 23));
+        setPreferredSize(new java.awt.Dimension(340, 23));
 
         jBFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/begining.png"))); // NOI18N
         jBFirst.setToolTipText("Voltar para a primeira página");
@@ -111,7 +159,7 @@ public class GMPTableBar extends javax.swing.JPanel {
                 jBFirstActionPerformed(evt);
             }
         });
-        jTBPrevious.add(jBFirst);
+        add(jBFirst);
 
         jBPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/left.png"))); // NOI18N
         jBPrevious.setToolTipText("Voltar para a página anterior");
@@ -126,25 +174,21 @@ public class GMPTableBar extends javax.swing.JPanel {
                 jBPreviousActionPerformed(evt);
             }
         });
-        jTBPrevious.add(jBPrevious);
-
-        jTBPage.setFloatable(false);
-        jTBPage.setRollover(true);
-        jTBPage.setMaximumSize(new java.awt.Dimension(32767, 25));
+        add(jBPrevious);
 
         jSeparator4.setMaximumSize(new java.awt.Dimension(32768, 12));
-        jTBPage.add(jSeparator4);
+        add(jSeparator4);
 
         gNumericField1.setMaximumSize(new java.awt.Dimension(2147483647, 23));
         gNumericField1.setPreferredSize(new java.awt.Dimension(65, 23));
-        jTBPage.add(gNumericField1);
-        jTBPage.add(jSeparator1);
+        add(gNumericField1);
+        add(jSeparator1);
 
         jLPages.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLPages.setText("1/1");
         jLPages.setMaximumSize(new java.awt.Dimension(50, 15));
-        jTBPage.add(jLPages);
-        jTBPage.add(jSeparator2);
+        add(jLPages);
+        add(jSeparator2);
 
         jCBMaxRows.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "20", "40", "60", "80", "100" }));
         jCBMaxRows.setMaximumSize(new java.awt.Dimension(56, 25));
@@ -155,8 +199,8 @@ public class GMPTableBar extends javax.swing.JPanel {
                 jCBMaxRowsActionPerformed(evt);
             }
         });
-        jTBPage.add(jCBMaxRows);
-        jTBPage.add(jSeparator3);
+        add(jCBMaxRows);
+        add(jSeparator3);
 
         jBRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/switch.png"))); // NOI18N
         jBRefresh.setToolTipText("Atualizar a tabela");
@@ -171,16 +215,10 @@ public class GMPTableBar extends javax.swing.JPanel {
                 jBRefreshActionPerformed(evt);
             }
         });
-        jTBPage.add(jBRefresh);
-
-        jTBNext.setFloatable(false);
-        jTBNext.setRollover(true);
-        jTBNext.setMaximumSize(new java.awt.Dimension(60, 23));
-        jTBNext.setMinimumSize(new java.awt.Dimension(60, 23));
-        jTBNext.setPreferredSize(new java.awt.Dimension(60, 23));
+        add(jBRefresh);
 
         jSeparator5.setMaximumSize(new java.awt.Dimension(32768, 12));
-        jTBNext.add(jSeparator5);
+        add(jSeparator5);
 
         jBNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/right.png"))); // NOI18N
         jBNext.setToolTipText("Ir para a próxima página");
@@ -195,7 +233,7 @@ public class GMPTableBar extends javax.swing.JPanel {
                 jBNextActionPerformed(evt);
             }
         });
-        jTBNext.add(jBNext);
+        add(jBNext);
 
         jBLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/end.png"))); // NOI18N
         jBLast.setToolTipText("Ir para a ultima página");
@@ -210,61 +248,32 @@ public class GMPTableBar extends javax.swing.JPanel {
                 jBLastActionPerformed(evt);
             }
         });
-        jTBNext.add(jBLast);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTBPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTBPage, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addComponent(jTBNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTBNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTBPrevious, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTBPage, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(jBLast);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPreviousActionPerformed
-        this.gTable.previousPage();
-        setPages(gTable.getActualPage(), gTable.getPageCount());
+        goPrevious();
     }//GEN-LAST:event_jBPreviousActionPerformed
 
     private void jBFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFirstActionPerformed
-        this.gTable.gotoFirst();
-        setPages(gTable.getActualPage(), gTable.getPageCount());
+        gotoFirst();
     }//GEN-LAST:event_jBFirstActionPerformed
 
+    private void jCBMaxRowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMaxRowsActionPerformed
+        changeMax();
+    }//GEN-LAST:event_jCBMaxRowsActionPerformed
+
+    private void jBRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRefreshActionPerformed
+        refresh();
+    }//GEN-LAST:event_jBRefreshActionPerformed
+
     private void jBNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNextActionPerformed
-        this.gTable.nextPage();
-        setPages(gTable.getActualPage(), gTable.getPageCount());
+        goNext();
     }//GEN-LAST:event_jBNextActionPerformed
 
     private void jBLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLastActionPerformed
-        this.gTable.gotoLast();
-        setPages(gTable.getActualPage(), gTable.getPageCount());
+        gotoLast();
     }//GEN-LAST:event_jBLastActionPerformed
-
-    private void jBRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRefreshActionPerformed
-        this.gTable.refresh();
-        setPages(gTable.getActualPage(), gTable.getPageCount());
-    }//GEN-LAST:event_jBRefreshActionPerformed
-
-    private void jCBMaxRowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMaxRowsActionPerformed
-        int max = Integer.parseInt((String) jCBMaxRows.getSelectedItem());
-        gTable.setMaxRows(max);
-        setPages(gTable.getActualPage(), gTable.getPageCount());
-    }//GEN-LAST:event_jCBMaxRowsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -281,8 +290,5 @@ public class GMPTableBar extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
-    private javax.swing.JToolBar jTBNext;
-    private javax.swing.JToolBar jTBPage;
-    private javax.swing.JToolBar jTBPrevious;
     // End of variables declaration//GEN-END:variables
 }

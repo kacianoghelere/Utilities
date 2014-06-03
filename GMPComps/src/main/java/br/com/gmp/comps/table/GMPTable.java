@@ -113,8 +113,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
      */
     private void initialize() {
         this.initComponents();
-        this.setLayout(new BorderLayout());
-        this.add(new GMPTableBar(this), BorderLayout.SOUTH);
+        this.setLayout(new BorderLayout());        
         this.setShowGrid(true);
         this.setGridColor(Color.gray.darker());
         this.loadData();

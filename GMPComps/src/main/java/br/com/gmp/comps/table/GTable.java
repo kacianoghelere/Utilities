@@ -20,7 +20,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,8 +29,6 @@ import javax.swing.RowFilter;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import jxl.write.WriteException;
@@ -103,9 +100,13 @@ public class GTable extends JTable implements TableControl, Exporter {
     private void initialize() {
         this.initComponents();
         this.getTableHeader().setLayout(new BorderLayout());
-        this.getTableHeader().add(jTBSearch, BorderLayout.NORTH);
+        this.getTableHeader().add(jTBSearch, BorderLayout.NORTH);        
         this.jTBSearch.setBorderPainted(false);
         this.jTBSearch.setVisible(false);
+        this.gTableBar.setTable(this);
+        this.gTableBar.setVisible(false);        
+        this.getTableHeader().add(gTableBar, BorderLayout.NORTH);
+        this.jMIPageBar.setEnabled((maxRows > 0));
         this.setShowGrid(true);
         this.setGridColor(Color.gray.darker());
         this.loadData();
@@ -152,6 +153,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     public void setMaxRows(int maxrows) {
         this.maxRows = maxrows;
         loadData();
+        this.jMIPageBar.setEnabled((maxRows > 0));
     }
 
     @Override
@@ -237,6 +239,7 @@ public class GTable extends JTable implements TableControl, Exporter {
             }
         });
         this.loadData();
+        this.jMIPageBar.setEnabled((maxRows > 0));
         this.repaint();
         this.revalidate();
     }
@@ -278,7 +281,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Carrega todos os dados no filtro da tabela
      */
-    private void loadFilter() {        
+    private void loadFilter() {
         List<GTableColumn> list = new ArrayList<>();
         for (int i = 0; i < getColumnCount(); i++) {
             list.add(new GTableColumn(i, getColumnName(i)));
@@ -445,6 +448,7 @@ public class GTable extends JTable implements TableControl, Exporter {
 
         jPop = new javax.swing.JPopupMenu();
         jMISearch = new javax.swing.JMenuItem();
+        jMIPageBar = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMIExportXLS = new javax.swing.JMenuItem();
         jMIExportTXT = new javax.swing.JMenuItem();
@@ -454,6 +458,7 @@ public class GTable extends JTable implements TableControl, Exporter {
         jLSeach = new javax.swing.JLabel();
         gTSearch = new br.com.gmp.comps.textfield.GTextField();
         gCBFilter = new br.com.gmp.comps.combobox.GComboBox();
+        gTableBar = new br.com.gmp.comps.table.bar.GTableBar();
 
         jMISearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/field/search.png"))); // NOI18N
         jMISearch.setText("Filtrar");
@@ -463,6 +468,14 @@ public class GTable extends JTable implements TableControl, Exporter {
             }
         });
         jPop.add(jMISearch);
+
+        jMIPageBar.setText("Paginação");
+        jMIPageBar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIPageBarActionPerformed(evt);
+            }
+        });
+        jPop.add(jMIPageBar);
         jPop.add(jSeparator1);
 
         jMIExportXLS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/menubar/menubar/file_xls.png"))); // NOI18N
@@ -545,15 +558,21 @@ public class GTable extends JTable implements TableControl, Exporter {
         jTBSearch.setVisible(true);
     }//GEN-LAST:event_jMISearchActionPerformed
 
+    private void jMIPageBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIPageBarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMIPageBarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private br.com.gmp.comps.combobox.GComboBox gCBFilter;
     private br.com.gmp.comps.textfield.GTextField gTSearch;
+    private br.com.gmp.comps.table.bar.GTableBar gTableBar;
     private javax.swing.JLabel jLSeach;
     private javax.swing.JMenuItem jMIExportPDF;
     private javax.swing.JMenuItem jMIExportTXT;
     private javax.swing.JMenuItem jMIExportXLS;
     private javax.swing.JMenuItem jMIExportXML;
+    private javax.swing.JMenuItem jMIPageBar;
     private javax.swing.JMenuItem jMISearch;
     private javax.swing.JPopupMenu jPop;
     private javax.swing.JPopupMenu.Separator jSeparator1;

@@ -19,6 +19,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMISearchActionPerformed"/>
           </Events>
         </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="jMIPageBar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pagina&#xe7;&#xe3;o"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIPageBarActionPerformed"/>
+          </Events>
+        </MenuItem>
         <Component class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
         </Component>
         <MenuItem class="javax.swing.JMenuItem" name="jMIExportXLS">
@@ -97,6 +105,10 @@
         <Component class="br.com.gmp.comps.combobox.GComboBox" name="gCBFilter">
         </Component>
       </SubComponents>
+    </Container>
+    <Container class="br.com.gmp.comps.table.bar.GTableBar" name="gTableBar">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
     </Container>
   </NonVisualComponents>
   <Properties>
