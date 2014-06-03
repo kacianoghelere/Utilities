@@ -139,12 +139,13 @@ public class GTableBar extends JToolBar {
         jSeparator5 = new javax.swing.JToolBar.Separator();
         jBNext = new javax.swing.JButton();
         jBLast = new javax.swing.JButton();
+        jBClose = new javax.swing.JButton();
 
         setFloatable(false);
         setRollover(true);
         setMaximumSize(new java.awt.Dimension(32767, 23));
         setMinimumSize(new java.awt.Dimension(12, 23));
-        setPreferredSize(new java.awt.Dimension(340, 23));
+        setPreferredSize(new java.awt.Dimension(350, 23));
 
         jBFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/begining.png"))); // NOI18N
         jBFirst.setToolTipText("Voltar para a primeira página");
@@ -249,6 +250,21 @@ public class GTableBar extends JToolBar {
             }
         });
         add(jBLast);
+
+        jBClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/toolbar/4.png"))); // NOI18N
+        jBClose.setToolTipText("Fechar barra de paginação");
+        jBClose.setFocusable(false);
+        jBClose.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBClose.setMaximumSize(new java.awt.Dimension(23, 23));
+        jBClose.setMinimumSize(new java.awt.Dimension(23, 23));
+        jBClose.setPreferredSize(new java.awt.Dimension(23, 23));
+        jBClose.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCloseActionPerformed(evt);
+            }
+        });
+        add(jBClose);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPreviousActionPerformed
@@ -275,9 +291,14 @@ public class GTableBar extends JToolBar {
         gotoLast();
     }//GEN-LAST:event_jBLastActionPerformed
 
+    private void jBCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCloseActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_jBCloseActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private br.com.gmp.comps.textfield.numeric.GNumericField gNumericField1;
+    private javax.swing.JButton jBClose;
     private javax.swing.JButton jBFirst;
     private javax.swing.JButton jBLast;
     private javax.swing.JButton jBNext;

@@ -131,7 +131,7 @@ public class GTable extends JTable implements TableControl, Exporter {
         if (actualPage < (pageCount - 1)) {
             setActualPage(actualPage + 1);
         } else {
-            new BalloonUtil().showTimedBallon(this, "Esta é a ultima pagina");
+            new BalloonUtil().showTimedBallon(this.getTableHeader(), "Esta é a ultima pagina");
         }
     }
 
@@ -140,7 +140,7 @@ public class GTable extends JTable implements TableControl, Exporter {
         if (actualPage > 0) {
             setActualPage(actualPage - 1);
         } else {
-            new BalloonUtil().showTimedBallon(this, "Esta é a primeira pagina");
+            new BalloonUtil().showTimedBallon(this.getTableHeader(), "Esta é a primeira pagina");
         }
     }
 
@@ -203,12 +203,12 @@ public class GTable extends JTable implements TableControl, Exporter {
             if (!list.isEmpty()) {
                 return list.toArray();
             } else {
-                new BalloonUtil().showTimedBallon(this, "Nenhum item selecionado");
+                new BalloonUtil().showTimedBallon(this.getTableHeader(), "Nenhum item selecionado");
                 return null;
             }
         } catch (Exception e) {
             Logger.getLogger(GTable.class.getName()).log(Level.SEVERE, null, e);
-            new BalloonUtil().showTimedBallon(this, "Nenhum item selecionado");
+            new BalloonUtil().showTimedBallon(this.getTableHeader(), "Nenhum item selecionado");
             return null;
         }
     }
@@ -580,7 +580,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     }//GEN-LAST:event_jMISearchActionPerformed
 
     private void jMIPageBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIPageBarActionPerformed
-
+        gTableBar.setVisible(true);
     }//GEN-LAST:event_jMIPageBarActionPerformed
 
 
