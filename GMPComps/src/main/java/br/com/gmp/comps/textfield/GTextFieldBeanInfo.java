@@ -180,6 +180,7 @@ public class GTextFieldBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_ancestorListeners] = new PropertyDescriptor ( "ancestorListeners", br.com.gmp.comps.textfield.GTextField.class, "getAncestorListeners", null ); // NOI18N
             properties[PROPERTY_autoscrolls] = new PropertyDescriptor ( "autoscrolls", br.com.gmp.comps.textfield.GTextField.class, "getAutoscrolls", "setAutoscrolls" ); // NOI18N
             properties[PROPERTY_background] = new PropertyDescriptor ( "background", br.com.gmp.comps.textfield.GTextField.class, "getBackground", "setBackground" ); // NOI18N
+            properties[PROPERTY_background].setPreferred ( true );
             properties[PROPERTY_backgroundSet] = new PropertyDescriptor ( "backgroundSet", br.com.gmp.comps.textfield.GTextField.class, "isBackgroundSet", null ); // NOI18N
             properties[PROPERTY_baselineResizeBehavior] = new PropertyDescriptor ( "baselineResizeBehavior", br.com.gmp.comps.textfield.GTextField.class, "getBaselineResizeBehavior", null ); // NOI18N
             properties[PROPERTY_border] = new PropertyDescriptor ( "border", br.com.gmp.comps.textfield.GTextField.class, "getBorder", "setBorder" ); // NOI18N
@@ -228,6 +229,7 @@ public class GTextFieldBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_force].setPreferred ( true );
             properties[PROPERTY_force].setShortDescription ( "Forçar o controle de comprimento do texto" );
             properties[PROPERTY_foreground] = new PropertyDescriptor ( "foreground", br.com.gmp.comps.textfield.GTextField.class, "getForeground", "setForeground" ); // NOI18N
+            properties[PROPERTY_foreground].setPreferred ( true );
             properties[PROPERTY_foregroundSet] = new PropertyDescriptor ( "foregroundSet", br.com.gmp.comps.textfield.GTextField.class, "isForegroundSet", null ); // NOI18N
             properties[PROPERTY_graphics] = new PropertyDescriptor ( "graphics", br.com.gmp.comps.textfield.GTextField.class, "getGraphics", null ); // NOI18N
             properties[PROPERTY_graphicsConfiguration] = new PropertyDescriptor ( "graphicsConfiguration", br.com.gmp.comps.textfield.GTextField.class, "getGraphicsConfiguration", null ); // NOI18N
