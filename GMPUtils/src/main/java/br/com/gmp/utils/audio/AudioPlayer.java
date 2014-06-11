@@ -14,6 +14,7 @@ import javazoom.jl.player.advanced.PlaybackListener;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 import org.jaudiotagger.audio.mp3.MP3File;
+import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.TagException;
 import org.jaudiotagger.tag.id3.ID3v1Tag;
 
@@ -67,7 +68,8 @@ public class AudioPlayer {
      * @throws ReadOnlyFileException Exceção de 'Somente Leitura'
      * @throws InvalidAudioFrameException Exceção de tipo de audio invalido
      */
-    public AudioPlayer(String path) throws FileNotFoundException, JavaLayerException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException {
+    public AudioPlayer(String path) throws FileNotFoundException, JavaLayerException, 
+            IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException {
         this.path = path;
         this.track = new File(path);
         initialize(track);
@@ -84,7 +86,8 @@ public class AudioPlayer {
      * @throws ReadOnlyFileException Exceção de 'Somente Leitura'
      * @throws InvalidAudioFrameException Exceção de tipo de audio invalido
      */
-    public AudioPlayer(File track) throws FileNotFoundException, JavaLayerException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException {
+    public AudioPlayer(File track) throws FileNotFoundException, JavaLayerException, 
+            IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException {
         this.path = track.getAbsolutePath();
         this.track = track;
         initialize(track);
@@ -101,7 +104,9 @@ public class AudioPlayer {
      * @throws ReadOnlyFileException Exceção de 'Somente Leitura'
      * @throws InvalidAudioFrameException Exceção de tipo de audio invalido
      */
-    public void build(File track) throws FileNotFoundException, JavaLayerException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException {
+    @Intercept
+    public void build(File track) throws FileNotFoundException, JavaLayerException, 
+            IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException {
         this.path = track.getAbsolutePath();
         this.track = track;
         initialize(track);
@@ -118,8 +123,16 @@ public class AudioPlayer {
      * @throws ReadOnlyFileException Exceção de 'Somente Leitura'
      * @throws InvalidAudioFrameException Exceção de tipo de audio invalido
      */
-    private void initialize(File track) throws FileNotFoundException, JavaLayerException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException {
+    private void initialize(File track) throws FileNotFoundException,
+            JavaLayerException, IOException, TagException,
+            ReadOnlyFileException, InvalidAudioFrameException {
         this.tag = new MP3File(track).getID3v1Tag();
+        System.out.println("---------------------------------------------------"
+                + "\nTitle: " + tag.getFirst(FieldKey.TITLE)
+                + "\nArtist: " + tag.getFirst(FieldKey.ARTIST)
+                + "\nAlbum: " + tag.getFirst(FieldKey.ALBUM)
+                + "\nTrack: " + tag.getFirst(FieldKey.TRACK)
+                + "\n---------------------------------------------------");
         startPlayer();
     }
 
@@ -135,12 +148,13 @@ public class AudioPlayer {
 
             @Override
             public void playbackStarted(PlaybackEvent evt) {
+//                state = PLAYING;
                 System.out.println("Playback Started on " + pausedFrame + "!");
             }
 
             @Override
             public void playbackFinished(PlaybackEvent evt) {
-                pausedFrame = state == PAUSED ? (evt.getFrame() / 1000) : 0;
+                pausedFrame = (state == PAUSED ? (evt.getFrame()) : 0);
                 System.out.println("Playback Stopped on " + pausedFrame + "!");
             }
 
@@ -153,6 +167,7 @@ public class AudioPlayer {
      * @throws JavaLayerException Exceção de JavaLayer
      * @throws FileNotFoundException Arquivo não encontrado
      */
+    @Intercept
     private void refresh() throws JavaLayerException, FileNotFoundException {
         this.inputStream = new FileInputStream(track);
         this.player = new AdvancedPlayer(inputStream, audioDevice);
@@ -166,11 +181,12 @@ public class AudioPlayer {
      */
     @Intercept
     public void play() throws JavaLayerException, FileNotFoundException {
-        this.state = PLAYING;
         if (state != PLAYING) {
+            this.state = PLAYING;
+            System.out.println("Playing!");
             startPlayer();
             if (pausedFrame > 0) {
-                this.player.play(pausedFrame, Integer.MAX_VALUE);
+                this.player.play((pausedFrame / 1000), Integer.MAX_VALUE);
             } else {
                 this.player.play();
             }
@@ -182,8 +198,10 @@ public class AudioPlayer {
      */
     @Intercept
     public void pause() {
-        this.state = PAUSED;
-        this.player.stop();
+        if (state != FINISHED && state != NOTSTARTED && state != PAUSED) {
+            this.state = PAUSED;
+            this.player.stop();
+        }
     }
 
     /**
@@ -191,8 +209,10 @@ public class AudioPlayer {
      */
     @Intercept
     public void stop() {
-        this.state = FINISHED;
-        this.player.stop();
+        if (state != FINISHED && state != NOTSTARTED) {
+            this.state = FINISHED;
+            this.player.stop();
+        }
     }
 
     /**
