@@ -35,6 +35,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
             gListModel.add(new TestObject("Test" + i));
         }
         initComponents();
+        gPlayer.build("/home/kaciano/lp.mp3");
         try {
             setGlassPane(new BlurGlassPane());
         } catch (Exception e) {
@@ -105,6 +106,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         gNumericField1 = new br.com.gmp.comps.textfield.numeric.GNumericField();
         jScrollPane1 = new javax.swing.JScrollPane();
         gTextArea1 = new br.com.gmp.comps.textarea.GTextArea();
+        gPlayer = new br.com.gmp.comps.player.GPlayer();
         jScrollPane5 = new javax.swing.JScrollPane();
         gTable2 = new br.com.gmp.comps.table.GTable();
 
@@ -234,6 +236,8 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         gTextArea1.setName("gTextArea1"); // NOI18N
         jScrollPane1.setViewportView(gTextArea1);
 
+        gPlayer.setName("gPlayer"); // NOI18N
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -242,10 +246,11 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(gGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(gPlayer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(gGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(gMPDateField2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -274,7 +279,9 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(gGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
                         .addComponent(jScrollPane1)))
                 .addContainerGap())
         );
@@ -346,6 +353,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     private br.com.gmp.comps.datefield.GMPDateField gMPDateField2;
     private br.com.gmp.comps.table.dual.GMPDualTable gMPDualTable1;
     private br.com.gmp.comps.textfield.numeric.GNumericField gNumericField1;
+    private br.com.gmp.comps.player.GPlayer gPlayer;
     private br.com.gmp.comps.table.GMPTable gTable;
     private br.com.gmp.comps.table.GTable gTable2;
     private br.com.gmp.comps.table.bar.GMPTableBar gTableBar;

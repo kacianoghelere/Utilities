@@ -179,11 +179,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jScrollPane4" min="-2" pref="267" max="-2" attributes="0"/>
+                              <Component id="jScrollPane4" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="gGradientPanel1" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="gPlayer" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="gGradientPanel1" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -218,7 +219,9 @@
                           <Component id="jScrollPane4" pref="370" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="gGradientPanel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="gPlayer" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -338,6 +341,13 @@
                   </Properties>
                 </Component>
               </SubComponents>
+            </Container>
+            <Container class="br.com.gmp.comps.player.GPlayer" name="gPlayer">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="gPlayer" noResource="true"/>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
             </Container>
           </SubComponents>
         </Container>
