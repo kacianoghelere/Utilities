@@ -49,7 +49,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         TestObject[] tos = new TestObject[5];
         tos[0] = new TestObject("Kaciano");
         tos[1] = new TestObject("Frávio");
-        tos[2] = new TestObject("Jesus");
+        tos[2] = new TestObject("Jesuss");
         tos[3] = new TestObject("Hipopotamo");
         tos[4] = new TestObject("Jaraguá do sul");
 
