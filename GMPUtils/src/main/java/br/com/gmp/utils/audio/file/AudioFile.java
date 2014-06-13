@@ -1,7 +1,20 @@
 package br.com.gmp.utils.audio.file;
 
+import br.com.gmp.utils.annotations.ColumnName;
+import br.com.gmp.utils.annotations.Ignore;
+import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
+import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
+import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.FieldKey;
+import org.jaudiotagger.tag.TagException;
 import org.jaudiotagger.tag.id3.ID3v1Tag;
 
 /**
@@ -12,10 +25,16 @@ import org.jaudiotagger.tag.id3.ID3v1Tag;
  */
 public class AudioFile {
 
+    @ColumnName(name = "Titulo")
     private String title;
+    @ColumnName(name = "Artista")
     private String artist;
+    @ColumnName(name = "Album")
     private String album;
+    @ColumnName(name = "Faixa")
     private String track;
+    @Ignore
+    private File file;
 
     /**
      * Cria nova instancia de AudioFile
@@ -26,13 +45,39 @@ public class AudioFile {
     /**
      * Cria nova instancia de AudioFile
      *
-     * @param tag <code>ID3v1Tag</code> Tag de dados
+     * @param file <code>File</code> Arquivo de audio
      */
-    public AudioFile(ID3v1Tag tag) {
-        this.title = tag.getFirst(FieldKey.TITLE);
-        this.artist = tag.getFirst(FieldKey.ARTIST);
-        this.album = tag.getFirst(FieldKey.ALBUM);
-        this.track = tag.getFirst(FieldKey.TRACK);
+    public AudioFile(File file) {
+        try {
+            ID3v1Tag tag = new MP3File(file).getID3v1Tag();
+            readTag(tag);
+            this.file = file;
+        } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException ex) {
+            Logger.getLogger(AudioFile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * Cria nova instancia de AudioFile
+     *
+     * @param tag <code>ID3v1Tag</code> Tag de dados
+     * @param file <code>File</code> Arquivo de audio
+     */
+    public AudioFile(ID3v1Tag tag, File file) {
+        readTag(tag);
+        this.file = file;
+    }
+
+    /**
+     * Copia os atributos da ID3v1Tag
+     *
+     * @param tag <code>ID3v1Tag</code> Tag
+     */
+    private void readTag(ID3v1Tag tag) {
+        this.title = tag != null ? tag.getFirst(FieldKey.TITLE) : "";
+        this.artist = tag != null ? tag.getFirst(FieldKey.ARTIST) : "";
+        this.album = tag != null ? tag.getFirst(FieldKey.ALBUM) : "";
+        this.track = tag != null ? tag.getFirst(FieldKey.TRACK) : "";
     }
 
     /**
@@ -42,12 +87,14 @@ public class AudioFile {
      * @param artist <code>String</code> Artista da faixa de audio
      * @param album <code>String</code> Album da faixa de audio
      * @param track <code>String</code> Numero da faixa de audio
+     * @param file <code>File</code> Arquivo de audio
      */
-    public AudioFile(String title, String artist, String album, String track) {
+    public AudioFile(String title, String artist, String album, String track, File file) {
         this.title = title;
         this.artist = artist;
         this.album = album;
         this.track = track;
+        this.file = file;
     }
 
     @Override
@@ -160,6 +207,24 @@ public class AudioFile {
      */
     public void setTrack(String track) {
         this.track = track;
+    }
+
+    /**
+     * Retorna o arquivo da faixa de audio
+     *
+     * @return <code>File</code> Arquivo da faixa de audio
+     */
+    public File getFile() {
+        return file;
+    }
+
+    /**
+     * Modifica o arquivo da faixa de audio
+     *
+     * @param file <code>File</code> Arquivo da faixa de audio
+     */
+    public void setFile(File file) {
+        this.file = file;
     }
 
 }

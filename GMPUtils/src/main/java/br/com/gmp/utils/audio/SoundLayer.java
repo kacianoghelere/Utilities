@@ -63,6 +63,7 @@ public class SoundLayer implements Runnable {
                 + "\nArtist: " + tag.getFirst(FieldKey.ARTIST)
                 + "\nAlbum: " + tag.getFirst(FieldKey.ALBUM)
                 + "\nTrack: " + tag.getFirst(FieldKey.TRACK)
+                + "\nTempo: " + tag.getFirst(FieldKey.TEMPO)
                 + "\n---------------------------------------------------");
     }
 
