@@ -99,12 +99,9 @@ public class GPlayerList extends JPanel {
     /**
      * Retorna o reprodutor de audio
      *
-     * @return <code>SoundLayer</code> Reprodutor de audio
      */
-    private SoundLayer getPlayer() {
-        int row = gTableTracks.getSelectedRow();
-        this.layer = new SoundLayer(model.getObject(row));
-        return layer;
+    private void loadPlayer() {
+        this.layer = new SoundLayer(model.getObject(gTableTracks.getSelectedRow()));
     }
 
     /**
@@ -143,7 +140,7 @@ public class GPlayerList extends JPanel {
      */
     public AudioModel getModel() {
         return model;
-    }
+    }    
 
     /**
      *
@@ -254,9 +251,12 @@ public class GPlayerList extends JPanel {
     }//GEN-LAST:event_jBPreviousActionPerformed
 
     private void jBPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPlayActionPerformed
-        try {            
-            if (layer != null) {                
-                getPlayer();
+        try {
+            loadPlayer();
+            if (layer != null) {
+                if (layer.getPlayer().isPlaying()) {
+                    layer.stop();
+                }                
                 layer.play();
                 this.gTTrack.setText(layer.getTitle());
             }
