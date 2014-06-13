@@ -36,6 +36,7 @@ public class SoundLayer implements Runnable {
      */
     public SoundLayer(String filePath) {
         this.filePath = filePath;
+        playerInitialize();        
         loadTag();
     }
 
@@ -47,7 +48,8 @@ public class SoundLayer implements Runnable {
     public SoundLayer(AudioFile audioFile) {
         this.audioFile = audioFile;
         this.filePath = audioFile.getFile().getPath();
-        this.tag = audioFile.getTag();
+        this.tag = audioFile.getTag();    
+        playerInitialize();
         printData();
     }
 
@@ -60,6 +62,7 @@ public class SoundLayer implements Runnable {
     public SoundLayer(String filePath, String namePlayerThread) {
         this.filePath = filePath;
         this.namePlayerThread = namePlayerThread;
+        playerInitialize();    
         loadTag();
     }
 
