@@ -103,7 +103,7 @@ public class GPlayerList extends JPanel {
      */
     private SoundLayer getPlayer() {
         int row = gTableTracks.getSelectedRow();
-        this.layer = new SoundLayer(model.getObject(row).getFile().getPath());
+        this.layer = new SoundLayer(model.getObject(row));
         return layer;
     }
 
@@ -254,9 +254,9 @@ public class GPlayerList extends JPanel {
     }//GEN-LAST:event_jBPreviousActionPerformed
 
     private void jBPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPlayActionPerformed
-        try {
-            getPlayer();
+        try {            
             if (layer != null) {                
+                getPlayer();
                 layer.play();
                 this.gTTrack.setText(layer.getTitle());
             }
