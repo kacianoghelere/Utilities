@@ -1,6 +1,6 @@
 package br.com.gmp.comps.model;
 
-import br.com.gmp.comps.annotations.ColumnName;
+import br.com.gmp.utils.annotations.ColumnName;
 import br.com.gmp.utils.annotations.Editable;
 import br.com.gmp.utils.annotations.Ignore;
 import java.lang.reflect.Field;

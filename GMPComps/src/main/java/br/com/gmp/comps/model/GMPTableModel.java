@@ -1,6 +1,6 @@
 package br.com.gmp.comps.model;
 
-import br.com.gmp.comps.annotations.ColumnName;
+import br.com.gmp.utils.annotations.ColumnName;
 import br.com.gmp.utils.annotations.Ignore;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.AbstractTableModel;
 
 /**
  * Modelo de tabelas padrão para GMPTables. Funcional para todas as JTables,

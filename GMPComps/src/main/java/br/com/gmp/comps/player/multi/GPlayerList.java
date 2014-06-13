@@ -1,40 +1,48 @@
-package br.com.gmp.comps.player;
+package br.com.gmp.comps.player.multi;
 
+import br.com.gmp.comps.player.GPlayer;
+import br.com.gmp.comps.player.multi.model.AudioModel;
 import br.com.gmp.utils.audio.SoundLayer;
-import java.io.File;
+import br.com.gmp.utils.audio.file.AudioFile;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JToolBar;
+import javax.swing.JPanel;
 
 /**
- * Player de Audio
+ * Player de audio para multiplos arquivos de audio
  *
  * @author kaciano
  * @version 1.0
  */
-public class GPlayer extends JToolBar {
+public class GPlayerList extends JPanel {
 
-    private String path;
-    private File file;
+    private AudioFile track;
     private SoundLayer layer;
     private boolean navigate;
+    private AudioModel model;
+    private List<AudioFile> tracks;
 
     /**
-     * Cria nova instancia de GPlayer
+     * Cria nova instancia de GPlayerList
      */
-    public GPlayer() {
+    public GPlayerList() {
+        this.tracks = new ArrayList<>();
+        this.model = new AudioModel();
+        this.model.setData(tracks);
         initialize();
     }
 
     /**
-     * Cria nova instancia de GPlayer
+     * Cria nova instancia de GPlayerList
      *
-     * @param path <code>String</code> Caminho do arquivo
+     * @param tracks <code>List(AudioFile)</code> Lista de arquivos
      */
-    public GPlayer(String path) {
-        this.path = path;
-        this.file = new File(path);
-        this.layer = new SoundLayer(path);
+    public GPlayerList(List<AudioFile> tracks) {
+        this.tracks = tracks;
+        this.model = new AudioModel();
+        this.model.setData(tracks);
         initialize();
     }
 
@@ -43,60 +51,44 @@ public class GPlayer extends JToolBar {
      */
     private void initialize() {
         initComponents();
-        setNavigate(false);
+        this.gTableTracks.setModel(model);
+        setNavigate(true);
     }
 
     /**
      * Constroi os dados no GPlayer
      *
-     * @param path <code>String</code> Caminho do arquivo
+     * @param tracks <code>List(AudioFile)</code> Lista de arquivos
      */
-    public void build(String path) {
-        this.path = path;
-        this.file = new File(path);
-        this.layer = new SoundLayer(path);
-    }
-
-    /**
-     * Retorna o caminho do arquivo executado
-     *
-     * @return <code>String</code> Caminho do arquivo executado
-     */
-    public String getPath() {
-        return path;
-    }
-
-    /**
-     * Modifica o caminho do arquivo executado
-     *
-     * @param path <code>String</code> Caminho do arquivo executado
-     */
-    public void setPath(String path) {
-        this.path = path;
-        build(path);
+    public void build(List<AudioFile> tracks) {
+        this.tracks = tracks;
+        this.model = new AudioModel();
+        this.model.setData(tracks);
+        this.gTableTracks.setModel(model);
+        this.gTableTracks.repaint();
+        this.gTableTracks.revalidate();
     }
 
     /**
      * Retorna o arquivo executado
      *
-     * @return <code>File</code> Arquivo executado
+     * @return <code>AudioFile</code> Arquivo executado
      */
-    public File getFile() {
-        return file;
+    public AudioFile getTrack() {
+        return track;
     }
 
     /**
      * Modifica o arquivo executado
      *
-     * @param file <code>File</code> Arquivo executado
+     * @param track <code>AudioFile</code> Arquivo executado
      */
-    public void setFile(File file) {
-        this.file = file;
-        build(file.getPath());
+    public void setTrack(AudioFile track) {
+        this.track = track;
     }
 
     /**
-     * Modifica o reprodutor de audio
+     * Retorna o reprodutor de audio
      *
      * @return <code>SoundLayer</code> Reprodutor de audio
      */
@@ -106,6 +98,17 @@ public class GPlayer extends JToolBar {
 
     /**
      * Retorna o reprodutor de audio
+     *
+     * @return <code>SoundLayer</code> Reprodutor de audio
+     */
+    private SoundLayer getPlayer() {
+        int row = gTableTracks.getSelectedRow();
+        this.layer = new SoundLayer(model.getObject(row).getFile().getPath());
+        return layer;
+    }
+
+    /**
+     * Modifica o reprodutor de audio
      *
      * @param layer <code>SoundLayer</code> Reprodutor de audio
      */
@@ -134,12 +137,24 @@ public class GPlayer extends JToolBar {
     }
 
     /**
+     * Retorna o modelo de tabelas dos arquivos de audio
+     *
+     * @return <code>AudioModel</code> Modelo de tabelas dos arquivos de audio
+     */
+    public AudioModel getModel() {
+        return model;
+    }
+
+    /**
      *
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        gTableTracks = new br.com.gmp.comps.table.GTable();
+        jTBControls = new javax.swing.JToolBar();
         jBPrevious = new javax.swing.JButton();
         jBPlay = new javax.swing.JButton();
         jBPause = new javax.swing.JButton();
@@ -147,11 +162,13 @@ public class GPlayer extends JToolBar {
         jBNext = new javax.swing.JButton();
         gTTrack = new br.com.gmp.comps.textfield.GTextField();
 
-        setFloatable(false);
-        setRollover(true);
-        setMaximumSize(new java.awt.Dimension(32767, 23));
-        setMinimumSize(new java.awt.Dimension(300, 23));
-        setPreferredSize(new java.awt.Dimension(300, 23));
+        jScrollPane1.setViewportView(gTableTracks);
+
+        jTBControls.setFloatable(false);
+        jTBControls.setRollover(true);
+        jTBControls.setMaximumSize(new java.awt.Dimension(32767, 23));
+        jTBControls.setMinimumSize(new java.awt.Dimension(300, 23));
+        jTBControls.setPreferredSize(new java.awt.Dimension(300, 23));
 
         jBPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/begining.png"))); // NOI18N
         jBPrevious.setFocusable(false);
@@ -162,7 +179,7 @@ public class GPlayer extends JToolBar {
                 jBPreviousActionPerformed(evt);
             }
         });
-        add(jBPrevious);
+        jTBControls.add(jBPrevious);
 
         jBPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/multimedia/unpause.png"))); // NOI18N
         jBPlay.setFocusable(false);
@@ -173,7 +190,7 @@ public class GPlayer extends JToolBar {
                 jBPlayActionPerformed(evt);
             }
         });
-        add(jBPlay);
+        jTBControls.add(jBPlay);
 
         jBPause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/multimedia/pause.png"))); // NOI18N
         jBPause.setFocusable(false);
@@ -184,7 +201,7 @@ public class GPlayer extends JToolBar {
                 jBPauseActionPerformed(evt);
             }
         });
-        add(jBPause);
+        jTBControls.add(jBPause);
 
         jBStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/progress/stop.png"))); // NOI18N
         jBStop.setFocusable(false);
@@ -195,7 +212,7 @@ public class GPlayer extends JToolBar {
                 jBStopActionPerformed(evt);
             }
         });
-        add(jBStop);
+        jTBControls.add(jBStop);
 
         jBNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/end.png"))); // NOI18N
         jBNext.setFocusable(false);
@@ -206,7 +223,7 @@ public class GPlayer extends JToolBar {
                 jBNextActionPerformed(evt);
             }
         });
-        add(jBNext);
+        jTBControls.add(jBNext);
 
         gTTrack.setEditable(false);
         gTTrack.setBackground(new java.awt.Color(0, 0, 0));
@@ -214,7 +231,22 @@ public class GPlayer extends JToolBar {
         gTTrack.setMaximumSize(new java.awt.Dimension(23768, 23));
         gTTrack.setMinimumSize(new java.awt.Dimension(200, 23));
         gTTrack.setPreferredSize(new java.awt.Dimension(150, 23));
-        add(gTTrack);
+        jTBControls.add(gTTrack);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jTBControls, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(jTBControls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPreviousActionPerformed
@@ -223,12 +255,13 @@ public class GPlayer extends JToolBar {
 
     private void jBPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPlayActionPerformed
         try {
-            if (layer != null) {
-                this.layer.play();
+            getPlayer();
+            if (layer != null) {                
+                layer.play();
                 this.gTTrack.setText(layer.getTitle());
             }
         } catch (Exception e) {
-            Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_jBPlayActionPerformed
 
@@ -238,7 +271,7 @@ public class GPlayer extends JToolBar {
                 layer.pauseToggle();
             }
         } catch (Exception e) {
-            Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_jBPauseActionPerformed
 
@@ -260,10 +293,13 @@ public class GPlayer extends JToolBar {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private br.com.gmp.comps.textfield.GTextField gTTrack;
+    private br.com.gmp.comps.table.GTable gTableTracks;
     private javax.swing.JButton jBNext;
     private javax.swing.JButton jBPause;
     private javax.swing.JButton jBPlay;
     private javax.swing.JButton jBPrevious;
     private javax.swing.JButton jBStop;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToolBar jTBControls;
     // End of variables declaration//GEN-END:variables
 }
