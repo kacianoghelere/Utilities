@@ -1,5 +1,6 @@
 package br.com.gmp.utils.audio;
 
+import br.com.gmp.utils.audio.file.AudioFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -20,6 +21,7 @@ import org.jaudiotagger.tag.id3.ID3v1Tag;
  */
 public class SoundLayer implements Runnable {
 
+    private AudioFile audioFile;
     private String filePath;
     private GAudioPlayer player;
     private Thread playerThread;
@@ -35,6 +37,18 @@ public class SoundLayer implements Runnable {
     public SoundLayer(String filePath) {
         this.filePath = filePath;
         loadTag();
+    }
+
+    /**
+     * Cria nova instancia de SoundLayer
+     *
+     * @param audioFile <code>String</code> Caminho do arquivo
+     */
+    public SoundLayer(AudioFile audioFile) {
+        this.audioFile = audioFile;
+        this.filePath = audioFile.getFile().getPath();
+        this.tag = audioFile.getTag();
+        printData();
     }
 
     /**
@@ -58,6 +72,13 @@ public class SoundLayer implements Runnable {
         } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException ex) {
             Logger.getLogger(SoundLayer.class.getName()).log(Level.SEVERE, null, ex);
         }
+        printData();
+    }
+
+    /**
+     * Imprime dados
+     */
+    private void printData() {
         System.out.println("---------------------------------------------------"
                 + "\nTitle: " + tag.getFirst(FieldKey.TITLE)
                 + "\nArtist: " + tag.getFirst(FieldKey.ARTIST)

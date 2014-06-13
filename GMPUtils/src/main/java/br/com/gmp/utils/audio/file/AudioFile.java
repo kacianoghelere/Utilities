@@ -5,11 +5,9 @@ import br.com.gmp.utils.annotations.Ignore;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 import org.jaudiotagger.audio.mp3.MP3File;
@@ -35,6 +33,8 @@ public class AudioFile {
     private String track;
     @Ignore
     private File file;
+    @Ignore
+    private ID3v1Tag tag;
 
     /**
      * Cria nova instancia de AudioFile
@@ -49,23 +49,12 @@ public class AudioFile {
      */
     public AudioFile(File file) {
         try {
-            ID3v1Tag tag = new MP3File(file).getID3v1Tag();
+            tag = new MP3File(file).getID3v1Tag();
             readTag(tag);
             this.file = file;
         } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException ex) {
             Logger.getLogger(AudioFile.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    /**
-     * Cria nova instancia de AudioFile
-     *
-     * @param tag <code>ID3v1Tag</code> Tag de dados
-     * @param file <code>File</code> Arquivo de audio
-     */
-    public AudioFile(ID3v1Tag tag, File file) {
-        readTag(tag);
-        this.file = file;
     }
 
     /**
@@ -225,6 +214,24 @@ public class AudioFile {
      */
     public void setFile(File file) {
         this.file = file;
+    }
+
+    /**
+     * Retorna as informações da Tag do arquivo
+     *
+     * @return <code>ID3v1Tag</code> Tag do arquivo
+     */
+    public ID3v1Tag getTag() {
+        return tag;
+    }
+
+    /**
+     * Modifica as informações da Tag do arquivo
+     *
+     * @param tag <code>ID3v1Tag</code> Tag do arquivo
+     */
+    public void setTag(ID3v1Tag tag) {
+        this.tag = tag;
     }
 
 }
