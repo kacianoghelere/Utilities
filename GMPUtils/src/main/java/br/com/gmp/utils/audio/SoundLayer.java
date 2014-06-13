@@ -228,4 +228,13 @@ public class SoundLayer implements Runnable {
         return tag;
     }
 
+    /**
+     * Retorna o player de audio
+     *
+     * @return <code>GAudioPlayer</code> Player de audio
+     */
+    public GAudioPlayer getPlayer() {
+        return player;
+    }
+
 }

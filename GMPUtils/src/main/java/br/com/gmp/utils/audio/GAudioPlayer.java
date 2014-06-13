@@ -29,6 +29,7 @@ public class GAudioPlayer {
     private Bitstream bitstream;
     private Decoder decoder;
     private AudioDevice audioDevice;
+    private boolean playing;
     private boolean closed;
     private boolean complete;
     private boolean paused;
@@ -46,6 +47,7 @@ public class GAudioPlayer {
     public GAudioPlayer(URL urlStream) throws JavaLayerException {
         this.urlStream = urlStream;
         this.listener = new PlaybackAdapter();
+        this.playing = false;
     }
 
     /**
@@ -57,6 +59,7 @@ public class GAudioPlayer {
     public GAudioPlayer(String audioPath) throws JavaLayerException {
         this.audioPath = audioPath;
         this.listener = new PlaybackAdapter();
+        this.playing = false;
     }
 
     /**
@@ -227,7 +230,7 @@ public class GAudioPlayer {
                 this.listener.playbackFinished(playbackEvent);
             }
         }
-
+        this.playing = true;
         return shouldContinueReadingFrames;
     }
 
@@ -237,7 +240,7 @@ public class GAudioPlayer {
      * @return <code>boolean</code> Reprodução em execução?
      * @throws JavaLayerException Exceção de JavaLayer
      */
-    public boolean resume() throws JavaLayerException {
+    public boolean resume() throws JavaLayerException {        
         return this.play(this.frameIndexCurrent);
     }
 
@@ -247,7 +250,7 @@ public class GAudioPlayer {
     public synchronized void close() {
         if (this.audioDevice != null) {
             this.closed = true;
-
+            this.playing = false;
             this.audioDevice.close();
 
             this.audioDevice = null;
@@ -290,7 +293,7 @@ public class GAudioPlayer {
                 this.listener.playbackFinished(new PlaybackEvent(this,
                         PlaybackEvent.EventType.Instances.Stopped,
                         audioDevicePosition));
-            }
+            }            
             this.stopped = true;
         }
     }
@@ -311,6 +314,15 @@ public class GAudioPlayer {
         }
 
         return returnValue;
+    }
+
+    /**
+     * Retorna se está executando
+     *
+     * @return <code>boolean</code> Está executando?
+     */
+    public boolean isPlaying() {
+        return playing;
     }
 
     /**
