@@ -16,21 +16,30 @@ import java.util.List;
 public class DateUtil {
 
     /**
-     * Data do dia
+     * Data do dia {@code d MMMMMM yyyy}
      */
     public static String DAY = "d MMMMMM yyyy";
     /**
-     * Data para exportação
+     * Data para exportação {@code yyyy_MM_dd_HH_mm_ss}
      */
     public static String TXTDATE = "yyyy_MM_dd_HH_mm_ss";
     /**
-     * Horas 
+     * Data para exportação {@code yyyy_MM_dd}
+     */
+    public static String DATE = "yyyy_MM_dd";
+    /**
+     * Horas {@code HH:mm:ss}
      */
     public static String HOUR = "HH:mm:ss";
     /**
-     * Data completa, por extenso
+     * Data completa, por extenso {@code "EEEEE, d MMMMMM yyyy - HH:mm:ss"}
      */
     public static String COMPLETE = "EEEEE, d MMMMMM yyyy - HH:mm:ss";
+
+    /**
+     * Data atual
+     */
+    public static Date NOW = new Date();
 
     /**
      * Retorna um array contendo todos ultimos 100 anos
