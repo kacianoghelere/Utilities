@@ -17,8 +17,8 @@ public class ObjectCopy {
      * Copia todos os valores das propriedades de A para B, desde que elas
      * existam em ambos os objetos e não possuam anotações para impedir a cópia
      *
-     * @param a <code><b>Object</b></code> Objeto de base
-     * @param b <code><b>Object</b></code> Objeto receptor
+     * @param a {@code <b>Object</b>} Objeto de base
+     * @param b {@code <b>Object</b>} Objeto receptor
      * @throws java.lang.IllegalAccessException Acesso restrito
      */
     public static void copy(Object a, Object b) throws IllegalArgumentException, IllegalAccessException {
@@ -51,8 +51,8 @@ public class ObjectCopy {
      * Copia todos os valores das propriedades de A para B, desde que elas
      * existam em ambos os objetos
      *
-     * @param a <code><b>Object</b></code> Objeto de base
-     * @param b <code><b>Object</b></code> Objeto receptor
+     * @param a {@code <b>Object</b>} Objeto de base
+     * @param b {@code <b>Object</b>} Objeto receptor
      * @throws java.lang.IllegalAccessException Acesso restrito
      */
     public static void copyAll(Object a, Object b) throws IllegalArgumentException, IllegalAccessException {
@@ -82,9 +82,9 @@ public class ObjectCopy {
      * exista em ambos os objetos
      *
      *
-     * @param a <code><b>Object</b></code> Objeto de base
-     * @param b <code><b>Object</b></code> Objeto receptor
-     * @param name <code><b>String</b></code> Nome da propriedade a ser copiada
+     * @param a {@code <b>Object</b>} Objeto de base
+     * @param b {@code <b>Object</b>} Objeto receptor
+     * @param name {@code <b>String</b>} Nome da propriedade a ser copiada
      * @throws java.lang.IllegalAccessException Acesso restrito
      */
     public static void copyOnly(Object a, Object b, String name) throws IllegalArgumentException, IllegalAccessException {
@@ -115,9 +115,9 @@ public class ObjectCopy {
      * Copia todos o valores das propriedades enviadas de A para B, desde que
      * ela exista em ambos os objetos
      *
-     * @param a <code><b>Object</b></code> Objeto de base
-     * @param b <code><b>Object</b></code> Objeto receptor
-     * @param names <code><b>String[]</b></code> Nomes das propriedades a serem
+     * @param a {@code <b>Object</b>} Objeto de base
+     * @param b {@code <b>Object</b>} Objeto receptor
+     * @param names {@code <b>String[]</b>} Nomes das propriedades a serem
      * copiadas
      * @throws java.lang.IllegalAccessException Acesso restrito
      */
@@ -150,8 +150,8 @@ public class ObjectCopy {
      * Copia todos o valores das propriedades enviadas de A para B (Super
      * classe), desde que ela exista em ambos os objetos
      *
-     * @param a <code><b>Object</b></code> Objeto de base
-     * @param b <code><b>Object</b></code> Objeto receptor (Super)
+     * @param a {@code <b>Object</b>} Objeto de base
+     * @param b {@code <b>Object</b>} Objeto receptor (Super)
      * @throws java.lang.IllegalAccessException Acesso restrito
      */
     public void copyToSuper(Object a, Object b) throws IllegalAccessException {
@@ -180,8 +180,8 @@ public class ObjectCopy {
      * Copia todos o valores das propriedades enviadas de A (Super classe) para
      * B, desde que ela exista em ambos os objetos
      *
-     * @param a <code><b>Object</b></code> Objeto de base (Super)
-     * @param b <code><b>Object</b></code> Objeto receptor
+     * @param a {@code <b>Object</b>} Objeto de base (Super)
+     * @param b {@code <b>Object</b>} Objeto receptor
      * @throws java.lang.IllegalAccessException Acesso restrito
      */
     public void copyFromSuper(Object a, Object b) throws IllegalAccessException {

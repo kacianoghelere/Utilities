@@ -23,10 +23,10 @@ public class ObjectInstance {
     /**
      * Cria novo objeto de instanciamento
      *
-     * @param cl <code><b>Class</b></code> Classe da instancia
-     * @param argTypes <code><b>Class</b>[]</code> Array de argumentos da
+     * @param cl {@code <b>Class</b>} Classe da instancia
+     * @param argTypes {@code <b>Class</b>[]} Array de argumentos da
      * instancia(Classes dos objetos a serem passados como parametro)
-     * @param arguments <code><b>Object</b>[]</code> Valores dos parametros
+     * @param arguments {@code <b>Object</b>[]} Valores dos parametros
      */
     public ObjectInstance(Class cl, Class[] argTypes, Object[] arguments) {
         this.cl = cl;
@@ -37,7 +37,7 @@ public class ObjectInstance {
     /**
      * Retorna a classe da instancia
      *
-     * @return <code><b>Class</b></code> Classe da instancia
+     * @return {@code <b>Class</b>} Classe da instancia
      */
     public Class getCl() {
         return cl;
@@ -46,7 +46,7 @@ public class ObjectInstance {
     /**
      * Retorna as classes dos argumentos da instancia
      *
-     * @return <code><b>Class</b>[]</code> Array de argumentos da
+     * @return {@code <b>Class</b>[]} Array de argumentos da
      * instancia(Classes dos objetos a serem passados como parametro)
      */
     public Class[] getArgTypes() {
@@ -56,7 +56,7 @@ public class ObjectInstance {
     /**
      * Retorna os o array de valores dos parametros da instancia
      *
-     * @return <code><b>Object</b>[]</code> Valores dos parametros
+     * @return {@code <b>Object</b>[]} Valores dos parametros
      */
     public Object[] getArguments() {
         return arguments;

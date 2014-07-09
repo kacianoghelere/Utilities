@@ -15,10 +15,10 @@ public class ImageUtil {
     /**
      * Retorna a imagem com redimensionamento
      *
-     * @param srcImg <code>Image</code> Imagem fonte
-     * @param w <code>int</code> Largura
-     * @param h <code>int</code> Altura
-     * @return <code>Image</code> Imagem redimensionada
+     * @param srcImg {@code Image} Imagem fonte
+     * @param w {@code int} Largura
+     * @param h {@code int} Altura
+     * @return {@code Image} Imagem redimensionada
      */
     public Image getScaledImage(Image srcImg, int w, int h) {
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);

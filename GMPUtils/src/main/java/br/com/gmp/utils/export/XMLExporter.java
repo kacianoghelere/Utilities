@@ -22,8 +22,8 @@ public class XMLExporter {
     /**
      * Escreve novo arquivo XML
      *
-     * @param name <code>Nome do arquivo</code>
-     * @param value <code>Object</code> Valor à ser gravado no arquivo
+     * @param name {@code Nome do arquivo}
+     * @param value {@code Object} Valor à ser gravado no arquivo
      * @throws java.lang.Exception Exceção lançada
      */
     public void write(Object value, String name) throws Exception {
@@ -41,8 +41,8 @@ public class XMLExporter {
     /**
      * Lê o arquivo XML
      *
-     * @param name <code>String</code> Nome do arquivo
-     * @return <code>Object</code> Retorno do arquivo
+     * @param name {@code String} Nome do arquivo
+     * @return {@code Object} Retorno do arquivo
      * @throws java.lang.Exception Exceção lançada
      */
     public Object read(String name) throws Exception {

@@ -41,7 +41,7 @@ public class GAudioPlayer {
     /**
      * Cria nova instancia de GAudioPlayer
      *
-     * @param urlStream <code>URL</code> URL do Stream
+     * @param urlStream {@code URL} URL do Stream
      * @throws JavaLayerException Exceção de JavaLayer
      */
     public GAudioPlayer(URL urlStream) throws JavaLayerException {
@@ -53,7 +53,7 @@ public class GAudioPlayer {
     /**
      * Cria nova instancia de GAudioPlayer
      *
-     * @param audioPath <code>String</code> Caminho do arquivo
+     * @param audioPath {@code String} Caminho do arquivo
      * @throws JavaLayerException Exceção de JavaLayer
      */
     public GAudioPlayer(String audioPath) throws JavaLayerException {
@@ -65,7 +65,7 @@ public class GAudioPlayer {
     /**
      * Modifica o PlaybackListener
      *
-     * @param newPlaybackListener <code>PlaybackListener</code> PlaybackListener
+     * @param newPlaybackListener {@code PlaybackListener} PlaybackListener
      */
     public void setPlaybackListener(PlaybackListener newPlaybackListener) {
         if (newPlaybackListener != null) {
@@ -78,7 +78,7 @@ public class GAudioPlayer {
     /**
      * Retorna o stream de audio
      *
-     * @return <code>InputStream</code> Stream de audio
+     * @return {@code InputStream} Stream de audio
      * @throws IOException Exceção de I/O
      */
     private InputStream getAudioInputStream() throws IOException {
@@ -93,7 +93,7 @@ public class GAudioPlayer {
     /**
      * Decodifica frames
      *
-     * @return <code>boolean</code> Frame decodificado?
+     * @return {@code boolean} Frame decodificado?
      * @throws JavaLayerException Exceção de JavaLayer
      */
     protected boolean decodeFrame() throws JavaLayerException {
@@ -132,7 +132,7 @@ public class GAudioPlayer {
     /**
      * Inicia a reprodução de audio
      *
-     * @return <code>boolean</code> Reprodução iniciada?
+     * @return {@code boolean} Reprodução iniciada?
      * @throws JavaLayerException Exceção de JavaLayer
      */
     public boolean play() throws JavaLayerException {
@@ -142,8 +142,8 @@ public class GAudioPlayer {
     /**
      * Inicia a reprodução de audio
      *
-     * @param frameIndexStart <code>int</code> Frame inicial
-     * @return <code>boolean</code> Reprodução iniciada?
+     * @param frameIndexStart {@code int} Frame inicial
+     * @return {@code boolean} Reprodução iniciada?
      * @throws JavaLayerException Exceção de JavaLayer
      */
     public boolean play(int frameIndexStart) throws JavaLayerException {
@@ -153,10 +153,10 @@ public class GAudioPlayer {
     /**
      * Inicia a reprodução de audio
      *
-     * @param frameIndexStart <code>int</code> Frame inicial
-     * @param frameIndexFinal <code>int</code> Frame final
-     * @param correctionFactorInFrames <code>int</code> Fator de correção
-     * @return <code>boolean</code> Reprodução iniciada?
+     * @param frameIndexStart {@code int} Frame inicial
+     * @param frameIndexFinal {@code int} Frame final
+     * @param correctionFactorInFrames {@code int} Fator de correção
+     * @return {@code boolean} Reprodução iniciada?
      * @throws JavaLayerException Exceção de JavaLayer
      */
     public boolean play(int frameIndexStart, int frameIndexFinal,
@@ -237,7 +237,7 @@ public class GAudioPlayer {
     /**
      * Reinicia a reprodução do audio
      *
-     * @return <code>boolean</code> Reprodução em execução?
+     * @return {@code boolean} Reprodução em execução?
      * @throws JavaLayerException Exceção de JavaLayer
      */
     public boolean resume() throws JavaLayerException {        
@@ -301,7 +301,7 @@ public class GAudioPlayer {
     /**
      * Pula frames
      *
-     * @return <code>boolean</code> Pulou o frame?
+     * @return {@code boolean} Pulou o frame?
      * @throws JavaLayerException Exceção de JavaLayer
      */
     protected boolean skipFrame() throws JavaLayerException {
@@ -319,7 +319,7 @@ public class GAudioPlayer {
     /**
      * Retorna se está executando
      *
-     * @return <code>boolean</code> Está executando?
+     * @return {@code boolean} Está executando?
      */
     public boolean isPlaying() {
         return playing;
@@ -328,7 +328,7 @@ public class GAudioPlayer {
     /**
      * Retorna se está terminado
      *
-     * @return <code>boolean</code> Está terminado?
+     * @return {@code boolean} Está terminado?
      */
     public boolean isClosed() {
         return closed;
@@ -337,7 +337,7 @@ public class GAudioPlayer {
     /**
      * Retorna se está completo
      *
-     * @return <code>boolean</code> Está completo?
+     * @return {@code boolean} Está completo?
      */
     public boolean isComplete() {
         return complete;
@@ -346,7 +346,7 @@ public class GAudioPlayer {
     /**
      * Retorna se está em pausa
      *
-     * @return <code>boolean</code> Está em pausa?
+     * @return {@code boolean} Está em pausa?
      */
     public boolean isPaused() {
         return paused;
@@ -355,7 +355,7 @@ public class GAudioPlayer {
     /**
      * Retorna se está parado
      *
-     * @return <code>boolean</code> Está parado?
+     * @return {@code boolean} Está parado?
      */
     public boolean isStopped() {
         return stopped;
@@ -384,9 +384,9 @@ public class GAudioPlayer {
         /**
          * Cria nova instancia de PlaybackEvent
          *
-         * @param source <code>GAudioPlayer</code> Fonte de audio
-         * @param eventType <code>EventType</code> Tipo do evento
-         * @param frameIndex <code>int</code> Endereço do frame
+         * @param source {@code GAudioPlayer} Fonte de audio
+         * @param eventType {@code EventType} Tipo do evento
+         * @param frameIndex {@code int} Endereço do frame
          */
         public PlaybackEvent(GAudioPlayer source, EventType eventType, int frameIndex) {
             this.source = source;
@@ -407,7 +407,7 @@ public class GAudioPlayer {
             /**
              * Cria nova instancia de EventType
              *
-             * @param name <code>String</code> Nome do tipo
+             * @param name {@code String} Nome do tipo
              */
             public EventType(String name) {
                 this.name = name;
@@ -444,7 +444,7 @@ public class GAudioPlayer {
         /**
          * Método de inicio da execução de faixa
          *
-         * @param event <code>PlaybackEvent</code> Evento de playback
+         * @param event {@code PlaybackEvent} Evento de playback
          */
         @Override
         public void playbackStarted(PlaybackEvent event) {
@@ -454,7 +454,7 @@ public class GAudioPlayer {
         /**
          * Método de pausa da execução de faixa
          *
-         * @param event <code>PlaybackEvent</code> Evento de playback
+         * @param event {@code PlaybackEvent} Evento de playback
          */
         @Override
         public void playbackPaused(PlaybackEvent event) {
@@ -464,7 +464,7 @@ public class GAudioPlayer {
         /**
          * Método de fim da execução de faixa
          *
-         * @param event <code>PlaybackEvent</code> Evento de playback
+         * @param event {@code PlaybackEvent} Evento de playback
          */
         @Override
         public void playbackFinished(PlaybackEvent event) {
@@ -480,21 +480,21 @@ public class GAudioPlayer {
         /**
          * Método de inicio da execução de faixa
          *
-         * @param event <code>PlaybackEvent</code> Evento de playback
+         * @param event {@code PlaybackEvent} Evento de playback
          */
         public void playbackStarted(PlaybackEvent event);
 
         /**
          * Método de pausa da execução de faixa
          *
-         * @param event <code>PlaybackEvent</code> Evento de playback
+         * @param event {@code PlaybackEvent} Evento de playback
          */
         public void playbackPaused(PlaybackEvent event);
 
         /**
          * Método de fim da execução de faixa
          *
-         * @param event <code>PlaybackEvent</code> Evento de playback
+         * @param event {@code PlaybackEvent} Evento de playback
          */
         public void playbackFinished(PlaybackEvent event);
     }

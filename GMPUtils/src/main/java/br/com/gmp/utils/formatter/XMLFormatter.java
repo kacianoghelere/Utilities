@@ -22,8 +22,8 @@ public class XMLFormatter {
     /**
      * Organiza o texto do XML, posicionando e identando as tags corretamente
      *
-     * @param input <code>String</code> Texto do arquivo
-     * @return <code>String</code> Texto do arquivo organizado
+     * @param input {@code String} Texto do arquivo
+     * @return {@code String} Texto do arquivo organizado
      */
     public static String organize(String input) {
         return organize(input, 4, "ISO-8859-1");
@@ -32,9 +32,9 @@ public class XMLFormatter {
     /**
      * Organiza o texto do XML, posicionando e identando as tags corretamente
      *
-     * @param input <code>String</code> Texto do arquivo
-     * @param indent <code>int</code> Identação desejada
-     * @return <code>String</code> Texto do arquivo organizado
+     * @param input {@code String} Texto do arquivo
+     * @param indent {@code int} Identação desejada
+     * @return {@code String} Texto do arquivo organizado
      */
     public static String organize(String input, int indent) {
         return organize(input, indent, "ISO-8859-1");
@@ -43,10 +43,10 @@ public class XMLFormatter {
     /**
      * Organiza o texto do XML, posicionando e identando as tags corretamente
      *
-     * @param input <code>String</code> Texto do arquivo
-     * @param indent <code>int</code> Identação desejada
-     * @param encoding <code>String</code> Codificação aplicada
-     * @return <code>String</code> Texto do arquivo organizado
+     * @param input {@code String} Texto do arquivo
+     * @param indent {@code int} Identação desejada
+     * @param encoding {@code String} Codificação aplicada
+     * @return {@code String} Texto do arquivo organizado
      */
     public static String organize(String input, int indent, String encoding) {
         try {

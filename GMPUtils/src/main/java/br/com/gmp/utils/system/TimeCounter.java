@@ -20,7 +20,7 @@ public class TimeCounter {
     /**
      * Retorna o tempo gasto entre a construção do objeto e a chamada do método
      *
-     * @return <code>Long</code> Tempo gasto
+     * @return {@code Long} Tempo gasto
      */
     public Long getTimeSpent() {
         return System.currentTimeMillis() - before;

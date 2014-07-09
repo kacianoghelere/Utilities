@@ -12,9 +12,9 @@ public class StringUtil {
      * Divide a String em um Array contendo os valores divididos, não
      * acrescentar [...] no fator de divisão
      *
-     * @param value <code>String</code> Valor a ser dividido
-     * @param split <code>String</code> Fator de divisão
-     * @return <code>String[]</code> Resultado
+     * @param value {@code String} Valor a ser dividido
+     * @param split {@code String} Fator de divisão
+     * @return {@code String[]} Resultado
      */
     public static String[] split(String value, String split) {
         return value.split('[' + split + ']');
@@ -24,10 +24,10 @@ public class StringUtil {
      * Divide a String em um Array contendo os valores divididos, não
      * acrescentar [...] no fator de divisão
      *
-     * @param value <code>String</code> Valor a ser dividido
-     * @param split <code>String</code> Fator de divisão
-     * @param limit <code>int</code> Quantidade máxima de divisões
-     * @return <code>String[]</code> Resultado
+     * @param value {@code String} Valor a ser dividido
+     * @param split {@code String} Fator de divisão
+     * @param limit {@code int} Quantidade máxima de divisões
+     * @return {@code String[]} Resultado
      */
     public static String[] split(String value, String split, int limit) {
         return value.split('[' + split + ']', limit);
@@ -36,9 +36,9 @@ public class StringUtil {
     /**
      * Retorna uma String com a quantidade de zeros à frente do numero recebido
      *
-     * @param size <code>int</code> Quantidade de numeros da String
-     * @param number <code>Long</code> Numero à ser formatado
-     * @return <code>String</code> String formatada
+     * @param size {@code int} Quantidade de numeros da String
+     * @param number {@code Long} Numero à ser formatado
+     * @return {@code String} String formatada
      */
     public String completeWithZeros(int size, Long number) {
         StringBuilder sb = new StringBuilder();
@@ -53,8 +53,8 @@ public class StringUtil {
     /**
      * Torna a primeira letra da String maiuscula
      *
-     * @param text <code>String</code> String à ser formatada
-     * @return  <code>String</code> String formatada
+     * @param text {@code String} String à ser formatada
+     * @return  {@code String} String formatada
      */
     public String capitalize(String text) {
         return Character.toString(text.charAt(0)).toUpperCase() + text.substring(1);

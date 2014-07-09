@@ -45,7 +45,7 @@ public class AudioFile {
     /**
      * Cria nova instancia de AudioFile
      *
-     * @param file <code>File</code> Arquivo de audio
+     * @param file {@code File} Arquivo de audio
      */
     public AudioFile(File file) {
         try {
@@ -60,7 +60,7 @@ public class AudioFile {
     /**
      * Copia os atributos da ID3v1Tag
      *
-     * @param tag <code>ID3v1Tag</code> Tag
+     * @param tag {@code ID3v1Tag} Tag
      */
     private void readTag(ID3v1Tag tag) {
         this.title = tag != null ? tag.getFirst(FieldKey.TITLE) : "";
@@ -72,11 +72,11 @@ public class AudioFile {
     /**
      * Cria nova instancia de AudioFile
      *
-     * @param title <code>String</code> Titulo da faixa de audio
-     * @param artist <code>String</code> Artista da faixa de audio
-     * @param album <code>String</code> Album da faixa de audio
-     * @param track <code>String</code> Numero da faixa de audio
-     * @param file <code>File</code> Arquivo de audio
+     * @param title {@code String} Titulo da faixa de audio
+     * @param artist {@code String} Artista da faixa de audio
+     * @param album {@code String} Album da faixa de audio
+     * @param track {@code String} Numero da faixa de audio
+     * @param file {@code File} Arquivo de audio
      */
     public AudioFile(String title, String artist, String album, String track, File file) {
         this.title = title;
@@ -129,7 +129,7 @@ public class AudioFile {
     /**
      * Retorna o titulo da faixa de audio
      *
-     * @return <code>String</code> Titulo da faixa de audio
+     * @return {@code String} Titulo da faixa de audio
      */
     public String getTitle() {
         return title;
@@ -138,7 +138,7 @@ public class AudioFile {
     /**
      * Modifica o titulo da faixa de audio
      *
-     * @param title <code>String</code> Titulo da faixa de audio
+     * @param title {@code String} Titulo da faixa de audio
      */
     public void setTitle(String title) {
         this.title = title;
@@ -147,7 +147,7 @@ public class AudioFile {
     /**
      * Retorna o artista da faixa de audio
      *
-     * @return <code>String</code> Artista da faixa de audio
+     * @return {@code String} Artista da faixa de audio
      */
     public String getArtist() {
         return artist;
@@ -156,7 +156,7 @@ public class AudioFile {
     /**
      * Modifica o artista da faixa de audio
      *
-     * @param artist <code>String</code> Artista da faixa de audio
+     * @param artist {@code String} Artista da faixa de audio
      */
     public void setArtist(String artist) {
         this.artist = artist;
@@ -165,7 +165,7 @@ public class AudioFile {
     /**
      * Retorna o album da faixa de audio
      *
-     * @return <code>String</code> Album da faixa de audio
+     * @return {@code String} Album da faixa de audio
      */
     public String getAlbum() {
         return album;
@@ -174,7 +174,7 @@ public class AudioFile {
     /**
      * Modifica o album da faixa de audio
      *
-     * @param album <code>String</code> Album da faixa de audio
+     * @param album {@code String} Album da faixa de audio
      */
     public void setAlbum(String album) {
         this.album = album;
@@ -183,7 +183,7 @@ public class AudioFile {
     /**
      * Retorna o numero da faixa de audio
      *
-     * @return  <code>String</code> Numero da faixa de audio
+     * @return  {@code String} Numero da faixa de audio
      */
     public String getTrack() {
         return track;
@@ -192,7 +192,7 @@ public class AudioFile {
     /**
      * Modifica o numero da faixa de audio
      *
-     * @param track <code>String</code> Numero da faixa de audio
+     * @param track {@code String} Numero da faixa de audio
      */
     public void setTrack(String track) {
         this.track = track;
@@ -201,7 +201,7 @@ public class AudioFile {
     /**
      * Retorna o arquivo da faixa de audio
      *
-     * @return <code>File</code> Arquivo da faixa de audio
+     * @return {@code File} Arquivo da faixa de audio
      */
     public File getFile() {
         return file;
@@ -210,7 +210,7 @@ public class AudioFile {
     /**
      * Modifica o arquivo da faixa de audio
      *
-     * @param file <code>File</code> Arquivo da faixa de audio
+     * @param file {@code File} Arquivo da faixa de audio
      */
     public void setFile(File file) {
         this.file = file;
@@ -219,7 +219,7 @@ public class AudioFile {
     /**
      * Retorna as informações da Tag do arquivo
      *
-     * @return <code>ID3v1Tag</code> Tag do arquivo
+     * @return {@code ID3v1Tag} Tag do arquivo
      */
     public ID3v1Tag getTag() {
         return tag;
@@ -228,7 +228,7 @@ public class AudioFile {
     /**
      * Modifica as informações da Tag do arquivo
      *
-     * @param tag <code>ID3v1Tag</code> Tag do arquivo
+     * @param tag {@code ID3v1Tag} Tag do arquivo
      */
     public void setTag(ID3v1Tag tag) {
         this.tag = tag;

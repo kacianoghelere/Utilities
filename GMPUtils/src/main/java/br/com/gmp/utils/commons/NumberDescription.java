@@ -55,8 +55,8 @@ public class NumberDescription {
     /**
      * Retorna a descrição da unidade
      *
-     * @param value <code>Integer</code> Unidade
-     * @return <code>Integer</code> Descrição
+     * @param value {@code Integer} Unidade
+     * @return {@code Integer} Descrição
      */
     public String getUnityValue(Integer value) {
         return unity.get(value);
@@ -65,8 +65,8 @@ public class NumberDescription {
     /**
      * Retorna a descrição da dezena
      *
-     * @param value <code>Integer</code> Unidade
-     * @return <code>Integer</code> Descrição
+     * @param value {@code Integer} Unidade
+     * @return {@code Integer} Descrição
      */
     public String getTensValue(Integer value) {
         return tens.get(value);
@@ -75,8 +75,8 @@ public class NumberDescription {
     /**
      * Retorna a descrição da centena
      *
-     * @param value <code>Integer</code> Unidade
-     * @return <code>Integer</code> Descrição
+     * @param value {@code Integer} Unidade
+     * @return {@code Integer} Descrição
      */
     public String getHundredsValue(Integer value) {
         return hundreds.get(value);
@@ -85,7 +85,7 @@ public class NumberDescription {
     /**
      * Retorna o mapa de unidades
      *
-     * @return <code>Map(Integer, String)</code>
+     * @return {@code Map(Integer, String)}
      */
     public Map<Integer, String> getUnity() {
         return unity;
@@ -94,7 +94,7 @@ public class NumberDescription {
     /**
      * Retorna o mapa de dezenas
      *
-     * @return <code>Map(Integer, String)</code>
+     * @return {@code Map(Integer, String)}
      */
     public Map<Integer, String> getTens() {
         return tens;
@@ -103,7 +103,7 @@ public class NumberDescription {
     /**
      * Retorna o mapa de centenas
      *
-     * @return <code>Map(Integer, String)</code>
+     * @return {@code Map(Integer, String)}
      */
     public Map<Integer, String> getHundreds() {
         return hundreds;

@@ -19,7 +19,7 @@ public class CaptureException {
     /**
      * Grava o texto da exceção em um arquivo de texto
      *
-     * @param ex <code>Exception</code> Exceção à ser gravada no arquivo
+     * @param ex {@code Exception} Exceção à ser gravada no arquivo
      * @throws java.io.IOException Exceção de I/O
      */
     public static void saveLog(Exception ex) throws IOException {
@@ -29,8 +29,8 @@ public class CaptureException {
     /**
      * Grava o texto da exceção em um arquivo de texto
      *
-     * @param root <code>String</code> Raiz dos logs
-     * @param ex <code>Exception</code> Exceção à ser gravada no arquivo
+     * @param root {@code String} Raiz dos logs
+     * @param ex {@code Exception} Exceção à ser gravada no arquivo
      * @throws java.io.IOException Exceção de I/O
      */
     public static void saveLog(String root, Exception ex) throws IOException {
@@ -46,7 +46,7 @@ public class CaptureException {
     /**
      * Retorna o caminho raiz dos logs (padrão)
      *
-     * @return <code>String</code> Raiz dos logs
+     * @return {@code String} Raiz dos logs
      */
     public static String getRoot() {
         String root = SystemProperties.USER_HOME + "/log";

@@ -19,7 +19,7 @@ public class FileUtil {
     /**
      * Imprime todos os arquivo dentro do diretorio indicado
      *
-     * @param dir <code>File</code> Diretorio
+     * @param dir {@code File} Diretorio
      */
     public static void printChild(File dir) {
         for (File file : dir.listFiles()) {
@@ -33,8 +33,8 @@ public class FileUtil {
     /**
      * Retorna todos os arquivo dentro do diretorio indicado
      *
-     * @param dir <code>File</code> Diretorio
-     * @return <code>List(String)</code> Lista de nomes dos arquivos filhos
+     * @param dir {@code File} Diretorio
+     * @return {@code List(String)} Lista de nomes dos arquivos filhos
      */
     public static List<String> getChild(File dir) {
         List<String> list = new ArrayList<>();
@@ -45,8 +45,8 @@ public class FileUtil {
     /**
      * Busca os nomes dos arquivos filhos
      *
-     * @param dir <code>File</code> Diretorio
-     * @param list <code>List(String)</code> Lista de nomes dos arquivos filhos
+     * @param dir {@code File} Diretorio
+     * @param list {@code List(String)} Lista de nomes dos arquivos filhos
      */
     public static void findChild(File dir, List<String> list) {
         for (File file : dir.listFiles()) {
@@ -60,8 +60,8 @@ public class FileUtil {
     /**
      * Retorna os dados carregados no arquivo em forma de String
      *
-     * @param file <code>String</code> Caminho do arquivo
-     * @return <code>String</code> Dados carregados
+     * @param file {@code String} Caminho do arquivo
+     * @return {@code String} Dados carregados
      * @throws IOException Exceção de I/O
      */
     public static String readString(String file) throws IOException {
@@ -79,8 +79,8 @@ public class FileUtil {
     /**
      * Retorna os dados carregados no arquivo
      *
-     * @param file <code>String</code> Caminho do arquivo
-     * @return <code>List(String)</code> Dados carregados(Linhas)
+     * @param file {@code String} Caminho do arquivo
+     * @return {@code List(String)} Dados carregados(Linhas)
      * @throws IOException Exceção de I/O
      */
     public static List<String> read(String file) throws IOException {
@@ -94,8 +94,8 @@ public class FileUtil {
     /**
      * Retorna os dados carregados no arquivo
      *
-     * @param file <code>File</code> Arquivo
-     * @return <code>List(String)</code> Dados carregados(Linhas)
+     * @param file {@code File} Arquivo
+     * @return {@code List(String)} Dados carregados(Linhas)
      * @throws IOException Exceção de I/O
      */
     public static List<String> read(File file) throws IOException {
@@ -114,8 +114,8 @@ public class FileUtil {
     /**
      * Escreve os dados no arquivo(Sem quebra de linhas)
      *
-     * @param file file <code>File</code> Arquivo
-     * @param data <code>List(String)</code> Dados(Linhas)
+     * @param file file {@code File} Arquivo
+     * @param data {@code List(String)} Dados(Linhas)
      * @throws IOException Exceção de I/O
      */
     public static void write(File file, List<String> data) throws IOException {
@@ -129,8 +129,8 @@ public class FileUtil {
     /**
      * Escreve os dados no arquivo(Com quebra de linhas)
      *
-     * @param file file <code>File</code> Arquivo
-     * @param data <code>List(String)</code> Dados(Linhas)
+     * @param file file {@code File} Arquivo
+     * @param data {@code List(String)} Dados(Linhas)
      * @throws IOException Exceção de I/O
      */
     public static void writeLine(File file, List<String> data) throws IOException {

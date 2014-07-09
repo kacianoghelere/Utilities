@@ -185,7 +185,7 @@ public enum DecimalFormatter {
     /**
      * Metodo que adiciona o formato para o campo
      *
-     * @return DecimalFormat para o campo <code>Integer</code> Retorna o formato
+     * @return DecimalFormat para o campo {@code Integer} Retorna o formato
      * das casas decimais
      */
     protected abstract java.text.DecimalFormat getFormat();
@@ -193,7 +193,7 @@ public enum DecimalFormatter {
     /**
      * Retorna o número Inteiro que representa as casas decimais
      *
-     * @return Integer <code>Integer</code> Retorna o inteiro das casas decimais
+     * @return Integer {@code Integer} Retorna o inteiro das casas decimais
      */
     public abstract Integer getNumber();
 }

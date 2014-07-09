@@ -24,8 +24,8 @@ public class TXTExporter {
     /**
      * Exporta a lista parametro em formatado de texto
      *
-     * @param list <code>List</code> Lista para exportação
-     * @param filename <code>String</code> Nome do arquivo
+     * @param list {@code List} Lista para exportação
+     * @param filename {@code String} Nome do arquivo
      * @throws IllegalAccessException Acesso restrito
      * @throws FileNotFoundException Arquivo não encontrado
      * @throws IOException Exceção de I/O
@@ -39,9 +39,9 @@ public class TXTExporter {
     /**
      * Exporta a lista parametro em formatado de texto (Método privado)
      *
-     * @param list <code>List</code> Lista para exportação
-     * @param cl <code>Class<?></code> Classe para a conversão
-     * @param filename <code>String</code> Nome do arquivo
+     * @param list {@code List} Lista para exportação
+     * @param cl {@code Class<?>} Classe para a conversão
+     * @param filename {@code String} Nome do arquivo
      * @throws IllegalAccessException Acesso restrito
      * @throws FileNotFoundException Arquivo não encontrado
      * @throws IOException Exceção de I/O

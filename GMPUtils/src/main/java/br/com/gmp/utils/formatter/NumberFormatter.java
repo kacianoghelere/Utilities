@@ -20,8 +20,8 @@ public class NumberFormatter {
     /**
      * Retorna o formatador
      *
-     * @param pattern <code>String</code> Padrão de formatação
-     * @return <code>DecimalFormat</code> Formatador
+     * @param pattern {@code String} Padrão de formatação
+     * @return {@code DecimalFormat} Formatador
      * @see java.text.DecimalFormat
      */
     private DecimalFormat getFormatter(String pattern) {
@@ -31,9 +31,9 @@ public class NumberFormatter {
     /**
      * Formata os numeros conforme o padrão especificado
      *
-     * @param pattern <code>String</code> Padrão de formatação
-     * @param number <code>BigDecimal</code> Valor a ser formatado
-     * @return <code>String</code> Valor formatado
+     * @param pattern {@code String} Padrão de formatação
+     * @param number {@code BigDecimal} Valor a ser formatado
+     * @return {@code String} Valor formatado
      */
     public String format(String pattern, BigDecimal number) {
         return getFormatter(pattern).format(number);
@@ -42,9 +42,9 @@ public class NumberFormatter {
     /**
      * Formata os numeros conforme o padrão especificado
      *
-     * @param pattern <code>String</code> Padrão de formatação
-     * @param number <code>long</code> Valor a ser formatado
-     * @return <code>String</code> Valor formatado
+     * @param pattern {@code String} Padrão de formatação
+     * @param number {@code long} Valor a ser formatado
+     * @return {@code String} Valor formatado
      */
     public String format(String pattern, long number) {
         return getFormatter(pattern).format(new BigDecimal(number));
@@ -53,9 +53,9 @@ public class NumberFormatter {
     /**
      * Formata os numeros conforme o padrão especificado
      *
-     * @param pattern <code>String</code> Padrão de formatação
-     * @param number <code>double</code> Valor a ser formatado
-     * @return <code>String</code> Valor formatado
+     * @param pattern {@code String} Padrão de formatação
+     * @param number {@code double} Valor a ser formatado
+     * @return {@code String} Valor formatado
      */
     public String format(String pattern, double number) {
         return getFormatter(pattern).format(new BigDecimal(number));
@@ -64,9 +64,9 @@ public class NumberFormatter {
     /**
      * Formata os numeros conforme o padrão especificado
      *
-     * @param pattern <code>String</code> Padrão de formatação
-     * @param number <code>int</code> Valor a ser formatado
-     * @return <code>String</code> Valor formatado
+     * @param pattern {@code String} Padrão de formatação
+     * @param number {@code int} Valor a ser formatado
+     * @return {@code String} Valor formatado
      */
     public String format(String pattern, int number) {
         return getFormatter(pattern).format(new BigDecimal(number));
@@ -75,9 +75,9 @@ public class NumberFormatter {
     /**
      * Formata os numeros conforme o padrão especificado
      *
-     * @param pattern <code>String</code> Padrão de formatação
-     * @param number <code>String</code> Valor a ser formatado
-     * @return <code>String</code> Valor formatado
+     * @param pattern {@code String} Padrão de formatação
+     * @param number {@code String} Valor a ser formatado
+     * @return {@code String} Valor formatado
      */
     public String format(String pattern, String number) {
         return getFormatter(pattern).format(new BigDecimal(number));

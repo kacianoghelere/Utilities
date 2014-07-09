@@ -60,7 +60,7 @@ public class AudioPlayer {
     /**
      * Cria nova instancia de AudioPlayer
      *
-     * @param path <code>String</code> Caminho do arquivo
+     * @param path {@code String} Caminho do arquivo
      * @throws java.io.FileNotFoundException Exceção de arquivo não encontrado
      * @throws javazoom.jl.decoder.JavaLayerException Exceção de JavaLayer
      * @throws IOException Exceção de IO
@@ -78,7 +78,7 @@ public class AudioPlayer {
     /**
      * Cria nova instancia de AudioPlayer
      *
-     * @param track <code>File</code> Arquivo
+     * @param track {@code File} Arquivo
      * @throws java.io.FileNotFoundException Exceção de arquivo não encontrado
      * @throws javazoom.jl.decoder.JavaLayerException Exceção de JavaLayer
      * @throws IOException Exceção de IO
@@ -96,7 +96,7 @@ public class AudioPlayer {
     /**
      * Constroi o reprodutor de audio
      *
-     * @param track <code>File</code> Arquivo
+     * @param track {@code File} Arquivo
      * @throws java.io.FileNotFoundException Exceção de arquivo não encontrado
      * @throws javazoom.jl.decoder.JavaLayerException Exceção de JavaLayer
      * @throws IOException Exceção de IO
@@ -115,7 +115,7 @@ public class AudioPlayer {
     /**
      * Método de inicialização
      *
-     * @param track <code>File</code> Arquivo
+     * @param track {@code File} Arquivo
      * @throws java.io.FileNotFoundException Exceção de arquivo não encontrado
      * @throws javazoom.jl.decoder.JavaLayerException Exceção de JavaLayer
      * @throws IOException Exceção de IO
@@ -218,7 +218,7 @@ public class AudioPlayer {
     /**
      * Retorna a Tag com as informações do arquivo
      *
-     * @return <code>ID3v1Tag</code> Tag com as informações do arquivo
+     * @return {@code ID3v1Tag} Tag com as informações do arquivo
      */
     public ID3v1Tag getTag() {
         return tag;
@@ -227,7 +227,7 @@ public class AudioPlayer {
     /**
      * Retorna o dispositivo de audio
      *
-     * @return <code>AudioDevice</code> Dispositivo de audio
+     * @return {@code AudioDevice} Dispositivo de audio
      */
     public AudioDevice getAudioDevice() {
         return this.audioDevice;
@@ -236,7 +236,7 @@ public class AudioPlayer {
     /**
      * Modifica o dispositivo de audio
      *
-     * @param audioDevice <code>AudioDevice</code> Dispositivo de audio
+     * @param audioDevice {@code AudioDevice} Dispositivo de audio
      */
     public void setAudioDevice(AudioDevice audioDevice) {
         this.audioDevice = audioDevice;
@@ -245,7 +245,7 @@ public class AudioPlayer {
     /**
      * Retorna o caminho do arquivo reproduzido
      *
-     * @return <code>String</code> Caminho do arquivo reproduzido
+     * @return {@code String} Caminho do arquivo reproduzido
      */
     public String getPath() {
         return this.path;
@@ -254,7 +254,7 @@ public class AudioPlayer {
     /**
      * Modifica o caminho do arquivo reproduzido
      *
-     * @param path <code>String</code> Caminho do arquivo reproduzido
+     * @param path {@code String} Caminho do arquivo reproduzido
      */
     public void setPath(String path) {
         this.path = path;
@@ -263,7 +263,7 @@ public class AudioPlayer {
     /**
      * Retorna o arquivo reproduzido
      *
-     * @return  <code>String</code> Arquivo reproduzido
+     * @return  {@code String} Arquivo reproduzido
      */
     public File getTrack() {
         return this.track;
@@ -272,7 +272,7 @@ public class AudioPlayer {
     /**
      * Modifica o arquivo reproduzido
      *
-     * @param track  <code>String</code> Arquivo reproduzido
+     * @param track  {@code String} Arquivo reproduzido
      */
     public void setTrack(File track) {
         this.track = track;
@@ -281,7 +281,7 @@ public class AudioPlayer {
     /**
      * Retorna o frame onde ocorreu a pausa
      *
-     * @return <code>int</code> Frame onde ocorreu a pausa
+     * @return {@code int} Frame onde ocorreu a pausa
      */
     public int getPausedFrame() {
         return this.pausedFrame;
@@ -290,7 +290,7 @@ public class AudioPlayer {
     /**
      * Modifica o frame onde ocorreu a pausa
      *
-     * @param pausedFrame <code>int</code> Frame onde ocorreu a pausa
+     * @param pausedFrame {@code int} Frame onde ocorreu a pausa
      */
     public void setPausedFrame(int pausedFrame) {
         this.pausedFrame = pausedFrame;

@@ -20,7 +20,7 @@ public class ObjectWrapper {
     /**
      * Cria nova instancia de ObjectWrapper
      *
-     * @param object <code>View</code> Object do ObjectWrapper
+     * @param object {@code View} Object do ObjectWrapper
      */
     public ObjectWrapper(Object object) {
         this.object = object;
@@ -29,8 +29,8 @@ public class ObjectWrapper {
     /**
      * Adiciona novo valor na lista para ser transportado
      *
-     * @param value <code>Object</code> Valor à ser transportado
-     * @return <code>ObjectWrapper</code> Wrapper
+     * @param value {@code Object} Valor à ser transportado
+     * @return {@code ObjectWrapper} Wrapper
      */
     public ObjectWrapper addValue(Object value) {
         list.add(value);
@@ -40,9 +40,9 @@ public class ObjectWrapper {
     /**
      * Adiciona novo valor no mapa para ser transportado
      *
-     * @param key <code>String</code> Chave do valor
-     * @param value <code>Object</code> Valor à ser transportado
-     * @return <code>ObjectWrapper</code> Wrapper
+     * @param key {@code String} Chave do valor
+     * @param value {@code Object} Valor à ser transportado
+     * @return {@code ObjectWrapper} Wrapper
      */
     public ObjectWrapper addValue(String key, Object value) {
         map.put(key, value);
@@ -52,8 +52,8 @@ public class ObjectWrapper {
     /**
      * Retorna o objeto carregado na posição indicada
      *
-     * @param index <code>int</code> Posição do objeto
-     * @return <code>Object</code> Valor transportado
+     * @param index {@code int} Posição do objeto
+     * @return {@code Object} Valor transportado
      * @throws java.lang.Exception Exceção lançada
      */
     public Object getValue(int index) throws Exception {
@@ -63,8 +63,8 @@ public class ObjectWrapper {
     /**
      * Retorna o objeto carregado na posição indicada
      *
-     * @param key <code>int</code> Chave do objeto
-     * @return <code>Object</code> Valor transportado
+     * @param key {@code int} Chave do objeto
+     * @return {@code Object} Valor transportado
      * @throws java.lang.Exception Exceção lançada
      */
     public Object getValue(String key) throws Exception {
@@ -96,7 +96,7 @@ public class ObjectWrapper {
     /**
      * Retorna a View do ObjectWrapper
      *
-     * @return <code>View</code> View do ObjectWrapper
+     * @return {@code View} View do ObjectWrapper
      */
     public Object getObject() {
         return object;
@@ -105,7 +105,7 @@ public class ObjectWrapper {
     /**
      * Modifica a View do ObjectWrapper
      *
-     * @param object <code>Object</code> Object do ObjectWrapper
+     * @param object {@code Object} Object do ObjectWrapper
      */
     public void setView(Object object) {
         this.object = object;
@@ -114,7 +114,7 @@ public class ObjectWrapper {
     /**
      * Retorna a lista de valores transportados
      *
-     * @return <code>List(Object)</code> Lista de valores
+     * @return {@code List(Object)} Lista de valores
      */
     public List<Object> getList() {
         return list;
@@ -123,7 +123,7 @@ public class ObjectWrapper {
     /**
      * Retorna o mapa de valores transportados
      *
-     * @return <code>Map(String, Object)</code> Mapa de valores
+     * @return {@code Map(String, Object)} Mapa de valores
      */
     public Map<String, Object> getMap() {
         return map;

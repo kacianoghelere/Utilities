@@ -15,7 +15,7 @@ public @interface ColumnName {
     /**
      * Nome da coluna
      *
-     * @return <code>String</code> Nome da coluna
+     * @return {@code String} Nome da coluna
      */
     String name();
 }

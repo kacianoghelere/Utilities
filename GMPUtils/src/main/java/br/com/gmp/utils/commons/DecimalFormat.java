@@ -38,7 +38,7 @@ public enum DecimalFormat {
     /**
      * Cria nova instancia de DecimalFormat
      *
-     * @param format <code>String</code> Formato do texto
+     * @param format {@code String} Formato do texto
      */
     private DecimalFormat(String format) {
         this.format = format;
@@ -47,7 +47,7 @@ public enum DecimalFormat {
     /**
      * Retorna o formato das casas decimais
      *
-     * @return <code>String</code> Formato do texto
+     * @return {@code String} Formato do texto
      */
     public String getFormat() {
         return format;
@@ -56,7 +56,7 @@ public enum DecimalFormat {
     /**
      * Modifica o formato das casas decimais
      *
-     * @param format <code>String</code> Formato do texto
+     * @param format {@code String} Formato do texto
      */
     public void setFormat(String format) {
         this.format = format;

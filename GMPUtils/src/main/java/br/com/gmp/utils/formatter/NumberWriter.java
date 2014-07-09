@@ -55,9 +55,9 @@ public class NumberWriter {
     /**
      * Analisa o numero recebido e retorna a descrição
      *
-     * @param amount <code>BigDecimal</code> Valor a ser descrito
-     * @param currency <code>boolean</code> O valor é uma moeda?
-     * @return <code>String</code> Descrição do valor
+     * @param amount {@code BigDecimal} Valor a ser descrito
+     * @param currency {@code boolean} O valor é uma moeda?
+     * @return {@code String} Descrição do valor
      */
     public String write(final BigDecimal amount, boolean currency) {
         if (null == amount) {
@@ -135,8 +135,8 @@ public class NumberWriter {
     /**
      * Compoe os nomes dos grupos de numeros
      *
-     * @param valor <code>int</code> Valor à ser composto
-     * @return <code>StringBuilder</code> Composição
+     * @param valor {@code int} Valor à ser composto
+     * @return {@code StringBuilder} Composição
      */
     private StringBuilder buildGroupNames(int valor) {
         StringBuilder name = new StringBuilder();
@@ -177,8 +177,8 @@ public class NumberWriter {
     /**
      * Retorna o nome da grandeza recebida
      *
-     * @param exponent <code>int</code> Expoente
-     * @param value <code>int</code> Valor
+     * @param exponent {@code int} Expoente
+     * @param value {@code int} Valor
      * @return Nome da grandeza
      */
     private String getGreatnessName(int exponent, int value) {
@@ -195,8 +195,8 @@ public class NumberWriter {
     /**
      * Decompoe o valor recebido
      *
-     * @param value <code>BigDecimal</code> Valor à ser decomposto
-     * @return  <code>Stack(Integer)</code> Decomposição do valor
+     * @param value {@code BigDecimal} Valor à ser decomposto
+     * @return  {@code Stack(Integer)} Decomposição do valor
      */
     private Stack<Integer> decompose(BigDecimal value) {
         BigInteger intermediate = value.multiply(new BigDecimal(100)).toBigInteger();

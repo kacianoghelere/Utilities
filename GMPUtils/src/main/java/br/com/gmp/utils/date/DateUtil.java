@@ -44,7 +44,7 @@ public class DateUtil {
     /**
      * Retorna um array contendo todos ultimos 100 anos
      *
-     * @return <code>String[]</code> Array de anos
+     * @return {@code String[]} Array de anos
      */
     public String[] getYears() {
         int actual = new Date().getYear() + 1900;
@@ -66,7 +66,7 @@ public class DateUtil {
     /**
      * Retorna um List contendo todos ultimos 100 anos
      *
-     * @return <code>List(String)</code> Lista dos anos
+     * @return {@code List(String)} Lista dos anos
      */
     public List<String> getYearList() {
         return Arrays.asList(getYears());
@@ -76,9 +76,9 @@ public class DateUtil {
      * Retorna a quantidade de dias entre uma data e outra. Formato da data
      * (dd/MM/yyyy)
      *
-     * @param begin <code><b>String</b></code> Data inicial
-     * @param end <code><b>String</b></code> Data final
-     * @return <code><b>Integer</b></code> Diferença em dias
+     * @param begin {@code <b>String</b>} Data inicial
+     * @param end {@code <b>String</b>} Data final
+     * @return {@code <b>Integer</b>} Diferença em dias
      * @throws java.text.ParseException Exceção de conversão
      */
     public int daysBetween(String begin, String end) throws ParseException {
@@ -95,10 +95,10 @@ public class DateUtil {
     /**
      * Retorna a quantidade de dias entre uma data e outra.
      *
-     * @param begin <code><b>String</b></code> Data inicial
-     * @param end <code><b>String</b></code> Data final
-     * @param format <code><b>String</b></code> Formato das datas
-     * @return <code><b>Integer</b></code> Diferença em dias
+     * @param begin {@code <b>String</b>} Data inicial
+     * @param end {@code <b>String</b>} Data final
+     * @param format {@code <b>String</b>} Formato das datas
+     * @return {@code <b>Integer</b>} Diferença em dias
      * @throws java.text.ParseException Exceção de conversão
      */
     public int daysBetween(String begin, String end, String format) throws ParseException {
@@ -115,9 +115,9 @@ public class DateUtil {
     /**
      * Retorna a quantidade de dias entre uma data e outra
      *
-     * @param begin <code><b>Date</b></code> Data inicial
-     * @param end <code><b>Date</b></code> Data final
-     * @return <code><b>Integer</b></code> Diferença em dias
+     * @param begin {@code <b>Date</b>} Data inicial
+     * @param end {@code <b>Date</b>} Data final
+     * @return {@code <b>Integer</b>} Diferença em dias
      * @throws java.text.ParseException Exceção de conversão
      */
     public int daysBetween(Date begin, Date end) throws ParseException {
@@ -128,10 +128,10 @@ public class DateUtil {
     /**
      * Verifica se uma data está em um determinado periodo de tempo
      *
-     * @param param <code><b>Date</b></code> Data parametro
-     * @param first <code><b>Date</b></code> Data inicial
-     * @param last <code><b>Date</b></code> Data final
-     * @return <code>Boolean</code> Está no periodo?
+     * @param param {@code <b>Date</b>} Data parametro
+     * @param first {@code <b>Date</b>} Data inicial
+     * @param last {@code <b>Date</b>} Data final
+     * @return {@code Boolean} Está no periodo?
      */
     public Boolean isBetween(Date param, Date first, Date last) {
         return param.after(first) && param.before(last);
@@ -141,10 +141,10 @@ public class DateUtil {
      * Verifica se uma data está em um determinado periodo de tempo. Formato da
      * data (dd/MM/yyyy)
      *
-     * @param param <code><b>String</b></code> Data parametro
-     * @param first <code><b>String</b></code> Data inicial
-     * @param last <code><b>String</b></code> Data final
-     * @return <code>Boolean</code> Está no periodo?
+     * @param param {@code <b>String</b>} Data parametro
+     * @param first {@code <b>String</b>} Data inicial
+     * @param last {@code <b>String</b>} Data final
+     * @return {@code Boolean} Está no periodo?
      * @throws java.text.ParseException Exceção de conversão
      */
     public Boolean isBetween(String param, String first, String last) throws ParseException {
@@ -159,11 +159,11 @@ public class DateUtil {
      * Verifica se uma data está em um determinado periodo de tempo. Formato da
      * data (dd/MM/yyyy)
      *
-     * @param param <code><b>String</b></code> Data parametro
-     * @param first <code><b>String</b></code> Data inicial
-     * @param last <code><b>String</b></code> Data final
-     * @param format <code><b>String</b></code> Formato das datas
-     * @return <code>Boolean</code> Está no periodo?
+     * @param param {@code <b>String</b>} Data parametro
+     * @param first {@code <b>String</b>} Data inicial
+     * @param last {@code <b>String</b>} Data final
+     * @param format {@code <b>String</b>} Formato das datas
+     * @return {@code Boolean} Está no periodo?
      * @throws java.text.ParseException Exceção de conversão
      */
     public Boolean isBetween(String param, String first, String last, String format) throws ParseException {
@@ -184,121 +184,121 @@ public class DateUtil {
      * <th align=left>Presentation
      * <th align=left>Examples
      * <tr>
-     * <td><code>G</code>
+     * <td>{@code G}
      * <td>Era designator
      * <td><a href="#text">Text</a>
-     * <td><code>AD</code>
+     * <td>{@code AD}
      * <tr>
-     * <td><code>y</code>
+     * <td>{@code y}
      * <td>Year
      * <td><a href="#year">Year</a>
-     * <td><code>1996</code>; <code>96</code>
+     * <td>{@code 1996}; {@code 96}
      * <tr>
-     * <td><code>Y</code>
+     * <td>{@code Y}
      * <td>Week year
      * <td><a href="#year">Year</a>
-     * <td><code>2009</code>; <code>09</code>
+     * <td>{@code 2009}; {@code 09}
      * <tr>
-     * <td><code>M</code>
+     * <td>{@code M}
      * <td>Month in year
      * <td><a href="#month">Month</a>
-     * <td><code>July</code>; <code>Jul</code>; <code>07</code>
+     * <td>{@code July}; {@code Jul}; {@code 07}
      * <tr>
-     * <td><code>w</code>
+     * <td>{@code w}
      * <td>Week in year
      * <td><a href="#number">Number</a>
-     * <td><code>27</code>
+     * <td>{@code 27}
      * <tr>
-     * <td><code>W</code>
+     * <td>{@code W}
      * <td>Week in month
      * <td><a href="#number">Number</a>
-     * <td><code>2</code>
+     * <td>{@code 2}
      * <tr>
-     * <td><code>D</code>
+     * <td>{@code D}
      * <td>Day in year
      * <td><a href="#number">Number</a>
-     * <td><code>189</code>
+     * <td>{@code 189}
      * <tr>
-     * <td><code>d</code>
+     * <td>{@code d}
      * <td>Day in month
      * <td><a href="#number">Number</a>
-     * <td><code>10</code>
+     * <td>{@code 10}
      * <tr>
-     * <td><code>F</code>
+     * <td>{@code F}
      * <td>Day of week in month
      * <td><a href="#number">Number</a>
-     * <td><code>2</code>
+     * <td>{@code 2}
      * <tr>
-     * <td><code>E</code>
+     * <td>{@code E}
      * <td>Day name in week
      * <td><a href="#text">Text</a>
-     * <td><code>Tuesday</code>; <code>Tue</code>
+     * <td>{@code Tuesday}; {@code Tue}
      * <tr>
-     * <td><code>u</code>
+     * <td>{@code u}
      * <td>Day number of week (1 = Monday, ..., 7 = Sunday)
      * <td><a href="#number">Number</a>
-     * <td><code>1</code>
+     * <td>{@code 1}
      * <tr>
-     * <td><code>a</code>
+     * <td>{@code a}
      * <td>Am/pm marker
      * <td><a href="#text">Text</a>
-     * <td><code>PM</code>
+     * <td>{@code PM}
      * <tr>
-     * <td><code>H</code>
+     * <td>{@code H}
      * <td>Hour in day (0-23)
      * <td><a href="#number">Number</a>
-     * <td><code>0</code>
+     * <td>{@code 0}
      * <tr>
-     * <td><code>k</code>
+     * <td>{@code k}
      * <td>Hour in day (1-24)
      * <td><a href="#number">Number</a>
-     * <td><code>24</code>
+     * <td>{@code 24}
      * <tr>
-     * <td><code>K</code>
+     * <td>{@code K}
      * <td>Hour in am/pm (0-11)
      * <td><a href="#number">Number</a>
-     * <td><code>0</code>
+     * <td>{@code 0}
      * <tr>
-     * <td><code>h</code>
+     * <td>{@code h}
      * <td>Hour in am/pm (1-12)
      * <td><a href="#number">Number</a>
-     * <td><code>12</code>
+     * <td>{@code 12}
      * <tr>
-     * <td><code>m</code>
+     * <td>{@code m}
      * <td>Minute in hour
      * <td><a href="#number">Number</a>
-     * <td><code>30</code>
+     * <td>{@code 30}
      * <tr>
-     * <td><code>s</code>
+     * <td>{@code s}
      * <td>Second in minute
      * <td><a href="#number">Number</a>
-     * <td><code>55</code>
+     * <td>{@code 55}
      * <tr>
-     * <td><code>S</code>
+     * <td>{@code S}
      * <td>Millisecond
      * <td><a href="#number">Number</a>
-     * <td><code>978</code>
+     * <td>{@code 978}
      * <tr>
-     * <td><code>z</code>
+     * <td>{@code z}
      * <td>Time zone
      * <td><a href="#timezone">General time zone</a>
-     * <td><code>Pacific Standard Time</code>; <code>PST</code>;
-     * <code>GMT-08:00</code>
+     * <td>{@code Pacific Standard Time}; {@code PST};
+     * {@code GMT-08:00}
      * <tr>
-     * <td><code>Z</code>
+     * <td>{@code Z}
      * <td>Time zone
      * <td><a href="#rfc822timezone">RFC 822 time zone</a>
-     * <td><code>-0800</code>
+     * <td>{@code -0800}
      * <tr>
-     * <td><code>X</code>
+     * <td>{@code X}
      * <td>Time zone
      * <td><a href="#iso8601timezone">ISO 8601 time zone</a>
-     * <td><code>-08</code>; <code>-0800</code>;  <code>-08:00</code>
+     * <td>{@code -08}; {@code -0800};  {@code -08:00}
      * </table>
      *
-     * @param date <code><b>Date</b></code> Data parametro
-     * @param pattern <code><b>String</b></code> Padrão de formatação
-     * @return <code><b>String</b></code> Data formatada
+     * @param date {@code <b>Date</b>} Data parametro
+     * @param pattern {@code <b>String</b>} Padrão de formatação
+     * @return {@code <b>String</b>} Data formatada
      */
     public String getFormattedDate(Date date, String pattern) {
         return new SimpleDateFormat(pattern).format(date);
@@ -307,8 +307,8 @@ public class DateUtil {
     /**
      * Retorna a data por extenso
      *
-     * @param date <code><b>Date</b></code> Data parametro
-     * @return <code><b>String</b></code> Data por extenso
+     * @param date {@code <b>Date</b>} Data parametro
+     * @return {@code <b>String</b>} Data por extenso
      */
     public String getCompleteDate(Date date) {
         return getFormattedDate(date, COMPLETE);

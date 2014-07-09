@@ -13,12 +13,12 @@ public class RegExValidator {
     /**
      * Valida uma String contendo um e-mail<br>
      * Ex:<br>
-     * Valido: <code>teste@teste.com</code> ou
-     * <code>teste@teste.com.br</code><br>
-     * Invalido: <code>test@testecom</code> ou <code>teste@teste</code>
+     * Valido: {@code teste@teste.com} ou
+     * {@code teste@teste.com.br}<br>
+     * Invalido: {@code test@testecom} ou {@code teste@teste}
      *
-     * @param email <code>String</code> E-mail à ser validado
-     * @return <code>Boolean</code> Resultado da validação
+     * @param email {@code String} E-mail à ser validado
+     * @return {@code Boolean} Resultado da validação
      */
     public static Boolean validateEmail(String email) {
         VerbalExpression vexp = new VerbalExpression.Builder()
@@ -35,13 +35,13 @@ public class RegExValidator {
     /**
      * Valida uma String contendo um URL<br>
      * Ex:<br>
-     * Valido: <code>http://www.test.com</code> ou
-     * <code>https://www.test.com.br</code> <br>
-     * Invalido: <code>http://test.com</code> ou
-     * <code>httpt://www.test.com.br</code>
+     * Valido: {@code http://www.test.com} ou
+     * {@code https://www.test.com.br} <br>
+     * Invalido: {@code http://test.com} ou
+     * {@code httpt://www.test.com.br}
      *
-     * @param url <code>String</code> URL à ser validado
-     * @return <code>Boolean</code> Resultado da validação
+     * @param url {@code String} URL à ser validado
+     * @return {@code Boolean} Resultado da validação
      */
     public static Boolean validateUrl(String url) {
         VerbalExpression vexp = new VerbalExpression.Builder()

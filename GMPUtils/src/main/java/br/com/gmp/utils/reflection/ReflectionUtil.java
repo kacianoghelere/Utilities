@@ -16,11 +16,11 @@ public class ReflectionUtil {
     /**
      * Retorna o objeto instanciado a partir dos dados recebidos
      *
-     * @param cl <code><b>Class</b></code> Classe da instancia
-     * @param argTypes <code><b>Class</b>[]</code> Array de argumentos da
+     * @param cl {@code <b>Class</b>} Classe da instancia
+     * @param argTypes {@code <b>Class</b>[]} Array de argumentos da
      * instancia(Classes dos objetos a serem passados como parametro)
-     * @param arguments <code><b>Object</b>[]</code> Valores dos parametros
-     * @return <code><b>Object</b></code> Objeto instanciado
+     * @param arguments {@code <b>Object</b>[]} Valores dos parametros
+     * @return {@code <b>Object</b>} Objeto instanciado
      * @throws java.lang.InstantiationException Exceção de instanciamento
      */
     public Object newInstance(Class cl, Class[] argTypes, Object[] arguments) throws InstantiationException {
@@ -38,9 +38,9 @@ public class ReflectionUtil {
     /**
      * Retorna o objeto instanciado a partir do objeto de instancia recebido
      *
-     * @param instance <code><b>ObjectInstance</b></code> Objeto com os dados da
+     * @param instance {@code <b>ObjectInstance</b>} Objeto com os dados da
      * instancia
-     * @return <code><b>Object</b></code> Objeto instanciado
+     * @return {@code <b>Object</b>} Objeto instanciado
      * @throws java.lang.InstantiationException Exceção de instanciamento
      */
     public Object newInstance(ObjectInstance instance) throws InstantiationException {
@@ -51,10 +51,10 @@ public class ReflectionUtil {
     /**
      * Invoca o método
      *
-     * @param method <code><b>String</b></code> Nome do método
-     * @param cl <code><b>Class</b></code> Classe que contem o método
-     * @param argtypes <code><b>Class(?)[]</b></code> Tipos dos parametros
-     * @param args <code><b>Object</b>[]</code> Valores dos parametros
+     * @param method {@code <b>String</b>} Nome do método
+     * @param cl {@code <b>Class</b>} Classe que contem o método
+     * @param argtypes {@code <b>Class(?)[]</b>} Tipos dos parametros
+     * @param args {@code <b>Object</b>[]} Valores dos parametros
      * @throws IllegalAccessException Acesso ilegal
      * @throws IllegalArgumentException Argumento ilegal
      * @throws InvocationTargetException Exceção de Invocação

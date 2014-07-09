@@ -39,8 +39,8 @@ public class PDFExporter {
     /**
      * Exporta os dados da lista para o formato PDF
      *
-     * @param list <code>List(?)</code> Lista contendo os dados
-     * @param filename <code>String</code> Nome do arquivo exportado
+     * @param list {@code List(?)} Lista contendo os dados
+     * @param filename {@code String} Nome do arquivo exportado
      * @throws FileNotFoundException Arquivo não encontrado
      * @throws DocumentException Exceção de documento
      * @throws IOException Exceção de I/O
@@ -54,9 +54,9 @@ public class PDFExporter {
     /**
      * Exporta os dados da lista para o formato PDF
      *
-     * @param list <code>List(?)</code> Lista contendo os dados
-     * @param objClass <code>Class(?)</code> Classe dos objetos exportados
-     * @param filename <code>String</code> Nome do arquivo exportado
+     * @param list {@code List(?)} Lista contendo os dados
+     * @param objClass {@code Class(?)} Classe dos objetos exportados
+     * @param filename {@code String} Nome do arquivo exportado
      * @throws FileNotFoundException Arquivo não encontrado
      * @throws DocumentException Exceção de documento
      * @throws IOException Exceção de I/O
@@ -104,8 +104,8 @@ public class PDFExporter {
     /**
      * Retorna os nomes das propriedades da classe indicada
      *
-     * @param cl <code>Class(?)</code> Classe dos objetos exportados
-     * @return <code>String</code> Nomes das propriedades
+     * @param cl {@code Class(?)} Classe dos objetos exportados
+     * @return {@code String} Nomes das propriedades
      */
     private String[] getFieldNames(Class<?> cl) {
         List<String> list = new ArrayList<>();
@@ -120,7 +120,7 @@ public class PDFExporter {
     /**
      * Retorna a fonte do exportador
      *
-     * @return <code>com.lowagie.text.Font</code> Fonte
+     * @return {@code com.lowagie.text.Font} Fonte
      */
     public Font getFont() {
         return font;
@@ -129,7 +129,7 @@ public class PDFExporter {
     /**
      * Modifica a fonte do exportador
      *
-     * @param font <code>com.lowagie.text.Font</code> Fonte
+     * @param font {@code com.lowagie.text.Font} Fonte
      */
     public void setFont(Font font) {
         this.font = font;

@@ -38,7 +38,7 @@ public enum Numbers {
     /**
      * Cria nova instancia de Numbers
      *
-     * @param array <code>String[]</code> Array de dados
+     * @param array {@code String[]} Array de dados
      */
     private Numbers(String[] array) {
         this.array = array;
@@ -47,7 +47,7 @@ public enum Numbers {
     /**
      * Retorna o array de dados
      *
-     * @return <code>String[]</code> Array de dados
+     * @return {@code String[]} Array de dados
      */
     public String[] getArray() {
         return array;
@@ -56,7 +56,7 @@ public enum Numbers {
     /**
      * Modifica o array de dados
      *
-     * @param array <code>String[]</code> Array de dados
+     * @param array {@code String[]} Array de dados
      */
     public void setArray(String[] array) {
         this.array = array;

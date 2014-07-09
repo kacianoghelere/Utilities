@@ -23,7 +23,7 @@ public enum AnsiColors {
     /**
      * Cria nova instancia de AnsiColors
      *
-     * @param color <code>String</code> Nome
+     * @param color {@code String} Nome
      */
     private AnsiColors(String color) {
         this.color = color;
@@ -32,7 +32,7 @@ public enum AnsiColors {
     /**
      * Retorna a cor
      *
-     * @return <code>String</code> Cor
+     * @return {@code String} Cor
      */
     public String getColor() {
         return color;
@@ -41,7 +41,7 @@ public enum AnsiColors {
     /**
      * Modifica a cor
      *
-     * @param color <code>String</code> Cor
+     * @param color {@code String} Cor
      */
     public void setColor(String color) {
         this.color = color;

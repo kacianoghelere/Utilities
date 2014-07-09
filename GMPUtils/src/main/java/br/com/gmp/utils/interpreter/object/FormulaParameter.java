@@ -25,7 +25,7 @@ public class FormulaParameter {
     /**
      * Cria nova instancia de FormulaParameter
      *
-     * @param formula <code>String</code> Formula à ser calculada
+     * @param formula {@code String} Formula à ser calculada
      */
     public FormulaParameter(String formula) {
         this.formula = formula;
@@ -35,8 +35,8 @@ public class FormulaParameter {
     /**
      * Adiciona novos valores no calculo da formula
      *
-     * @param key <code>String</code> Valor que será substituido
-     * @param value <code>Double</code> Valor real
+     * @param key {@code String} Valor que será substituido
+     * @param value {@code Double} Valor real
      */
     public void put(String key, Double value) {
         map.put(key, value);
@@ -45,7 +45,7 @@ public class FormulaParameter {
     /**
      * Retorna a formula à ser calculada
      *
-     * @return <code>String</code> Formula à ser calculada
+     * @return {@code String} Formula à ser calculada
      */
     public String getFormula() {
         return formula;
@@ -54,7 +54,7 @@ public class FormulaParameter {
     /**
      * Modifica a formula à ser calculada
      *
-     * @param formula <code>String</code> Formula à ser calculada
+     * @param formula {@code String} Formula à ser calculada
      */
     public void setFormula(String formula) {
         this.formula = formula;
@@ -63,7 +63,7 @@ public class FormulaParameter {
     /**
      * Retorna o mapa de valores carregados
      *
-     * @return <code>Map(String, Double)</code> Mapa de valores
+     * @return {@code Map(String, Double)} Mapa de valores
      */
     public Map<String, Double> getMap() {
         return map;

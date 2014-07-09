@@ -24,7 +24,7 @@ public class InterceptTest {
     /**
      * Retorna o injetor de dependencia
      *
-     * @return <code>Injector</code> Injetor
+     * @return {@code Injector} Injetor
      */
     public Injector getInjector() {
         return injector;

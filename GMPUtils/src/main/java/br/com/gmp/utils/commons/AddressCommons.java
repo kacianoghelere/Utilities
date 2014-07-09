@@ -32,7 +32,7 @@ public enum AddressCommons {
     /**
      * Cria nova instancia de AddressCommons
      *
-     * @param array <code>String[]</code> Array de dados
+     * @param array {@code String[]} Array de dados
      */
     private AddressCommons(String[] array) {
         this.array = array;
@@ -41,7 +41,7 @@ public enum AddressCommons {
     /**
      * Retorna o array de dados
      *
-     * @return <code>String[]</code> Array de dados
+     * @return {@code String[]} Array de dados
      */
     public String[] getArray() {
         return array;
@@ -50,7 +50,7 @@ public enum AddressCommons {
     /**
      * Modifica o array de dados
      *
-     * @param array <code>String[]</code> Array de dados
+     * @param array {@code String[]} Array de dados
      */
     public void setArray(String[] array) {
         this.array = array;

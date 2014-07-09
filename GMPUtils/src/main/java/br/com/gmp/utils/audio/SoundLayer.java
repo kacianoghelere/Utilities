@@ -32,7 +32,7 @@ public class SoundLayer implements Runnable {
     /**
      * Cria nova instancia de SoundLayer
      *
-     * @param filePath <code>String</code> Caminho do arquivo
+     * @param filePath {@code String} Caminho do arquivo
      */
     public SoundLayer(String filePath) {
         this.filePath = filePath;
@@ -43,7 +43,7 @@ public class SoundLayer implements Runnable {
     /**
      * Cria nova instancia de SoundLayer
      *
-     * @param audioFile <code>String</code> Caminho do arquivo
+     * @param audioFile {@code String} Caminho do arquivo
      */
     public SoundLayer(AudioFile audioFile) {
         this.audioFile = audioFile;
@@ -56,8 +56,8 @@ public class SoundLayer implements Runnable {
     /**
      * * Cria nova instancia de SoundLayer
      *
-     * @param filePath <code>String</code> Caminho do arquivo
-     * @param namePlayerThread <code>String</code> Nome da Thread do Player
+     * @param filePath {@code String} Caminho do arquivo
+     * @param namePlayerThread {@code String} Nome da Thread do Player
      */
     public SoundLayer(String filePath, String namePlayerThread) {
         this.filePath = filePath;
@@ -94,7 +94,7 @@ public class SoundLayer implements Runnable {
     /**
      * Retorna o titutlo da faixa
      *
-     * @return <code>String</code> Titulo da faixa
+     * @return {@code String} Titulo da faixa
      */
     public String getTitle() {
         return tag.getFirst(FieldKey.TITLE);
@@ -103,7 +103,7 @@ public class SoundLayer implements Runnable {
     /**
      * Retorna o artista da faixa
      *
-     * @return <code>String</code> Artista da faixa
+     * @return {@code String} Artista da faixa
      */
     public String getArtist() {
         return tag.getFirst(FieldKey.ARTIST);
@@ -112,7 +112,7 @@ public class SoundLayer implements Runnable {
     /**
      * Retorna o numero da faixa
      *
-     * @return <code>String</code> Numero da faixa
+     * @return {@code String} Numero da faixa
      */
     public String getTrack() {
         return tag.getFirst(FieldKey.TRACK);
@@ -121,7 +121,7 @@ public class SoundLayer implements Runnable {
     /**
      * Retorna o da album faixa
      *
-     * @return <code>String</code> Album da faixa
+     * @return {@code String} Album da faixa
      */
     public String getAlbum() {
         return tag.getFirst(FieldKey.ALBUM);
@@ -225,7 +225,7 @@ public class SoundLayer implements Runnable {
     /**
      * Dados da faixa de audio
      *
-     * @return <code>ID3v1Tag</code> Dados da faixa
+     * @return {@code ID3v1Tag} Dados da faixa
      */
     public ID3v1Tag getTag() {
         return tag;
@@ -234,7 +234,7 @@ public class SoundLayer implements Runnable {
     /**
      * Retorna o player de audio
      *
-     * @return <code>GAudioPlayer</code> Player de audio
+     * @return {@code GAudioPlayer} Player de audio
      */
     public GAudioPlayer getPlayer() {
         return player;

@@ -20,7 +20,7 @@ public class TextBuilder {
     /**
      * Cria nova instancia de TextBuilder
      *
-     * @param text <code>String</code> Texto a ser manipulado
+     * @param text {@code String} Texto a ser manipulado
      */
     public TextBuilder(String text) {
         this.text = text;
@@ -29,8 +29,8 @@ public class TextBuilder {
     /**
      * Concatena o texto original com o texto recebido
      *
-     * @param text <code>String</code> Texto a ser concatenado
-     * @return <code>TextBuilder</code> Construtor de texto
+     * @param text {@code String} Texto a ser concatenado
+     * @return {@code TextBuilder} Construtor de texto
      */
     public TextBuilder append(String text) {
         this.text += text;
@@ -40,8 +40,8 @@ public class TextBuilder {
     /**
      * Concatena o texto original com o texto recebido
      *
-     * @param text <code>String[]</code> Variaeis de texto a serem concatenadas
-     * @return <code>TextBuilder</code> Construtor de texto
+     * @param text {@code String[]} Variaeis de texto a serem concatenadas
+     * @return {@code TextBuilder} Construtor de texto
      */
     public TextBuilder append(String... text) {
         for (String value : text) {
@@ -53,8 +53,8 @@ public class TextBuilder {
     /**
      * Concatena o texto original com o numero inteiro recebido
      *
-     * @param number <code>int</code> Numero a ser concatenado
-     * @return <code>TextBuilder</code> Construtor de texto
+     * @param number {@code int} Numero a ser concatenado
+     * @return {@code TextBuilder} Construtor de texto
      */
     public TextBuilder append(int number) {
         this.text += String.valueOf(number);
@@ -64,8 +64,8 @@ public class TextBuilder {
     /**
      * Concatena o texto original com o numero racional recebido
      *
-     * @param number <code>double</code> Numero a ser concatenado
-     * @return <code>TextBuilder</code> Construtor de texto
+     * @param number {@code double} Numero a ser concatenado
+     * @return {@code TextBuilder} Construtor de texto
      */
     public TextBuilder append(double number) {
         this.text += String.valueOf(number);
@@ -82,7 +82,7 @@ public class TextBuilder {
     /**
      * Retorna o texto manipulado
      *
-     * @return <code>String</code> Texto manipulado
+     * @return {@code String} Texto manipulado
      */
     public String getText() {
         return text;

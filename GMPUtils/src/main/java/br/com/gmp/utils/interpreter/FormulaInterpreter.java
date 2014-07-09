@@ -24,7 +24,7 @@ public class FormulaInterpreter {
     /**
      * Cria nova instancia FormulaInterpreter
      *
-     * @param parameter <code>FormulaParameter</code> Parametro
+     * @param parameter {@code FormulaParameter} Parametro
      */
     public FormulaInterpreter(FormulaParameter parameter) {
         this.parameter = parameter;
@@ -34,7 +34,7 @@ public class FormulaInterpreter {
      * Substitui os valores na expressão pelos valores carregados e calcula a
      * formula
      *
-     * @return <code>Double</code> Resultado
+     * @return {@code Double} Resultado
      */
     public Double parse() {
         String formula = parameter.getFormula();
@@ -48,10 +48,10 @@ public class FormulaInterpreter {
     /**
      * Retorna o resultado do calculo da formula
      *
-     * @param expression <code>String</code> Expressão a ser calculada
-     * @param dto <code>Object</code> Detalhamento
-     * @param variable <code>String</code> Nome da variavel
-     * @return <code>Object</code> Resultado
+     * @param expression {@code String} Expressão a ser calculada
+     * @param dto {@code Object} Detalhamento
+     * @param variable {@code String} Nome da variavel
+     * @return {@code Object} Resultado
      */
     private Object parseFormula(String expression, Object dto, String variable) {
         Binding binding = new Binding();
@@ -63,7 +63,7 @@ public class FormulaInterpreter {
     /**
      * Retorna os parametros da formula
      *
-     * @return <code>FormulaParameter</code> Parametro
+     * @return {@code FormulaParameter} Parametro
      */
     public FormulaParameter getParameter() {
         return parameter;
@@ -72,8 +72,8 @@ public class FormulaInterpreter {
     /**
      * Modifica os parametros da formula
      *
-     * @param parameter <code>FormulaParameter</code> Parametro
-     * @return <code>FormulaInterpreter</code> Interpretador de formulas
+     * @param parameter {@code FormulaParameter} Parametro
+     * @return {@code FormulaInterpreter} Interpretador de formulas
      */
     public FormulaInterpreter setParameter(FormulaParameter parameter) {
         this.parameter = parameter;

@@ -24,8 +24,8 @@ public class AudioConverter {
     /**
      * Converte os arquivos do diretório indicado em uma lista de AudioFiles
      *
-     * @param path <code>File</code> Arquivo do diretório
-     * @return <code>List(AudioFile)</code> Lista de arquivos de audio
+     * @param path {@code File} Arquivo do diretório
+     * @return {@code List(AudioFile)} Lista de arquivos de audio
      * @throws java.lang.Exception Exceção de conversão
      * @throws java.io.IOException Exceção de I/O
      * @throws org.jaudiotagger.tag.TagException Exceção de leitura de Tag
@@ -41,8 +41,8 @@ public class AudioConverter {
     /**
      * Converte os arquivos do diretório indicado em uma lista de AudioFiles
      *
-     * @param path <code>String</code> Caminho do diretório
-     * @return <code>List(AudioFile)</code> Lista de arquivos de audio
+     * @param path {@code String} Caminho do diretório
+     * @return {@code List(AudioFile)} Lista de arquivos de audio
      * @throws java.lang.Exception Exceção de conversão
      * @throws java.io.IOException Exceção de I/O
      * @throws org.jaudiotagger.tag.TagException Exceção de leitura de Tag

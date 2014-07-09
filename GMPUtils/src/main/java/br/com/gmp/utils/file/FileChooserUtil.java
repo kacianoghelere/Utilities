@@ -16,10 +16,10 @@ public class FileChooserUtil {
     /**
      * Mostra o seletor de arquivos
      *
-     * @param parent <code>Component</code> Componente pai
-     * @param filtername <code>String</code> Descrição do filtro
-     * @param extensions <code>String</code> Extensões
-     * @return <code>File</code> Arquivo selecionado
+     * @param parent {@code Component} Componente pai
+     * @param filtername {@code String} Descrição do filtro
+     * @param extensions {@code String} Extensões
+     * @return {@code File} Arquivo selecionado
      */
     public File show(Component parent, String filtername, String... extensions) {
         JFileChooser chooser = new JFileChooser();
