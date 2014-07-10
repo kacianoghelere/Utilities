@@ -19,17 +19,17 @@ public class ImageUtil {
     /**
      * Retorna a imagem com redimensionamento
      *
-     * @param srcImg {@code Image} Imagem fonte
-     * @param w {@code int} Largura
-     * @param h {@code int} Altura
+     * @param image {@code Image} Imagem fonte
+     * @param width {@code int} Largura
+     * @param height {@code int} Altura
      * @return {@code Image} Imagem redimensionada
      * @since 1.0
      */
-    public Image getScaledImage(Image srcImg, int w, int h) {
-        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+    public Image getScaledImage(Image image, int width, int height) {
+        BufferedImage resizedImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = resizedImg.createGraphics();
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.drawImage(image, 0, 0, width, height, null);
         g2.dispose();
         return resizedImg;
     }
