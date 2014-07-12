@@ -43,11 +43,14 @@ public class GAudioPlayer {
      *
      * @param urlStream {@code URL} URL do Stream
      * @throws JavaLayerException Exceção de JavaLayer
+     * @throws java.io.IOException Exceção de Java I/O
      */
-    public GAudioPlayer(URL urlStream) throws JavaLayerException {
+    public GAudioPlayer(URL urlStream) throws JavaLayerException, IOException {
         this.urlStream = urlStream;
         this.listener = new PlaybackAdapter();
         this.playing = false;
+        this.audioDevice = FactoryRegistry.systemRegistry().createAudioDevice();
+        this.bitstream = new Bitstream(this.getAudioInputStream());
     }
 
     /**
@@ -55,11 +58,14 @@ public class GAudioPlayer {
      *
      * @param audioPath {@code String} Caminho do arquivo
      * @throws JavaLayerException Exceção de JavaLayer
+     * @throws java.io.IOException Exceção de Java I/O
      */
-    public GAudioPlayer(String audioPath) throws JavaLayerException {
+    public GAudioPlayer(String audioPath) throws JavaLayerException, IOException {
         this.audioPath = audioPath;
         this.listener = new PlaybackAdapter();
         this.playing = false;
+        this.audioDevice = FactoryRegistry.systemRegistry().createAudioDevice();
+        this.bitstream = new Bitstream(this.getAudioInputStream());
     }
 
     /**
@@ -83,9 +89,9 @@ public class GAudioPlayer {
      */
     private InputStream getAudioInputStream() throws IOException {
         if (this.audioPath != null) {
-            return new FileInputStream(this.audioPath);
+            return new FileInputStream(audioPath);
         } else if (this.urlStream != null) {
-            this.urlStream.openStream();
+            return this.urlStream.openStream();
         }
         return null;
     }
@@ -134,8 +140,9 @@ public class GAudioPlayer {
      *
      * @return {@code boolean} Reprodução iniciada?
      * @throws JavaLayerException Exceção de JavaLayer
+     * @throws java.io.IOException Exceção de Java i/O
      */
-    public boolean play() throws JavaLayerException {
+    public boolean play() throws JavaLayerException, IOException {
         return this.play(0);
     }
 
@@ -145,8 +152,9 @@ public class GAudioPlayer {
      * @param frameIndexStart {@code int} Frame inicial
      * @return {@code boolean} Reprodução iniciada?
      * @throws JavaLayerException Exceção de JavaLayer
+     * @throws java.io.IOException Exceção de Java i/O
      */
-    public boolean play(int frameIndexStart) throws JavaLayerException {
+    public boolean play(int frameIndexStart) throws JavaLayerException, IOException {
         return this.play(frameIndexStart, -1, lostFrames);
     }
 
@@ -158,14 +166,11 @@ public class GAudioPlayer {
      * @param correctionFactorInFrames {@code int} Fator de correção
      * @return {@code boolean} Reprodução iniciada?
      * @throws JavaLayerException Exceção de JavaLayer
+     * @throws java.io.IOException Exceção de Java I/O
      */
     public boolean play(int frameIndexStart, int frameIndexFinal,
-            int correctionFactorInFrames) throws JavaLayerException {
-        try {
-            this.bitstream = new Bitstream(this.getAudioInputStream());
-        } catch (IOException e) {
-            Logger.getLogger(GAudioPlayer.class.getName()).log(Level.SEVERE, null, e);
-        }
+            int correctionFactorInFrames) throws JavaLayerException, IOException {
+        this.bitstream = new Bitstream(this.getAudioInputStream());
 
         this.audioDevice = FactoryRegistry.systemRegistry().createAudioDevice();
         this.decoder = new Decoder();
@@ -239,34 +244,33 @@ public class GAudioPlayer {
      *
      * @return {@code boolean} Reprodução em execução?
      * @throws JavaLayerException Exceção de JavaLayer
+     * @throws java.io.IOException Exceção de Java i/O
      */
-    public boolean resume() throws JavaLayerException {        
+    public boolean resume() throws JavaLayerException, IOException {
         return this.play(this.frameIndexCurrent);
     }
 
     /**
      * Fecha a reprodução de audio
+     *
+     * @throws javazoom.jl.decoder.BitstreamException BitstreamException
      */
-    public synchronized void close() {
+    public synchronized void close() throws BitstreamException {
         if (this.audioDevice != null) {
             this.closed = true;
             this.playing = false;
             this.audioDevice.close();
-
             this.audioDevice = null;
-
-            try {
-                this.bitstream.close();
-            } catch (BitstreamException ex) {
-                Logger.getLogger(GAudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            this.bitstream.close();
         }
     }
 
     /**
      * Pausa a execução
+     *
+     * @throws javazoom.jl.decoder.BitstreamException BitstreamException
      */
-    public void pause() {
+    public void pause() throws BitstreamException {
         if (!this.stopped) {
             this.paused = true;
             if (this.listener != null) {
@@ -280,8 +284,10 @@ public class GAudioPlayer {
 
     /**
      * Para a reprodução
+     *
+     * @throws javazoom.jl.decoder.BitstreamException BitstreamException
      */
-    public void stop() {
+    public void stop() throws BitstreamException {
         if (!this.stopped) {
             if (!this.closed) {
                 this.listener.playbackFinished(new PlaybackEvent(this,
@@ -293,7 +299,7 @@ public class GAudioPlayer {
                 this.listener.playbackFinished(new PlaybackEvent(this,
                         PlaybackEvent.EventType.Instances.Stopped,
                         audioDevicePosition));
-            }            
+            }
             this.stopped = true;
         }
     }

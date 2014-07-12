@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javazoom.jl.decoder.BitstreamException;
 import javazoom.jl.decoder.JavaLayerException;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
@@ -33,10 +34,11 @@ public class SoundLayer implements Runnable {
      * Cria nova instancia de SoundLayer
      *
      * @param filePath {@code String} Caminho do arquivo
+     * @throws java.io.IOException Exceção de Java I/O
      */
-    public SoundLayer(String filePath) {
+    public SoundLayer(String filePath) throws IOException {
         this.filePath = filePath;
-        playerInitialize();        
+        playerInitialize();
         loadTag();
     }
 
@@ -44,11 +46,12 @@ public class SoundLayer implements Runnable {
      * Cria nova instancia de SoundLayer
      *
      * @param audioFile {@code String} Caminho do arquivo
+     * @throws java.io.IOException Exceção de Java I/O
      */
-    public SoundLayer(AudioFile audioFile) {
+    public SoundLayer(AudioFile audioFile) throws IOException {
         this.audioFile = audioFile;
         this.filePath = audioFile.getFile().getPath();
-        this.tag = audioFile.getTag();    
+        this.tag = audioFile.getTag();
         playerInitialize();
         printData();
     }
@@ -58,11 +61,12 @@ public class SoundLayer implements Runnable {
      *
      * @param filePath {@code String} Caminho do arquivo
      * @param namePlayerThread {@code String} Nome da Thread do Player
+     * @throws java.io.IOException Exceção de Java I/O
      */
-    public SoundLayer(String filePath, String namePlayerThread) {
+    public SoundLayer(String filePath, String namePlayerThread) throws IOException {
         this.filePath = filePath;
         this.namePlayerThread = namePlayerThread;
-        playerInitialize();    
+        playerInitialize();
         loadTag();
     }
 
@@ -129,8 +133,11 @@ public class SoundLayer implements Runnable {
 
     /**
      * Inicia reprodução
+     *
+     * @throws javazoom.jl.decoder.BitstreamException BitstreamException
+     * @throws java.io.IOException Exceção de Java I/O
      */
-    public void play() {
+    public void play() throws BitstreamException, IOException {
         if (this.player == null) {
             this.playerInitialize();
         } else if (!this.player.isPaused() || this.player.isComplete()
@@ -145,8 +152,10 @@ public class SoundLayer implements Runnable {
 
     /**
      * Pausa reprodução
+     *
+     * @throws javazoom.jl.decoder.BitstreamException BitstreamException
      */
-    public void pause() {
+    public void pause() throws BitstreamException {
         if (this.player != null) {
             this.player.pause();
             if (this.playerThread != null) {
@@ -157,8 +166,11 @@ public class SoundLayer implements Runnable {
 
     /**
      * Troca o status de pausa
+     *
+     * @throws javazoom.jl.decoder.BitstreamException BitstreamException
+     * @throws java.io.IOException Exceção de Java I/O
      */
-    public void pauseToggle() {
+    public void pauseToggle() throws BitstreamException, IOException {
         if (this.player != null) {
             if (this.player.isPaused() && !this.player.isStopped()) {
                 this.play();
@@ -170,8 +182,10 @@ public class SoundLayer implements Runnable {
 
     /**
      * Para reprodução
+     *
+     * @throws javazoom.jl.decoder.BitstreamException BitstreamException
      */
-    public void stop() {
+    public void stop() throws BitstreamException {
         if (this.player != null) {
             this.player.stop();
             if (this.playerThread != null) {
@@ -183,7 +197,7 @@ public class SoundLayer implements Runnable {
     /**
      * Inicializa o player
      */
-    private void playerInitialize() {
+    private void playerInitialize() throws IOException {
         try {
             this.player = new GAudioPlayer(this.filePath);
             this.player.setPlaybackListener(this.playbackListener);
@@ -196,7 +210,7 @@ public class SoundLayer implements Runnable {
     public void run() {
         try {
             this.player.resume();
-        } catch (javazoom.jl.decoder.JavaLayerException ex) {
+        } catch (javazoom.jl.decoder.JavaLayerException | IOException ex) {
             Logger.getLogger(SoundLayer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
