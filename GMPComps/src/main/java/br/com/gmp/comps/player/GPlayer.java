@@ -2,9 +2,11 @@ package br.com.gmp.comps.player;
 
 import br.com.gmp.utils.audio.SoundLayer;
 import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JToolBar;
+import javazoom.jl.decoder.BitstreamException;
 
 /**
  * Player de Audio
@@ -34,7 +36,11 @@ public class GPlayer extends JToolBar {
     public GPlayer(String path) {
         this.path = path;
         this.file = new File(path);
-        this.layer = new SoundLayer(path);
+        try {
+            this.layer = new SoundLayer(path);
+        } catch (IOException ex) {
+            Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initialize();
     }
 
@@ -54,7 +60,11 @@ public class GPlayer extends JToolBar {
     public void build(String path) {
         this.path = path;
         this.file = new File(path);
-        this.layer = new SoundLayer(path);
+        try {
+            this.layer = new SoundLayer(path);
+        } catch (IOException ex) {
+            Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -227,7 +237,7 @@ public class GPlayer extends JToolBar {
                 this.layer.play();
                 this.gTTrack.setText(layer.getTitle());
             }
-        } catch (Exception e) {
+        } catch (IOException | BitstreamException e) {
             Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_jBPlayActionPerformed
@@ -237,7 +247,7 @@ public class GPlayer extends JToolBar {
             if (layer != null) {
                 layer.pauseToggle();
             }
-        } catch (Exception e) {
+        } catch (IOException | BitstreamException e) {
             Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_jBPauseActionPerformed
@@ -248,7 +258,7 @@ public class GPlayer extends JToolBar {
                 layer.stop();
                 this.gTTrack.setText("");
             }
-        } catch (Exception e) {
+        } catch (BitstreamException e) {
             Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_jBStopActionPerformed

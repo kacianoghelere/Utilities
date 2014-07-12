@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  */
 public class AudioTableTest extends javax.swing.JFrame {
 
-    private String dir = "/home/kaciano/Música/The Killers/";
+    private String dir = "/home/kaciano/teste/";
 
     /**
      * Creates new form AudioTableTest

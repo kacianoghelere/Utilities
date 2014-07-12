@@ -4,11 +4,13 @@ import br.com.gmp.comps.player.GPlayer;
 import br.com.gmp.comps.player.multi.model.AudioModel;
 import br.com.gmp.utils.audio.SoundLayer;
 import br.com.gmp.utils.audio.file.AudioFile;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import javazoom.jl.decoder.BitstreamException;
 
 /**
  * Player de audio para multiplos arquivos de audio
@@ -100,7 +102,7 @@ public class GPlayerList extends JPanel {
      * Retorna o reprodutor de audio
      *
      */
-    private void loadPlayer() {
+    private void loadPlayer() throws IOException {
         this.layer = new SoundLayer(model.getObject(gTableTracks.getSelectedRow()));
     }
 
@@ -140,7 +142,7 @@ public class GPlayerList extends JPanel {
      */
     public AudioModel getModel() {
         return model;
-    }    
+    }
 
     /**
      *
@@ -256,11 +258,11 @@ public class GPlayerList extends JPanel {
             if (layer != null) {
                 if (layer.getPlayer().isPlaying()) {
                     layer.stop();
-                }                
+                }
                 layer.play();
                 this.gTTrack.setText(layer.getTitle());
             }
-        } catch (Exception e) {
+        } catch (IOException | BitstreamException e) {
             Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_jBPlayActionPerformed
@@ -270,7 +272,7 @@ public class GPlayerList extends JPanel {
             if (layer != null) {
                 layer.pauseToggle();
             }
-        } catch (Exception e) {
+        } catch (IOException | BitstreamException e) {
             Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_jBPauseActionPerformed
