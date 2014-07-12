@@ -140,6 +140,8 @@ public class SoundLayer implements Runnable {
     public void play() throws BitstreamException, IOException {
         if (this.player == null) {
             this.playerInitialize();
+        } else if (this.player.isPaused()) {
+            this.pauseToggle();
         } else if (!this.player.isPaused() || this.player.isComplete()
                 || this.player.isStopped()) {
             this.stop();
