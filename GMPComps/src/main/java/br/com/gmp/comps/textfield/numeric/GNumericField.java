@@ -38,6 +38,32 @@ public class GNumericField extends GTextField {
         initComponents();
     }
 
+    /**
+     * Valida se o valor do campo é diferente de zero
+     *
+     * @return {@code Boolean} O valor do campo é diferente de zero?
+     */
+    public Boolean validateZero() {
+        try {
+            return getDouble() != 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Valida se o valor do campo é menor que zero
+     *
+     * @return {@code Boolean} O valor do campo é menor que zero?
+     */
+    public Boolean validateNegative() {
+        try {
+            return getDouble() < 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     @Override
     protected Document createDefaultModel() {
         return new NumericDocument();
