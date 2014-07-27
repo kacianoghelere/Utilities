@@ -1,5 +1,6 @@
 package br.com.gmp.comps.textfield.numeric;
 
+import br.com.gmp.comps.baloontip.src.BalloonUtil;
 import br.com.gmp.comps.document.NumericDocument;
 import br.com.gmp.comps.textfield.GTextField;
 import javax.swing.text.Document;
@@ -43,10 +44,15 @@ public class GNumericField extends GTextField {
      *
      * @return {@code Boolean} O valor do campo é diferente de zero?
      */
-    public Boolean validateZero() {
+    public Boolean isZero() {
         try {
-            return getDouble() != 0;
+            if (getDouble() < 0d) {
+                showMsg("O valor não pode ser zero.");
+                return false;
+            }
+            return true;
         } catch (Exception e) {
+            showMsg("O valor não pode ser zero.");
             return false;
         }
     }
@@ -56,10 +62,15 @@ public class GNumericField extends GTextField {
      *
      * @return {@code Boolean} O valor do campo é menor que zero?
      */
-    public Boolean validateNegative() {
+    public Boolean isNegative() {
         try {
-            return getDouble() < 0;
+            if (getDouble() < 0d) {
+                showMsg("O valor não pode ser negativo.");
+                return false;
+            }
+            return true;
         } catch (Exception e) {
+            showMsg("O valor não pode ser negativo.");
             return false;
         }
     }

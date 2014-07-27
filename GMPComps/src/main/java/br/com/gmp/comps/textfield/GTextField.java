@@ -144,13 +144,22 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
         }
     }
 
+    /**
+     * Mostra uma mensagem no campo
+     *
+     * @param msg {@code String} Mensagem à ser mostrada
+     */
+    protected void showMsg(String msg) {
+        new BalloonUtil().showTimedBallon(this, msg);
+    }
+
     @Override
     public boolean validateComponent() {
-        if (this.minimallength != 0 && this.minimallength < this.getText().length()) {
-            new BalloonUtil().showTimedBallon(this, "Minimo: " + minimallength + " caracteres.");
+        if (this.minimallength != 0 && this.minimallength < this.getText().length()) {            
+            showMsg("Minimo: " + minimallength + " caracteres.");
             return false;
-        } else if (this.getText().equals("") || this.getText() == null || getText().isEmpty()) {
-            new BalloonUtil().showTimedBallon(this, invalidMsg);
+        } else if (this.getText().equals("") || this.getText() == null || getText().isEmpty()) {            
+            showMsg(invalidMsg);
             return false;
         } else {
             return true;
