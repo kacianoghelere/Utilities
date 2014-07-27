@@ -46,7 +46,7 @@ public class GNumericField extends GTextField {
      */
     public Boolean isZero() {
         try {
-            if (getDouble() < 0d) {
+            if (getDouble() == 0d) {
                 showMsg("O valor não pode ser zero.");
                 return false;
             }
