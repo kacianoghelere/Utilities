@@ -24,7 +24,6 @@ public class ComponentCleaner {
      * @param c <code>Container</code> Container raiz
      */
     public void clean(Container c) {
-        System.out.println("Raiz: " + c.getName());
         for (Component comp : c.getComponents()) {
             if (c instanceof Container) {
                 Container cont = (Container) comp;
@@ -42,7 +41,6 @@ public class ComponentCleaner {
      */
     public void cleanComponents(Container c) {
         for (Component comp : c.getComponents()) {
-            System.out.println("Verificando " + comp.getName());
             if (comp instanceof JTextComponent) {
                 JTextComponent txt = (JTextComponent) comp;
                 txt.setText("");
