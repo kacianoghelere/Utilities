@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import sun.reflect.generics.tree.Tree;
 
 /**
  * Componente de árvore de dados
@@ -74,7 +73,7 @@ public class GMPTree extends JTree {
 
             parent.add(newNode);
         } catch (SecurityException ex) {
-            Logger.getLogger(Tree.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GMPTree.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalArgumentException | IllegalAccessException ex) {
             Logger.getLogger(GMPTree.class.getName()).log(Level.SEVERE, null, ex);
         }

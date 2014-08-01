@@ -43,6 +43,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     private List<Object> mainList;
     private List<Object>[] pages;
     private GMPTableModel gmpModel;
+    private boolean keyDelete;
 
     /**
      * Cria nova instancia de GMPTable
@@ -64,8 +65,8 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Cria nova instancia de GMPTable
      *
-     * @param source <code>TableSource</code> Fonte de dados
-     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
+     * @param source {@code TableSource} Fonte de dados
+     * @param objClass {@code Class(Object)} Classe a ser mapeada
      */
     public GMPTable(TableSource source, Class objClass) {
         this.source = source;
@@ -80,8 +81,8 @@ public class GMPTable extends JTable implements TableControl, Exporter {
      * Cria nova instancia de GMPTable
      *
      * @param source Fonte de dados
-     * @param model <code>GMPTableModel</code> Modelo da tabela
-     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
+     * @param model {@code GMPTableModel} Modelo da tabela
+     * @param objClass {@code Class(Object)} Classe a ser mapeada
      */
     public GMPTable(TableSource source, GMPTableModel model, Class objClass) {
         this.source = source;
@@ -94,10 +95,10 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Cria nova instancia de GMPTable
      *
-     * @param source <code>TableSource</code> Fonte de dados
-     * @param maxRows <code>Integer</code> Numero máximo de linhas
-     * @param gmpModel <code>GMPTableModel</code> Modelo da tabela
-     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
+     * @param source {@code TableSource} Fonte de dados
+     * @param maxRows {@code Integer} Numero máximo de linhas
+     * @param gmpModel {@code GMPTableModel} Modelo da tabela
+     * @param objClass {@code Class(Object)} Classe a ser mapeada
      */
     public GMPTable(TableSource source, int maxRows, GMPTableModel gmpModel, Class objClass) {
         this.source = source;
@@ -203,7 +204,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Divide a lista principal em listas menores para gerar as páginas
      *
-     * @param list <code><b>List</b>(Object)</code> Lista com os dados da tabela
+     * @param list {@code List(Object)} Lista com os dados da tabela
      */
     private void splitData(List<Object> list, int maxRows) {
         if (maxRows != 0 && !list.isEmpty()) {
@@ -227,8 +228,8 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Monta a tabela
      *
-     * @param objectclass <code><b>Class</b>(Object)</code> Classe a ser mapeada
-     * @param list <code><b>List</b>(Object)</code> Lista com os dados da tabela
+     * @param objectclass {@code Class(Object)} Classe a ser mapeada
+     * @param list {@code List(Object)} Lista com os dados da tabela
      */
     public void mount(Class<Object> objectclass, List<Object> list) {
         this.setModel(new GMPTableModel(objectclass, list));
@@ -300,7 +301,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Retorna a classe dos objetos mapeados
      *
-     * @return <code><b>Class</b>(Object)</code> Classe mapeada
+     * @return {@code Class(Object)} Classe mapeada
      */
     public Class getObjClass() {
         return objClass;
@@ -309,7 +310,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Retorna o modelo da tabela
      *
-     * @return <code>GMPTableModel</code> Modelo da tabela
+     * @return {@code GMPTableModel} Modelo da tabela
      */
     public GMPTableModel getGmpModel() {
         return gmpModel;
@@ -318,7 +319,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Modifica o modelo da tabela
      *
-     * @param gmpModel <code>GMPTableModel</code> Modelo da tabela
+     * @param gmpModel {@code GMPTableModel} Modelo da tabela
      */
     public void setGmpModel(GMPTableModel gmpModel) {
         this.gmpModel = gmpModel;
@@ -327,7 +328,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Retorna a fonte de dados
      *
-     * @return <code>TableSource</code> Fonte de dados
+     * @return {@code TableSource} Fonte de dados
      */
     public TableSource getSource() {
         return source;
@@ -336,7 +337,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Modifica a fonte de dados
      *
-     * @param source <code>TableSource</code> Fonte de dados
+     * @param source {@code TableSource} Fonte de dados
      */
     public void setSource(TableSource source) {
         this.source = source;
@@ -345,7 +346,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Retorna a quantidade de páginas
      *
-     * @return <code>int</code> Quantidade de páginas
+     * @return {@code int} Quantidade de páginas
      */
     public int getPageCount() {
         return pageCount;
@@ -354,7 +355,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Retorna as páginas
      *
-     * @return <code>List[]</code> Array de listas das páginas
+     * @return {@code List[]} Array de listas das páginas
      */
     public List[] getPages() {
         return pages;
@@ -363,7 +364,7 @@ public class GMPTable extends JTable implements TableControl, Exporter {
     /**
      * Modifica as páginas
      *
-     * @param pages <code>List[]</code> Array de listas das páginas
+     * @param pages {@code List[]} Array de listas das páginas
      */
     public void setPages(List[] pages) {
         this.pages = pages;

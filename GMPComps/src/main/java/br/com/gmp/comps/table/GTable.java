@@ -19,6 +19,7 @@ import com.lowagie.text.DocumentException;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,7 @@ import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
+import javax.swing.SwingUtilities;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.table.TableCellRenderer;
@@ -51,6 +53,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     private GTableModel model;
     private TableRowSorter<GTableModel> rowSorter;
     private GComboBoxModel<GTableColumn> boxModel;
+    private boolean keyDelete;
 
     /**
      * Cria nova instancia de GMPTable
@@ -71,8 +74,8 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Cria nova instancia de GMPTable
      *
-     * @param source <code>TableSource</code> Fonte de dados
-     * @param model <code>GTableModel</code> Modelo da tabela
+     * @param source {@code TableSource} Fonte de dados
+     * @param model {@code GTableModel} Modelo da tabela
      */
     public GTable(TableSource source, GTableModel model) {
         this.source = source;
@@ -84,9 +87,9 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Cria nova instancia de GMPTable
      *
-     * @param source <code>TableSource</code> Fonte de dados
-     * @param maxRows <code>Integer</code> Numero máximo de linhas
-     * @param model <code>GTableModel</code> Modelo da tabela
+     * @param source {@code TableSource} Fonte de dados
+     * @param maxRows {@code Integer} Numero máximo de linhas
+     * @param model {@code GTableModel} Modelo da tabela
      */
     public GTable(TableSource source, int maxRows, GTableModel model) {
         this.source = source;
@@ -190,7 +193,7 @@ public class GTable extends JTable implements TableControl, Exporter {
      * Retorna os objetos selecionados na tabela, se não houver nenhum, retorna
      * null
      *
-     * @return <code>Object[]</code> Objetos selecionados
+     * @return {@code Object[]} Objetos selecionados
      */
     public Object[] getSelectedObjects() {
         try {
@@ -216,9 +219,9 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Constroi a tabela baseada nos dados informados
      *
-     * @param source <code>TableSource</code> Fonte de dados
-     * @param maxrows <code>Integer</code> Numero máximo de linhas
-     * @param model <code>GTableModel</code> Modelo da tabela
+     * @param source {@code TableSource} Fonte de dados
+     * @param maxrows {@code Integer} Numero máximo de linhas
+     * @param model {@code GTableModel} Modelo da tabela
      */
     public void buildTable(TableSource source, int maxrows, GTableModel model) {
         this.source = source;
@@ -247,7 +250,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Divide a lista principal em listas menores para gerar as páginas
      *
-     * @param list <code><b>List</b>(Object)</code> Lista com os dados da tabela
+     * @param list {@code List(Object)} Lista com os dados da tabela
      */
     private void splitData(List<Object> list, int maxRows) {
         if (maxRows != 0 && !list.isEmpty()) {
@@ -271,8 +274,8 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Monta a tabela
      *
-     * @param objectclass <code><b>Class</b>(Object)</code> Classe a ser mapeada
-     * @param list <code><b>List</b>(Object)</code> Lista com os dados da tabela
+     * @param objectclass {@code Class(Object)} Classe a ser mapeada
+     * @param list {@code List(Object)} Lista com os dados da tabela
      */
     public void mount(Class<Object> objectclass, List<Object> list) {
         this.setModel(new GTableModel(list));
@@ -313,7 +316,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Reagrupa todas as listas de páginas em uma
      *
-     * @return <code>List</code> Lista reagrupada
+     * @return {@code List} Lista reagrupada
      */
     private List assemblyData() {
         List data = new ArrayList();
@@ -366,9 +369,26 @@ public class GTable extends JTable implements TableControl, Exporter {
     }
 
     /**
+     * Ação disparada quando a tecla {@code DELETE} é pressionada
+     */
+    private void delete() {
+        if (keyDelete) {
+            System.out.println("Deletando " + getSelectedRowCount() + " registros!");
+            if (getSelectedRowCount() > 0) {
+                for (int i = 0; i < getSelectedRows().length; i++) {
+                    getGModel().remove(i);
+                    repaint();
+                    revalidate();
+                    SwingUtilities.updateComponentTreeUI(this);
+                }
+            }
+        }
+    }
+
+    /**
      * Retorna o GTableModel da tabela
      *
-     * @return <code>GTableModel(?)</code> Modelo da tabela
+     * @return {@code GTableModel(?)} Modelo da tabela
      */
     public GTableModel<?> getGModel() {
         return model;
@@ -377,7 +397,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Define se a barra pode ser paginada, ou não
      *
-     * @param paginate <code>boolean</code> Paginar?
+     * @param paginate {@code boolean} Paginar?
      */
     public void setPaginated(boolean paginate) {
         jMIPageBar.setEnabled(paginate);
@@ -387,7 +407,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Retorna o modelo da tabela
      *
-     * @return <code>GTableModel</code> Modelo da tabela
+     * @return {@code GTableModel} Modelo da tabela
      */
     public GTableModel getDefaultModel() {
         return model;
@@ -396,7 +416,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Modifica o modelo da tabela
      *
-     * @param model <code>GTableModel</code> Modelo da tabela
+     * @param model {@code GTableModel} Modelo da tabela
      */
     public void setDefaultModel(GTableModel model) {
         this.model = model;
@@ -405,7 +425,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Retorna a fonte de dados
      *
-     * @return <code>TableSource</code> Fonte de dados
+     * @return {@code TableSource} Fonte de dados
      */
     public TableSource getSource() {
         return source;
@@ -414,7 +434,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Modifica a fonte de dados
      *
-     * @param source <code>TableSource</code> Fonte de dados
+     * @param source {@code TableSource} Fonte de dados
      */
     public void setSource(TableSource source) {
         this.source = source;
@@ -423,7 +443,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Retorna a quantidade de páginas
      *
-     * @return <code>int</code> Quantidade de páginas
+     * @return {@code int} Quantidade de páginas
      */
     public int getPageCount() {
         return pageCount;
@@ -432,7 +452,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Retorna as páginas
      *
-     * @return <code>List[]</code> Array de listas das páginas
+     * @return {@code List[]} Array de listas das páginas
      */
     public List[] getPages() {
         return pages;
@@ -441,7 +461,7 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Modifica as páginas
      *
-     * @param pages <code>List[]</code> Array de listas das páginas
+     * @param pages {@code List[]} Array de listas das páginas
      */
     public void setPages(List[] pages) {
         this.pages = pages;
@@ -450,10 +470,28 @@ public class GTable extends JTable implements TableControl, Exporter {
     /**
      * Retorna a barra de páginação da tabela
      *
-     * @return <code>GTableBar</code> Barra de páginação da tabela
+     * @return {@code GTableBar} Barra de páginação da tabela
      */
     public GTableBar getTableBar() {
         return gTableBar;
+    }
+
+    /**
+     * Retorna se a tabela pode deletar com a tecla DELETE
+     *
+     * @return {@code boolean} Pode deletar?
+     */
+    public boolean isKeyDelete() {
+        return keyDelete;
+    }
+
+    /**
+     * Modifica se a tabela pode deletar com a tecla DELETE
+     *
+     * @param keyDelete {@code boolean} Pode deletar?
+     */
+    public void setKeyDelete(boolean keyDelete) {
+        this.keyDelete = keyDelete;
     }
 
     //</editor-fold>
@@ -553,6 +591,11 @@ public class GTable extends JTable implements TableControl, Exporter {
         gTableBar.setVisible(false);
 
         setComponentPopupMenu(jPop);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                formKeyReleased(evt);
+            }
+        });
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMIExportXLSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIExportXLSActionPerformed
@@ -582,6 +625,12 @@ public class GTable extends JTable implements TableControl, Exporter {
     private void jMIPageBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIPageBarActionPerformed
         gTableBar.setVisible(true);
     }//GEN-LAST:event_jMIPageBarActionPerformed
+
+    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
+            delete();
+        }
+    }//GEN-LAST:event_formKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

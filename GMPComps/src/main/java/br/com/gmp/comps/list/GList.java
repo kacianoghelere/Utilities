@@ -4,9 +4,11 @@ import br.com.gmp.comps.GColors;
 import br.com.gmp.comps.model.GListModel;
 import com.lowagie.text.Font;
 import java.awt.Component;
+import java.awt.event.KeyEvent;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+import javax.swing.SwingUtilities;
 
 /**
  * Lista customizada
@@ -17,6 +19,7 @@ import javax.swing.ListCellRenderer;
 public class GList extends JList {
 
     private GListModel<?> model;
+    private boolean keyDelete;
 
     /**
      * Cria nova instancia de GList
@@ -29,7 +32,7 @@ public class GList extends JList {
     /**
      * Cria nova instancia de GList
      *
-     * @param model <code>GListModel(?)</code> Modelo
+     * @param model {@code GListModel(?)} Modelo
      */
     public GList(GListModel<?> model) {
         this.model = model;
@@ -82,11 +85,46 @@ public class GList extends JList {
     /**
      * Modifica o modelo de listas
      *
-     * @param model <code>GListModel(?)</code> Modelo
+     * @param model {@code GListModel(?)} Modelo
      */
     public void setModel(GListModel<?> model) {
         this.model = model;
         super.setModel(this.model);
+    }
+
+    /**
+     * Retorna se a tabela pode deletar com a tecla DELETE
+     *
+     * @return {@code boolean} Pode deletar?
+     */
+    public boolean isKeyDelete() {
+        return keyDelete;
+    }
+
+    /**
+     * Modifica se a tabela pode deletar com a tecla DELETE
+     *
+     * @param keyDelete {@code boolean} Pode deletar?
+     */
+    public void setKeyDelete(boolean keyDelete) {
+        this.keyDelete = keyDelete;
+    }
+
+    /**
+     * Ação disparada quando a tecla {@code DELETE} é pressionada
+     */
+    private void delete() {
+        if (keyDelete) {
+            System.out.println("Deletando " + getSelectedIndices().length + " registros!");
+            if (getSelectedIndices().length > 0) {
+                for (int i : getSelectedIndices()) {
+                    getModel().remove(i);
+                    repaint();
+                    revalidate();
+                    SwingUtilities.updateComponentTreeUI(this);
+                }
+            }
+        }
     }
 
     /**
@@ -97,7 +135,19 @@ public class GList extends JList {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                formKeyReleased(evt);
+            }
+        });
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
+        if (KeyEvent.VK_DELETE == evt.getKeyCode()) {
+            delete();
+        }
+    }//GEN-LAST:event_formKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
