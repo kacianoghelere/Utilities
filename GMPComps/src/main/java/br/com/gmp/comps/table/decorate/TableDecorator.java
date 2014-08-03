@@ -1,13 +1,18 @@
 package br.com.gmp.comps.table.decorate;
 
+import br.com.gmp.comps.combobox.GComboBox;
+import br.com.gmp.comps.combobox.model.GComboBoxModel;
 import br.com.gmp.comps.table.GTable;
+import br.com.gmp.comps.textfield.numeric.GNumericField;
 import br.com.gmp.utils.image.ImageUtil;
 import java.awt.Component;
 import java.awt.Image;
+import java.text.NumberFormat;
+import java.util.List;
+import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 
 /**
@@ -22,7 +27,7 @@ public class TableDecorator {
     /**
      * Cria nova instancia de TableDecorator
      *
-     * @param table <code>GTable</code> Tabela à ser decorada
+     * @param table {@code GTable} Tabela à ser decorada
      */
     public TableDecorator(GTable table) {
         this.table = table;
@@ -31,8 +36,8 @@ public class TableDecorator {
     /**
      * Decora a coluna indicada com um ícone
      *
-     * @param iconcolumn <code>int</code> Indice da coluna
-     * @return
+     * @param iconcolumn {@code int} Indice da coluna
+     * @return {@code TableDecorator} Decorador de tabela
      */
     public TableDecorator withIcon(int iconcolumn) {
         this.table.getColumnModel().getColumn(iconcolumn).setCellRenderer(new TableCellRenderer() {
@@ -57,9 +62,47 @@ public class TableDecorator {
     }
 
     /**
+     * Decora a coluna indicada com um combobox
+     *
+     * @param column {@code int} Indice da coluna
+     * @param model {@code GComboBoxModel} Modelo do combo
+     * @return {@code TableDecorator} Decorador de tabela
+     */
+    public TableDecorator comboAt(int column, GComboBoxModel model) {
+        this.table.getColumnModel().getColumn(column).setCellEditor(
+                new DefaultCellEditor(new GComboBox(model))
+        );
+        return this;
+    }
+
+    /**
+     * Decora a coluna indicada com um combobox
+     *
+     * @param column {@code int} Indice da coluna
+     * @param data {@code List} Dados do combo
+     * @return {@code TableDecorator} Decorador de tabela
+     */
+    public TableDecorator comboAt(int column, List data) {
+        return comboAt(column, new GComboBoxModel(data));
+    }
+
+    /**
+     * Decora a coluna indicada com um editor de numeros
+     *
+     * @param iconcolumn {@code int} Indice da coluna
+     * @return {@code TableDecorator} Decorador de tabela
+     */
+    public TableDecorator withNumber(int iconcolumn) {
+        this.table.getColumnModel().getColumn(iconcolumn).setCellRenderer(NumberRenderer.getNumberRenderer());
+        this.table.getColumnModel().getColumn(iconcolumn)
+                .setCellEditor(new DefaultCellEditor(new GNumericField()));
+        return this;
+    }
+
+    /**
      * Retorna a tabela
      *
-     * @return <code>GTable</code> Tabela
+     * @return {@code GTable} Tabela
      */
     public GTable getTable() {
         return table;
@@ -68,7 +111,7 @@ public class TableDecorator {
     /**
      * Modifica a tabela
      *
-     * @param table <code>GTable</code> Tabela
+     * @param table {@code GTable} Tabela
      */
     public void setTable(GTable table) {
         this.table = table;
