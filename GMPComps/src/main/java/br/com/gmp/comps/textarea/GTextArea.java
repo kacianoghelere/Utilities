@@ -31,10 +31,10 @@ public class GTextArea extends JTextArea implements ValidableComponent {
     /**
      * Cria nova instancia de GTextArea
      *
-     * @param maximum <code>int</code> Comprimento maximo do texto
+     * @param maximum {@code int} Comprimento maximo do texto
      */
     public GTextArea(int maximum) {
-        this.maximum = maximum;        
+        this.maximum = maximum;
         initComponents();
         this.finder = new GTextFinder(null, this);
     }
@@ -69,7 +69,7 @@ public class GTextArea extends JTextArea implements ValidableComponent {
     /**
      * Retorna o comprimento maximo do texto
      *
-     * @return <code>int</code> Comprimento maximo do texto
+     * @return {@code int} Comprimento maximo do texto
      */
     public int getMaximum() {
         return maximum;
@@ -78,7 +78,7 @@ public class GTextArea extends JTextArea implements ValidableComponent {
     /**
      * Modifica o comprimento maximo do texto
      *
-     * @param maximum <code>int</code> Comprimento maximo do texto
+     * @param maximum {@code int} Comprimento maximo do texto
      */
     public void setMaximum(int maximum) {
         this.maximum = maximum;
@@ -96,9 +96,22 @@ public class GTextArea extends JTextArea implements ValidableComponent {
     }
 
     /**
+     * Valida o texto do componente
+     *
+     * @return {@code boolean} Resultado da validação
+     */
+    public boolean validateText() {
+        if (this.getText().equals("") || this.getText() == null || getText().isEmpty()) {
+            new BalloonUtil().showTimedBallon(this, invalidMsg);
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Retorna a mensagem do componente
      *
-     * @return <code>String</code> Mensagem do componente
+     * @return {@code String} Mensagem do componente
      */
     public String getInvalidMsg() {
         return invalidMsg;
@@ -107,7 +120,7 @@ public class GTextArea extends JTextArea implements ValidableComponent {
     /**
      * Modifica a mensagem do componente
      *
-     * @param invalidMsg <code>String</code> Mensagem do componente
+     * @param invalidMsg {@code String} Mensagem do componente
      */
     public void setInvalidMsg(String invalidMsg) {
         this.invalidMsg = invalidMsg;
