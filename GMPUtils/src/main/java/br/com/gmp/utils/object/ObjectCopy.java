@@ -1,6 +1,6 @@
 package br.com.gmp.utils.object;
 
-import br.com.gmp.utils.annotations.NotCopiable;
+import br.com.gmp.utils.annotations.ID;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
@@ -34,10 +34,10 @@ public class ObjectCopy {
         // Mapeamento
         for (Field aField : aFields) {
             aField.setAccessible(true);
-            if (!aField.isAnnotationPresent(NotCopiable.class)) {
+            if (!aField.isAnnotationPresent(ID.class)) {
                 for (Field bField : bFields) {
                     bField.setAccessible(true);
-                    if (!bField.isAnnotationPresent(NotCopiable.class)) {
+                    if (!bField.isAnnotationPresent(ID.class)) {
                         if (aField.getName().equals(bField.getName())) {
                             bField.set(b, aField.get(a));
                         }
