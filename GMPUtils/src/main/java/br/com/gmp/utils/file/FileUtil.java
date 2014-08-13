@@ -66,13 +66,24 @@ public class FileUtil {
      */
     public static String readString(String file) throws IOException {
         File read = new File(file);
-        if (!read.isFile()) {
+        return readString(read);
+    }
+
+    /**
+     * Retorna os dados carregados no arquivo em forma de String
+     *
+     * @param file {@code String} Caminho do arquivo
+     * @return {@code String} Dados carregados
+     * @throws IOException Exceção de I/O
+     */
+    public static String readString(File file) throws IOException {
+        if (!file.isFile()) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        for (String line : read(read)) {
+        for (String line : read(file)) {
             sb.append(line);
-        }        
+        }
         return sb.toString();
     }
 
