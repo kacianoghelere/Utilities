@@ -1,5 +1,6 @@
 package br.com.gmp.utils.file;
 
+import br.com.gmp.utils.object.TextBuilder;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -80,11 +81,11 @@ public class FileUtil {
         if (!file.isFile()) {
             return null;
         }
-        StringBuilder sb = new StringBuilder();
+        TextBuilder txt = new TextBuilder();        
         for (String line : read(file)) {
-            sb.append(line);
+            txt.append(line + "\n\r");
         }
-        return sb.toString();
+        return txt.getText();
     }
 
     /**
