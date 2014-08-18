@@ -23,7 +23,7 @@ public class NumericTextField extends GTextField {
     /**
      * Cria novo campo de texto numerico
      *
-     * @param limit <code>int</code> Limite de caracteres
+     * @param limit {@code int} Limite de caracteres
      */
     public NumericTextField(int limit) {
         this.limit = limit;
@@ -33,7 +33,7 @@ public class NumericTextField extends GTextField {
     /**
      * Retorna o limite de caracteresF
      *
-     * @return <code>int</code> Limite de caracteres
+     * @return {@code int} Limite de caracteres
      */
     public int getLimit() {
         return limit;
@@ -42,7 +42,7 @@ public class NumericTextField extends GTextField {
     /**
      * Modifica o limite de caracteres
      *
-     * @param limit <code>int</code> Limite de caracteres
+     * @param limit {@code int} Limite de caracteres
      */
     public void setLimit(int limit) {
         this.limit = limit;

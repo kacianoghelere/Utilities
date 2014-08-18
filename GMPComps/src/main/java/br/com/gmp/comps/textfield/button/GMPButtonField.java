@@ -33,7 +33,7 @@ public class GMPButtonField extends GTextField {
     /**
      * Cria nova instancia de GMPButtonField
      *
-     * @param actionListener <code>ActionListener<code> Ação do botão
+     * @param actionListener {@code ActionListener{@code  Ação do botão
      */
     public GMPButtonField(ActionListener actionListener) {
         this.buttonPosition = BorderLayout.EAST;
@@ -44,8 +44,8 @@ public class GMPButtonField extends GTextField {
     /**
      * Cria nova instancia de GMPButtonField
      *
-     * @param buttonPosition <code>String<code> Posição dos botões
-     * @param actionListener <code>ActionListener<code> Ação do botão
+     * @param buttonPosition {@code String{@code  Posição dos botões
+     * @param actionListener {@code ActionListener{@code  Ação do botão
      */
     public GMPButtonField(String buttonPosition, ActionListener actionListener) {
         this.buttonPosition = buttonPosition;
@@ -56,8 +56,8 @@ public class GMPButtonField extends GTextField {
     /**
      * Cria nova instancia de GMPButtonField
      *
-     * @param icon <code>Icon<code> Icone do botão
-     * @param buttonPosition <code>String<code> Posição dos botões
+     * @param icon {@code Icon{@code  Icone do botão
+     * @param buttonPosition {@code String{@code  Posição dos botões
      * @param actionListener
      */
     public GMPButtonField(Icon icon, String buttonPosition, ActionListener actionListener) {
@@ -91,7 +91,7 @@ public class GMPButtonField extends GTextField {
     /**
      * Retorna a posição do botão
      *
-     * @return <code>String<code> Posição dos botões
+     * @return {@code String{@code  Posição dos botões
      */
     public String getButtonPosition() {
         return buttonPosition;
@@ -100,7 +100,7 @@ public class GMPButtonField extends GTextField {
     /**
      * Modifica a posição do botão
      *
-     * @param buttonPosition <code>String<code> Posição dos botões
+     * @param buttonPosition {@code String{@code  Posição dos botões
      */
     public void setButtonPosition(String buttonPosition) {
         this.buttonPosition = buttonPosition;
@@ -109,7 +109,7 @@ public class GMPButtonField extends GTextField {
     /**
      * Retorna o ActionListener do botão
      *
-     * @return <code>ActionListener<code> Ação do botão
+     * @return {@code ActionListener{@code  Ação do botão
      */
     public ActionListener getActionListener() {
         return actionListener;
@@ -118,7 +118,7 @@ public class GMPButtonField extends GTextField {
     /**
      * Modifica o ActionListener do botão
      *
-     * @param actionListener <code>ActionListener<code> Ação do botão
+     * @param actionListener {@code ActionListener{@code  Ação do botão
      */
     public void setActionListener(ActionListener actionListener) {
         this.actionListener = actionListener;

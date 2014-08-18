@@ -26,7 +26,7 @@ public class GMPKeyBoard extends JPanel {
     /**
      * Cria nova instancia de GMPKeyBoard
      *
-     * @param textField <code>JTextComponent</code> Campo de texto do teclado
+     * @param textField {@code JTextComponent} Campo de texto do teclado
      */
     public GMPKeyBoard(JTextComponent textField) {
         this.textField = textField;
@@ -88,7 +88,7 @@ public class GMPKeyBoard extends JPanel {
     /**
      * Retorna o campo de texto do componente
      *
-     * @return <code>JTextComponent</code> Campo de texto do teclado
+     * @return {@code JTextComponent} Campo de texto do teclado
      */
     public JTextComponent getTextField() {
         return textField;
@@ -97,7 +97,7 @@ public class GMPKeyBoard extends JPanel {
     /**
      * Modifica o campo de texto do componente
      *
-     * @param textField <code>JTextComponent</code> Campo de texto do teclado
+     * @param textField {@code JTextComponent} Campo de texto do teclado
      */
     public void setTextField(JTextComponent textField) {
         this.textField = textField;

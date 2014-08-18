@@ -14,13 +14,13 @@ import java.util.logging.Logger;
  * desde que esteja configurado corretamente
  *
  * Exemplo de uso:
- * <br><code>
+ * <br>{@code 
  * class NewTableModel extends GMPTableModel<<b>Object</b>> {<br>
  * public NewTableModel() {<br>
  * super(<b>Object</b>.class)<br>
  * }<br>
  * }<br>
- * </code><br>
+ * }<br>
  *
  * @author kaciano
  * @version 1.1
@@ -35,7 +35,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Cria novo GMPTableModel
      *
-     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
+     * @param objClass {@code <b>Class</b>(Object)} Classe a ser mapeada
      */
     public GMPTableModel(Class<?> objClass) {
         initialize(objClass, null);
@@ -44,8 +44,8 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Cria novo GMPTableModel
      *
-     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
-     * @param list <code><b>List</b>Object</code> Lista de objetos
+     * @param objClass {@code <b>Class</b>(Object)} Classe a ser mapeada
+     * @param list {@code <b>List</b>Object} Lista de objetos
      */
     public GMPTableModel(Class<?> objClass, List list) {
         initialize(objClass, list);
@@ -54,8 +54,8 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Metodo de inicialização
      *
-     * @param objClass <code><b>Class</b>(Object)</code> Classe a ser mapeada
-     * @param list <code><b>List</b>(Object)</code> Lista de objetos
+     * @param objClass {@code <b>Class</b>(Object)} Classe a ser mapeada
+     * @param list {@code <b>List</b>(Object)} Lista de objetos
      */
     private void initialize(Class<?> objClass, List list) {
         this.objClass = objClass;
@@ -66,7 +66,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna os nomes das colunas
      *
-     * @return <code><b>String[]</b></code> Colunas do objeto
+     * @return {@code <b>String[]</b>} Colunas do objeto
      */
     public String[] getColumnNames() {
         return this.columns;
@@ -75,8 +75,8 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Busca as colunas na classe do objeto do modelo
      *
-     * @param cl <code><b>Class</b></code> Classe a ser mapeada
-     * @return <code><b>String[]</b></code> Colunas do objeto
+     * @param cl {@code <b>Class</b>} Classe a ser mapeada
+     * @return {@code <b>String[]</b>} Colunas do objeto
      */
     private String[] mapColumns(Class<?> cl) {
         String[] column = new String[getFields(cl).length];
@@ -98,9 +98,9 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna se a coluna é editavel
      *
-     * @param row <code><b>int</b></code> Index da linha
-     * @param column <code><b>int</b></code> Index da coluna
-     * @return <code><b>boolean</b></code> É editavel?
+     * @param row {@code <b>int</b>} Index da linha
+     * @param column {@code <b>int</b>} Index da coluna
+     * @return {@code <b>boolean</b>} É editavel?
      */
     @Override
     public boolean isCellEditable(int row, int column) {
@@ -110,7 +110,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna a quantidade de linhas
      *
-     * @return <code><b>int</b></code> Quantidade de linhas
+     * @return {@code <b>int</b>} Quantidade de linhas
      */
     @Override
     public int getRowCount() {
@@ -120,7 +120,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna a quantidade de colunas
      *
-     * @return <code><b>int</b></code> Quantidade de colunas
+     * @return {@code <b>int</b>} Quantidade de colunas
      */
     @Override
     public int getColumnCount() {
@@ -130,9 +130,9 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna o valor com base na linha e na coluna recebidas
      *
-     * @param row <code><b>int</b></code> Index da linha
-     * @param column <code><b>int</b></code> Index da coluna
-     * @return <code><b>int</b></code>
+     * @param row {@code <b>int</b>} Index da linha
+     * @param column {@code <b>int</b>} Index da coluna
+     * @return {@code <b>int</b>}
      */
     @Override
     public Object getValueAt(int row, int column) {
@@ -150,8 +150,8 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna o nome da coluna
      *
-     * @param column <code><b>int</b></code> Index da coluna
-     * @return <code><b>String</b></code> Nome da coluna
+     * @param column {@code <b>int</b>} Index da coluna
+     * @return {@code <b>String</b>} Nome da coluna
      */
     @Override
     public String getColumnName(int column) {
@@ -161,8 +161,8 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna a classe da coluna recebida
      *
-     * @param column <code><b>int</b></code> Index da coluna
-     * @return <code><b>Class</b>(?)</code> Classe da coluna
+     * @param column {@code <b>int</b>} Index da coluna
+     * @return {@code <b>Class</b>(?)} Classe da coluna
      */
     @Override
     public Class<?> getColumnClass(int column) {
@@ -172,9 +172,9 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna a classe do Field recebido
      *
-     * @param cl <code><b>Class</b></code> Classe a ser mapeada
-     * @param id <code><b>int</b></code> ID do Field
-     * @return <code><b>Class</b>(?)</code> Classe do Field
+     * @param cl {@code <b>Class</b>} Classe a ser mapeada
+     * @param id {@code <b>int</b>} ID do Field
+     * @return {@code <b>Class</b>(?)} Classe do Field
      */
     private Class<?> getFieldClass(Class<?> cl, int id) {
         try {
@@ -194,8 +194,8 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna os campos mapeaveis da classe
      *
-     * @param cl <code><b>Class</b>(?)</code> Classe do Field
-     * @return <code>Field[]</code> Fields mapeados
+     * @param cl {@code <b>Class</b>(?)} Classe do Field
+     * @return {@code Field[]} Fields mapeados
      */
     public Field[] getFields(Class<?> cl) {
         List<Field> fields = new ArrayList<>();
@@ -213,8 +213,8 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna a linha do objeto indicado
      *
-     * @param obj <code>Object</code> Objeto
-     * @return <code>Integer</code> Linha do objeto
+     * @param obj {@code Object} Objeto
+     * @return {@code Integer} Linha do objeto
      */
     public Integer getObjectRow(Object obj) {
         for (int i = 0; i < list.size(); i++) {
@@ -228,7 +228,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Adiciona novo objeto à lista
      *
-     * @param obj <code><b>Object</b></code> Novo objeto
+     * @param obj {@code <b>Object</b>} Novo objeto
      */
     public void add(Object obj) {
         list.add(obj);
@@ -238,7 +238,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Adiciona novos objetos à lista
      *
-     * @param obj <code><b>Object[]</b></code> Novos objetos
+     * @param obj {@code <b>Object[]</b>} Novos objetos
      */
     public void addAll(Object... obj) {
         list.addAll(Arrays.asList(obj));
@@ -248,7 +248,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Remove a linha recebida
      *
-     * @param row <code><b>int</b></code> Linha
+     * @param row {@code <b>int</b>} Linha
      */
     public void remove(int row) {
         list.remove(row);
@@ -258,7 +258,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Remove o Objeto recebido
      *
-     * @param object <code><b>Object</b></code> Objeto
+     * @param object {@code <b>Object</b>} Objeto
      */
     public void remove(Object object) {
         if (list.contains(object)) {
@@ -271,7 +271,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Remove os Objetos recebidos
      *
-     * @param objects <code><b>Object[]</b></code> Objetos
+     * @param objects {@code <b>Object[]</b>} Objetos
      */
     public void remove(Object... objects) {
         for (Object object : objects) {
@@ -286,8 +286,8 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Atualiza o objeto da linha recebida com o novo objeto
      *
-     * @param row <code><b>int</b></code> Linha
-     * @param obj <code><b>Object</b></code> Novo conteudo da linha
+     * @param row {@code <b>int</b>} Linha
+     * @param obj {@code <b>Object</b>} Novo conteudo da linha
      */
     public void update(int row, Object obj) {
         list.set(row, obj);
@@ -297,7 +297,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna o objeto com base na linha recebida
      *
-     * @param row <code><b>int</b></code> Linha
+     * @param row {@code <b>int</b>} Linha
      * @return Objeto da linha
      */
     public Object getObject(int row) {
@@ -335,7 +335,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna a classe do modelo
      *
-     * @return <code>Class</code> Classe do modelo
+     * @return {@code Class} Classe do modelo
      */
     public Class<?> getObjClass() {
         return objClass;
@@ -353,7 +353,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna as colunas
      *
-     * @return <code>String[]</code> Colunas
+     * @return {@code String[]} Colunas
      */
     public String[] getColumns() {
         return columns;
@@ -362,7 +362,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Altera as colunas
      *
-     * @param columns <code>String[]</code> Colunas
+     * @param columns {@code String[]} Colunas
      */
     public void setColumns(String[] columns) {
         this.columns = columns;
@@ -371,7 +371,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Retorna a lista do modelo
      *
-     * @return <code>List</code> Lista do modelo
+     * @return {@code List} Lista do modelo
      */
     public List getList() {
         return list;
@@ -380,7 +380,7 @@ public class GMPTableModel extends SimpleTableModel {
     /**
      * Modifica a lista do modelo
      *
-     * @param list <code>List</code> Lista do modelo
+     * @param list {@code List} Lista do modelo
      */
     public void setList(List list) {
         this.list = list;

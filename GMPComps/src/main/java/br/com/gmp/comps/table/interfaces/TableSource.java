@@ -14,7 +14,7 @@ public interface TableSource<T> {
     /**
      * Retorna os dados para preencher e atualizar a tabela
      *
-     * @return <code>List<T></code> Lista de dados
+     * @return {@code List<T>} Lista de dados
      */
     List<T> getTableData();
 }

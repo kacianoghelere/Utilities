@@ -32,7 +32,7 @@ public class GMPDualTable extends JPanel {
     /**
      * Cria nova instancia de GMPDualTable
      *
-     * @param objectClass <code>Class<?></code> Classe dos objetos
+     * @param objectClass {@code Class<?>} Classe dos objetos
      */
     public GMPDualTable(Class<?> objectClass) {
         this.objectClass = objectClass;
@@ -60,7 +60,7 @@ public class GMPDualTable extends JPanel {
     /**
      * Adiciona os objetos à fonte
      *
-     * @param objects <code>Object[]</code> Objetos a serem adicionados
+     * @param objects {@code Object[]} Objetos a serem adicionados
      */
     public void addSource(Object... objects) {
         sourceModel.addAll(objects);
@@ -69,7 +69,7 @@ public class GMPDualTable extends JPanel {
     /**
      * Adiciona os objetos ao destino
      *
-     * @param objects <code>Object[]</code> Objetos a serem adicionados
+     * @param objects {@code Object[]} Objetos a serem adicionados
      */
     public void addDest(Object... objects) {
         destModel.addAll(objects);
@@ -78,7 +78,7 @@ public class GMPDualTable extends JPanel {
     /**
      * Retorna os objetos selecionados na tabela fonte
      *
-     * @return <code>Object[]</code> Objetos selecionados
+     * @return {@code Object[]} Objetos selecionados
      */
     public Object[] getSourceSelected() {
         int[] selectedRows = gTableSource.getSelectedRows();
@@ -92,7 +92,7 @@ public class GMPDualTable extends JPanel {
     /**
      * Retorna os objetos selecionados na tabela destino
      *
-     * @return <code>Object[]</code> Objetos selecionados
+     * @return {@code Object[]} Objetos selecionados
      */
     public Object[] getDestSelected() {
         int[] selectedRows = gTableDest.getSelectedRows();

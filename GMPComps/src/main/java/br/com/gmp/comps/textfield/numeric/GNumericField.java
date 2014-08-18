@@ -24,8 +24,8 @@ public class GNumericField extends GTextField {
     /**
      * Cria novo campo de texto numerico
      *
-     * @param text <code>String</code> Texto do componente
-     * @param size <code>int</code> Quantidade de colunas
+     * @param text {@code String} Texto do componente
+     * @param size {@code int} Quantidade de colunas
      */
     public GNumericField(String text, int size) {
         super(text, size);

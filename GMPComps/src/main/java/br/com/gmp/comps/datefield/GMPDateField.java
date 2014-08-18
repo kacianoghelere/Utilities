@@ -170,7 +170,7 @@ public class GMPDateField extends JFormattedTextField implements ValidableCompon
     /**
      * Ações das teclas pressionadas
      *
-     * @param evt <code>KeyEvent</code> Dados do evento
+     * @param evt {@code KeyEvent} Dados do evento
      */
     private void keyControls(java.awt.event.KeyEvent evt) {
         if (isFocusOwner()) {
@@ -198,7 +198,7 @@ public class GMPDateField extends JFormattedTextField implements ValidableCompon
     /**
      * Retorna o mês atual do seletor de datas em Integer
      *
-     * @return <code>Integer</code> Mês atual do seletor de datas
+     * @return {@code Integer} Mês atual do seletor de datas
      */
     public Integer getMonth() {
         return gCalendar.getCalendar().getTime().getMonth();
@@ -207,7 +207,7 @@ public class GMPDateField extends JFormattedTextField implements ValidableCompon
     /**
      * Retorna o ano atual do seletor de datas em Integer
      *
-     * @return <code>Integer</code> Ano atual do seletor de datas
+     * @return {@code Integer} Ano atual do seletor de datas
      */
     public Integer getYear() {
         return gCalendar.getCalendar().getTime().getYear();
@@ -216,7 +216,7 @@ public class GMPDateField extends JFormattedTextField implements ValidableCompon
     /**
      * Retorna o icone do seletor de datas
      *
-     * @return <code>ImageIcon</code> Icone do seletor de datas
+     * @return {@code ImageIcon} Icone do seletor de datas
      */
     public ImageIcon getIcon() {
         return icon;
@@ -225,7 +225,7 @@ public class GMPDateField extends JFormattedTextField implements ValidableCompon
     /**
      * Modifica o icone do seletor de datas
      *
-     * @param icon <code>ImageIcon</code> Icone do seletor de datas
+     * @param icon {@code ImageIcon} Icone do seletor de datas
      */
     public void setIcon(ImageIcon icon) {
         this.icon = icon;

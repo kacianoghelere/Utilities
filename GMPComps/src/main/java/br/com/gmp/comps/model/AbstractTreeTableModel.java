@@ -58,7 +58,7 @@ public abstract class AbstractTreeTableModel implements TreeTableModel {
 
     /**
      * Constructs an
-     * <code>AbstractTreeTableModel</code> with a null root node
+     * {@code AbstractTreeTableModel} with a null root node
      */
     public AbstractTreeTableModel() {
         this(null);
@@ -66,7 +66,7 @@ public abstract class AbstractTreeTableModel implements TreeTableModel {
 
     /**
      * Constructs an
-     * <code>AbstractTreeTableModel</code> with the specified node as the root
+     * {@code AbstractTreeTableModel} with the specified node as the root
      * node.
      *
      * @param root root node
@@ -106,7 +106,7 @@ public abstract class AbstractTreeTableModel implements TreeTableModel {
      *
      * @param parent a node in the tree, obtained from this data source
      * @return the child of <I>parent</I> at index <I>index</I>, or null if the
-     * specified parent node is not a <code>TreeNode</code>.
+     * specified parent node is not a {@code TreeNode}.
      */
     public Object getChild(Object parent, int index) {
         // meant to be overridden
@@ -142,12 +142,12 @@ public abstract class AbstractTreeTableModel implements TreeTableModel {
 
     /**
      * Returns the index of child in parent. If either the parent or child is
-     * <code>null</code>, returns -1.
+     * {@code null}, returns -1.
      *
      * @param parent a note in the tree, obtained from this data source
      * @param child the node we are interested in
      * @return the index of the child in the parent, or -1 if either the parent
-     * or the child is <code>null</code>
+     * or the child is {@code null}
      */
     public int getIndexOfChild(Object parent, Object child) {
         if (parent == null || child == null) {
@@ -194,10 +194,10 @@ public abstract class AbstractTreeTableModel implements TreeTableModel {
     /**
      * Called when value for the item identified by path has been changed. If
      * newValue signifies a truly new value the model should post a
-     * <code>treeNodesChanged</code> event.
+     * {@code treeNodesChanged} event.
      *
      * @param path path to the node that has changed
-     * @param newValue the new value from the <code>TreeCellEditor</code>
+     * @param newValue the new value from the {@code TreeCellEditor}
      */
     public void valueForPathChanged(TreePath path, Object newValue) {
         /**
@@ -325,17 +325,17 @@ public abstract class AbstractTreeTableModel implements TreeTableModel {
 
     /**
      * Returns an array of all the objects currently registered as
-     * <code><em>Foo</em>Listener</code>s upon this model.
-     * <code><em>Foo</em>Listener</code>s are registered using the
-     * <code>add<em>Foo</em>Listener</code> method.
+     * {@code <em>Foo</em>Listener}s upon this model.
+     * {@code <em>Foo</em>Listener}s are registered using the
+     * {@code add<em>Foo</em>Listener} method.
      *
      * <p>
      *
      * You can specify the
-     * <code>listenerType</code> argument with a class literal, such as
-     * <code><em>Foo</em>Listener.class</code>. For example, you can query a
-     * <code>DefaultTreeModel</code>
-     * <code>m</code> for its tree model listeners with the following code:
+     * {@code listenerType} argument with a class literal, such as
+     * {@code <em>Foo</em>Listener.class}. For example, you can query a
+     * {@code DefaultTreeModel}
+     * {@code m} for its tree model listeners with the following code:
      *
      * <pre>TreeModelListener[] tmls = (TreeModelListener[])(m.getListeners(TreeModelListener.class));</pre>
      *
@@ -343,13 +343,13 @@ public abstract class AbstractTreeTableModel implements TreeTableModel {
      *
      * @param listenerType the type of listeners requested; this parameter
      * should specify an interface that descends from
-     * <code>java.util.EventListener</code>
+     * {@code java.util.EventListener}
      * @return an array of all objects registered as
-     * <code><em>Foo</em>Listener</code>s on this component, or an empty array
+     * {@code <em>Foo</em>Listener}s on this component, or an empty array
      * if no such listeners have been added
-     * @exception ClassCastException if <code>listenerType</code> doesn't
+     * @exception ClassCastException if {@code listenerType} doesn't
      * specify a class or interface that implements
-     * <code>java.util.EventListener</code>
+     * {@code java.util.EventListener}
      *
      * @see #getTreeModelListeners
      *

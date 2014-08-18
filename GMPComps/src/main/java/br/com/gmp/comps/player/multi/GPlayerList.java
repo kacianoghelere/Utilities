@@ -39,7 +39,7 @@ public class GPlayerList extends JPanel {
     /**
      * Cria nova instancia de GPlayerList
      *
-     * @param tracks <code>List(AudioFile)</code> Lista de arquivos
+     * @param tracks {@code List(AudioFile)} Lista de arquivos
      */
     public GPlayerList(List<AudioFile> tracks) {
         this.tracks = tracks;
@@ -60,7 +60,7 @@ public class GPlayerList extends JPanel {
     /**
      * Constroi os dados no GPlayer
      *
-     * @param tracks <code>List(AudioFile)</code> Lista de arquivos
+     * @param tracks {@code List(AudioFile)} Lista de arquivos
      */
     public void build(List<AudioFile> tracks) {
         this.tracks = tracks;
@@ -74,7 +74,7 @@ public class GPlayerList extends JPanel {
     /**
      * Retorna o arquivo executado
      *
-     * @return <code>AudioFile</code> Arquivo executado
+     * @return {@code AudioFile} Arquivo executado
      */
     public AudioFile getTrack() {
         return track;
@@ -83,7 +83,7 @@ public class GPlayerList extends JPanel {
     /**
      * Modifica o arquivo executado
      *
-     * @param track <code>AudioFile</code> Arquivo executado
+     * @param track {@code AudioFile} Arquivo executado
      */
     public void setTrack(AudioFile track) {
         this.track = track;
@@ -92,7 +92,7 @@ public class GPlayerList extends JPanel {
     /**
      * Retorna o reprodutor de audio
      *
-     * @return <code>SoundLayer</code> Reprodutor de audio
+     * @return {@code SoundLayer} Reprodutor de audio
      */
     public SoundLayer getLayer() {
         return layer;
@@ -109,7 +109,7 @@ public class GPlayerList extends JPanel {
     /**
      * Modifica o reprodutor de audio
      *
-     * @param layer <code>SoundLayer</code> Reprodutor de audio
+     * @param layer {@code SoundLayer} Reprodutor de audio
      */
     public void setLayer(SoundLayer layer) {
         this.layer = layer;
@@ -118,7 +118,7 @@ public class GPlayerList extends JPanel {
     /**
      * Retorna se os controles de navegação devem ser gerados
      *
-     * @return <code>boolean</code> Gerar controles de navegação?
+     * @return {@code boolean} Gerar controles de navegação?
      */
     public boolean isNavigate() {
         return navigate;
@@ -127,7 +127,7 @@ public class GPlayerList extends JPanel {
     /**
      * Identifica se os controles de navegação devem ser gerados
      *
-     * @param navigate <code>boolean</code> Gerar controles de navegação?
+     * @param navigate {@code boolean} Gerar controles de navegação?
      */
     public void setNavigate(boolean navigate) {
         this.navigate = navigate;
@@ -138,7 +138,7 @@ public class GPlayerList extends JPanel {
     /**
      * Retorna o modelo de tabelas dos arquivos de audio
      *
-     * @return <code>AudioModel</code> Modelo de tabelas dos arquivos de audio
+     * @return {@code AudioModel} Modelo de tabelas dos arquivos de audio
      */
     public AudioModel getModel() {
         return model;

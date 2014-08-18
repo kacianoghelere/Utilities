@@ -38,7 +38,7 @@ public class SortedListModel extends AbstractListModel {
     /**
      * Retorna os elementos
      *
-     * @return <code>Object[]</code> Objeto
+     * @return {@code Object[]} Objeto
      */
     public Object[] getElements() {
         return model.toArray();
@@ -47,7 +47,7 @@ public class SortedListModel extends AbstractListModel {
     /**
      * Adiciona novo elemento
      *
-     * @param element <code>Object</code> Objeto
+     * @param element {@code Object} Objeto
      */
     public void add(Object element) {
         if (model.add(element)) {
@@ -58,7 +58,7 @@ public class SortedListModel extends AbstractListModel {
     /**
      * Adiciona os objetos recebidos
      *
-     * @param elements <code>Object[]</code> Objetos
+     * @param elements {@code Object[]} Objetos
      */
     public void addAll(Object elements[]) {
         Collection<Object> c = Arrays.asList(elements);
@@ -76,8 +76,8 @@ public class SortedListModel extends AbstractListModel {
 
     /**
      *
-     * @param element <code>Object</code> Objeto
-     * @return <code>Boolean</code> Contem o objeto?
+     * @param element {@code Object} Objeto
+     * @return {@code Boolean} Contem o objeto?
      */
     public Boolean contains(Object element) {
         return model.contains(element);
@@ -86,7 +86,7 @@ public class SortedListModel extends AbstractListModel {
     /**
      * Retorna o primeiro elemento do modelo
      *
-     * @return <code>Object</code> Primeiro elemento
+     * @return {@code Object} Primeiro elemento
      */
     public Object firstElement() {
         return model.first();
@@ -95,7 +95,7 @@ public class SortedListModel extends AbstractListModel {
     /**
      * Iterator do modelo
      *
-     * @return <code>Iterator</code>
+     * @return {@code Iterator}
      */
     public Iterator iterator() {
         return model.iterator();
@@ -104,7 +104,7 @@ public class SortedListModel extends AbstractListModel {
     /**
      * Retorna o ultimo elemento do modelo
      *
-     * @return <code>Object</code> Ultimo elemento
+     * @return {@code Object} Ultimo elemento
      */
     public Object lastElement() {
         return model.last();
@@ -113,7 +113,7 @@ public class SortedListModel extends AbstractListModel {
     /**
      * Remove o elemento indicado
      *
-     * @param element <code>Object</code> Elemento
+     * @param element {@code Object} Elemento
      * @return
      */
     public boolean removeElement(Object element) {

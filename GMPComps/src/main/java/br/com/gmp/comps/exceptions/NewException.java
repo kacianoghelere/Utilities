@@ -13,14 +13,14 @@ package br.com.gmp.comps.exceptions;
 public class NewException extends Exception {
 
     /**
-     * Creates a new instance of <code>NewException</code> without detail
+     * Creates a new instance of {@code NewException} without detail
      * message.
      */
     public NewException() {
     }
 
     /**
-     * Constructs an instance of <code>NewException</code> with the specified
+     * Constructs an instance of {@code NewException} with the specified
      * detail message.
      *
      * @param msg the detail message.

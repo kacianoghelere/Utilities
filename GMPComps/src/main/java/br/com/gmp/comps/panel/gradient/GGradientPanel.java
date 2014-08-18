@@ -30,8 +30,8 @@ public class GGradientPanel extends JPanel {
     /**
      * Cria nova instancia de GGradientPanel
      *
-     * @param startColor <code>Color</code> Cor inicial do gradiente
-     * @param endColor <code>Color</code> Cor final do gradiente
+     * @param startColor {@code Color} Cor inicial do gradiente
+     * @param endColor {@code Color} Cor final do gradiente
      */
     public GGradientPanel(Color startColor, Color endColor) {
         this.startColor = startColor;
@@ -61,7 +61,7 @@ public class GGradientPanel extends JPanel {
     /**
      * Retorna a cor inicial do gradiente
      *
-     * @return <code>Color</code> Cor inicial do gradiente
+     * @return {@code Color} Cor inicial do gradiente
      */
     public Color getStartColor() {
         return startColor;
@@ -70,7 +70,7 @@ public class GGradientPanel extends JPanel {
     /**
      * Modifica a cor inicial do gradiente
      *
-     * @param startColor <code>Color</code> Cor inicial do gradiente
+     * @param startColor {@code Color} Cor inicial do gradiente
      */
     public void setStartColor(Color startColor) {
         this.startColor = startColor;
@@ -79,7 +79,7 @@ public class GGradientPanel extends JPanel {
     /**
      * Retorna a cor final do gradiente
      *
-     * @return <code>Color</code> Cor final do gradiente
+     * @return {@code Color} Cor final do gradiente
      */
     public Color getEndColor() {
         return endColor;
@@ -88,7 +88,7 @@ public class GGradientPanel extends JPanel {
     /**
      * Modifica a cor final do gradiente
      *
-     * @param endColor <code>Color</code> Cor final do gradiente
+     * @param endColor {@code Color} Cor final do gradiente
      */
     public void setEndColor(Color endColor) {
         this.endColor = endColor;

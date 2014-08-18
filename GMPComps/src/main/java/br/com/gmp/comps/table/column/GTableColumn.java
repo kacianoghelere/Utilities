@@ -20,8 +20,8 @@ public class GTableColumn {
     /**
      * Cria nova instancia de GTableColumn
      *
-     * @param id <code>int</code> Endereço da coluna
-     * @param title <code>String</code> Nome da coluna
+     * @param id {@code int} Endereço da coluna
+     * @param title {@code String} Nome da coluna
      */
     public GTableColumn(int id, String title) {
         this.id = id;
@@ -58,7 +58,7 @@ public class GTableColumn {
     /**
      * Retorna o Endereço da coluna
      *
-     * @return <code>int</code> Endereço da coluna
+     * @return {@code int} Endereço da coluna
      */
     public int getId() {
         return id;
@@ -67,7 +67,7 @@ public class GTableColumn {
     /**
      * Modifica o Endereço da coluna
      *
-     * @param id <code>int</code> Endereço da coluna
+     * @param id {@code int} Endereço da coluna
      */
     public void setId(int id) {
         this.id = id;
@@ -76,7 +76,7 @@ public class GTableColumn {
     /**
      * Retorna o Nome da coluna
      *
-     * @return <code>String</code> Nome da coluna
+     * @return {@code String} Nome da coluna
      */
     public String getTitle() {
         return title;
@@ -85,7 +85,7 @@ public class GTableColumn {
     /**
      * Modifica o Nome da coluna
      *
-     * @param title <code>String</code> Nome da coluna
+     * @param title {@code String} Nome da coluna
      */
     public void setTitle(String title) {
         this.title = title;

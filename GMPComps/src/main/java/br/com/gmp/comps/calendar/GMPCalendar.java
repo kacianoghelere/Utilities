@@ -27,7 +27,7 @@ public class GMPCalendar extends javax.swing.JPanel {
     /**
      * Cria nova instancia de GMPCalendar
      *
-     * @param date <code>Date</code> Data do calendario
+     * @param date {@code Date} Data do calendario
      */
     public GMPCalendar(Date date) {
         this.date = date;
@@ -36,7 +36,7 @@ public class GMPCalendar extends javax.swing.JPanel {
     /**
      * Retorna a data selecionada
      *
-     * @return <code>Date</code> Data selecionada
+     * @return {@code Date} Data selecionada
      * @throws ParseException
      */
     public Date getDate() throws ParseException {
@@ -46,7 +46,7 @@ public class GMPCalendar extends javax.swing.JPanel {
     /**
      * Modifica a data
      *
-     * @param date <code>Date</code> Data do calendario
+     * @param date {@code Date} Data do calendario
      */
     public void setDate(Date date) {
         this.date = date;
@@ -103,7 +103,7 @@ public class GMPCalendar extends javax.swing.JPanel {
     /**
      * Retorna o calendario
      *
-     * @return <code>Calendar</code> Calendario
+     * @return {@code Calendar} Calendario
      */
     public Calendar getCalendar() {
         return jXCalendar.getCalendar();
@@ -112,7 +112,7 @@ public class GMPCalendar extends javax.swing.JPanel {
     /**
      * Retorna o JXMonthView
      *
-     * @return <code>JXMonthView</code> Calendario
+     * @return {@code JXMonthView} Calendario
      */
     public JXMonthView getjCalendar() {
         return jXCalendar;

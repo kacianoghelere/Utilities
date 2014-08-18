@@ -24,7 +24,7 @@ public class GTableBar extends JToolBar {
     /**
      * Cria nova instancia da barra de controle para tabelas
      *
-     * @param gTable <code>GTable</code> Tabela
+     * @param gTable {@code GTable} Tabela
      */
     public GTableBar(GTable gTable) {
         this.gTable = gTable;
@@ -42,8 +42,8 @@ public class GTableBar extends JToolBar {
     /**
      * Modifica o rotulo das páginas
      *
-     * @param actualpage <code>Integer</code> Página atual
-     * @param pages <code>Integer</code> Total de páginas
+     * @param actualpage {@code Integer} Página atual
+     * @param pages {@code Integer} Total de páginas
      */
     private void setPages(int actualpage, int pages) {
         this.jLPages.setText(String.format("%s/%d", actualpage + 1, pages));
@@ -101,7 +101,7 @@ public class GTableBar extends JToolBar {
     /**
      * Retorna a tabela que está sendo utilizada
      *
-     * @return <code>GTable</code> Tabela
+     * @return {@code GTable} Tabela
      */
     public GTable getTable() {
         return gTable;
@@ -110,7 +110,7 @@ public class GTableBar extends JToolBar {
     /**
      * Modifica a tabela que está sendo utilizada
      *
-     * @param table <code>GTable</code> Tabela
+     * @param table {@code GTable} Tabela
      */
     public void setTable(GTable table) {
         if (table != null) {

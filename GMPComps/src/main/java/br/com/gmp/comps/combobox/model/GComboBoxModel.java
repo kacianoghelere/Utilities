@@ -28,7 +28,7 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
     /**
      * Cria nova instancia de GComboBoxModel
      *
-     * @param data <code>List(T)</code> Dados do combobox
+     * @param data {@code List(T)} Dados do combobox
      */
     public GComboBoxModel(List<T> data) {
         this.data = data;
@@ -38,7 +38,7 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
     /**
      * Cria nova instancia de GComboBoxModel
      *
-     * @param data <code>T[]</code> Dados do combobox
+     * @param data {@code T[]} Dados do combobox
      */
     public GComboBoxModel(T[] data) {
         this.data = Arrays.asList(data);
@@ -48,7 +48,7 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
     /**
      * Cria nova instancia de GComboBoxModel
      *
-     * @param data <code>Vector(T)</code> Dados do combobox
+     * @param data {@code Vector(T)} Dados do combobox
      */
     public GComboBoxModel(Vector<T> data) {
         this.data = data;
@@ -121,8 +121,8 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
     /**
      * Retorna a posição do objeto parametro dentro do modelo
      *
-     * @param object <code>T</code> Objeto a ser buscado
-     * @return <code>int</code> Posição do objeto
+     * @param object {@code T} Objeto a ser buscado
+     * @return {@code int} Posição do objeto
      */
     @Override
     public int getIndexOf(Object object) {
@@ -132,8 +132,8 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
     /**
      * Verifica se o modelo contem o objeto indicado
      *
-     * @param object <code>T</code> Objeto a ser buscado
-     * @return <code>T</code> Contem o objeto?
+     * @param object {@code T} Objeto a ser buscado
+     * @return {@code T} Contem o objeto?
      */
     public Boolean contains(T object) {
         return this.data.contains(object);
@@ -142,7 +142,7 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
     /**
      * Retorna os dados originais do combobox
      *
-     * @return <code>List(T)</code> Dados do combobox
+     * @return {@code List(T)} Dados do combobox
      */
     public List<T> getData() {
         return data;
@@ -151,7 +151,7 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
     /**
      * Modifica os dados originais do combobox
      *
-     * @param data <code>List(T)</code> Dados do combobox
+     * @param data {@code List(T)} Dados do combobox
      */
     public void setData(List<T> data) {
         this.data = data;
@@ -160,7 +160,7 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
     /**
      * Modifica os dados originais do combobox
      *
-     * @param data <code>Vector(T)</code> Dados do combobox
+     * @param data {@code Vector(T)} Dados do combobox
      */
     public void setData(Vector<T> data) {
         this.data = data;
@@ -169,7 +169,7 @@ public class GComboBoxModel<T> extends DefaultComboBoxModel<T> {
     /**
      * Modifica os dados originais do combobox
      *
-     * @param data <code>T[]</code> Dados do combobox
+     * @param data {@code T[]} Dados do combobox
      */
     public void setData(T[] data) {
         this.data = Arrays.asList(data);

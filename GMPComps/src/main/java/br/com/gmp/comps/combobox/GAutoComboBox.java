@@ -29,7 +29,7 @@ public class GAutoComboBox<T> extends GComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GAutoComboBox
      *
-     * @param model <code>GComboBoxModel</code> Modelo de ComboBox
+     * @param model {@code GComboBoxModel} Modelo de ComboBox
      */
     public GAutoComboBox(GComboBoxModel model) {
         super(model);
@@ -39,7 +39,7 @@ public class GAutoComboBox<T> extends GComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GAutoComboBox
      *
-     * @param data <code>Object[]</code> Array de dados
+     * @param data {@code Object[]} Array de dados
      */
     public GAutoComboBox(Object[] data) {
         super(data);
@@ -49,7 +49,7 @@ public class GAutoComboBox<T> extends GComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GAutoComboBox
      *
-     * @param data <code>List</code> Lista de dados
+     * @param data {@code List} Lista de dados
      */
     public GAutoComboBox(List data) {
         super(data);
@@ -59,7 +59,7 @@ public class GAutoComboBox<T> extends GComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GAutoComboBox
      *
-     * @param data <code>Vector</code> Vetor de dados
+     * @param data {@code Vector} Vetor de dados
      */
     public GAutoComboBox(Vector data) {
         super(data);
@@ -68,7 +68,7 @@ public class GAutoComboBox<T> extends GComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GAutoComboBox
      *
-     * @param editable <code>boolean</code> Editavel?
+     * @param editable {@code boolean} Editavel?
      */
     public GAutoComboBox(boolean editable) {
         initialize(editable);
@@ -77,8 +77,8 @@ public class GAutoComboBox<T> extends GComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GAutoComboBox
      *
-     * @param model <code>GComboBoxModel</code> Modelo de ComboBox
-     * @param editable <code>boolean</code> Editavel?
+     * @param model {@code GComboBoxModel} Modelo de ComboBox
+     * @param editable {@code boolean} Editavel?
      */
     public GAutoComboBox(GComboBoxModel model, boolean editable) {
         super(model);
@@ -88,8 +88,8 @@ public class GAutoComboBox<T> extends GComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GAutoComboBox
      *
-     * @param data <code>Object[]</code> Array de dados
-     * @param editable <code>boolean</code> Editavel?
+     * @param data {@code Object[]} Array de dados
+     * @param editable {@code boolean} Editavel?
      */
     public GAutoComboBox(Object[] data, boolean editable) {
         super(data);
@@ -99,8 +99,8 @@ public class GAutoComboBox<T> extends GComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GAutoComboBox
      *
-     * @param data <code>List</code> Lista de dados
-     * @param editable <code>boolean</code> Editavel?
+     * @param data {@code List} Lista de dados
+     * @param editable {@code boolean} Editavel?
      */
     public GAutoComboBox(List data, boolean editable) {
         super(data);
@@ -110,8 +110,8 @@ public class GAutoComboBox<T> extends GComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GAutoComboBox
      *
-     * @param data <code>Vector</code> Vetor de dados
-     * @param editable <code>boolean</code> Editavel?
+     * @param data {@code Vector} Vetor de dados
+     * @param editable {@code boolean} Editavel?
      */
     public GAutoComboBox(Vector data, boolean editable) {
         super(data);
@@ -121,7 +121,7 @@ public class GAutoComboBox<T> extends GComboBox implements ValidableComponent {
     /**
      * Método de inicialização
      *
-     * @param editable <code>boolean</code> Editavel?
+     * @param editable {@code boolean} Editavel?
      */
     private void initialize(boolean editable) {
         setEditable(editable);

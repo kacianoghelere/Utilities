@@ -53,7 +53,7 @@ public class GMPDualList extends JPanel {
     /**
      * Adiciona itens na lista de fonte
      *
-     * @param newValue <code>ListModel</code> Novos valores
+     * @param newValue {@code ListModel} Novos valores
      */
     public void addSourceElements(ListModel newValue) {
         fillListModel(sourceListModel, newValue);
@@ -62,7 +62,7 @@ public class GMPDualList extends JPanel {
     /**
      * Define itens na lista de fonte
      *
-     * @param newValue <code>ListModel</code> Novos valores
+     * @param newValue {@code ListModel} Novos valores
      */
     public void setSourceElements(ListModel newValue) {
         clearSourceListModel();
@@ -72,7 +72,7 @@ public class GMPDualList extends JPanel {
     /**
      * Adiciona itens na lista de fonte
      *
-     * @param newValue <code>ListModel</code> Novos valores
+     * @param newValue {@code ListModel} Novos valores
      */
     public void addDestinationElements(ListModel newValue) {
         fillListModel(destListModel, newValue);
@@ -81,8 +81,8 @@ public class GMPDualList extends JPanel {
     /**
      * Preenche o modelo da lista
      *
-     * @param model <code>SortedListModel</code> Modelo
-     * @param newValues <code>ListModel</code> Novos valores
+     * @param model {@code SortedListModel} Modelo
+     * @param newValues {@code ListModel} Novos valores
      */
     private void fillListModel(SortedListModel model, ListModel newValues) {
         int size = newValues.getSize();
@@ -94,7 +94,7 @@ public class GMPDualList extends JPanel {
     /**
      * Adiciona itens na lista de fonte
      *
-     * @param newValues <code>Object[]</code> Novos valores
+     * @param newValues {@code Object[]} Novos valores
      */
     public void addSourceElements(Object[] newValues) {
         fillListModel(sourceListModel, newValues);
@@ -103,7 +103,7 @@ public class GMPDualList extends JPanel {
     /**
      * Adiciona itens na lista de fonte
      *
-     * @param newValues <code>List</code><?> Novos valores
+     * @param newValues {@code List}<?> Novos valores
      */
     public void addSourceElements(List<?> newValues) {
         fillListModel(sourceListModel, newValues.toArray());
@@ -112,7 +112,7 @@ public class GMPDualList extends JPanel {
     /**
      * Define os itens na lista de fonte
      *
-     * @param newValues <code>Object[]</code> Novos valores
+     * @param newValues {@code Object[]} Novos valores
      */
     public void setSourceElements(Object[] newValues) {
         clearSourceListModel();
@@ -122,7 +122,7 @@ public class GMPDualList extends JPanel {
     /**
      * Adiciona itens na lista de destino
      *
-     * @param newValues <code>Object[]</code> Novos valores
+     * @param newValues {@code Object[]} Novos valores
      */
     public void addDestinationElements(Object[] newValues) {
         fillListModel(destListModel, newValues);
@@ -131,7 +131,7 @@ public class GMPDualList extends JPanel {
     /**
      * Adiciona itens na lista de destino
      *
-     * @param newValues <code>List</code><?> Novos valores
+     * @param newValues {@code List}<?> Novos valores
      */
     public void addDestinationElements(List<?> newValues) {
         fillListModel(destListModel, newValues.toArray());
@@ -141,7 +141,7 @@ public class GMPDualList extends JPanel {
      * Preenche o ListModel
      *
      * @param model
-     * @param newValues <code>Object[]</code> Novos valores
+     * @param newValues {@code Object[]} Novos valores
      */
     private void fillListModel(SortedListModel model, Object[] newValues) {
         model.addAll(newValues);
@@ -209,7 +209,7 @@ public class GMPDualList extends JPanel {
     /**
      * Retorna o texto do rótulo da fonte
      *
-     * @return <code>String<code> Texto do rótulo da fonte
+     * @return {@code String{@code  Texto do rótulo da fonte
      */
     public String getSourceLabelText() {
         return sourceLabelText;
@@ -218,7 +218,7 @@ public class GMPDualList extends JPanel {
     /**
      * Modifica o texto do rótulo na lista de fonte
      *
-     * @param sourceLabelText <code>String<code>
+     * @param sourceLabelText {@code String{@code 
      */
     public void setSourceLabelText(String sourceLabelText) {
         this.sourceLabelText = sourceLabelText;
@@ -228,7 +228,7 @@ public class GMPDualList extends JPanel {
     /**
      * Retorna o texto do rótulo do destino
      *
-     * @return <code>String<code> Texto do rótulo do destino
+     * @return {@code String{@code  Texto do rótulo do destino
      */
     public String getDestinationLabelText() {
         return destLabelText;
@@ -237,7 +237,7 @@ public class GMPDualList extends JPanel {
     /**
      * Modifica o texto do rótulo na lista de destino
      *
-     * @param destLabelText <code>String<code>
+     * @param destLabelText {@code String{@code 
      */
     public void setDestinationLabelText(String destLabelText) {
         this.destLabelText = destLabelText;

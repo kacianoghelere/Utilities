@@ -17,13 +17,13 @@ import java.util.logging.Logger;
  * convertido em objetos anonimos)
  *
  * Exemplo de uso:
- * <br><code>
+ * <br>{@code 
  * class NewTableModel extends GTableModel(Object) {<br>
  * public NewTableModel() {<br>
  * super(Object.class)<br>
  * }<br>
  * }<br>
- * </code><br>
+ * }<br>
  *
  * @author kaciano
  * @version 1.1
@@ -46,7 +46,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Cria novo DefaultTableModel
      *
-     * @param list <code>List(Object)</code> Lista de objetos
+     * @param list {@code List(Object)} Lista de objetos
      */
     public GTableModel(List<T> list) {
         initialize(list);
@@ -55,8 +55,8 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Metodo de inicialização
      *
-     * @param objClass <code>Class(Object)</code> Classe a ser mapeada
-     * @param list <code>List(Object)</code> Lista de objetos
+     * @param objClass {@code Class(Object)} Classe a ser mapeada
+     * @param list {@code List(Object)} Lista de objetos
      */
     private void initialize(List list) {
         this.objClass = (Class<T>) ((ParameterizedType) (getClass()
@@ -68,7 +68,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna os nomes das colunas
      *
-     * @return <code>String[]</code> Colunas do objeto
+     * @return {@code String[]} Colunas do objeto
      */
     public String[] getColumnNames() {
         return this.columns;
@@ -77,8 +77,8 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Busca as colunas na classe do objeto do modelo
      *
-     * @param cl <code>Class</code> Classe a ser mapeada
-     * @return <code>String[]</code> Colunas do objeto
+     * @param cl {@code Class} Classe a ser mapeada
+     * @return {@code String[]} Colunas do objeto
      */
     private String[] mapColumns(Class<?> cl) {
         String[] coluna = new String[getFields(cl).length];
@@ -97,9 +97,9 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna se a coluna é editavel
      *
-     * @param row <code>int</code> Index da linha
-     * @param column <code>int</code> Index da coluna
-     * @return <code>boolean</code> É editavel?
+     * @param row {@code int} Index da linha
+     * @param column {@code int} Index da coluna
+     * @return {@code boolean} É editavel?
      */
     @Override
     public boolean isCellEditable(int row, int column) {
@@ -109,7 +109,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna a quantidade de linhas
      *
-     * @return <code>int</code> Quantidade de linhas
+     * @return {@code int} Quantidade de linhas
      */
     @Override
     public int getRowCount() {
@@ -119,7 +119,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna a quantidade de colunas
      *
-     * @return <code>int</code> Quantidade de colunas
+     * @return {@code int} Quantidade de colunas
      */
     @Override
     public int getColumnCount() {
@@ -129,9 +129,9 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna o valor com base na linha e na coluna recebidas
      *
-     * @param row <code>int</code> Index da linha
-     * @param column <code>int</code> Index da coluna
-     * @return <code>int</code>
+     * @param row {@code int} Index da linha
+     * @param column {@code int} Index da coluna
+     * @return {@code int}
      */
     @Override
     public Object getValueAt(int row, int column) {
@@ -149,8 +149,8 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna os campos mapeaveis da classe
      *
-     * @param cl <code><b>Class</b>(?)</code> Classe do Field
-     * @return <code>Field[]</code> Fields mapeados
+     * @param cl {@code <b>Class</b>(?)} Classe do Field
+     * @return {@code Field[]} Fields mapeados
      */
     public Field[] getFields(Class<?> cl) {
         List<Field> fields = new ArrayList<>();
@@ -168,8 +168,8 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna o nome da coluna
      *
-     * @param column <code>int</code> Index da coluna
-     * @return <code>String</code> Nome da coluna
+     * @param column {@code int} Index da coluna
+     * @return {@code String} Nome da coluna
      */
     @Override
     public String getColumnName(int column) {
@@ -179,8 +179,8 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna a classe da coluna recebida
      *
-     * @param column <code>int</code> Index da coluna
-     * @return <code>Class<?></code> Classe da coluna
+     * @param column {@code int} Index da coluna
+     * @return {@code Class<?>} Classe da coluna
      */
     @Override
     public Class<?> getColumnClass(int column) {
@@ -190,9 +190,9 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna a classe do Field recebido
      *
-     * @param cl <code>Class</code> Classe a ser mapeada
-     * @param id <code>int</code> ID do Field
-     * @return <code>Class<?></code> Classe do Field
+     * @param cl {@code Class} Classe a ser mapeada
+     * @param id {@code int} ID do Field
+     * @return {@code Class<?>} Classe do Field
      */
     private Class<?> getFieldClass(Class<?> cl, int id) {
         try {
@@ -212,8 +212,8 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna a linha do objeto indicado
      *
-     * @param obj <code>Object</code> Objeto
-     * @return <code>Integer</code> Linha do objeto
+     * @param obj {@code Object} Objeto
+     * @return {@code Integer} Linha do objeto
      */
     public Integer getObjectRow(Object obj) {
         for (int i = 0; i < data.size(); i++) {
@@ -227,8 +227,8 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna se o modelo contem o objeto, ou não...
      *
-     * @param t <code>T</code> Objeto
-     * @return <code>boolean</code> Retorna se o modelo contem o objeto ou não
+     * @param t {@code T} Objeto
+     * @return {@code boolean} Retorna se o modelo contem o objeto ou não
      */
     public boolean contains(T t) {
         return this.data.contains(t);
@@ -237,7 +237,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Adiciona novo objeto à lista
      *
-     * @param obj <code>Object</code> Novo objeto
+     * @param obj {@code Object} Novo objeto
      */
     public void add(T obj) {
         data.add(obj);
@@ -247,7 +247,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Adiciona novos objetos à lista
      *
-     * @param obj <code>Object[]</code> Novos objetos
+     * @param obj {@code Object[]} Novos objetos
      */
     public void addAll(T... obj) {
         data.addAll(Arrays.asList(obj));
@@ -257,7 +257,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Remove a linha recebida
      *
-     * @param row <code>int</code> Linha
+     * @param row {@code int} Linha
      */
     public void remove(int row) {
         data.remove(row);
@@ -267,7 +267,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Remove as linhas recebidas
      *
-     * @param row <code>int[]</code> Linhas
+     * @param row {@code int[]} Linhas
      */
     public void remove(int[] row) {
         List<T> list = new ArrayList<>();
@@ -283,7 +283,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Remove o Objeto recebido
      *
-     * @param object <code>Object</code> Objeto
+     * @param object {@code Object} Objeto
      */
     public void remove(T object) {
         if (data.contains(object)) {
@@ -296,7 +296,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Remove os Objetos recebidos
      *
-     * @param objects <code>Object[]</code> Objetos
+     * @param objects {@code Object[]} Objetos
      */
     public void remove(T[] objects) {
         for (T t : objects) {
@@ -310,8 +310,8 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Atualiza o objeto da linha recebida com o novo objeto
      *
-     * @param row <code>int</code> Linha
-     * @param object <code>Object</code> Novo conteudo da linha
+     * @param row {@code int} Linha
+     * @param object {@code Object} Novo conteudo da linha
      */
     public void update(int row, T object) {
         data.set(row, object);
@@ -321,7 +321,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna o objeto com base na linha recebida
      *
-     * @param row <code>int</code> Linha
+     * @param row {@code int} Linha
      * @return Objeto da linha
      */
     public T getObject(int row) {
@@ -359,7 +359,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna a classe do modelo
      *
-     * @return <code>Class</code> Classe do modelo
+     * @return {@code Class} Classe do modelo
      */
     public Class<T> getObjClass() {
         return objClass;
@@ -377,7 +377,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna as colunas
      *
-     * @return <code>String[]</code> Colunas
+     * @return {@code String[]} Colunas
      */
     public String[] getColumns() {
         return columns;
@@ -386,7 +386,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Altera as colunas
      *
-     * @param columns <code>String[]</code> Colunas
+     * @param columns {@code String[]} Colunas
      */
     public void setColumns(String[] columns) {
         this.columns = columns;
@@ -395,7 +395,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Retorna a lista do modelo
      *
-     * @return <code>List</code> Lista do modelo
+     * @return {@code List} Lista do modelo
      */
     public List<T> getData() {
         return data;
@@ -404,7 +404,7 @@ public class GTableModel<T> extends SimpleTableModel {
     /**
      * Modifica a lista do modelo
      *
-     * @param data <code>List</code> Lista do modelo
+     * @param data {@code List} Lista do modelo
      */
     public void setData(List<T> data) {
         this.data = data;

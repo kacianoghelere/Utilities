@@ -26,7 +26,7 @@ public class GMPPassword extends JPasswordField implements ValidableComponent {
     /**
      * Cria nova instancia de GMPPassword
      *
-     * @param minLength <code>int</code> Comprimento minimo
+     * @param minLength {@code int} Comprimento minimo
      */
     public GMPPassword(int minLength) {
         this.minLength = minLength;
@@ -50,7 +50,7 @@ public class GMPPassword extends JPasswordField implements ValidableComponent {
     /**
      * Retorna o comprimento minimo do texto
      *
-     * @return <code>int</code> Comprimento minimo
+     * @return {@code int} Comprimento minimo
      */
     public int getMinLength() {
         return minLength;
@@ -59,7 +59,7 @@ public class GMPPassword extends JPasswordField implements ValidableComponent {
     /**
      * Modifica o comprimento minimo do texto
      *
-     * @param minLength <code>int</code> Comprimento minimo
+     * @param minLength {@code int} Comprimento minimo
      */
     public void setMinLength(int minLength) {
         this.minLength = minLength;

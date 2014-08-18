@@ -827,7 +827,7 @@ public class GMPJTabbedPaneBeanInfo extends SimpleBeanInfo {
 
 //GEN-LAST:Superclass
     /**
-     * Gets the bean's <code>BeanDescriptor</code>s.
+     * Gets the bean's {@code BeanDescriptor}s.
      *
      * @return BeanDescriptor describing the editable properties of this bean.
      * May return null if the information should be obtained by automatic
@@ -839,7 +839,7 @@ public class GMPJTabbedPaneBeanInfo extends SimpleBeanInfo {
     }
 
     /**
-     * Gets the bean's <code>PropertyDescriptor</code>s.
+     * Gets the bean's {@code PropertyDescriptor}s.
      *
      * @return An array of PropertyDescriptors describing the editable
      * properties supported by this bean. May return null if the information
@@ -856,7 +856,7 @@ public class GMPJTabbedPaneBeanInfo extends SimpleBeanInfo {
     }
 
     /**
-     * Gets the bean's <code>EventSetDescriptor</code>s.
+     * Gets the bean's {@code EventSetDescriptor}s.
      *
      * @return An array of EventSetDescriptors describing the kinds of events
      * fired by this bean. May return null if the information should be obtained
@@ -868,7 +868,7 @@ public class GMPJTabbedPaneBeanInfo extends SimpleBeanInfo {
     }
 
     /**
-     * Gets the bean's <code>MethodDescriptor</code>s.
+     * Gets the bean's {@code MethodDescriptor}s.
      *
      * @return An array of MethodDescriptors describing the methods implemented
      * by this bean. May return null if the information should be obtained by

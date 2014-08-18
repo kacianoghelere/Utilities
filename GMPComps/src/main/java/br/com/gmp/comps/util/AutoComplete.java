@@ -25,8 +25,8 @@ public class AutoComplete {
     /**
      * Cria nova instancia de AutoComplete
      *
-     * @param txtInput <code>JTextField</code> Campo de texto
-     * @param items <code>List(String)</code> Lista de valores
+     * @param txtInput {@code JTextField} Campo de texto
+     * @param items {@code List(String)} Lista de valores
      */
     public AutoComplete(final JTextField txtInput, final ArrayList<String> items) {
         setupAutoComplete(txtInput, items);
@@ -35,8 +35,8 @@ public class AutoComplete {
     /**
      * Retorna a propriedade de ajuste
      *
-     * @param cbInput <code>JTextField</code> ComboBox base
-     * @return <code>boolean</code> Ajustando?
+     * @param cbInput {@code JTextField} ComboBox base
+     * @return {@code boolean} Ajustando?
      */
     private static boolean isAdjusting(JComboBox cbInput) {
         if (cbInput.getClientProperty("is_adjusting") instanceof Boolean) {
@@ -48,8 +48,8 @@ public class AutoComplete {
     /**
      * Modifica a propriedade de ajuste
      *
-     * @param cbInput <code>JTextField</code> ComboBox base
-     * @param adjusting <code>boolean</code> Ajustando?
+     * @param cbInput {@code JTextField} ComboBox base
+     * @param adjusting {@code boolean} Ajustando?
      */
     private static void setAdjusting(JComboBox cbInput, boolean adjusting) {
         cbInput.putClientProperty("is_adjusting", adjusting);
@@ -58,8 +58,8 @@ public class AutoComplete {
     /**
      * Modifica o status do auto completador
      *
-     * @param txtInput <code>JTextField</code> Campo de texto
-     * @param items <code>List(String)</code> Lista de valores
+     * @param txtInput {@code JTextField} Campo de texto
+     * @param items {@code List(String)} Lista de valores
      */
     public static void setupAutoComplete(final JTextField txtInput, final List<String> items) {
         final DefaultComboBoxModel model = new DefaultComboBoxModel();

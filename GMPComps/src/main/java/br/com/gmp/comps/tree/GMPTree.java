@@ -37,8 +37,8 @@ public class GMPTree extends JTree {
     /**
      * Monta a nova árvore
      *
-     * @param cl <code>Class(?)</code> Classe da montagem
-     * @param data <code>List</code> Dados da montagem
+     * @param cl {@code Class(?)} Classe da montagem
+     * @param data {@code List} Dados da montagem
      */
     public void mount(Class<?> cl, List data) {
         DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode(root);
@@ -54,8 +54,8 @@ public class GMPTree extends JTree {
     /**
      * Mapeia os dados
      *
-     * @param parent <code>DefaultMutableTreeNode</code> Nó pai
-     * @param value <code>Object</code> Object
+     * @param parent {@code DefaultMutableTreeNode} Nó pai
+     * @param value {@code Object} Object
      */
     private void addChild(DefaultMutableTreeNode parent, Object value) {
         try {

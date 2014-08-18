@@ -21,8 +21,8 @@ public class GTextFinder extends javax.swing.JDialog {
     /**
      * Cria nova instancia de GTextFinder
      *
-     * @param parent <code>Frame</code> Componente pai
-     * @param textArea <code>JTextComponent</code> Área de texto
+     * @param parent {@code Frame} Componente pai
+     * @param textArea {@code JTextComponent} Área de texto
      */
     public GTextFinder(java.awt.Frame parent, JTextComponent textArea) {
         super(parent);
@@ -72,10 +72,10 @@ public class GTextFinder extends javax.swing.JDialog {
     /**
      * Retorna a localização do texto conforme a busca realizada
      *
-     * @param text <code>String</code> Texto principal
-     * @param value <code>String</code> Valor buscado
-     * @param sensitive <code>boolean</code> Case sensitive?
-     * @return <code>Point</code> Localização do texto
+     * @param text {@code String} Texto principal
+     * @param value {@code String} Valor buscado
+     * @param sensitive {@code boolean} Case sensitive?
+     * @return {@code Point} Localização do texto
      */
     public Point getLocation(String text, String value, boolean sensitive) {
         int inicio = -1;

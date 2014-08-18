@@ -29,7 +29,7 @@ public class NumericField extends JFormattedTextField implements Serializable {
     /**
      * Método que faz a formatacao do campo numérico
      *
-     * @param Campo <code>JFormattedTextField</code> recebe campo a ser
+     * @param Campo {@code JFormattedTextField} recebe campo a ser
      * formatado
      * @since 1.0
      */

@@ -60,8 +60,8 @@ public class DynamicTreeTableModel extends AbstractTreeTableModel {
     //
     /**
      * TreeModel method to return the number of children of a particular node.
-     * Since <code>node</code> is a TreeNode, this can be answered via the
-     * TreeNode method <code>getChildCount</code>.
+     * Since {@code node} is a TreeNode, this can be answered via the
+     * TreeNode method {@code getChildCount}.
      *
      * @param node
      * @return
@@ -73,8 +73,8 @@ public class DynamicTreeTableModel extends AbstractTreeTableModel {
 
     /**
      * TreeModel method to locate a particular child of the specified node.
-     * Since <code>node</code> is a TreeNode, this can be answered via the
-     * TreeNode method <code>getChild</code>.
+     * Since {@code node} is a TreeNode, this can be answered via the
+     * TreeNode method {@code getChild}.
      *
      * @param node
      * @param i
@@ -87,8 +87,8 @@ public class DynamicTreeTableModel extends AbstractTreeTableModel {
 
     /**
      * TreeModel method to determine if a node is a leaf. Since
-     * <code>node</code> is a TreeNode, this can be answered via the TreeNode
-     * method <code>isLeaf</code>.
+     * {@code node} is a TreeNode, this can be answered via the TreeNode
+     * method {@code isLeaf}.
      *
      * @return
      */
@@ -125,7 +125,7 @@ public class DynamicTreeTableModel extends AbstractTreeTableModel {
     }
 
     /**
-     * Returns the column class for column <code>column</code>. This is set in
+     * Returns the column class for column {@code column}. This is set in
      * the constructor.
      *
      * @param column
@@ -140,8 +140,8 @@ public class DynamicTreeTableModel extends AbstractTreeTableModel {
     }
 
     /**
-     * Returns the value for the column <code>column</code> and object
-     * <code>node</code>. The return value is determined by invoking the method
+     * Returns the value for the column {@code column} and object
+     * {@code node}. The return value is determined by invoking the method
      * specified in constructor for the passed in column.
      *
      * @param node
@@ -166,7 +166,7 @@ public class DynamicTreeTableModel extends AbstractTreeTableModel {
 
     /**
      * Returns true if there is a setter method name for column
-     * <code>column</code>. This is set in the constructor.
+     * {@code column}. This is set in the constructor.
      *
      * @param node
      * @param column
@@ -179,8 +179,8 @@ public class DynamicTreeTableModel extends AbstractTreeTableModel {
     }
 
     /**
-     * Sets the value to <code>aValue</code> for the object <code>node</code> in
-     * column <code>column</code>. This is done by using the setter method name,
+     * Sets the value to {@code aValue} for the object {@code node} in
+     * column {@code column}. This is done by using the setter method name,
      * and coercing the passed in value to the specified type.
      *
      * @param aValue
@@ -189,7 +189,7 @@ public class DynamicTreeTableModel extends AbstractTreeTableModel {
      */
     // Note: This looks up the methods each time! This is rather inefficient;
     // it should really be changed to cache matching methods/constructors
-    // based on <code>node</code>'s class, and <code>aValue</code>'s class.
+    // based on {@code node}'s class, and {@code aValue}'s class.
     @Override
     public void setValueAt(Object aValue, Object node, int column) {
         boolean found = false;

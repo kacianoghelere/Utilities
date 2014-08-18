@@ -22,7 +22,7 @@ public class GCheckBox extends JCheckBox {
     /**
      * Cria nova instancia de GCheckBox
      *
-     * @param identifier <code>Character</code> Identificador
+     * @param identifier {@code Character} Identificador
      */
     public GCheckBox(Character identifier) {
         this.identifier = identifier;
@@ -38,7 +38,7 @@ public class GCheckBox extends JCheckBox {
     /**
      * Retorna o identificador
      *
-     * @return <code>Character</code> Identificador
+     * @return {@code Character} Identificador
      */
     public Character getIdentifier() {
         return identifier;
@@ -47,7 +47,7 @@ public class GCheckBox extends JCheckBox {
     /**
      * Modifica o identificador
      *
-     * @param identifier <code>Character</code> Identificador
+     * @param identifier {@code Character} Identificador
      */
     public void setIdentifier(Character identifier) {
         this.identifier = identifier;

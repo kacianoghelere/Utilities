@@ -27,7 +27,7 @@ public class GMPNumericKeyBoard extends JPanel {
     /**
      * Cria nova instancia de GMPNumericKeyBoard
      *
-     * @param textField <code>JTextComponent</code> Campo de texto do teclado
+     * @param textField {@code JTextComponent} Campo de texto do teclado
      */
     public GMPNumericKeyBoard(JTextComponent textField) {
         this.textField = textField;

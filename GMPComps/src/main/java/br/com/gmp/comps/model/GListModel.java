@@ -24,7 +24,7 @@ public class GListModel<T> extends AbstractListModel<T> {
     /**
      * Cria nova instancia de GListModel
      *
-     * @param data <code>List</code> Dados do modelo
+     * @param data {@code List} Dados do modelo
      */
     public GListModel(List<T> data) {
         this.data = data;
@@ -43,7 +43,7 @@ public class GListModel<T> extends AbstractListModel<T> {
     /**
      * Adiciona novo elemento ao modelo
      *
-     * @param t <code>T</code> Novo elemento
+     * @param t {@code T} Novo elemento
      */
     public void add(T t) {
         data.add(t);
@@ -53,7 +53,7 @@ public class GListModel<T> extends AbstractListModel<T> {
     /**
      * Remove elemento do modelo
      *
-     * @param t <code>T</code> Elemento
+     * @param t {@code T} Elemento
      */
     public void remove(T t) {
         if (data.contains(t)) {
@@ -65,7 +65,7 @@ public class GListModel<T> extends AbstractListModel<T> {
     /**
      * Remove vários elementos do modelo
      *
-     * @param elements <code>T[]</code> Elementos
+     * @param elements {@code T[]} Elementos
      */
     public void remove(T[] elements) {
         for (T t : elements) {
@@ -79,7 +79,7 @@ public class GListModel<T> extends AbstractListModel<T> {
     /**
      * Remove elemento do modelo
      *
-     * @param index <code>int</code> ID do Elemento
+     * @param index {@code int} ID do Elemento
      */
     public void remove(int index) {
         if (index >= 0 && index < data.size()) {
@@ -91,7 +91,7 @@ public class GListModel<T> extends AbstractListModel<T> {
     /**
      * Remove vários elementos do modelo
      *
-     * @param elements <code>int[]</code> IDs dos Elementos
+     * @param elements {@code int[]} IDs dos Elementos
      */
     public void remove(int[] elements) {
         for (int i : elements) {
@@ -110,7 +110,7 @@ public class GListModel<T> extends AbstractListModel<T> {
     /**
      * Retorna os dados do modelo
      *
-     * @return <code>List</code> Dados do modelo
+     * @return {@code List} Dados do modelo
      */
     public List<T> getData() {
         return data;
@@ -119,7 +119,7 @@ public class GListModel<T> extends AbstractListModel<T> {
     /**
      * Modifica os dados do modelo
      *
-     * @param data <code>List</code> Dados do modelo
+     * @param data {@code List} Dados do modelo
      */
     public void setData(List<T> data) {
         this.data = data;

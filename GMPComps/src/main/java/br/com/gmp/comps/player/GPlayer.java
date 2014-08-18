@@ -31,7 +31,7 @@ public class GPlayer extends JToolBar {
     /**
      * Cria nova instancia de GPlayer
      *
-     * @param path <code>String</code> Caminho do arquivo
+     * @param path {@code String} Caminho do arquivo
      */
     public GPlayer(String path) {
         this.path = path;
@@ -55,7 +55,7 @@ public class GPlayer extends JToolBar {
     /**
      * Constroi os dados no GPlayer
      *
-     * @param path <code>String</code> Caminho do arquivo
+     * @param path {@code String} Caminho do arquivo
      */
     public void build(String path) {
         this.path = path;
@@ -70,7 +70,7 @@ public class GPlayer extends JToolBar {
     /**
      * Retorna o caminho do arquivo executado
      *
-     * @return <code>String</code> Caminho do arquivo executado
+     * @return {@code String} Caminho do arquivo executado
      */
     public String getPath() {
         return path;
@@ -79,7 +79,7 @@ public class GPlayer extends JToolBar {
     /**
      * Modifica o caminho do arquivo executado
      *
-     * @param path <code>String</code> Caminho do arquivo executado
+     * @param path {@code String} Caminho do arquivo executado
      */
     public void setPath(String path) {
         this.path = path;
@@ -89,7 +89,7 @@ public class GPlayer extends JToolBar {
     /**
      * Retorna o arquivo executado
      *
-     * @return <code>File</code> Arquivo executado
+     * @return {@code File} Arquivo executado
      */
     public File getFile() {
         return file;
@@ -98,7 +98,7 @@ public class GPlayer extends JToolBar {
     /**
      * Modifica o arquivo executado
      *
-     * @param file <code>File</code> Arquivo executado
+     * @param file {@code File} Arquivo executado
      */
     public void setFile(File file) {
         this.file = file;
@@ -108,7 +108,7 @@ public class GPlayer extends JToolBar {
     /**
      * Modifica o reprodutor de audio
      *
-     * @return <code>SoundLayer</code> Reprodutor de audio
+     * @return {@code SoundLayer} Reprodutor de audio
      */
     public SoundLayer getLayer() {
         return layer;
@@ -117,7 +117,7 @@ public class GPlayer extends JToolBar {
     /**
      * Retorna o reprodutor de audio
      *
-     * @param layer <code>SoundLayer</code> Reprodutor de audio
+     * @param layer {@code SoundLayer} Reprodutor de audio
      */
     public void setLayer(SoundLayer layer) {
         this.layer = layer;
@@ -126,7 +126,7 @@ public class GPlayer extends JToolBar {
     /**
      * Retorna se os controles de navegação devem ser gerados
      *
-     * @return <code>boolean</code> Gerar controles de navegação?
+     * @return {@code boolean} Gerar controles de navegação?
      */
     public boolean isNavigate() {
         return navigate;
@@ -135,7 +135,7 @@ public class GPlayer extends JToolBar {
     /**
      * Identifica se os controles de navegação devem ser gerados
      *
-     * @param navigate <code>boolean</code> Gerar controles de navegação?
+     * @param navigate {@code boolean} Gerar controles de navegação?
      */
     public void setNavigate(boolean navigate) {
         this.navigate = navigate;

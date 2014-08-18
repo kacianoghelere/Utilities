@@ -10,7 +10,7 @@ public interface ValidableComponent {
     /**
      * Valida o componente
      *
-     * @return <code>boolean</code> Resultado da validação
+     * @return {@code boolean} Resultado da validação
      */
     boolean validateComponent();
 

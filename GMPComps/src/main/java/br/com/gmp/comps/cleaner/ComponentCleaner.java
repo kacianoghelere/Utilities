@@ -21,7 +21,7 @@ public class ComponentCleaner {
     /**
      * Método de limpeza principal
      *
-     * @param c <code>Container</code> Container raiz
+     * @param c {@code Container} Container raiz
      */
     public void clean(Container c) {
         for (Component comp : c.getComponents()) {
@@ -37,7 +37,7 @@ public class ComponentCleaner {
     /**
      * Método de limpeza dos componentes internos
      *
-     * @param c <code>Container</code> Container raiz
+     * @param c {@code Container} Container raiz
      */
     public void cleanComponents(Container c) {
         for (Component comp : c.getComponents()) {

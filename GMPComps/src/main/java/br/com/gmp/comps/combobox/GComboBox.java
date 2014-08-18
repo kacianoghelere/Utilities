@@ -35,7 +35,7 @@ public class GComboBox<T> extends JComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GMPComboBox
      *
-     * @param model <code>GComboBoxModel(T)</code> Modelo da combobox
+     * @param model {@code GComboBoxModel(T)} Modelo da combobox
      */
     public GComboBox(GComboBoxModel<T> model) {
         initialize(model);
@@ -44,7 +44,7 @@ public class GComboBox<T> extends JComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GMPComboBox
      *
-     * @param data <code>T[]</code> Dados da combobox
+     * @param data {@code T[]} Dados da combobox
      */
     public GComboBox(T[] data) {
         initialize(new GComboBoxModel<>(data));
@@ -53,7 +53,7 @@ public class GComboBox<T> extends JComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GMPComboBox
      *
-     * @param data <code>List(T)</code> Dados da combobox
+     * @param data {@code List(T)} Dados da combobox
      */
     public GComboBox(List<T> data) {
         initialize(new GComboBoxModel<>(data));
@@ -62,7 +62,7 @@ public class GComboBox<T> extends JComboBox implements ValidableComponent {
     /**
      * Cria nova instancia de GMPComboBox
      *
-     * @param data <code>Vector(T)</code> Dados da combobox
+     * @param data {@code Vector(T)} Dados da combobox
      */
     public GComboBox(Vector<T> data) {
         initialize(new GComboBoxModel<>(data));
@@ -81,7 +81,7 @@ public class GComboBox<T> extends JComboBox implements ValidableComponent {
     /**
      * Retorna os valores do combo
      *
-     * @return <code>List(T)</code> Dados da combobox
+     * @return {@code List(T)} Dados da combobox
      */
     public List<T> getData() {
         return data;
@@ -90,7 +90,7 @@ public class GComboBox<T> extends JComboBox implements ValidableComponent {
     /**
      * Modifica os dados no combo
      *
-     * @param data <code>List(T)</code> Lista de dados
+     * @param data {@code List(T)} Lista de dados
      */
     public void setData(List<T> data) {
         this.data = data;
@@ -102,7 +102,7 @@ public class GComboBox<T> extends JComboBox implements ValidableComponent {
     /**
      * Modifica o modelo da combobox
      *
-     * @return <code>GComboBoxModel(T)</code> Modelo da combobox
+     * @return {@code GComboBoxModel(T)} Modelo da combobox
      */
     public GComboBoxModel<T> getGModel() {
         return model;
@@ -111,7 +111,7 @@ public class GComboBox<T> extends JComboBox implements ValidableComponent {
     /**
      * Modifica o modelo da combobox
      *
-     * @param model <code>GComboBoxModel(T)</code> Modelo da combobox
+     * @param model {@code GComboBoxModel(T)} Modelo da combobox
      */
     public void setGModel(GComboBoxModel<T> model) {
         this.model = model;
