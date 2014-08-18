@@ -14,6 +14,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.text.Document;
 
 /**
@@ -43,9 +44,9 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Cria nova instancia de GTextField
      *
-     * @param doc <code>Document</code> Documento do componente
-     * @param text <code>String</code> Texto do componente
-     * @param columns <code>int</code> Quantidade de colunas
+     * @param doc {@code Document} Documento do componente
+     * @param text {@code String} Texto do componente
+     * @param columns {@code int} Quantidade de colunas
      */
     public GTextField(Document doc, String text, int columns) {
         super(doc, text, columns);
@@ -55,9 +56,9 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Cria nova instancia de GTextField
      *
-     * @param placeholder <code>String</code> Texto que ficará no componente
-     * enquanto ele estiver vazio
-     * @param icon <code>Icon</code> Icone do componente
+     * @param placeholder {@code String} Texto que ficará no componente enquanto
+     * ele estiver vazio
+     * @param icon {@code Icon} Icone do componente
      */
     public GTextField(String placeholder, Icon icon) {
         this.placeholder = placeholder;
@@ -68,7 +69,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Cria nova instancia de GTextField
      *
-     * @param icon <code>Icon</code> Icone do componente
+     * @param icon {@code Icon} Icone do componente
      */
     public GTextField(Icon icon) {
         this.icon = icon;
@@ -78,8 +79,8 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Cria nova instancia de GTextField
      *
-     * @param text <code>String</code> Texto do componente
-     * @param columns <code>int</code> Colunas do componente
+     * @param text {@code String} Texto do componente
+     * @param columns {@code int} Colunas do componente
      */
     public GTextField(String text, int columns) {
         super(text, columns);
@@ -89,9 +90,9 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Cria nova instancia de GTextField
      *
-     * @param minimallength <code>int</code> Comprimento mínimo do texto
-     * @param maximumlength <code>int</code> Comprimento máximo do texto
-     * @param force <code>boolean</code> Forçar o campo a obedecer as regras?
+     * @param minimallength {@code int} Comprimento mínimo do texto
+     * @param maximumlength {@code int} Comprimento máximo do texto
+     * @param force {@code boolean} Forçar o campo a obedecer as regras?
      */
     public GTextField(int minimallength, int maximumlength, boolean force) {
         this.minimallength = minimallength;
@@ -103,12 +104,12 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Cria nova instancia de GTextField
      *
-     * @param placeholder <code>String</code> Texto que ficará no componente
-     * enquanto ele estiver vazio
-     * @param icon <code>Icon</code> Icone do componente
-     * @param minimallength <code>int</code> Comprimento mínimo do texto
-     * @param maximumlength <code>int</code> Comprimento máximo do texto
-     * @param force <code>boolean</code> Forçar o campo a obedecer as regras?
+     * @param placeholder {@code String} Texto que ficará no componente enquanto
+     * ele estiver vazio
+     * @param icon {@code Icon} Icone do componente
+     * @param minimallength {@code int} Comprimento mínimo do texto
+     * @param maximumlength {@code int} Comprimento máximo do texto
+     * @param force {@code boolean} Forçar o campo a obedecer as regras?
      */
     public GTextField(String placeholder, Icon icon, int minimallength,
             int maximumlength, boolean force) {
@@ -155,10 +156,10 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
 
     @Override
     public boolean validateComponent() {
-        if (this.minimallength != 0 && this.minimallength < this.getText().length()) {            
+        if (this.minimallength != 0 && this.minimallength < this.getText().length()) {
             showMsg("Minimo: " + minimallength + " caracteres.");
             return false;
-        } else if (this.getText().equals("") || this.getText() == null || getText().isEmpty()) {            
+        } else if (this.getText().equals("") || this.getText() == null || getText().isEmpty()) {
             showMsg(invalidMsg);
             return false;
         } else {
@@ -192,16 +193,28 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     }
 
     /**
+     * Alterna o status do placeholder
+     */
+    private void togglePlaceHolder() {
+        if (this.getText().equals(this.placeholder)) {
+            this.setForeground(new JTextField().getForeground());
+            this.setText("");
+        } else {
+            if (this.getText().isEmpty()) {
+                this.setForeground(Color.GRAY.brighter());
+                this.setText(this.placeholder);
+            }
+        }
+    }
+
+    /**
      * Ação de componente em foco
      *
      * @param e FocusEvent
      */
     public void focusGained(FocusEvent e) {
-        this.setBackground(GColors.FOCUS);
-        if (this.getText().equals(this.placeholder)) {
-            this.setForeground(new JTextField().getForeground());
-            this.setText("");
-        }
+        this.setBackground(GColors.FOCUS);        
+        togglePlaceHolder();
     }
 
     /**
@@ -211,16 +224,13 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
      */
     public void focusLost(FocusEvent e) {
         this.setBackground(new JTextField().getBackground());
-        if (this.getText().equals("") && !this.placeholder.equals("")) {
-            this.setForeground(Color.GRAY.brighter());
-            this.setText(this.placeholder);
-        }
+        togglePlaceHolder();
     }
 
     /**
      * Retorna o valor Boolean do texto
      *
-     * @return <code>Boolean</code> Valor Boolean do texto
+     * @return {@code Boolean} Valor Boolean do texto
      */
     public Boolean getBoolean() {
         try {
@@ -233,7 +243,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Modifica o valor conforme o boolean recebido
      *
-     * @param value <code>boolean</code> Valor Boolean do texto
+     * @param value {@code boolean} Valor Boolean do texto
      */
     public void setBoolean(boolean value) {
         setText(String.valueOf(value));
@@ -242,7 +252,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Retorna o valor Integer do texto
      *
-     * @return <code>Integer</code> Valor Integer do texto
+     * @return {@code Integer} Valor Integer do texto
      */
     public Integer getInteger() {
         try {
@@ -255,7 +265,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Modifica o valor conforme o int recebido
      *
-     * @param value <code>int</code> Valor Boolean do texto
+     * @param value {@code int} Valor Boolean do texto
      */
     public void setInt(int value) {
         setText(String.valueOf(value));
@@ -264,7 +274,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Retorna o valor Long do texto
      *
-     * @return <code>Long</code> Valor Long do texto
+     * @return {@code Long} Valor Long do texto
      */
     public Long getLong() {
         try {
@@ -277,7 +287,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Modifica o valor conforme o long recebido
      *
-     * @param value <code>long</code> Valor Boolean do texto
+     * @param value {@code long} Valor Boolean do texto
      */
     public void setLong(long value) {
         setText(String.valueOf(value));
@@ -286,7 +296,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Retorna o valor Float do texto
      *
-     * @return <code>Float</code> Valor Long do texto
+     * @return {@code Float} Valor Long do texto
      */
     public Float getFloat() {
         try {
@@ -299,7 +309,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Modifica o valor conforme o Float recebido
      *
-     * @param value <code>Float</code> Valor Boolean do texto
+     * @param value {@code Float} Valor Boolean do texto
      */
     public void setFloat(Float value) {
         setText(String.valueOf(value));
@@ -308,7 +318,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Retorna o valor Double do texto
      *
-     * @return <code>Double</code> Valor Long do texto
+     * @return {@code Double} Valor Long do texto
      */
     public Double getDouble() {
         try {
@@ -321,7 +331,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Modifica o valor conforme o Double recebido
      *
-     * @param value <code>Double</code> Valor Boolean do texto
+     * @param value {@code Double} Valor Boolean do texto
      */
     public void setDouble(Double value) {
         setText(String.valueOf(value));
@@ -330,7 +340,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Retorna o valor BigDecimal do texto
      *
-     * @return <code>BigDecimal</code> Valor Long do texto
+     * @return {@code BigDecimal} Valor Long do texto
      */
     public BigDecimal getBigDecimal() {
         try {
@@ -343,7 +353,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Modifica o valor conforme o BigDecimal recebido
      *
-     * @param value <code>BigDecimal</code> Valor Boolean do texto
+     * @param value {@code BigDecimal} Valor Boolean do texto
      */
     public void setBigDecimal(BigDecimal value) {
         setText(String.valueOf(value));
@@ -352,7 +362,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Retorna o valor BigInteger do texto
      *
-     * @return <code>BigInteger</code> Valor Long do texto
+     * @return {@code BigInteger} Valor Long do texto
      */
     public BigInteger getBigInteger() {
         try {
@@ -365,7 +375,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     /**
      * Modifica o valor conforme o BigInteger recebido
      *
-     * @param value <code>BigInteger</code> Valor Boolean do texto
+     * @param value {@code BigInteger} Valor Boolean do texto
      */
     public void setBigInteger(BigInteger value) {
         setText(String.valueOf(value));
@@ -452,56 +462,115 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
         focusLost(evt);
     }//GEN-LAST:event_formFocusLost
 
-    //<editor-fold desc="Get's & Set's" defaultstate="collapsed">
+    /**
+     * Retorna o texto de mensagem invalida
+     *
+     * @return {@code String} Mensagem invalida
+     */
     public String getInvalidMsg() {
         return invalidMsg;
     }
 
+    /**
+     * Modifica o texto de mensagem invalida
+     *
+     * @param invalidMsg {@code String} Mensagem invalida
+     */
     public void setInvalidMsg(String invalidMsg) {
         this.invalidMsg = invalidMsg;
     }
 
+    /**
+     * Retorna o texto provisório
+     *
+     * @return {@code String} Texto provisório
+     */
     public String getPlaceholder() {
         return placeholder;
     }
 
+    /**
+     * Modifica o texto provisório
+     *
+     * @param placeholder {@code String} Texto provisório
+     */
     public void setPlaceholder(String placeholder) {
         this.placeholder = placeholder;
+        togglePlaceHolder();
     }
 
+    /**
+     * Retorna o icone do campo
+     *
+     * @return {@code Icon} Icone do campo
+     */
     public Icon getIcon() {
         return icon;
     }
 
+    /**
+     * Modifica o icone do campo
+     *
+     * @param icon {@code Icon} Icone do campo
+     */
     public void setIcon(Icon icon) {
         this.icon = icon;
     }
 
+    /**
+     * Retorna Tamanho minimo do texto
+     *
+     * @return {@code int} Tamanho minimo do texto
+     */
     public int getMinimallength() {
         return minimallength;
     }
 
+    /**
+     * Modifica Tamanho minimo do texto
+     *
+     * @param minimallength {@code int} Tamanho minimo do texto
+     */
     public void setMinimallength(int minimallength) {
         this.minimallength = minimallength;
     }
 
+    /**
+     * Retorna Tamanho máximo do texto
+     *
+     * @return {@code int} Tamanho máximo do texto
+     */
     public int getMaximumlength() {
         return maximumlength;
     }
 
+    /**
+     * Modifica Tamanho máximo do texto
+     *
+     * @param maximumlength {@code int} Tamanho máximo do texto
+     */
     public void setMaximumlength(int maximumlength) {
         this.maximumlength = maximumlength;
     }
 
+    /**
+     * Retorna se força a digitação
+     *
+     * @return {@code boolean} Forçar a digitação?
+     */
     public boolean isForce() {
         return force;
     }
 
+    /**
+     * Modifica se forçará a digitação
+     *                                                                                                                      
+     * @param force {@code boolean} Forçar a digitação?
+     */
     public void setForce(boolean force) {
         this.force = force;
     }
 
-    //</editor-fold>
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem jMICopy;
     private javax.swing.JMenuItem jMICut;

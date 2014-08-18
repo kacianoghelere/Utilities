@@ -14,6 +14,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JWindow;
 
 /**
+ * Caixa de dialogo customizada
  *
  * @author kaciano
  */
@@ -65,7 +66,7 @@ public class GDialog extends javax.swing.JDialog {
      * @param title
      * @param modal
      */
-    public GDialog(JInternalFrame parent, String title, boolean modal) {        
+    public GDialog(JInternalFrame parent, String title, boolean modal) {
         this.parent = parent;
         initialize();
         setTitle(title);
@@ -268,7 +269,7 @@ public class GDialog extends javax.swing.JDialog {
     /**
      * Modifica a visibilidade do glasspane
      *
-     * @param state <code><b>Boolean</b></code> Visibilidade do GlassPane
+     * @param state {@code Boolean} Visibilidade do GlassPane
      */
     private void toggleBlur(boolean state) {
         if (getParent() instanceof JFrame) {
@@ -293,7 +294,7 @@ public class GDialog extends javax.swing.JDialog {
             p.getGlassPane().setVisible(state);
         }
         if (!state) {
-            
+
         }
     }
 
