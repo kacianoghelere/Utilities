@@ -43,7 +43,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
             System.exit(0);
         }
         
-        gTable2.buildTable(this, 0, mdl);
+
         //gTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         dual.setSourceElements(getTable().toArray());
         TestObject[] tos = new TestObject[5];
@@ -87,13 +87,6 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        gTableBar = new br.com.gmp.comps.table.bar.GMPTableBar();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        gTable = new br.com.gmp.comps.table.GMPTable(this, new DefaultModel(), Test.class);
-        jPanel3 = new javax.swing.JPanel();
-        dual = new br.com.gmp.comps.list.dual.GMPDualList();
-        gMPDualTable1 = new br.com.gmp.comps.table.dual.GMPDualTable();
         jPanel4 = new javax.swing.JPanel();
         gMPDateField2 = new br.com.gmp.comps.datefield.GMPDateField();
         jButton4 = new javax.swing.JButton();
@@ -107,74 +100,12 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         jScrollPane1 = new javax.swing.JScrollPane();
         gTextArea1 = new br.com.gmp.comps.textarea.GTextArea();
         gPlayer = new br.com.gmp.comps.player.GPlayer();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        gTable2 = new br.com.gmp.comps.table.GTable();
+        gCalendar1 = new br.com.gmp.comps.calendar.GCalendar();
+        dual = new br.com.gmp.comps.list.dual.GMPDualList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane1.setName("jTabbedPane1"); // NOI18N
-
-        jPanel2.setName("jPanel2"); // NOI18N
-
-        gTableBar.setName("gTableBar"); // NOI18N
-
-        jScrollPane2.setName("jScrollPane2"); // NOI18N
-
-        gTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        gTable.setEnabled(false);
-        gTable.setName("gTable"); // NOI18N
-        gTable.setShowGrid(true);
-        jScrollPane2.setViewportView(gTable);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gTableBar, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(gTableBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Tabela", jPanel2);
-
-        jPanel3.setName("jPanel3"); // NOI18N
-
-        dual.setDestinationLabelText("Destino");
-        dual.setSourceLabelText("Fonte");
-        dual.setName("dual"); // NOI18N
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(dual, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(dual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-        );
-
-        jTabbedPane1.addTab("Lista", jPanel3);
-
-        gMPDualTable1.setName("gMPDualTable1"); // NOI18N
-        jTabbedPane1.addTab("DualTable", gMPDualTable1);
 
         jPanel4.setName("jPanel4"); // NOI18N
 
@@ -224,7 +155,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         gGradientPanel1Layout.setVerticalGroup(
             gGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(gNumericField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
         );
@@ -238,6 +169,8 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
 
         gPlayer.setName("gPlayer"); // NOI18N
 
+        gCalendar1.setName("gCalendar1"); // NOI18N
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -246,7 +179,9 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4)
+                            .addComponent(gCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(gPlayer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -276,32 +211,25 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                     .addComponent(gAutoCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(gGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(gGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(gPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(jScrollPane1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Outros", jPanel4);
 
-        jScrollPane5.setName("jScrollPane5"); // NOI18N
-
-        gTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        gTable2.setName("gTable2"); // NOI18N
-        jScrollPane5.setViewportView(gTable2);
-
-        jTabbedPane1.addTab("tab5", jScrollPane5);
+        dual.setDestinationLabelText("Destino");
+        dual.setSourceLabelText("Fonte");
+        dual.setName("dual"); // NOI18N
+        jTabbedPane1.addTab("Dual List", dual);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -311,7 +239,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -348,25 +276,18 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private br.com.gmp.comps.list.dual.GMPDualList dual;
     private br.com.gmp.comps.combobox.GAutoComboBox gAutoCB;
+    private br.com.gmp.comps.calendar.GCalendar gCalendar1;
     private br.com.gmp.comps.panel.gradient.GGradientPanel gGradientPanel1;
     private br.com.gmp.comps.textfield.button.GMPButtonField gMPButtonField1;
     private br.com.gmp.comps.datefield.GMPDateField gMPDateField2;
-    private br.com.gmp.comps.table.dual.GMPDualTable gMPDualTable1;
     private br.com.gmp.comps.textfield.numeric.GNumericField gNumericField1;
     private br.com.gmp.comps.player.GPlayer gPlayer;
-    private br.com.gmp.comps.table.GMPTable gTable;
-    private br.com.gmp.comps.table.GTable gTable2;
-    private br.com.gmp.comps.table.bar.GMPTableBar gTableBar;
     private br.com.gmp.comps.textarea.GTextArea gTextArea1;
     private br.com.gmp.comps.tree.GMPTree gTree;
     private javax.swing.JButton jButton4;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private br.com.gmp.comps.textfield.NumericTextField numericTextField1;
     // End of variables declaration//GEN-END:variables
