@@ -17,13 +17,14 @@ import java.util.logging.Logger;
  * convertido em objetos anonimos)
  *
  * Exemplo de uso:
- * <br>{@code 
+ * <br>{@code
  * class NewTableModel extends GTableModel(Object) {<br>
  * public NewTableModel() {<br>
  * super(Object.class)<br>
  * }<br>
  * }<br>
- * }<br>
+ * }<
+ * br>
  *
  * @author kaciano
  * @version 1.1
@@ -139,6 +140,9 @@ public class GTableModel<T> extends SimpleTableModel {
             Object u = data.get(row);
             Field f = getFields(u.getClass())[column];
             f.setAccessible(true);
+            if (f.getClass().isArray()) {
+                return Arrays.toString((Object[]) f.get(u));
+            }
             return f.get(u);
         } catch (IllegalArgumentException | IllegalAccessException ex) {
             Logger.getLogger(GTableModel.class.getName()).log(Level.SEVERE, null, ex);
