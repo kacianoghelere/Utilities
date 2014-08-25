@@ -88,6 +88,27 @@ public class StringUtil {
         }
     }
 
+    /**
+     * Remove todos os caracteres especiais da String
+     *
+     * @param str {@code String} String à ser formatada
+     * @return {@code String} String formatada
+     */
+    public static String removeSpecial(String str) {
+        // Troca os caracteres especiais da string por "" *         
+        String[] specials = {"\\.", ",", "-", ":", "\\(", "\\)", "ª", "\\|", "\\\\", "°"};
+        for (String special : specials) {
+            str = str.replaceAll(special, "");
+        }
+        // Troca os espaços no início por "" *
+        str = str.replaceAll("^\\s+", "");
+        // Troca os espaços no início por "" *         
+        str = str.replaceAll("\\s+$", "");
+        // Troca os espaços duplicados, tabulações e etc por " " *         
+        str = str.replaceAll("\\s+", " ");
+        return str;
+    }
+
     public static void main(String[] args) {
         Long num1 = (long) 1;
         Long num2 = (long) 111;
