@@ -54,10 +54,38 @@ public class StringUtil {
      * Torna a primeira letra da String maiuscula
      *
      * @param text {@code String} String à ser formatada
-     * @return  {@code String} String formatada
+     * @return {@code String} String formatada
      */
     public String capitalize(String text) {
         return Character.toString(text.charAt(0)).toUpperCase() + text.substring(1);
+    }
+
+    /**
+     * Remove todos as letras da string, deixando apenas os numeros
+     *
+     * @param text {@code String} String à ser formatada
+     * @return {@code String} String formatada
+     */
+    public static String onlyNumbers(String text) {
+        if (text != null) {
+            return text.replaceAll("[^012346789]", "");
+        } else {
+            return "";
+        }
+    }
+
+    /**
+     * Remove todos os numeros da string, deixando apenas letras
+     *
+     * @param text {@code String} String à ser formatada
+     * @return {@code String} String formatada
+     */
+    public static String onlyLetters(String text) {
+        if (text != null) {
+            return text.replaceAll("[012346789]", "");
+        } else {
+            return "";
+        }
     }
 
     public static void main(String[] args) {
