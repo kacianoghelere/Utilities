@@ -5,6 +5,7 @@ import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -81,6 +82,16 @@ public class DynamicSelector extends JComponent {
         addListeners();
         updateRating();
         setRating(rating);
+    }
+
+    @Override
+    public synchronized void addMouseListener(MouseListener l) {
+        super.addMouseListener(l);
+        if (buttons != null) {
+            for (JToggleButton bt : buttons) {
+                bt.addMouseListener(l);
+            }
+        }
     }
 
     /**
