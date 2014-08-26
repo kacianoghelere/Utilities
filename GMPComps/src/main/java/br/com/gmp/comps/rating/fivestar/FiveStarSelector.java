@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.HashMap;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -14,14 +15,14 @@ import javax.swing.JToggleButton;
  *
  * @author kaciano
  */
-public class RatingSelector5 extends JComponent {
+public class FiveStarSelector extends JComponent implements MouseListener {
 
     private boolean editable = true;
 
     /**
      * Cria nova instancia do seletor de nivel
      */
-    public RatingSelector5() {
+    public FiveStarSelector() {
         initComponents();
         addListeners();
         updateRating();
@@ -32,7 +33,7 @@ public class RatingSelector5 extends JComponent {
      *
      * @param rate Nivel inicial
      */
-    public RatingSelector5(int rate) {
+    public FiveStarSelector(int rate) {
         initComponents();
         addListeners();
         updateRating();
@@ -44,7 +45,7 @@ public class RatingSelector5 extends JComponent {
      *
      * @param editable Editavel?
      */
-    public RatingSelector5(boolean editable) {
+    public FiveStarSelector(boolean editable) {
         initComponents();
         addListeners();
         updateRating();
@@ -57,7 +58,7 @@ public class RatingSelector5 extends JComponent {
      * @param rate Nivel inicial
      * @param editable Editavel?
      */
-    public RatingSelector5(int rate, boolean editable) {
+    public FiveStarSelector(int rate, boolean editable) {
         initComponents();
         addListeners();
         updateRating();
@@ -312,6 +313,31 @@ public class RatingSelector5 extends JComponent {
 
     public void setjBStar5(javax.swing.JToggleButton jBStar5) {
         this.jBStar5 = jBStar5;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

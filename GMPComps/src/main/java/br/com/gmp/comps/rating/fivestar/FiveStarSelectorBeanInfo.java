@@ -12,12 +12,12 @@ import java.beans.*;
  *
  * @author kaciano
  */
-public class RatingSelector5BeanInfo extends SimpleBeanInfo {
+public class FiveStarSelectorBeanInfo extends SimpleBeanInfo {
 
     // Bean descriptor//GEN-FIRST:BeanDescriptor
     /*lazy BeanDescriptor*/
     private static BeanDescriptor getBdescriptor(){
-        BeanDescriptor beanDescriptor = new BeanDescriptor  ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class , null ); // NOI18N//GEN-HEADEREND:BeanDescriptor
+        BeanDescriptor beanDescriptor = new BeanDescriptor  ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class , null ); // NOI18N//GEN-HEADEREND:BeanDescriptor
     // Here you can add code for customizing the BeanDescriptor.
 
         return beanDescriptor;     }//GEN-LAST:BeanDescriptor
@@ -139,114 +139,115 @@ public class RatingSelector5BeanInfo extends SimpleBeanInfo {
         PropertyDescriptor[] properties = new PropertyDescriptor[108];
     
         try {
-            properties[PROPERTY_accessibleContext] = new PropertyDescriptor ( "accessibleContext", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getAccessibleContext", null ); // NOI18N
-            properties[PROPERTY_actionMap] = new PropertyDescriptor ( "actionMap", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getActionMap", "setActionMap" ); // NOI18N
-            properties[PROPERTY_alignmentX] = new PropertyDescriptor ( "alignmentX", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getAlignmentX", "setAlignmentX" ); // NOI18N
-            properties[PROPERTY_alignmentY] = new PropertyDescriptor ( "alignmentY", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getAlignmentY", "setAlignmentY" ); // NOI18N
-            properties[PROPERTY_ancestorListeners] = new PropertyDescriptor ( "ancestorListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getAncestorListeners", null ); // NOI18N
-            properties[PROPERTY_autoscrolls] = new PropertyDescriptor ( "autoscrolls", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getAutoscrolls", "setAutoscrolls" ); // NOI18N
-            properties[PROPERTY_background] = new PropertyDescriptor ( "background", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getBackground", "setBackground" ); // NOI18N
-            properties[PROPERTY_backgroundSet] = new PropertyDescriptor ( "backgroundSet", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isBackgroundSet", null ); // NOI18N
-            properties[PROPERTY_baselineResizeBehavior] = new PropertyDescriptor ( "baselineResizeBehavior", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getBaselineResizeBehavior", null ); // NOI18N
-            properties[PROPERTY_border] = new PropertyDescriptor ( "border", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getBorder", "setBorder" ); // NOI18N
-            properties[PROPERTY_bounds] = new PropertyDescriptor ( "bounds", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getBounds", "setBounds" ); // NOI18N
-            properties[PROPERTY_buttonGroup] = new PropertyDescriptor ( "buttonGroup", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getButtonGroup", "setButtonGroup" ); // NOI18N
-            properties[PROPERTY_colorModel] = new PropertyDescriptor ( "colorModel", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getColorModel", null ); // NOI18N
-            properties[PROPERTY_component] = new IndexedPropertyDescriptor ( "component", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, null, null, "getComponent", null ); // NOI18N
-            properties[PROPERTY_componentCount] = new PropertyDescriptor ( "componentCount", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getComponentCount", null ); // NOI18N
-            properties[PROPERTY_componentListeners] = new PropertyDescriptor ( "componentListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getComponentListeners", null ); // NOI18N
-            properties[PROPERTY_componentOrientation] = new PropertyDescriptor ( "componentOrientation", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getComponentOrientation", "setComponentOrientation" ); // NOI18N
-            properties[PROPERTY_componentPopupMenu] = new PropertyDescriptor ( "componentPopupMenu", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getComponentPopupMenu", "setComponentPopupMenu" ); // NOI18N
-            properties[PROPERTY_components] = new PropertyDescriptor ( "components", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getComponents", null ); // NOI18N
-            properties[PROPERTY_containerListeners] = new PropertyDescriptor ( "containerListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getContainerListeners", null ); // NOI18N
-            properties[PROPERTY_cursor] = new PropertyDescriptor ( "cursor", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getCursor", "setCursor" ); // NOI18N
-            properties[PROPERTY_cursorSet] = new PropertyDescriptor ( "cursorSet", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isCursorSet", null ); // NOI18N
-            properties[PROPERTY_debugGraphicsOptions] = new PropertyDescriptor ( "debugGraphicsOptions", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getDebugGraphicsOptions", "setDebugGraphicsOptions" ); // NOI18N
-            properties[PROPERTY_displayable] = new PropertyDescriptor ( "displayable", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isDisplayable", null ); // NOI18N
-            properties[PROPERTY_doubleBuffered] = new PropertyDescriptor ( "doubleBuffered", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isDoubleBuffered", "setDoubleBuffered" ); // NOI18N
-            properties[PROPERTY_dropTarget] = new PropertyDescriptor ( "dropTarget", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getDropTarget", "setDropTarget" ); // NOI18N
-            properties[PROPERTY_editable] = new PropertyDescriptor ( "editable", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isEditable", "setEditable" ); // NOI18N
-            properties[PROPERTY_enabled] = new PropertyDescriptor ( "enabled", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isEnabled", "setEnabled" ); // NOI18N
-            properties[PROPERTY_focusable] = new PropertyDescriptor ( "focusable", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isFocusable", "setFocusable" ); // NOI18N
-            properties[PROPERTY_focusCycleRoot] = new PropertyDescriptor ( "focusCycleRoot", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isFocusCycleRoot", "setFocusCycleRoot" ); // NOI18N
-            properties[PROPERTY_focusCycleRootAncestor] = new PropertyDescriptor ( "focusCycleRootAncestor", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getFocusCycleRootAncestor", null ); // NOI18N
-            properties[PROPERTY_focusListeners] = new PropertyDescriptor ( "focusListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getFocusListeners", null ); // NOI18N
-            properties[PROPERTY_focusOwner] = new PropertyDescriptor ( "focusOwner", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isFocusOwner", null ); // NOI18N
-            properties[PROPERTY_focusTraversable] = new PropertyDescriptor ( "focusTraversable", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isFocusTraversable", null ); // NOI18N
-            properties[PROPERTY_focusTraversalKeys] = new IndexedPropertyDescriptor ( "focusTraversalKeys", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, null, null, null, "setFocusTraversalKeys" ); // NOI18N
-            properties[PROPERTY_focusTraversalKeysEnabled] = new PropertyDescriptor ( "focusTraversalKeysEnabled", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getFocusTraversalKeysEnabled", "setFocusTraversalKeysEnabled" ); // NOI18N
-            properties[PROPERTY_focusTraversalPolicy] = new PropertyDescriptor ( "focusTraversalPolicy", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getFocusTraversalPolicy", "setFocusTraversalPolicy" ); // NOI18N
-            properties[PROPERTY_focusTraversalPolicyProvider] = new PropertyDescriptor ( "focusTraversalPolicyProvider", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isFocusTraversalPolicyProvider", "setFocusTraversalPolicyProvider" ); // NOI18N
-            properties[PROPERTY_focusTraversalPolicySet] = new PropertyDescriptor ( "focusTraversalPolicySet", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isFocusTraversalPolicySet", null ); // NOI18N
-            properties[PROPERTY_font] = new PropertyDescriptor ( "font", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getFont", "setFont" ); // NOI18N
-            properties[PROPERTY_fontSet] = new PropertyDescriptor ( "fontSet", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isFontSet", null ); // NOI18N
-            properties[PROPERTY_foreground] = new PropertyDescriptor ( "foreground", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getForeground", "setForeground" ); // NOI18N
-            properties[PROPERTY_foregroundSet] = new PropertyDescriptor ( "foregroundSet", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isForegroundSet", null ); // NOI18N
-            properties[PROPERTY_graphics] = new PropertyDescriptor ( "graphics", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getGraphics", null ); // NOI18N
-            properties[PROPERTY_graphicsConfiguration] = new PropertyDescriptor ( "graphicsConfiguration", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getGraphicsConfiguration", null ); // NOI18N
-            properties[PROPERTY_height] = new PropertyDescriptor ( "height", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getHeight", null ); // NOI18N
-            properties[PROPERTY_hierarchyBoundsListeners] = new PropertyDescriptor ( "hierarchyBoundsListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getHierarchyBoundsListeners", null ); // NOI18N
-            properties[PROPERTY_hierarchyListeners] = new PropertyDescriptor ( "hierarchyListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getHierarchyListeners", null ); // NOI18N
-            properties[PROPERTY_ignoreRepaint] = new PropertyDescriptor ( "ignoreRepaint", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getIgnoreRepaint", "setIgnoreRepaint" ); // NOI18N
-            properties[PROPERTY_inheritsPopupMenu] = new PropertyDescriptor ( "inheritsPopupMenu", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getInheritsPopupMenu", "setInheritsPopupMenu" ); // NOI18N
-            properties[PROPERTY_inputContext] = new PropertyDescriptor ( "inputContext", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getInputContext", null ); // NOI18N
-            properties[PROPERTY_inputMap] = new PropertyDescriptor ( "inputMap", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getInputMap", null ); // NOI18N
-            properties[PROPERTY_inputMethodListeners] = new PropertyDescriptor ( "inputMethodListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getInputMethodListeners", null ); // NOI18N
-            properties[PROPERTY_inputMethodRequests] = new PropertyDescriptor ( "inputMethodRequests", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getInputMethodRequests", null ); // NOI18N
-            properties[PROPERTY_inputVerifier] = new PropertyDescriptor ( "inputVerifier", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getInputVerifier", "setInputVerifier" ); // NOI18N
-            properties[PROPERTY_insets] = new PropertyDescriptor ( "insets", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getInsets", null ); // NOI18N
-            properties[PROPERTY_jBStar1] = new PropertyDescriptor ( "jBStar1", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getjBStar1", "setjBStar1" ); // NOI18N
-            properties[PROPERTY_jBStar2] = new PropertyDescriptor ( "jBStar2", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getjBStar2", "setjBStar2" ); // NOI18N
-            properties[PROPERTY_jBStar3] = new PropertyDescriptor ( "jBStar3", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getjBStar3", "setjBStar3" ); // NOI18N
-            properties[PROPERTY_jBStar4] = new PropertyDescriptor ( "jBStar4", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getjBStar4", "setjBStar4" ); // NOI18N
-            properties[PROPERTY_jBStar5] = new PropertyDescriptor ( "jBStar5", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getjBStar5", "setjBStar5" ); // NOI18N
-            properties[PROPERTY_keyListeners] = new PropertyDescriptor ( "keyListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getKeyListeners", null ); // NOI18N
-            properties[PROPERTY_layout] = new PropertyDescriptor ( "layout", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getLayout", "setLayout" ); // NOI18N
-            properties[PROPERTY_lightweight] = new PropertyDescriptor ( "lightweight", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isLightweight", null ); // NOI18N
-            properties[PROPERTY_locale] = new PropertyDescriptor ( "locale", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getLocale", "setLocale" ); // NOI18N
-            properties[PROPERTY_location] = new PropertyDescriptor ( "location", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getLocation", "setLocation" ); // NOI18N
-            properties[PROPERTY_locationOnScreen] = new PropertyDescriptor ( "locationOnScreen", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getLocationOnScreen", null ); // NOI18N
-            properties[PROPERTY_managingFocus] = new PropertyDescriptor ( "managingFocus", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isManagingFocus", null ); // NOI18N
-            properties[PROPERTY_maximumSize] = new PropertyDescriptor ( "maximumSize", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getMaximumSize", "setMaximumSize" ); // NOI18N
-            properties[PROPERTY_maximumSizeSet] = new PropertyDescriptor ( "maximumSizeSet", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isMaximumSizeSet", null ); // NOI18N
-            properties[PROPERTY_minimumSize] = new PropertyDescriptor ( "minimumSize", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getMinimumSize", "setMinimumSize" ); // NOI18N
-            properties[PROPERTY_minimumSizeSet] = new PropertyDescriptor ( "minimumSizeSet", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isMinimumSizeSet", null ); // NOI18N
-            properties[PROPERTY_mouseListeners] = new PropertyDescriptor ( "mouseListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getMouseListeners", null ); // NOI18N
-            properties[PROPERTY_mouseMotionListeners] = new PropertyDescriptor ( "mouseMotionListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getMouseMotionListeners", null ); // NOI18N
-            properties[PROPERTY_mousePosition] = new PropertyDescriptor ( "mousePosition", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getMousePosition", null ); // NOI18N
-            properties[PROPERTY_mouseWheelListeners] = new PropertyDescriptor ( "mouseWheelListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getMouseWheelListeners", null ); // NOI18N
-            properties[PROPERTY_name] = new PropertyDescriptor ( "name", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getName", "setName" ); // NOI18N
-            properties[PROPERTY_nextFocusableComponent] = new PropertyDescriptor ( "nextFocusableComponent", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getNextFocusableComponent", "setNextFocusableComponent" ); // NOI18N
-            properties[PROPERTY_opaque] = new PropertyDescriptor ( "opaque", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isOpaque", "setOpaque" ); // NOI18N
-            properties[PROPERTY_optimizedDrawingEnabled] = new PropertyDescriptor ( "optimizedDrawingEnabled", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isOptimizedDrawingEnabled", null ); // NOI18N
-            properties[PROPERTY_paintingForPrint] = new PropertyDescriptor ( "paintingForPrint", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isPaintingForPrint", null ); // NOI18N
-            properties[PROPERTY_paintingTile] = new PropertyDescriptor ( "paintingTile", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isPaintingTile", null ); // NOI18N
-            properties[PROPERTY_parent] = new PropertyDescriptor ( "parent", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getParent", null ); // NOI18N
-            properties[PROPERTY_peer] = new PropertyDescriptor ( "peer", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getPeer", null ); // NOI18N
-            properties[PROPERTY_preferredSize] = new PropertyDescriptor ( "preferredSize", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getPreferredSize", "setPreferredSize" ); // NOI18N
-            properties[PROPERTY_preferredSizeSet] = new PropertyDescriptor ( "preferredSizeSet", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isPreferredSizeSet", null ); // NOI18N
-            properties[PROPERTY_propertyChangeListeners] = new PropertyDescriptor ( "propertyChangeListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getPropertyChangeListeners", null ); // NOI18N
-            properties[PROPERTY_registeredKeyStrokes] = new PropertyDescriptor ( "registeredKeyStrokes", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getRegisteredKeyStrokes", null ); // NOI18N
-            properties[PROPERTY_requestFocusEnabled] = new PropertyDescriptor ( "requestFocusEnabled", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isRequestFocusEnabled", "setRequestFocusEnabled" ); // NOI18N
-            properties[PROPERTY_rootPane] = new PropertyDescriptor ( "rootPane", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getRootPane", null ); // NOI18N
-            properties[PROPERTY_selectedRating] = new PropertyDescriptor ( "selectedRating", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getSelectedRating", "setSelectedRating" ); // NOI18N
-            properties[PROPERTY_showing] = new PropertyDescriptor ( "showing", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isShowing", null ); // NOI18N
-            properties[PROPERTY_size] = new PropertyDescriptor ( "size", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getSize", "setSize" ); // NOI18N
-            properties[PROPERTY_toolkit] = new PropertyDescriptor ( "toolkit", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getToolkit", null ); // NOI18N
-            properties[PROPERTY_toolTipText] = new PropertyDescriptor ( "toolTipText", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getToolTipText", "setToolTipText" ); // NOI18N
-            properties[PROPERTY_topLevelAncestor] = new PropertyDescriptor ( "topLevelAncestor", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getTopLevelAncestor", null ); // NOI18N
-            properties[PROPERTY_transferHandler] = new PropertyDescriptor ( "transferHandler", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getTransferHandler", "setTransferHandler" ); // NOI18N
-            properties[PROPERTY_treeLock] = new PropertyDescriptor ( "treeLock", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getTreeLock", null ); // NOI18N
-            properties[PROPERTY_UIClassID] = new PropertyDescriptor ( "UIClassID", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getUIClassID", null ); // NOI18N
-            properties[PROPERTY_valid] = new PropertyDescriptor ( "valid", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isValid", null ); // NOI18N
-            properties[PROPERTY_validateRoot] = new PropertyDescriptor ( "validateRoot", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isValidateRoot", null ); // NOI18N
-            properties[PROPERTY_verifyInputWhenFocusTarget] = new PropertyDescriptor ( "verifyInputWhenFocusTarget", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getVerifyInputWhenFocusTarget", "setVerifyInputWhenFocusTarget" ); // NOI18N
-            properties[PROPERTY_vetoableChangeListeners] = new PropertyDescriptor ( "vetoableChangeListeners", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getVetoableChangeListeners", null ); // NOI18N
-            properties[PROPERTY_visible] = new PropertyDescriptor ( "visible", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "isVisible", "setVisible" ); // NOI18N
-            properties[PROPERTY_visibleRect] = new PropertyDescriptor ( "visibleRect", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getVisibleRect", null ); // NOI18N
-            properties[PROPERTY_width] = new PropertyDescriptor ( "width", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getWidth", null ); // NOI18N
-            properties[PROPERTY_x] = new PropertyDescriptor ( "x", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getX", null ); // NOI18N
-            properties[PROPERTY_y] = new PropertyDescriptor ( "y", br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "getY", null ); // NOI18N
+            properties[PROPERTY_accessibleContext] = new PropertyDescriptor ( "accessibleContext", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getAccessibleContext", null ); // NOI18N
+            properties[PROPERTY_actionMap] = new PropertyDescriptor ( "actionMap", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getActionMap", "setActionMap" ); // NOI18N
+            properties[PROPERTY_alignmentX] = new PropertyDescriptor ( "alignmentX", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getAlignmentX", "setAlignmentX" ); // NOI18N
+            properties[PROPERTY_alignmentY] = new PropertyDescriptor ( "alignmentY", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getAlignmentY", "setAlignmentY" ); // NOI18N
+            properties[PROPERTY_ancestorListeners] = new PropertyDescriptor ( "ancestorListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getAncestorListeners", null ); // NOI18N
+            properties[PROPERTY_autoscrolls] = new PropertyDescriptor ( "autoscrolls", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getAutoscrolls", "setAutoscrolls" ); // NOI18N
+            properties[PROPERTY_background] = new PropertyDescriptor ( "background", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getBackground", "setBackground" ); // NOI18N
+            properties[PROPERTY_backgroundSet] = new PropertyDescriptor ( "backgroundSet", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isBackgroundSet", null ); // NOI18N
+            properties[PROPERTY_baselineResizeBehavior] = new PropertyDescriptor ( "baselineResizeBehavior", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getBaselineResizeBehavior", null ); // NOI18N
+            properties[PROPERTY_border] = new PropertyDescriptor ( "border", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getBorder", "setBorder" ); // NOI18N
+            properties[PROPERTY_bounds] = new PropertyDescriptor ( "bounds", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getBounds", "setBounds" ); // NOI18N
+            properties[PROPERTY_buttonGroup] = new PropertyDescriptor ( "buttonGroup", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getButtonGroup", "setButtonGroup" ); // NOI18N
+            properties[PROPERTY_colorModel] = new PropertyDescriptor ( "colorModel", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getColorModel", null ); // NOI18N
+            properties[PROPERTY_component] = new IndexedPropertyDescriptor ( "component", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, null, null, "getComponent", null ); // NOI18N
+            properties[PROPERTY_componentCount] = new PropertyDescriptor ( "componentCount", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getComponentCount", null ); // NOI18N
+            properties[PROPERTY_componentListeners] = new PropertyDescriptor ( "componentListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getComponentListeners", null ); // NOI18N
+            properties[PROPERTY_componentOrientation] = new PropertyDescriptor ( "componentOrientation", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getComponentOrientation", "setComponentOrientation" ); // NOI18N
+            properties[PROPERTY_componentPopupMenu] = new PropertyDescriptor ( "componentPopupMenu", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getComponentPopupMenu", "setComponentPopupMenu" ); // NOI18N
+            properties[PROPERTY_components] = new PropertyDescriptor ( "components", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getComponents", null ); // NOI18N
+            properties[PROPERTY_containerListeners] = new PropertyDescriptor ( "containerListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getContainerListeners", null ); // NOI18N
+            properties[PROPERTY_cursor] = new PropertyDescriptor ( "cursor", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getCursor", "setCursor" ); // NOI18N
+            properties[PROPERTY_cursorSet] = new PropertyDescriptor ( "cursorSet", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isCursorSet", null ); // NOI18N
+            properties[PROPERTY_debugGraphicsOptions] = new PropertyDescriptor ( "debugGraphicsOptions", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getDebugGraphicsOptions", "setDebugGraphicsOptions" ); // NOI18N
+            properties[PROPERTY_displayable] = new PropertyDescriptor ( "displayable", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isDisplayable", null ); // NOI18N
+            properties[PROPERTY_doubleBuffered] = new PropertyDescriptor ( "doubleBuffered", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isDoubleBuffered", "setDoubleBuffered" ); // NOI18N
+            properties[PROPERTY_dropTarget] = new PropertyDescriptor ( "dropTarget", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getDropTarget", "setDropTarget" ); // NOI18N
+            properties[PROPERTY_editable] = new PropertyDescriptor ( "editable", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isEditable", "setEditable" ); // NOI18N
+            properties[PROPERTY_enabled] = new PropertyDescriptor ( "enabled", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isEnabled", "setEnabled" ); // NOI18N
+            properties[PROPERTY_focusable] = new PropertyDescriptor ( "focusable", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isFocusable", "setFocusable" ); // NOI18N
+            properties[PROPERTY_focusCycleRoot] = new PropertyDescriptor ( "focusCycleRoot", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isFocusCycleRoot", "setFocusCycleRoot" ); // NOI18N
+            properties[PROPERTY_focusCycleRootAncestor] = new PropertyDescriptor ( "focusCycleRootAncestor", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getFocusCycleRootAncestor", null ); // NOI18N
+            properties[PROPERTY_focusListeners] = new PropertyDescriptor ( "focusListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getFocusListeners", null ); // NOI18N
+            properties[PROPERTY_focusOwner] = new PropertyDescriptor ( "focusOwner", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isFocusOwner", null ); // NOI18N
+            properties[PROPERTY_focusTraversable] = new PropertyDescriptor ( "focusTraversable", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isFocusTraversable", null ); // NOI18N
+            properties[PROPERTY_focusTraversalKeys] = new IndexedPropertyDescriptor ( "focusTraversalKeys", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, null, null, null, "setFocusTraversalKeys" ); // NOI18N
+            properties[PROPERTY_focusTraversalKeysEnabled] = new PropertyDescriptor ( "focusTraversalKeysEnabled", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getFocusTraversalKeysEnabled", "setFocusTraversalKeysEnabled" ); // NOI18N
+            properties[PROPERTY_focusTraversalPolicy] = new PropertyDescriptor ( "focusTraversalPolicy", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getFocusTraversalPolicy", "setFocusTraversalPolicy" ); // NOI18N
+            properties[PROPERTY_focusTraversalPolicyProvider] = new PropertyDescriptor ( "focusTraversalPolicyProvider", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isFocusTraversalPolicyProvider", "setFocusTraversalPolicyProvider" ); // NOI18N
+            properties[PROPERTY_focusTraversalPolicySet] = new PropertyDescriptor ( "focusTraversalPolicySet", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isFocusTraversalPolicySet", null ); // NOI18N
+            properties[PROPERTY_font] = new PropertyDescriptor ( "font", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getFont", "setFont" ); // NOI18N
+            properties[PROPERTY_fontSet] = new PropertyDescriptor ( "fontSet", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isFontSet", null ); // NOI18N
+            properties[PROPERTY_foreground] = new PropertyDescriptor ( "foreground", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getForeground", "setForeground" ); // NOI18N
+            properties[PROPERTY_foregroundSet] = new PropertyDescriptor ( "foregroundSet", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isForegroundSet", null ); // NOI18N
+            properties[PROPERTY_graphics] = new PropertyDescriptor ( "graphics", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getGraphics", null ); // NOI18N
+            properties[PROPERTY_graphicsConfiguration] = new PropertyDescriptor ( "graphicsConfiguration", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getGraphicsConfiguration", null ); // NOI18N
+            properties[PROPERTY_height] = new PropertyDescriptor ( "height", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getHeight", null ); // NOI18N
+            properties[PROPERTY_hierarchyBoundsListeners] = new PropertyDescriptor ( "hierarchyBoundsListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getHierarchyBoundsListeners", null ); // NOI18N
+            properties[PROPERTY_hierarchyListeners] = new PropertyDescriptor ( "hierarchyListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getHierarchyListeners", null ); // NOI18N
+            properties[PROPERTY_ignoreRepaint] = new PropertyDescriptor ( "ignoreRepaint", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getIgnoreRepaint", "setIgnoreRepaint" ); // NOI18N
+            properties[PROPERTY_inheritsPopupMenu] = new PropertyDescriptor ( "inheritsPopupMenu", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getInheritsPopupMenu", "setInheritsPopupMenu" ); // NOI18N
+            properties[PROPERTY_inputContext] = new PropertyDescriptor ( "inputContext", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getInputContext", null ); // NOI18N
+            properties[PROPERTY_inputMap] = new PropertyDescriptor ( "inputMap", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getInputMap", null ); // NOI18N
+            properties[PROPERTY_inputMethodListeners] = new PropertyDescriptor ( "inputMethodListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getInputMethodListeners", null ); // NOI18N
+            properties[PROPERTY_inputMethodRequests] = new PropertyDescriptor ( "inputMethodRequests", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getInputMethodRequests", null ); // NOI18N
+            properties[PROPERTY_inputVerifier] = new PropertyDescriptor ( "inputVerifier", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getInputVerifier", "setInputVerifier" ); // NOI18N
+            properties[PROPERTY_insets] = new PropertyDescriptor ( "insets", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getInsets", null ); // NOI18N
+            properties[PROPERTY_jBStar1] = new PropertyDescriptor ( "jBStar1", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getjBStar1", "setjBStar1" ); // NOI18N
+            properties[PROPERTY_jBStar2] = new PropertyDescriptor ( "jBStar2", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getjBStar2", "setjBStar2" ); // NOI18N
+            properties[PROPERTY_jBStar3] = new PropertyDescriptor ( "jBStar3", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getjBStar3", "setjBStar3" ); // NOI18N
+            properties[PROPERTY_jBStar4] = new PropertyDescriptor ( "jBStar4", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getjBStar4", "setjBStar4" ); // NOI18N
+            properties[PROPERTY_jBStar5] = new PropertyDescriptor ( "jBStar5", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getjBStar5", "setjBStar5" ); // NOI18N
+            properties[PROPERTY_keyListeners] = new PropertyDescriptor ( "keyListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getKeyListeners", null ); // NOI18N
+            properties[PROPERTY_layout] = new PropertyDescriptor ( "layout", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getLayout", "setLayout" ); // NOI18N
+            properties[PROPERTY_lightweight] = new PropertyDescriptor ( "lightweight", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isLightweight", null ); // NOI18N
+            properties[PROPERTY_locale] = new PropertyDescriptor ( "locale", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getLocale", "setLocale" ); // NOI18N
+            properties[PROPERTY_location] = new PropertyDescriptor ( "location", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getLocation", "setLocation" ); // NOI18N
+            properties[PROPERTY_locationOnScreen] = new PropertyDescriptor ( "locationOnScreen", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getLocationOnScreen", null ); // NOI18N
+            properties[PROPERTY_managingFocus] = new PropertyDescriptor ( "managingFocus", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isManagingFocus", null ); // NOI18N
+            properties[PROPERTY_maximumSize] = new PropertyDescriptor ( "maximumSize", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getMaximumSize", "setMaximumSize" ); // NOI18N
+            properties[PROPERTY_maximumSizeSet] = new PropertyDescriptor ( "maximumSizeSet", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isMaximumSizeSet", null ); // NOI18N
+            properties[PROPERTY_minimumSize] = new PropertyDescriptor ( "minimumSize", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getMinimumSize", "setMinimumSize" ); // NOI18N
+            properties[PROPERTY_minimumSizeSet] = new PropertyDescriptor ( "minimumSizeSet", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isMinimumSizeSet", null ); // NOI18N
+            properties[PROPERTY_mouseListeners] = new PropertyDescriptor ( "mouseListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getMouseListeners", null ); // NOI18N
+            properties[PROPERTY_mouseMotionListeners] = new PropertyDescriptor ( "mouseMotionListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getMouseMotionListeners", null ); // NOI18N
+            properties[PROPERTY_mousePosition] = new PropertyDescriptor ( "mousePosition", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getMousePosition", null ); // NOI18N
+            properties[PROPERTY_mouseWheelListeners] = new PropertyDescriptor ( "mouseWheelListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getMouseWheelListeners", null ); // NOI18N
+            properties[PROPERTY_name] = new PropertyDescriptor ( "name", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getName", "setName" ); // NOI18N
+            properties[PROPERTY_nextFocusableComponent] = new PropertyDescriptor ( "nextFocusableComponent", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getNextFocusableComponent", "setNextFocusableComponent" ); // NOI18N
+            properties[PROPERTY_opaque] = new PropertyDescriptor ( "opaque", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isOpaque", "setOpaque" ); // NOI18N
+            properties[PROPERTY_optimizedDrawingEnabled] = new PropertyDescriptor ( "optimizedDrawingEnabled", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isOptimizedDrawingEnabled", null ); // NOI18N
+            properties[PROPERTY_paintingForPrint] = new PropertyDescriptor ( "paintingForPrint", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isPaintingForPrint", null ); // NOI18N
+            properties[PROPERTY_paintingTile] = new PropertyDescriptor ( "paintingTile", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isPaintingTile", null ); // NOI18N
+            properties[PROPERTY_parent] = new PropertyDescriptor ( "parent", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getParent", null ); // NOI18N
+            properties[PROPERTY_peer] = new PropertyDescriptor ( "peer", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getPeer", null ); // NOI18N
+            properties[PROPERTY_preferredSize] = new PropertyDescriptor ( "preferredSize", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getPreferredSize", "setPreferredSize" ); // NOI18N
+            properties[PROPERTY_preferredSizeSet] = new PropertyDescriptor ( "preferredSizeSet", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isPreferredSizeSet", null ); // NOI18N
+            properties[PROPERTY_propertyChangeListeners] = new PropertyDescriptor ( "propertyChangeListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getPropertyChangeListeners", null ); // NOI18N
+            properties[PROPERTY_registeredKeyStrokes] = new PropertyDescriptor ( "registeredKeyStrokes", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getRegisteredKeyStrokes", null ); // NOI18N
+            properties[PROPERTY_requestFocusEnabled] = new PropertyDescriptor ( "requestFocusEnabled", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isRequestFocusEnabled", "setRequestFocusEnabled" ); // NOI18N
+            properties[PROPERTY_rootPane] = new PropertyDescriptor ( "rootPane", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getRootPane", null ); // NOI18N
+            properties[PROPERTY_selectedRating] = new PropertyDescriptor ( "selectedRating", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getSelectedRating", "setSelectedRating" ); // NOI18N
+            properties[PROPERTY_selectedRating].setPreferred ( true );
+            properties[PROPERTY_showing] = new PropertyDescriptor ( "showing", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isShowing", null ); // NOI18N
+            properties[PROPERTY_size] = new PropertyDescriptor ( "size", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getSize", "setSize" ); // NOI18N
+            properties[PROPERTY_toolkit] = new PropertyDescriptor ( "toolkit", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getToolkit", null ); // NOI18N
+            properties[PROPERTY_toolTipText] = new PropertyDescriptor ( "toolTipText", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getToolTipText", "setToolTipText" ); // NOI18N
+            properties[PROPERTY_topLevelAncestor] = new PropertyDescriptor ( "topLevelAncestor", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getTopLevelAncestor", null ); // NOI18N
+            properties[PROPERTY_transferHandler] = new PropertyDescriptor ( "transferHandler", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getTransferHandler", "setTransferHandler" ); // NOI18N
+            properties[PROPERTY_treeLock] = new PropertyDescriptor ( "treeLock", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getTreeLock", null ); // NOI18N
+            properties[PROPERTY_UIClassID] = new PropertyDescriptor ( "UIClassID", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getUIClassID", null ); // NOI18N
+            properties[PROPERTY_valid] = new PropertyDescriptor ( "valid", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isValid", null ); // NOI18N
+            properties[PROPERTY_validateRoot] = new PropertyDescriptor ( "validateRoot", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isValidateRoot", null ); // NOI18N
+            properties[PROPERTY_verifyInputWhenFocusTarget] = new PropertyDescriptor ( "verifyInputWhenFocusTarget", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getVerifyInputWhenFocusTarget", "setVerifyInputWhenFocusTarget" ); // NOI18N
+            properties[PROPERTY_vetoableChangeListeners] = new PropertyDescriptor ( "vetoableChangeListeners", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getVetoableChangeListeners", null ); // NOI18N
+            properties[PROPERTY_visible] = new PropertyDescriptor ( "visible", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "isVisible", "setVisible" ); // NOI18N
+            properties[PROPERTY_visibleRect] = new PropertyDescriptor ( "visibleRect", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getVisibleRect", null ); // NOI18N
+            properties[PROPERTY_width] = new PropertyDescriptor ( "width", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getWidth", null ); // NOI18N
+            properties[PROPERTY_x] = new PropertyDescriptor ( "x", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getX", null ); // NOI18N
+            properties[PROPERTY_y] = new PropertyDescriptor ( "y", br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "getY", null ); // NOI18N
         }
         catch(IntrospectionException e) {
             e.printStackTrace();
@@ -276,19 +277,19 @@ public class RatingSelector5BeanInfo extends SimpleBeanInfo {
         EventSetDescriptor[] eventSets = new EventSetDescriptor[13];
     
         try {
-            eventSets[EVENT_ancestorListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "ancestorListener", javax.swing.event.AncestorListener.class, new String[] {"ancestorAdded", "ancestorRemoved", "ancestorMoved"}, "addAncestorListener", "removeAncestorListener" ); // NOI18N
-            eventSets[EVENT_componentListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "componentListener", java.awt.event.ComponentListener.class, new String[] {"componentResized", "componentMoved", "componentShown", "componentHidden"}, "addComponentListener", "removeComponentListener" ); // NOI18N
-            eventSets[EVENT_containerListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "containerListener", java.awt.event.ContainerListener.class, new String[] {"componentAdded", "componentRemoved"}, "addContainerListener", "removeContainerListener" ); // NOI18N
-            eventSets[EVENT_focusListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "focusListener", java.awt.event.FocusListener.class, new String[] {"focusGained", "focusLost"}, "addFocusListener", "removeFocusListener" ); // NOI18N
-            eventSets[EVENT_hierarchyBoundsListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "hierarchyBoundsListener", java.awt.event.HierarchyBoundsListener.class, new String[] {"ancestorMoved", "ancestorResized"}, "addHierarchyBoundsListener", "removeHierarchyBoundsListener" ); // NOI18N
-            eventSets[EVENT_hierarchyListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "hierarchyListener", java.awt.event.HierarchyListener.class, new String[] {"hierarchyChanged"}, "addHierarchyListener", "removeHierarchyListener" ); // NOI18N
-            eventSets[EVENT_inputMethodListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "inputMethodListener", java.awt.event.InputMethodListener.class, new String[] {"inputMethodTextChanged", "caretPositionChanged"}, "addInputMethodListener", "removeInputMethodListener" ); // NOI18N
-            eventSets[EVENT_keyListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "keyListener", java.awt.event.KeyListener.class, new String[] {"keyTyped", "keyPressed", "keyReleased"}, "addKeyListener", "removeKeyListener" ); // NOI18N
-            eventSets[EVENT_mouseListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "mouseListener", java.awt.event.MouseListener.class, new String[] {"mouseClicked", "mousePressed", "mouseReleased", "mouseEntered", "mouseExited"}, "addMouseListener", "removeMouseListener" ); // NOI18N
-            eventSets[EVENT_mouseMotionListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "mouseMotionListener", java.awt.event.MouseMotionListener.class, new String[] {"mouseDragged", "mouseMoved"}, "addMouseMotionListener", "removeMouseMotionListener" ); // NOI18N
-            eventSets[EVENT_mouseWheelListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "mouseWheelListener", java.awt.event.MouseWheelListener.class, new String[] {"mouseWheelMoved"}, "addMouseWheelListener", "removeMouseWheelListener" ); // NOI18N
-            eventSets[EVENT_propertyChangeListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "propertyChangeListener", java.beans.PropertyChangeListener.class, new String[] {"propertyChange"}, "addPropertyChangeListener", "removePropertyChangeListener" ); // NOI18N
-            eventSets[EVENT_vetoableChangeListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.RatingSelector5.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[] {"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener" ); // NOI18N
+            eventSets[EVENT_ancestorListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "ancestorListener", javax.swing.event.AncestorListener.class, new String[] {"ancestorAdded", "ancestorRemoved", "ancestorMoved"}, "addAncestorListener", "removeAncestorListener" ); // NOI18N
+            eventSets[EVENT_componentListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "componentListener", java.awt.event.ComponentListener.class, new String[] {"componentResized", "componentMoved", "componentShown", "componentHidden"}, "addComponentListener", "removeComponentListener" ); // NOI18N
+            eventSets[EVENT_containerListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "containerListener", java.awt.event.ContainerListener.class, new String[] {"componentAdded", "componentRemoved"}, "addContainerListener", "removeContainerListener" ); // NOI18N
+            eventSets[EVENT_focusListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "focusListener", java.awt.event.FocusListener.class, new String[] {"focusGained", "focusLost"}, "addFocusListener", "removeFocusListener" ); // NOI18N
+            eventSets[EVENT_hierarchyBoundsListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "hierarchyBoundsListener", java.awt.event.HierarchyBoundsListener.class, new String[] {"ancestorMoved", "ancestorResized"}, "addHierarchyBoundsListener", "removeHierarchyBoundsListener" ); // NOI18N
+            eventSets[EVENT_hierarchyListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "hierarchyListener", java.awt.event.HierarchyListener.class, new String[] {"hierarchyChanged"}, "addHierarchyListener", "removeHierarchyListener" ); // NOI18N
+            eventSets[EVENT_inputMethodListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "inputMethodListener", java.awt.event.InputMethodListener.class, new String[] {"inputMethodTextChanged", "caretPositionChanged"}, "addInputMethodListener", "removeInputMethodListener" ); // NOI18N
+            eventSets[EVENT_keyListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "keyListener", java.awt.event.KeyListener.class, new String[] {"keyTyped", "keyPressed", "keyReleased"}, "addKeyListener", "removeKeyListener" ); // NOI18N
+            eventSets[EVENT_mouseListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "mouseListener", java.awt.event.MouseListener.class, new String[] {"mouseClicked", "mousePressed", "mouseReleased", "mouseEntered", "mouseExited"}, "addMouseListener", "removeMouseListener" ); // NOI18N
+            eventSets[EVENT_mouseMotionListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "mouseMotionListener", java.awt.event.MouseMotionListener.class, new String[] {"mouseDragged", "mouseMoved"}, "addMouseMotionListener", "removeMouseMotionListener" ); // NOI18N
+            eventSets[EVENT_mouseWheelListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "mouseWheelListener", java.awt.event.MouseWheelListener.class, new String[] {"mouseWheelMoved"}, "addMouseWheelListener", "removeMouseWheelListener" ); // NOI18N
+            eventSets[EVENT_propertyChangeListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "propertyChangeListener", java.beans.PropertyChangeListener.class, new String[] {"propertyChange"}, "addPropertyChangeListener", "removePropertyChangeListener" ); // NOI18N
+            eventSets[EVENT_vetoableChangeListener] = new EventSetDescriptor ( br.com.gmp.comps.rating.fivestar.FiveStarSelector.class, "vetoableChangeListener", java.beans.VetoableChangeListener.class, new String[] {"vetoableChange"}, "addVetoableChangeListener", "removeVetoableChangeListener" ); // NOI18N
         }
         catch(IntrospectionException e) {
             e.printStackTrace();
@@ -478,7 +479,7 @@ public class RatingSelector5BeanInfo extends SimpleBeanInfo {
             methods[METHOD_checkImage12].setDisplayName ( "" );
             methods[METHOD_checkImage13] = new MethodDescriptor(java.awt.Component.class.getMethod("checkImage", new Class[] {java.awt.Image.class, int.class, int.class, java.awt.image.ImageObserver.class})); // NOI18N
             methods[METHOD_checkImage13].setDisplayName ( "" );
-            methods[METHOD_componentArray14] = new MethodDescriptor(br.com.gmp.comps.rating.fivestar.RatingSelector5.class.getMethod("componentArray", new Class[] {})); // NOI18N
+            methods[METHOD_componentArray14] = new MethodDescriptor(br.com.gmp.comps.rating.fivestar.FiveStarSelector.class.getMethod("componentArray", new Class[] {})); // NOI18N
             methods[METHOD_componentArray14].setDisplayName ( "" );
             methods[METHOD_computeVisibleRect15] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("computeVisibleRect", new Class[] {java.awt.Rectangle.class})); // NOI18N
             methods[METHOD_computeVisibleRect15].setDisplayName ( "" );
@@ -662,7 +663,7 @@ public class RatingSelector5BeanInfo extends SimpleBeanInfo {
             methods[METHOD_printComponents104].setDisplayName ( "" );
             methods[METHOD_putClientProperty105] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("putClientProperty", new Class[] {java.lang.Object.class, java.lang.Object.class})); // NOI18N
             methods[METHOD_putClientProperty105].setDisplayName ( "" );
-            methods[METHOD_ratings106] = new MethodDescriptor(br.com.gmp.comps.rating.fivestar.RatingSelector5.class.getMethod("ratings", new Class[] {})); // NOI18N
+            methods[METHOD_ratings106] = new MethodDescriptor(br.com.gmp.comps.rating.fivestar.FiveStarSelector.class.getMethod("ratings", new Class[] {})); // NOI18N
             methods[METHOD_ratings106].setDisplayName ( "" );
             methods[METHOD_registerKeyboardAction107] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("registerKeyboardAction", new Class[] {java.awt.event.ActionListener.class, java.lang.String.class, javax.swing.KeyStroke.class, int.class})); // NOI18N
             methods[METHOD_registerKeyboardAction107].setDisplayName ( "" );
@@ -764,7 +765,7 @@ public class RatingSelector5BeanInfo extends SimpleBeanInfo {
 
 //GEN-LAST:Superclass
     /**
-     * Gets the bean's {@code BeanDescriptor}s.
+     * Gets the bean's <code>BeanDescriptor</code>s.
      *
      * @return BeanDescriptor describing the editable properties of this bean.
      * May return null if the information should be obtained by automatic
@@ -776,7 +777,7 @@ public class RatingSelector5BeanInfo extends SimpleBeanInfo {
     }
 
     /**
-     * Gets the bean's {@code PropertyDescriptor}s.
+     * Gets the bean's <code>PropertyDescriptor</code>s.
      *
      * @return An array of PropertyDescriptors describing the editable
      * properties supported by this bean. May return null if the information
@@ -793,7 +794,7 @@ public class RatingSelector5BeanInfo extends SimpleBeanInfo {
     }
 
     /**
-     * Gets the bean's {@code EventSetDescriptor}s.
+     * Gets the bean's <code>EventSetDescriptor</code>s.
      *
      * @return An array of EventSetDescriptors describing the kinds of events
      * fired by this bean. May return null if the information should be obtained
@@ -805,7 +806,7 @@ public class RatingSelector5BeanInfo extends SimpleBeanInfo {
     }
 
     /**
-     * Gets the bean's {@code MethodDescriptor}s.
+     * Gets the bean's <code>MethodDescriptor</code>s.
      *
      * @return An array of MethodDescriptors describing the methods implemented
      * by this bean. May return null if the information should be obtained by

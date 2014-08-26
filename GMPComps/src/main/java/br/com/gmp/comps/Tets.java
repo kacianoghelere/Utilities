@@ -55,7 +55,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
 
         TestAutoModel model = new TestAutoModel();
         model.setData(tos);
-        gAutoCB.setModel(model);
+//        gAutoCB.setModel(model);
         gTree.mount(Test.class, getTableData());
         setLocationRelativeTo(null);        
     }
@@ -88,19 +88,18 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
-        gMPDateField2 = new br.com.gmp.comps.datefield.GMPDateField();
         jButton4 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         gTree = new br.com.gmp.comps.tree.GMPTree();
         gMPButtonField1 = new br.com.gmp.comps.textfield.button.GMPButtonField();
         numericTextField1 = new br.com.gmp.comps.textfield.NumericTextField();
-        gAutoCB = new br.com.gmp.comps.combobox.GAutoComboBox();
         gGradientPanel1 = new br.com.gmp.comps.panel.gradient.GGradientPanel();
         gNumericField1 = new br.com.gmp.comps.textfield.numeric.GNumericField();
         jScrollPane1 = new javax.swing.JScrollPane();
         gTextArea1 = new br.com.gmp.comps.textarea.GTextArea();
         gPlayer = new br.com.gmp.comps.player.GPlayer();
         gCalendar1 = new br.com.gmp.comps.calendar.GCalendar();
+        dynamicSelector2 = new br.com.gmp.comps.rating.dynamic.DynamicSelector();
         dual = new br.com.gmp.comps.list.dual.GMPDualList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,8 +107,6 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         jTabbedPane1.setName("jTabbedPane1"); // NOI18N
 
         jPanel4.setName("jPanel4"); // NOI18N
-
-        gMPDateField2.setName("gMPDateField2"); // NOI18N
 
         jButton4.setText("Validar");
         jButton4.setName("jButton4"); // NOI18N
@@ -133,8 +130,6 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                 numericTextField1ActionPerformed(evt);
             }
         });
-
-        gAutoCB.setName("gAutoCB"); // NOI18N
 
         gGradientPanel1.setEndColor(new java.awt.Color(99, 50, 0));
         gGradientPanel1.setStartColor(new java.awt.Color(255, 128, 0));
@@ -171,6 +166,10 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
 
         gCalendar1.setName("gCalendar1"); // NOI18N
 
+        dynamicSelector2.setEditable(true);
+        dynamicSelector2.setRatingSize(10);
+        dynamicSelector2.setName("dynamicSelector2"); // NOI18N
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -188,27 +187,26 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                             .addComponent(gGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(gMPDateField2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dynamicSelector2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(gMPButtonField1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(numericTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(gAutoCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gMPDateField2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4)
-                    .addComponent(gMPButtonField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numericTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(gAutoCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton4)
+                        .addComponent(gMPButtonField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(numericTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dynamicSelector2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -220,7 +218,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(gCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)))
+                        .addComponent(gCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -246,9 +244,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (gMPDateField2.validateComponent()) {
-            System.out.println("Válido!");
-        }
+        System.out.println(dynamicSelector2.getSelectedRating());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void numericTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numericTextField1ActionPerformed
@@ -275,11 +271,10 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private br.com.gmp.comps.list.dual.GMPDualList dual;
-    private br.com.gmp.comps.combobox.GAutoComboBox gAutoCB;
+    private br.com.gmp.comps.rating.dynamic.DynamicSelector dynamicSelector2;
     private br.com.gmp.comps.calendar.GCalendar gCalendar1;
     private br.com.gmp.comps.panel.gradient.GGradientPanel gGradientPanel1;
     private br.com.gmp.comps.textfield.button.GMPButtonField gMPButtonField1;
-    private br.com.gmp.comps.datefield.GMPDateField gMPDateField2;
     private br.com.gmp.comps.textfield.numeric.GNumericField gNumericField1;
     private br.com.gmp.comps.player.GPlayer gPlayer;
     private br.com.gmp.comps.textarea.GTextArea gTextArea1;
