@@ -190,6 +190,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
      */
     public void clear() {
         this.setText("");
+        togglePlaceHolder();
     }
 
     /**
