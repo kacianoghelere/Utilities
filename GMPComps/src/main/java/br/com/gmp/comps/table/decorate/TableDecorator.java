@@ -7,7 +7,6 @@ import br.com.gmp.comps.textfield.numeric.GNumericField;
 import br.com.gmp.utils.image.ImageUtil;
 import java.awt.Component;
 import java.awt.Image;
-import java.text.NumberFormat;
 import java.util.List;
 import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
@@ -89,13 +88,25 @@ public class TableDecorator {
     /**
      * Decora a coluna indicada com um editor de numeros
      *
-     * @param iconcolumn {@code int} Indice da coluna
+     * @param column {@code int} Indice da coluna
      * @return {@code TableDecorator} Decorador de tabela
      */
-    public TableDecorator withNumber(int iconcolumn) {
-        this.table.getColumnModel().getColumn(iconcolumn).setCellRenderer(NumberRenderer.getNumberRenderer());
-        this.table.getColumnModel().getColumn(iconcolumn)
-                .setCellEditor(new DefaultCellEditor(new GNumericField()));
+    public TableDecorator withNumber(int column) {
+        this.table.getColumnModel().getColumn(column).setCellRenderer(NumberRenderer.getNumberRenderer());
+        this.table.getColumnModel().getColumn(column)
+                .setCellEditor(new DefaultCellEditor(new GNumericField()));        
+        return this;
+    }
+
+    /**
+     * Decora a coluna indicada com um editor de numeros decimais
+     *
+     * @param column {@code int} Indice da coluna
+     * @return {@code TableDecorator} Decorador de tabela
+     */
+    public TableDecorator withDecimal(int column) {
+        this.table.getColumnModel().getColumn(column)
+                .setCellRenderer(NumberRenderer.getDecimalRenderer());
         return this;
     }
 
