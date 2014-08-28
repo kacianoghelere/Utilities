@@ -1,8 +1,10 @@
 package br.com.gmp.comps.cleaner;
 
+import br.com.gmp.comps.textfield.GTextField;
 import java.awt.Component;
 import java.awt.Container;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.text.JTextComponent;
 
 /**
@@ -42,11 +44,21 @@ public class ComponentCleaner {
     public void cleanComponents(Container c) {
         for (Component comp : c.getComponents()) {
             if (comp instanceof JTextComponent) {
-                JTextComponent txt = (JTextComponent) comp;
-                txt.setText("");
+                if (comp instanceof GTextField) {
+                    GTextField txt = (GTextField) comp;
+                    txt.clear();
+                } else {
+                    JTextComponent txt = (JTextComponent) comp;
+                    txt.setText("");
+                }
             } else if (comp instanceof JCheckBox) {
                 JCheckBox check = (JCheckBox) comp;
                 check.setSelected(false);
+            } else if (comp instanceof JComboBox) {
+                JComboBox combo = (JComboBox) comp;
+                if (combo.getItemCount() > 0) {
+                    combo.setSelectedIndex(0);
+                }
             }
         }
     }
