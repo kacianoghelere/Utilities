@@ -206,7 +206,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
                 this.setText(this.placeholder);
             }
         }
-        SwingUtilities.updateComponentTreeUI(this);
+        //SwingUtilities.updateComponentTreeUI(this);
     }
 
     /**
