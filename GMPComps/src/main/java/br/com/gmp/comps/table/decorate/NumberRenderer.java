@@ -32,7 +32,7 @@ public class NumberRenderer extends FormatRenderer {
     public static NumberRenderer getIntegerRenderer() {
         return new NumberRenderer(NumberFormat.getIntegerInstance());
     }
-    
+
     /**
      * Use the default number formatter for the default locale
      *
@@ -45,9 +45,19 @@ public class NumberRenderer extends FormatRenderer {
     /**
      * Use the default percent formatter for the default locale
      *
-     * @return  Renderer for Percent
+     * @return Renderer for Percent
      */
     public static NumberRenderer getPercentRenderer() {
         return new NumberRenderer(NumberFormat.getPercentInstance());
     }
+
+    /**
+     * Use the default decimal formatter for the default locale
+     *
+     * @return DecimalRenderer for Percent
+     */
+    public static DecimalRenderer getDecimalRenderer() {
+        return new DecimalRenderer("###,##0.00");
+    }
+
 }
