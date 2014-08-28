@@ -190,7 +190,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
      */
     public void clear() {
         this.setText("");
-        togglePlaceHolder();
+        //togglePlaceHolder();
     }
 
     /**
@@ -216,7 +216,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
      */
     public void focusGained(FocusEvent e) {
         this.setBackground(GColors.FOCUS);        
-        togglePlaceHolder();
+        //togglePlaceHolder();
     }
 
     /**
@@ -226,7 +226,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
      */
     public void focusLost(FocusEvent e) {
         this.setBackground(new JTextField().getBackground());
-        togglePlaceHolder();
+        //togglePlaceHolder();
     }
 
     /**
