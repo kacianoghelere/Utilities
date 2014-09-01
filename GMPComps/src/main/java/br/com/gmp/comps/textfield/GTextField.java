@@ -14,7 +14,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import javax.swing.text.Document;
 
 /**
@@ -137,6 +136,15 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
     }
 
     /**
+     * Verifica se o campo de texto está vazio
+     *
+     * @return {@code boolean} Resultado da verificação
+     */
+    public boolean isEmpty() {
+        return getText().isEmpty() || getText().equalsIgnoreCase(placeholder);
+    }
+
+    /**
      * Controla o comprimento do texto
      */
     private void controlLength() {
@@ -215,7 +223,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
      * @param e FocusEvent
      */
     public void focusGained(FocusEvent e) {
-        this.setBackground(GColors.FOCUS);        
+        this.setBackground(GColors.FOCUS);
         togglePlaceHolder();
     }
 
@@ -566,7 +574,7 @@ public class GTextField extends JTextField implements ValidableComponent, KeyLis
 
     /**
      * Modifica se forçará a digitação
-     *                                                                                                                      
+     *
      * @param force {@code boolean} Forçar a digitação?
      */
     public void setForce(boolean force) {
