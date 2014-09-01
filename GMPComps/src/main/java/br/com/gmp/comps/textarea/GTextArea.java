@@ -67,6 +67,15 @@ public class GTextArea extends JTextArea implements ValidableComponent {
     }
 
     /**
+     * Verifica se o campo de texto está vazio
+     *
+     * @return {@code boolean} Resultado da verificação
+     */
+    public boolean isEmpty() {
+        return getText().isEmpty();
+    }
+
+    /**
      * Retorna o comprimento maximo do texto
      *
      * @return {@code int} Comprimento maximo do texto
