@@ -136,7 +136,7 @@
         <Component class="javax.swing.JButton" name="jBToRight">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/gmp/comps/icons/24/Navigate_right.png"/>
+              <Image iconType="3" name="/ComponentIcons/transition/right.png"/>
             </Property>
             <Property name="name" type="java.lang.String" value="jBToRight" noResource="true"/>
           </Properties>
@@ -144,7 +144,7 @@
         <Component class="javax.swing.JButton" name="jBAllToRight">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/gmp/comps/icons/24/Hide_right.png"/>
+              <Image iconType="3" name="/ComponentIcons/transition/end.png"/>
             </Property>
             <Property name="name" type="java.lang.String" value="jBAllToRight" noResource="true"/>
           </Properties>
@@ -155,7 +155,7 @@
         <Component class="javax.swing.JButton" name="jBAllToLeft">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/gmp/comps/icons/24/Hide_left.png"/>
+              <Image iconType="3" name="/ComponentIcons/transition/begining.png"/>
             </Property>
             <Property name="name" type="java.lang.String" value="jBAllToLeft" noResource="true"/>
           </Properties>
@@ -166,7 +166,7 @@
         <Component class="javax.swing.JButton" name="jBToLeft">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/gmp/comps/icons/24/Navigate_left.png"/>
+              <Image iconType="3" name="/ComponentIcons/transition/left.png"/>
             </Property>
             <Property name="name" type="java.lang.String" value="jBToLeft" noResource="true"/>
           </Properties>
