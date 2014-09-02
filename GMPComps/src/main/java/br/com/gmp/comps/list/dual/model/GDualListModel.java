@@ -18,14 +18,14 @@ import javax.swing.AbstractListModel;
  * @param <T> Tipo dos objetos
  * @see javax.swing.JList
  */
-public class GListModel<T> extends AbstractListModel<T> {
+public class GDualListModel<T> extends AbstractListModel<T> {
 
     SortedSet<T> model;
 
     /**
      * Cria nova instancia de SortedListModel
      */
-    public GListModel() {
+    public GDualListModel() {
         model = new TreeSet<>();
     }
 
@@ -34,7 +34,7 @@ public class GListModel<T> extends AbstractListModel<T> {
      *
      * @param collection {@code List(T)} Collection
      */
-    public GListModel(List<T> collection) {
+    public GDualListModel(List<T> collection) {
         model = new TreeSet<>(collection);
     }
 
