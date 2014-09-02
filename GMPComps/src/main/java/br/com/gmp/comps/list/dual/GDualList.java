@@ -1,6 +1,6 @@
 package br.com.gmp.comps.list.dual;
 
-import br.com.gmp.comps.list.dual.model.SortedListModel;
+import br.com.gmp.comps.list.dual.model.GDualListModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -10,13 +10,14 @@ import javax.swing.ListModel;
 /**
  *
  * @author kaciano
+ * @param <T>
  */
-public class GDualList extends JPanel {
+public class GDualList<T> extends JPanel {
 
     private String sourceLabelText;
     private String destLabelText;
-    private SortedListModel sourceListModel;
-    private SortedListModel destListModel;
+    private GDualListModel<T> sourceListModel;
+    private GDualListModel<T> destListModel;
 
     /**
      * Cria nova instancia de GMPDualList
@@ -29,8 +30,8 @@ public class GDualList extends JPanel {
      * Método de inicialização
      */
     private void initialize() {
-        sourceListModel = new SortedListModel();
-        destListModel = new SortedListModel();
+        sourceListModel = new GDualListModel();
+        destListModel = new GDualListModel();
         initComponents();
         jBToRight.addActionListener(new AddListener());
         jBToLeft.addActionListener(new RemoveListener());
@@ -84,7 +85,7 @@ public class GDualList extends JPanel {
      * @param model {@code SortedListModel} Modelo
      * @param newValues {@code ListModel} Novos valores
      */
-    private void fillListModel(SortedListModel model, ListModel newValues) {
+    private void fillListModel(GDualListModel model, ListModel newValues) {
         int size = newValues.getSize();
         for (int i = 0; i < size; i++) {
             model.add(newValues.getElementAt(i));
@@ -150,28 +151,28 @@ public class GDualList extends JPanel {
     /**
      * Preenche o ListModel
      *
-     * @param model
+     * @param model {@code GDualListModel}
      * @param newValues {@code Object[]} Novos valores
      */
-    private void fillListModel(SortedListModel model, Object[] newValues) {
+    private void fillListModel(GDualListModel model, Object[] newValues) {
         model.addAll(newValues);
     }
 
     /**
      * Retorna os dados na lista fonte
      *
-     * @return {@code SortedListModel} Modelo de dados
+     * @return {@code GDualListModel} Modelo de dados
      */
-    public SortedListModel getSourceData() {
+    public GDualListModel<T> getSourceData() {
         return sourceListModel;
     }
 
     /**
      * Retorna os dados na lista destino
      *
-     * @return {@code SortedListModel} Modelo de dados
+     * @return {@code GDualListModel} Modelo de dados
      */
-    public SortedListModel getDestinationData() {
+    public GDualListModel<T> getDestinationData() {
         return destListModel;
     }
 
@@ -181,7 +182,7 @@ public class GDualList extends JPanel {
     private void clearSourceSelected() {
         Object selected[] = sourceList.getSelectedValues();
         for (int i = selected.length - 1; i >= 0; --i) {
-            sourceListModel.removeElement(selected[i]);
+            sourceListModel.removeElement((T) selected[i]);
         }
         sourceList.getSelectionModel().clearSelection();
     }
@@ -192,7 +193,7 @@ public class GDualList extends JPanel {
     private void clearDestinationSelected() {
         Object selected[] = destList.getSelectedValues();
         for (int i = selected.length - 1; i >= 0; --i) {
-            destListModel.removeElement(selected[i]);
+            destListModel.removeElement((T) selected[i]);
         }
         destList.getSelectionModel().clearSelection();
     }
@@ -233,7 +234,6 @@ public class GDualList extends JPanel {
         destList.revalidate();
     }
 
-    //<editor-fold desc="Get's & Set's" defaultstate="collapsed">
     /**
      * Retorna o texto do rótulo da fonte
      *
@@ -272,7 +272,6 @@ public class GDualList extends JPanel {
         this.destLabel.setText(destLabelText);
     }
 
-    //</editor-fold>
     /**
      * Código gerado automaticamente
      */
