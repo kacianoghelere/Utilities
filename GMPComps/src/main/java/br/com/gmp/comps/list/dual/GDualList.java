@@ -160,19 +160,19 @@ public class GDualList extends JPanel {
     /**
      * Retorna os dados na lista fonte
      *
-     * @return {@code Object[]} Elementos
+     * @return {@code SortedListModel} Modelo de dados
      */
-    public Object[] getSourceData() {
-        return sourceListModel.getElements();
+    public SortedListModel getSourceData() {
+        return sourceListModel;
     }
 
     /**
      * Retorna os dados na lista destino
      *
-     * @return {@code Object[]} Elementos
+     * @return {@code SortedListModel} Modelo de dados
      */
-    public Object[] getDestinationData() {
-        return destListModel.getElements();
+    public SortedListModel getDestinationData() {
+        return destListModel;
     }
 
     /**
