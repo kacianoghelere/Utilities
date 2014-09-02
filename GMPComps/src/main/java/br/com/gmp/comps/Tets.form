@@ -240,7 +240,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="br.com.gmp.comps.list.dual.GMPDualList" name="dual">
+        <Component class="br.com.gmp.comps.list.dual.GDualList" name="dual">
           <Properties>
             <Property name="destinationLabelText" type="java.lang.String" value="Destino"/>
             <Property name="sourceLabelText" type="java.lang.String" value="Fonte"/>

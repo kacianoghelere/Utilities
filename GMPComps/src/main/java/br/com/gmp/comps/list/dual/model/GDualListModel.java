@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.swing.AbstractListModel;
@@ -85,6 +84,16 @@ public class GDualListModel<T> extends AbstractListModel<T> {
     public void addAll(T elements[]) {
         Collection<T> c = Arrays.asList(elements);
         model.addAll(c);
+        fireContentsChanged(this, 0, getSize());
+    }
+
+    /**
+     * Adiciona os objetos recebidos
+     *
+     * @param elements {@code Collection(T)} Objetos
+     */
+    public void addAll(Collection<T> elements) {
+        model.addAll(elements);
         fireContentsChanged(this, 0, getSize());
     }
 

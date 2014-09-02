@@ -11,7 +11,7 @@ import javax.swing.ListModel;
  *
  * @author kaciano
  */
-public class GMPDualList extends JPanel {
+public class GDualList extends JPanel {
 
     private String sourceLabelText;
     private String destLabelText;
@@ -21,7 +21,7 @@ public class GMPDualList extends JPanel {
     /**
      * Cria nova instancia de GMPDualList
      */
-    public GMPDualList() {
+    public GDualList() {
         initialize();
     }
 
@@ -138,6 +138,16 @@ public class GMPDualList extends JPanel {
     }
 
     /**
+     * Define os itens na lista de destino
+     *
+     * @param newValues {@code Object[]} Novos valores
+     */
+    public void setDestinationElements(Object[] newValues) {
+        clearDestinationListModel();
+        addDestinationElements(newValues);
+    }
+
+    /**
      * Preenche o ListModel
      *
      * @param model
@@ -218,7 +228,7 @@ public class GMPDualList extends JPanel {
     /**
      * Modifica o texto do rótulo na lista de fonte
      *
-     * @param sourceLabelText {@code String{@code 
+     * @param sourceLabelText {@code String{@code
      */
     public void setSourceLabelText(String sourceLabelText) {
         this.sourceLabelText = sourceLabelText;
@@ -237,7 +247,7 @@ public class GMPDualList extends JPanel {
     /**
      * Modifica o texto do rótulo na lista de destino
      *
-     * @param destLabelText {@code String{@code 
+     * @param destLabelText {@code String{@code
      */
     public void setDestinationLabelText(String destLabelText) {
         this.destLabelText = destLabelText;

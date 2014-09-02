@@ -101,7 +101,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         gPlayer = new br.com.gmp.comps.player.GPlayer();
         gCalendar1 = new br.com.gmp.comps.calendar.GCalendar();
         dynamicSelector2 = new br.com.gmp.comps.rating.dynamic.DynamicSelector();
-        dual = new br.com.gmp.comps.list.dual.GMPDualList();
+        dual = new br.com.gmp.comps.list.dual.GDualList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -271,7 +271,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private br.com.gmp.comps.list.dual.GMPDualList dual;
+    private br.com.gmp.comps.list.dual.GDualList dual;
     private br.com.gmp.comps.rating.dynamic.DynamicSelector dynamicSelector2;
     private br.com.gmp.comps.calendar.GCalendar gCalendar1;
     private br.com.gmp.comps.panel.gradient.GGradientPanel gGradientPanel1;

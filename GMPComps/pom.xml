@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.com.gmp</groupId>
-    <artifactId>GMPComps</artifactId>
+    <artifactId>G-Comps</artifactId>
     <version>1.2</version>
     <packaging>jar</packaging>
 
-    <name>GMPComps</name>
+    <name>G-Comps</name>
     <url>http://maven.apache.org</url>
     <build>
         <plugins>
