@@ -158,6 +158,24 @@ public class GDualList extends JPanel {
     }
 
     /**
+     * Retorna os dados na lista fonte
+     *
+     * @return {@code Object[]} Elementos
+     */
+    public Object[] getSourceData() {
+        return sourceListModel.getElements();
+    }
+
+    /**
+     * Retorna os dados na lista destino
+     *
+     * @return {@code Object[]} Elementos
+     */
+    public Object[] getDestinationData() {
+        return destListModel.getElements();
+    }
+
+    /**
      * Limpa a lista de fonte
      */
     private void clearSourceSelected() {
