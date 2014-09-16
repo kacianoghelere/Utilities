@@ -38,7 +38,15 @@
         <repository>
             <id>unknown-jars-temp-repo</id>
             <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
-            <url>file:${project.basedir}/lib</url>
+            <url>file:${project.basedir}/lib</url>    
+        </repository>
+        <repository>
+            <id>restlet-releases</id>
+            <url>http://maven.restlet.org/</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>http://repo1.maven.org/maven2/</url>
         </repository>
     </repositories>
     <properties>
@@ -46,6 +54,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.db4o</groupId>
+            <artifactId>com.db4o</artifactId>
+            <version>7.7.67</version>
+        </dependency>        
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

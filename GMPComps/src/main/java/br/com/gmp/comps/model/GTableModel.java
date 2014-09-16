@@ -22,8 +22,7 @@ import java.util.logging.Logger;
  * public NewTableModel() {<br>
  * super(Object.class)<br>
  * }<br>
- * }<br>
- * }<
+ * }<br> }<
  * br>
  *
  * @author kaciano
@@ -51,6 +50,17 @@ public class GTableModel<T> extends SimpleTableModel {
      */
     public GTableModel(List<T> list) {
         initialize(list);
+    }
+
+    /**
+     * Cria novo DefaultTableModel
+     *
+     * @param list {@code Class} Classe de objetos
+     */
+    public GTableModel(Class list) {
+        this.objClass = list;
+        this.data = new ArrayList<>();
+        this.columns = mapColumns(objClass);
     }
 
     /**
