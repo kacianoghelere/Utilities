@@ -1,6 +1,7 @@
 package br.com.gmp.comps.lookup;
 
 import br.com.gmp.comps.data.DAO;
+import br.com.gmp.comps.data.test.TestDAO;
 import br.com.gmp.comps.lookup.dialog.GLookUpDialog;
 import br.com.gmp.comps.textfield.GTextField;
 import java.awt.BorderLayout;
@@ -37,11 +38,11 @@ public class GLookUpField extends GTextField {
      * @param dao {@code DAO} DAO de controle das entidades
      */
     private void initialize(DAO dao) {
-        this.dao = dao;
+        this.setDao(dao);
         this.setLayout(new BorderLayout());
         this.initComponents();
         this.add(jBLookUp, BorderLayout.EAST);
-        this.dialog = new GLookUpDialog(dao);        
+        this.dialog = new GLookUpDialog(dao);
     }
 
     /**
@@ -59,7 +60,7 @@ public class GLookUpField extends GTextField {
      * @param dao {@code DAO} DAO de controle das entidades
      */
     public void setDao(DAO dao) {
-        this.dao = dao;
+        this.dao = dao != null ? dao : new TestDAO();
     }
 
     @SuppressWarnings("unchecked")

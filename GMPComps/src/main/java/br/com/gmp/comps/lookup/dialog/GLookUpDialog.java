@@ -1,6 +1,7 @@
 package br.com.gmp.comps.lookup.dialog;
 
 import br.com.gmp.comps.data.DAO;
+import br.com.gmp.comps.data.test.TestDAO;
 import br.com.gmp.comps.dialog.GDialog;
 import br.com.gmp.comps.model.GTableModel;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class GLookUpDialog extends GDialog {
      * Cria nova instancia de GLookUpDialog
      */
     public GLookUpDialog() {
-        initialize();
+        initialize(null);
     }
 
     /**
@@ -28,16 +29,18 @@ public class GLookUpDialog extends GDialog {
      * @param dao {@code DAO} DAO de controle das entidades
      */
     public GLookUpDialog(DAO dao) {
-        this.dao = dao;
-        initialize();
+        initialize(dao);
     }
 
     /**
      * Método de inicialização
+     *
+     * @param dao {@code DAO} DAO de controle das entidades*
      */
-    private void initialize() {
-        model = new GTableModel(dao != null ? dao.getList() : new ArrayList()) {};        
-        initComponents();        
+    private void initialize(DAO dao) {
+        model = new GTableModel(dao != null ? dao.getList() : new ArrayList()) {
+        };
+        initComponents();
     }
 
     /**
@@ -55,7 +58,7 @@ public class GLookUpDialog extends GDialog {
      * @param dao {@code DAO} DAO de controle das entidades
      */
     public void setDao(DAO dao) {
-        this.dao = dao;
+        this.dao = dao != null ? dao : new TestDAO();
     }
 
     @SuppressWarnings("unchecked")
