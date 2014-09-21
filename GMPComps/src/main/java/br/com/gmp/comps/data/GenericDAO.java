@@ -23,7 +23,7 @@ import java.util.List;
 public class GenericDAO<T> implements DAO<T> {
 
     private Class<T> entity;
-    private String dir = SystemProperties.USER_HOME + "/.config/rpg/";
+    private String dir = SystemProperties.USER_HOME + "/.config/data/";
     private String database;
     private String sufix = ".yap";
     private final String id = "id";
@@ -38,7 +38,7 @@ public class GenericDAO<T> implements DAO<T> {
         if (!file.exists()) {
             file.mkdirs();
         }
-        this.database = dir + entity.getSimpleName() + sufix;
+        this.database = dir + entity.getSimpleName() + "DB" + sufix;
     }
 
     /**
