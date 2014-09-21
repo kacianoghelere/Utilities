@@ -36,7 +36,7 @@ public class GLookUpDialog extends GDialog {
      * Método de inicialização
      */
     private void initialize() {
-        model = new GTableModel(dao != null ? dao.getList() : new ArrayList());        
+        model = new GTableModel(dao != null ? dao.getList() : new ArrayList()) {};        
         initComponents();        
     }
 

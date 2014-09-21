@@ -28,7 +28,6 @@ public class GLookUpField extends GTextField {
      * @param dao {@code DAO} DAO de controle das entidades
      */
     public GLookUpField(DAO dao) {
-        this.dao = dao;
         initialize(dao);
     }
 
