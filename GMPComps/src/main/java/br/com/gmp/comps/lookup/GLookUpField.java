@@ -71,6 +71,9 @@ public class GLookUpField extends GTextField {
 
         jBLookUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/field/search.png"))); // NOI18N
         jBLookUp.setToolTipText("Buscar");
+        jBLookUp.setMaximumSize(new java.awt.Dimension(25, 25));
+        jBLookUp.setMinimumSize(new java.awt.Dimension(25, 25));
+        jBLookUp.setPreferredSize(new java.awt.Dimension(25, 25));
         jBLookUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBLookUpActionPerformed(evt);

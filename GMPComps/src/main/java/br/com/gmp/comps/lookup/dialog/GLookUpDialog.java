@@ -38,7 +38,7 @@ public class GLookUpDialog extends GDialog {
      * @param dao {@code DAO} DAO de controle das entidades*
      */
     private void initialize(DAO dao) {
-        model = new GTableModel(dao != null ? dao.getList() : new ArrayList()) {
+        model = new GTableModel(dao != null ? dao.getObjClass() : new TestDAO().getObjClass()) {
         };
         initComponents();
     }
@@ -72,9 +72,9 @@ public class GLookUpDialog extends GDialog {
         jBSearch = new javax.swing.JButton();
         gCBFilter = new br.com.gmp.comps.combobox.GComboBox();
 
-        setMaximumSize(new java.awt.Dimension(540, 330));
-        setMinimumSize(new java.awt.Dimension(540, 330));
-        setPreferredSize(new java.awt.Dimension(540, 330));
+        setMaximumSize(new java.awt.Dimension(536, 324));
+        setMinimumSize(new java.awt.Dimension(536, 324));
+        setPreferredSize(new java.awt.Dimension(536, 324));
         setResizable(false);
 
         jSP.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Resultados"));
@@ -107,8 +107,8 @@ public class GLookUpDialog extends GDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jSP, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -116,7 +116,7 @@ public class GLookUpDialog extends GDialog {
                     .addComponent(jLFilter)
                     .addComponent(gCBFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBSearch))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

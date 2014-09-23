@@ -35,7 +35,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
             gListModel.add(new TestObject("Test" + i));
         }
         initComponents();
-        gPlayer.build("/home/kaciano/lp.mp3");
+        //gPlayer.build("/home/kaciano/lp.mp3");
         try {
             setGlassPane(new BlurGlassPane());
         } catch (Exception e) {
@@ -98,7 +98,6 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         gNumericField1 = new br.com.gmp.comps.textfield.numeric.GNumericField();
         jScrollPane1 = new javax.swing.JScrollPane();
         gTextArea1 = new br.com.gmp.comps.textarea.GTextArea();
-        gPlayer = new br.com.gmp.comps.player.GPlayer();
         gCalendar1 = new br.com.gmp.comps.calendar.GCalendar();
         dynamicSelector2 = new br.com.gmp.comps.rating.dynamic.DynamicSelector();
         gLookUpField1 = new br.com.gmp.comps.lookup.GLookUpField();
@@ -164,8 +163,6 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
         gTextArea1.setName("gTextArea1"); // NOI18N
         jScrollPane1.setViewportView(gTextArea1);
 
-        gPlayer.setName("gPlayer"); // NOI18N
-
         gCalendar1.setName("gCalendar1"); // NOI18N
 
         dynamicSelector2.setEditable(true);
@@ -193,7 +190,6 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                                 .addComponent(gLookUpField1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(gPlayer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(gGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -218,12 +214,9 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                         .addComponent(numericTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(dynamicSelector2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(gGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(gPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(gGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
@@ -231,7 +224,7 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
                         .addGap(9, 9, 9)
                         .addComponent(gLookUpField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
-                        .addComponent(gCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(gCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -290,7 +283,6 @@ public class Tets extends javax.swing.JFrame implements TableSource<Test> {
     private br.com.gmp.comps.lookup.GLookUpField gLookUpField1;
     private br.com.gmp.comps.textfield.button.GMPButtonField gMPButtonField1;
     private br.com.gmp.comps.textfield.numeric.GNumericField gNumericField1;
-    private br.com.gmp.comps.player.GPlayer gPlayer;
     private br.com.gmp.comps.textarea.GTextArea gTextArea1;
     private br.com.gmp.comps.tree.GMPTree gTree;
     private javax.swing.JButton jButton4;
