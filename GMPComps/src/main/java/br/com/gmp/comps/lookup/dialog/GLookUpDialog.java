@@ -72,10 +72,10 @@ public class GLookUpDialog extends GDialog {
         jBSearch = new javax.swing.JButton();
         gCBFilter = new br.com.gmp.comps.combobox.GComboBox();
 
-        setMaximumSize(new java.awt.Dimension(536, 324));
-        setMinimumSize(new java.awt.Dimension(536, 324));
-        setPreferredSize(new java.awt.Dimension(536, 324));
+        setMaximumSize(new java.awt.Dimension(536, 303));
+        setMinimumSize(new java.awt.Dimension(536, 303));
         setResizable(false);
+        setSize(new java.awt.Dimension(536, 303));
 
         jSP.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Resultados"));
         jSP.setViewportView(gTable);
@@ -109,14 +109,14 @@ public class GLookUpDialog extends GDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSP, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSP, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gTFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLFilter)
                     .addComponent(gCBFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBSearch))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
