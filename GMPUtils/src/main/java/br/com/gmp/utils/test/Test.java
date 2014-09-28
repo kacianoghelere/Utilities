@@ -15,11 +15,11 @@ public class Test {
 
     @Editable
     @TreeLeaf
-    @LookUp(type = String.class)
+    @LookUp(name = "Nome", type = String.class)
     private String name;
     @Editable
     @TreeLeaf
-    @LookUp(type = Integer.class)
+    @LookUp(name = "Idade", type = Integer.class)
     private int age;
     @Editable
     @TreeLeaf

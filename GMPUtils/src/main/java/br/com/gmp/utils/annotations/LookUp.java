@@ -13,6 +13,13 @@ import java.lang.annotation.*;
 public @interface LookUp {
 
     /**
+     * Retorna o nome do campo de LookUp
+     *
+     * @return {@code String} Nome do campo
+     */
+    String name();
+
+    /**
      * Retorna a classe do campo de LookUp
      *
      * @return {@code Class} Classe do campo
