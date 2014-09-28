@@ -1,6 +1,7 @@
 package br.com.gmp.utils.test;
 
 import br.com.gmp.utils.annotations.Editable;
+import br.com.gmp.utils.annotations.LookUp;
 import br.com.gmp.utils.annotations.TreeItem;
 import br.com.gmp.utils.annotations.TreeLeaf;
 
@@ -14,9 +15,11 @@ public class Test {
 
     @Editable
     @TreeLeaf
+    @LookUp(type = String.class)
     private String name;
     @Editable
     @TreeLeaf
+    @LookUp(type = Integer.class)
     private int age;
     @Editable
     @TreeLeaf
