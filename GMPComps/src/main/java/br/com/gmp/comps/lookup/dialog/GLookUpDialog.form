@@ -3,15 +3,12 @@
 <Form version="1.2" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[536, 303]"/>
+      <Dimension value="[542, 350]"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[536, 303]"/>
+      <Dimension value="[542, 350]"/>
     </Property>
     <Property name="resizable" type="boolean" value="false"/>
-    <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[536, 303]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="2"/>
@@ -34,15 +31,19 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jSP" alignment="0" pref="516" max="32767" attributes="0"/>
+                  <Component id="jSP" alignment="0" pref="518" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
+                      <Component id="jBSearch" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jBSearch1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="jLFilter" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="gTFilter" max="32767" attributes="0"/>
+                      <Component id="gTFilter" min="-2" pref="317" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="gCBFilter" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBSearch" min="-2" max="-2" attributes="0"/>
+                      <Component id="gCBFilter" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -59,9 +60,13 @@
                   <Component id="gTFilter" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLFilter" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="gCBFilter" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="jBSearch" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jBSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBSearch1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -105,13 +110,13 @@
       </Properties>
     </Component>
     <Component class="br.com.gmp.comps.combobox.GComboBox" name="gCBFilter">
+    </Component>
+    <Component class="javax.swing.JButton" name="jBSearch1">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Numeral"/>
-            <StringItem index="1" value="Texto"/>
-          </StringArray>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/ComponentIcons/button/switch/off.png"/>
         </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
     </Component>
   </SubComponents>
