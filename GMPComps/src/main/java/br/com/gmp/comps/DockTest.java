@@ -27,14 +27,15 @@ public class DockTest extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        rootWindowItem1 = new net.infonode.docking.model.RootWindowItem();
+        tabbedPanel1 = new net.infonode.tabbedpanel.TabbedPanel();
+        info1 = new net.infonode.gui.laf.info.Info();
         baseContainer1 = new net.infonode.gui.panel.BaseContainer();
-        simplePanel1 = new net.infonode.gui.panel.SimplePanel();
-        tabWindow1 = new net.infonode.docking.TabWindow();
+        tabWindow2 = new net.infonode.docking.TabWindow();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        baseContainer1.add(simplePanel1, java.awt.BorderLayout.CENTER);
-        baseContainer1.add(tabWindow1, java.awt.BorderLayout.PAGE_END);
+        baseContainer1.add(tabWindow2, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,7 +88,9 @@ public class DockTest extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private net.infonode.gui.panel.BaseContainer baseContainer1;
-    private net.infonode.gui.panel.SimplePanel simplePanel1;
-    private net.infonode.docking.TabWindow tabWindow1;
+    private net.infonode.gui.laf.info.Info info1;
+    private net.infonode.docking.model.RootWindowItem rootWindowItem1;
+    private net.infonode.docking.TabWindow tabWindow2;
+    private net.infonode.tabbedpanel.TabbedPanel tabbedPanel1;
     // End of variables declaration//GEN-END:variables
 }
