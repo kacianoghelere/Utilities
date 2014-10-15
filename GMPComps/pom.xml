@@ -45,6 +45,10 @@
             <url>http://maven.restlet.org/</url>
         </repository>
         <repository>
+            <id>docking</id>
+            <url>http://trac.clermont.cemagref.fr/nexus/content/repositories/public/</url>
+        </repository>
+        <repository>
             <id>central</id>
             <url>http://repo1.maven.org/maven2/</url>
         </repository>
@@ -79,6 +83,17 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>G-Utils</artifactId>
             <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.mydoggy</groupId>
+            <artifactId>mydoggy</artifactId>
+            <version>1.4.2</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>net.infonode</groupId>
+            <artifactId>docking</artifactId>
+            <version>1.5.0</version>
         </dependency>
     </dependencies>
 </project>
