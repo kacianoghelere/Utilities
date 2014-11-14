@@ -90,10 +90,5 @@
             <version>1.4.2</version>
             <type>pom</type>
         </dependency>
-        <dependency>
-            <groupId>net.infonode</groupId>
-            <artifactId>docking</artifactId>
-            <version>1.5.0</version>
-        </dependency>
     </dependencies>
 </project>
