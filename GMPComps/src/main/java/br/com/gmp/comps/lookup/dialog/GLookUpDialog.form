@@ -32,18 +32,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jSP" alignment="0" pref="518" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="jBSearch" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBSearch1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="jLFilter" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="gTFilter" min="-2" pref="317" max="-2" attributes="0"/>
+                      <Component id="gTFilter" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="gCBFilter" max="32767" attributes="0"/>
+                      <Component id="jBSearch" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -54,36 +48,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jSP" min="-2" pref="247" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="gTFilter" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLFilter" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="gCBFilter" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jSP" pref="290" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jBSearch1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="gTFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLFilter" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JScrollPane" name="jSP">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Resultados">
-              <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                <EmptyBorder/>
-              </Border>
-            </TitledBorder>
-          </Border>
-        </Property>
-      </Properties>
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -91,6 +69,11 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
         <Component class="br.com.gmp.comps.table.GTable" name="gTable">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -98,7 +81,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLFilter">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Filtro:"/>
+        <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jBSearch">
@@ -107,16 +90,6 @@
           <Image iconType="3" name="/ComponentIcons/field/search.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Buscar"/>
-      </Properties>
-    </Component>
-    <Component class="br.com.gmp.comps.combobox.GComboBox" name="gCBFilter">
-    </Component>
-    <Component class="javax.swing.JButton" name="jBSearch1">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/ComponentIcons/button/switch/off.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
     </Component>
   </SubComponents>
