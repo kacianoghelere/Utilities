@@ -51,8 +51,8 @@ public class ObjectCopy {
      * Copia todos os valores das propriedades de A para B, desde que elas
      * existam em ambos os objetos
      *
-     * @param a {@code <b>Object</b>} Objeto de base
-     * @param b {@code <b>Object</b>} Objeto receptor
+     * @param a {@code Object} Objeto de base
+     * @param b {@code Object} Objeto receptor
      * @throws java.lang.IllegalAccessException Acesso restrito
      */
     public static void copyAll(Object a, Object b) throws IllegalArgumentException, IllegalAccessException {
