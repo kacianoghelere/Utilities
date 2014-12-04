@@ -139,4 +139,10 @@ public interface DAO<T> {
      */
     void update(T entity) throws IllegalArgumentException, IllegalAccessException;
 
+    /**
+     * Retorna o próximo ID de entidade disponivel
+     *
+     * @return {@code Long} ID de entidade disponivel
+     */
+    Long getNextId();
 }

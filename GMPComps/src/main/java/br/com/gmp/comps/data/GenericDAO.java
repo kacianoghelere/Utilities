@@ -9,9 +9,12 @@ import com.db4o.ObjectSet;
 import com.db4o.config.Configuration;
 import com.db4o.query.Query;
 import java.io.File;
+import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * DAO Genérico para embasamento
@@ -22,6 +25,7 @@ import java.util.List;
  */
 public class GenericDAO<T> implements DAO<T> {
 
+    private final Logger LOGGER = Logger.getLogger(GenericDAO.class.getName());
     private Class<T> entity;
     private String dir = SystemProperties.USER_HOME + "/.config/data/";
     private String database;
@@ -321,4 +325,33 @@ public class GenericDAO<T> implements DAO<T> {
     public void setSufix(String sufix) {
         this.sufix = sufix;
     }
+
+    @Override
+    public Long getNextId() {
+        ObjectContainer db = getClient();
+        Query query = db.query();
+        query = new QueryBuilder(query)
+                .constrain(entity)
+                .descend(id)
+                .orderAscending()
+                .ready();
+        ObjectSet<T> set = query.execute();
+        T get = set.get(0);
+        if (get != null) {
+            try {
+                Field field = get.getClass().getDeclaredField("id");
+                field.setAccessible(true);
+                return (Long) field.get(get);
+            } catch (NoSuchFieldException | SecurityException ex) {
+                LOGGER.log(Level.SEVERE, null, ex);
+                return 1L;
+            } catch (IllegalArgumentException | IllegalAccessException ex) {
+                LOGGER.log(Level.SEVERE, null, ex);
+                return 1L;
+            }
+        } else {
+            return 1L;
+        }
+    }
+
 }
