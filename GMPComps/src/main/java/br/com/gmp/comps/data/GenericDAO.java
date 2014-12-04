@@ -46,6 +46,20 @@ public class GenericDAO<T> implements DAO<T> {
     }
 
     /**
+     * Cria nova instancia de GenericDAO
+     *
+     * @param entity {@code Class(T)} Classe à ser instanciada
+     */
+    public GenericDAO(Class<T> entity) {
+        this.entity = entity;
+        File file = new File(dir);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        this.database = dir + entity.getSimpleName() + "DB" + sufix;
+    }
+
+    /**
      * Retorna a conexão com o banco de dados para buscas externas
      *
      * @return {@code ObjectContainer} Conexão com o banco
