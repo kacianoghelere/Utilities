@@ -23,9 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="gLookUpPane1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="gLookUpPane1" max="32767" attributes="0"/>
+                  <Component id="gFileField1" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -35,6 +38,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="gLookUpPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="gFileField1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -42,6 +47,8 @@
   </Layout>
   <SubComponents>
     <Component class="br.com.gmp.comps.lookup.GLookUpPane" name="gLookUpPane1">
+    </Component>
+    <Component class="br.com.gmp.comps.textfield.file.GFileField" name="gFileField1">
     </Component>
   </SubComponents>
 </Form>
