@@ -31,20 +31,6 @@ public interface DAO<T> {
     void deleteAll();
 
     /**
-     * Retorna a conexão com o banco de dados para buscas externas
-     *
-     * @return {@code ObjectContainer} Conexão com o banco
-     */
-    ObjectContainer getClient();
-
-    /**
-     * Retorna o nome da base de dados
-     *
-     * @return {@code String} Nome da base de dados
-     */
-    String getDatabase();
-
-    /**
      * Busca todos os dados da entidade
      *
      * @return {@code List(T)} Entidade
@@ -64,20 +50,6 @@ public interface DAO<T> {
      * @return {@code Class(?)} Classe do DAO
      */
     Class<T> getObjClass();
-
-    /**
-     * Retorna o prefixo da base de dados (Caminho do arquivo)
-     *
-     * @return {@code String} Prefixo da base de dados
-     */
-    String getDir();
-
-    /**
-     * Retorna o sufixo da base de dados (Extensão do arquivo)
-     *
-     * @return {@code String} sufixo da base de dados (Extensão do arquivo)
-     */
-    String getSufix();
 
     /**
      * Insere a entidade no banco de dados
@@ -105,10 +77,10 @@ public interface DAO<T> {
     /**
      * Retorna a entidade a partir do ID
      *
-     * @param id {@code Integer} ID
+     * @param id {@code Long} ID
      * @return {@code T} Entidade
      */
-    T queryByID(int id);
+    T queryByID(Long id);
 
     /**
      * Deleta todos os registros anteriores e insere os registros da lista
@@ -116,13 +88,6 @@ public interface DAO<T> {
      * @param entities {@code List(T)} Lista dos novos registros
      */
     void replaceAll(List<T> entities);
-
-    /**
-     * Modifica o nome da base de dados
-     *
-     * @param database {@code String} Nome da base de dados
-     */
-    void setDatabase(String database);
 
     /**
      * Modifica a classe do objeto que aplica o DAO

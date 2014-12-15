@@ -64,8 +64,7 @@ public class GenericDAO<T> implements DAO<T> {
      *
      * @return {@code ObjectContainer} Conexão com o banco
      */
-    @Override
-    public ObjectContainer getClient() {
+    protected ObjectContainer getClient() {
         Configuration conf = Db4o.configure();
         conf.objectClass(entity).objectField(id).indexed(true);
         conf.generateUUIDs(Integer.MAX_VALUE);
@@ -218,12 +217,12 @@ public class GenericDAO<T> implements DAO<T> {
      */
     @Intercept
     @Override
-    public T queryByID(int id) {
+    public T queryByID(Long id) {
         ObjectContainer db = getClient();
         Query query = db.query();
         query = new QueryBuilder(query)
                 .constrain(entity)
-                .searchFor(this.id, id)
+                .searchFor(this.id, id.intValue())
                 .descend(this.id)
                 .orderAscending()
                 .ready();
@@ -287,8 +286,7 @@ public class GenericDAO<T> implements DAO<T> {
      *
      * @return {@code String} Prefixo da base de dados
      */
-    @Override
-    public String getDir() {
+    protected String getDir() {
         return dir;
     }
 
@@ -306,8 +304,7 @@ public class GenericDAO<T> implements DAO<T> {
      *
      * @return {@code String} Nome da base de dados
      */
-    @Override
-    public String getDatabase() {
+    protected String getDatabase() {
         return database;
     }
 
@@ -316,8 +313,7 @@ public class GenericDAO<T> implements DAO<T> {
      *
      * @param database {@code String} Nome da base de dados
      */
-    @Override
-    public void setDatabase(String database) {
+    protected void setDatabase(String database) {
         this.database = database;
     }
 
@@ -326,8 +322,7 @@ public class GenericDAO<T> implements DAO<T> {
      *
      * @return {@code String} sufixo da base de dados (Extensão do arquivo)
      */
-    @Override
-    public String getSufix() {
+    protected String getSufix() {
         return sufix;
     }
 
