@@ -1,6 +1,5 @@
 package br.com.gmp.comps.data;
 
-import com.db4o.ObjectContainer;
 import java.util.List;
 
 /**
