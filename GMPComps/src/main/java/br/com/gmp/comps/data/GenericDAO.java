@@ -25,9 +25,15 @@ import java.util.logging.Logger;
  */
 public class GenericDAO<T> implements DAO<T> {
 
-    private final Logger LOGGER = Logger.getLogger(GenericDAO.class.getName());
+    /**
+     * Diretorio de armazenamento dos bancos de dados
+     */
+    public static final String DIR = SystemProperties.USER_HOME + "/.config/data/";
+    /**
+     * Delegacao da chamada de logs
+     */
+    private static final Logger LOGGER = Logger.getLogger(GenericDAO.class.getName());
     private Class<T> entity;
-    private String dir = SystemProperties.USER_HOME + "/.config/data/";
     private String database;
     private String sufix = ".yap";
     private final String id = "id";
@@ -38,11 +44,11 @@ public class GenericDAO<T> implements DAO<T> {
     public GenericDAO() {
         this.entity = (Class<T>) ((ParameterizedType) (getClass()
                 .getGenericSuperclass())).getActualTypeArguments()[0];
-        File file = new File(dir);
+        File file = new File(DIR);
         if (!file.exists()) {
             file.mkdirs();
         }
-        this.database = dir + entity.getSimpleName() + "DB" + sufix;
+        this.database = DIR + entity.getSimpleName() + "DB" + sufix;
     }
 
     /**
@@ -52,11 +58,11 @@ public class GenericDAO<T> implements DAO<T> {
      */
     public GenericDAO(Class<T> entity) {
         this.entity = entity;
-        File file = new File(dir);
+        File file = new File(DIR);
         if (!file.exists()) {
             file.mkdirs();
         }
-        this.database = dir + entity.getSimpleName() + "DB" + sufix;
+        this.database = DIR + entity.getSimpleName() + "DB" + sufix;
     }
 
     /**
@@ -79,11 +85,11 @@ public class GenericDAO<T> implements DAO<T> {
      */
     public GenericDAO(Class<T> entity, String name, String sufix) {
         this.entity = entity;
-        File file = new File(dir);
+        File file = new File(DIR);
         if (!file.exists()) {
             file.mkdirs();
         }
-        this.database = dir + name + "DB" + sufix;
+        this.database = DIR + name + "DB" + sufix;
     }
 
     /**
@@ -314,16 +320,7 @@ public class GenericDAO<T> implements DAO<T> {
      * @return {@code String} Prefixo da base de dados
      */
     protected String getDir() {
-        return dir;
-    }
-
-    /**
-     * Modifica o prefixo da base de dados (Caminho do arquivo)
-     *
-     * @param dir {@code String} Prefixo da base de dados
-     */
-    public void setDir(String dir) {
-        this.dir = dir;
+        return DIR;
     }
 
     /**
