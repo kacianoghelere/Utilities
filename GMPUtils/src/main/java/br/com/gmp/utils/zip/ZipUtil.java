@@ -53,7 +53,8 @@ public class ZipUtil {
 
                 for (String file : files) {
                     System.out.println("Adding: " + file);
-                    FileInputStream fi = new FileInputStream(file);
+                    FileInputStream fi = new FileInputStream(filepath
+                            + File.separator + file);
                     origin = new BufferedInputStream(fi, BUFFER);
                     ZipEntry entry = new ZipEntry(file);
                     out.putNextEntry(entry);
@@ -74,17 +75,19 @@ public class ZipUtil {
      * Descomprime os arquivos do arquivo ZIP
      *
      * @param zippath {@code File} Arquivo ZIP
+     * @param filepath {@code File} Destino dos arquivos
      */
-    public static void unzip(File zippath) {
-        unzip(zippath.getPath());
+    public static void unzip(File zippath, File filepath) {
+        unzip(zippath.getPath(), filepath.getPath());
     }
 
     /**
      * Descomprime os arquivos do arquivo ZIP
      *
      * @param zippath {@code String} Caminho do arquivo ZIP
+     * @param filepath {@code String} Caminho do destino dos arquivos
      */
-    public static void unzip(String zippath) {
+    public static void unzip(String zippath, String filepath) {
         try {
             BufferedOutputStream dest = null;
             BufferedInputStream is = null;
@@ -97,10 +100,10 @@ public class ZipUtil {
                 is = new BufferedInputStream(zipfile.getInputStream(entry));
                 int count;
                 byte data[] = new byte[BUFFER];
-                FileOutputStream fos = new FileOutputStream(entry.getName());
+                FileOutputStream fos = new FileOutputStream(filepath
+                        + File.separator + entry.getName());
                 dest = new BufferedOutputStream(fos, BUFFER);
-                while ((count = is.read(data, 0, BUFFER))
-                        != -1) {
+                while ((count = is.read(data, 0, BUFFER)) != -1) {
                     dest.write(data, 0, count);
                 }
                 dest.flush();
