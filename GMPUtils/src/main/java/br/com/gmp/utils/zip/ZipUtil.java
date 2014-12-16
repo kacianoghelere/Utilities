@@ -48,10 +48,9 @@ public class ZipUtil {
             FileOutputStream dest = new FileOutputStream(zippath);
             try (ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(dest))) {
                 byte data[] = new byte[BUFFER];
-                File f = new File(filepath);
-                String files[] = f.list();
-
-                for (String file : files) {
+                File dir = new File(filepath);
+                LOGGER.log(Level.INFO, "Zipping files in {0}", dir.getPath());
+                for (String file : dir.list()) {
                     System.out.println("Adding: " + file);
                     FileInputStream fi = new FileInputStream(filepath
                             + File.separator + file);
@@ -94,6 +93,7 @@ public class ZipUtil {
             ZipEntry entry;
             ZipFile zipfile = new ZipFile(zippath);
             Enumeration e = zipfile.entries();
+            LOGGER.log(Level.INFO, "Unzipping files from {0}", filepath);
             while (e.hasMoreElements()) {
                 entry = (ZipEntry) e.nextElement();
                 System.out.println("Extracting: " + entry);
