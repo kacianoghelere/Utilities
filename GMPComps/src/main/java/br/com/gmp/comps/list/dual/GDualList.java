@@ -3,6 +3,7 @@ package br.com.gmp.comps.list.dual;
 import br.com.gmp.comps.list.dual.model.GDualListModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.ListModel;
@@ -232,6 +233,38 @@ public class GDualList<T> extends JPanel {
         sourceList.revalidate();
         destList.repaint();
         destList.revalidate();
+    }
+
+    /**
+     * Move todos os itens já adicionados para a lista de destino, separando o
+     * conteído
+     *
+     * @param data {@code List} Dados do objeto
+     * @param model {@code List} Dados da entidade
+     */
+    public void moveExistent(List data, List model) {
+        //----------------------------------------------------------------------
+        // Cria duas listas auxiliares para contagem
+        List contains = new ArrayList();
+        List notContains = new ArrayList();
+        //----------------------------------------------------------------------
+        // Percorre os dados das listas para verificar quais objetos existem em
+        // ambas
+        for (Object object : data) {
+            if (model.contains(object)) {
+                contains.add(object);
+            } else {
+                notContains.add(object);
+            }
+        }
+        //----------------------------------------------------------------------
+        // Limpa as listas da lista dupla
+        this.clearDestinationListModel();
+        this.clearSourceListModel();
+        //----------------------------------------------------------------------
+        // Adiciona os itens das listas auxiliares nas respectivas listas
+        this.setSourceElements(notContains.toArray());
+        this.setDestinationElements(contains.toArray());
     }
 
     /**
