@@ -103,27 +103,28 @@ public class GTitlePanelBeanInfo extends SimpleBeanInfo {
     private static final int PROPERTY_rootPane = 82;
     private static final int PROPERTY_showing = 83;
     private static final int PROPERTY_size = 84;
-    private static final int PROPERTY_toolkit = 85;
-    private static final int PROPERTY_toolTipText = 86;
-    private static final int PROPERTY_topLevelAncestor = 87;
-    private static final int PROPERTY_transferHandler = 88;
-    private static final int PROPERTY_treeLock = 89;
-    private static final int PROPERTY_UI = 90;
-    private static final int PROPERTY_UIClassID = 91;
-    private static final int PROPERTY_valid = 92;
-    private static final int PROPERTY_validateRoot = 93;
-    private static final int PROPERTY_verifyInputWhenFocusTarget = 94;
-    private static final int PROPERTY_vetoableChangeListeners = 95;
-    private static final int PROPERTY_visible = 96;
-    private static final int PROPERTY_visibleRect = 97;
-    private static final int PROPERTY_width = 98;
-    private static final int PROPERTY_x = 99;
-    private static final int PROPERTY_y = 100;
+    private static final int PROPERTY_title = 85;
+    private static final int PROPERTY_toolkit = 86;
+    private static final int PROPERTY_toolTipText = 87;
+    private static final int PROPERTY_topLevelAncestor = 88;
+    private static final int PROPERTY_transferHandler = 89;
+    private static final int PROPERTY_treeLock = 90;
+    private static final int PROPERTY_UI = 91;
+    private static final int PROPERTY_UIClassID = 92;
+    private static final int PROPERTY_valid = 93;
+    private static final int PROPERTY_validateRoot = 94;
+    private static final int PROPERTY_verifyInputWhenFocusTarget = 95;
+    private static final int PROPERTY_vetoableChangeListeners = 96;
+    private static final int PROPERTY_visible = 97;
+    private static final int PROPERTY_visibleRect = 98;
+    private static final int PROPERTY_width = 99;
+    private static final int PROPERTY_x = 100;
+    private static final int PROPERTY_y = 101;
 
     // Property array 
     /*lazy PropertyDescriptor*/
     private static PropertyDescriptor[] getPdescriptor(){
-        PropertyDescriptor[] properties = new PropertyDescriptor[101];
+        PropertyDescriptor[] properties = new PropertyDescriptor[102];
     
         try {
             properties[PROPERTY_accessibleContext] = new PropertyDescriptor ( "accessibleContext", br.com.gmp.comps.panel.GTitlePanel.class, "getAccessibleContext", null ); // NOI18N
@@ -211,6 +212,7 @@ public class GTitlePanelBeanInfo extends SimpleBeanInfo {
             properties[PROPERTY_rootPane] = new PropertyDescriptor ( "rootPane", br.com.gmp.comps.panel.GTitlePanel.class, "getRootPane", null ); // NOI18N
             properties[PROPERTY_showing] = new PropertyDescriptor ( "showing", br.com.gmp.comps.panel.GTitlePanel.class, "isShowing", null ); // NOI18N
             properties[PROPERTY_size] = new PropertyDescriptor ( "size", br.com.gmp.comps.panel.GTitlePanel.class, "getSize", "setSize" ); // NOI18N
+            properties[PROPERTY_title] = new PropertyDescriptor ( "title", br.com.gmp.comps.panel.GTitlePanel.class, "getTitle", "setTitle" ); // NOI18N
             properties[PROPERTY_toolkit] = new PropertyDescriptor ( "toolkit", br.com.gmp.comps.panel.GTitlePanel.class, "getToolkit", null ); // NOI18N
             properties[PROPERTY_toolTipText] = new PropertyDescriptor ( "toolTipText", br.com.gmp.comps.panel.GTitlePanel.class, "getToolTipText", "setToolTipText" ); // NOI18N
             properties[PROPERTY_topLevelAncestor] = new PropertyDescriptor ( "topLevelAncestor", br.com.gmp.comps.panel.GTitlePanel.class, "getTopLevelAncestor", null ); // NOI18N
@@ -409,24 +411,23 @@ public class GTitlePanelBeanInfo extends SimpleBeanInfo {
     private static final int METHOD_setBounds128 = 128;
     private static final int METHOD_setComponentZOrder129 = 129;
     private static final int METHOD_setDefaultLocale130 = 130;
-    private static final int METHOD_setTitle131 = 131;
+    private static final int METHOD_show131 = 131;
     private static final int METHOD_show132 = 132;
-    private static final int METHOD_show133 = 133;
-    private static final int METHOD_size134 = 134;
-    private static final int METHOD_toString135 = 135;
-    private static final int METHOD_transferFocus136 = 136;
-    private static final int METHOD_transferFocusBackward137 = 137;
-    private static final int METHOD_transferFocusDownCycle138 = 138;
-    private static final int METHOD_transferFocusUpCycle139 = 139;
-    private static final int METHOD_unregisterKeyboardAction140 = 140;
-    private static final int METHOD_update141 = 141;
-    private static final int METHOD_updateUI142 = 142;
-    private static final int METHOD_validate143 = 143;
+    private static final int METHOD_size133 = 133;
+    private static final int METHOD_toString134 = 134;
+    private static final int METHOD_transferFocus135 = 135;
+    private static final int METHOD_transferFocusBackward136 = 136;
+    private static final int METHOD_transferFocusDownCycle137 = 137;
+    private static final int METHOD_transferFocusUpCycle138 = 138;
+    private static final int METHOD_unregisterKeyboardAction139 = 139;
+    private static final int METHOD_update140 = 140;
+    private static final int METHOD_updateUI141 = 141;
+    private static final int METHOD_validate142 = 142;
 
     // Method array 
     /*lazy MethodDescriptor*/
     private static MethodDescriptor[] getMdescriptor(){
-        MethodDescriptor[] methods = new MethodDescriptor[144];
+        MethodDescriptor[] methods = new MethodDescriptor[143];
     
         try {
             methods[METHOD_action0] = new MethodDescriptor(java.awt.Component.class.getMethod("action", new Class[] {java.awt.Event.class, java.lang.Object.class})); // NOI18N
@@ -691,32 +692,30 @@ public class GTitlePanelBeanInfo extends SimpleBeanInfo {
             methods[METHOD_setComponentZOrder129].setDisplayName ( "" );
             methods[METHOD_setDefaultLocale130] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("setDefaultLocale", new Class[] {java.util.Locale.class})); // NOI18N
             methods[METHOD_setDefaultLocale130].setDisplayName ( "" );
-            methods[METHOD_setTitle131] = new MethodDescriptor(br.com.gmp.comps.panel.GTitlePanel.class.getMethod("setTitle", new Class[] {java.lang.String.class, javax.swing.Icon.class})); // NOI18N
-            methods[METHOD_setTitle131].setDisplayName ( "" );
-            methods[METHOD_show132] = new MethodDescriptor(java.awt.Component.class.getMethod("show", new Class[] {})); // NOI18N
+            methods[METHOD_show131] = new MethodDescriptor(java.awt.Component.class.getMethod("show", new Class[] {})); // NOI18N
+            methods[METHOD_show131].setDisplayName ( "" );
+            methods[METHOD_show132] = new MethodDescriptor(java.awt.Component.class.getMethod("show", new Class[] {boolean.class})); // NOI18N
             methods[METHOD_show132].setDisplayName ( "" );
-            methods[METHOD_show133] = new MethodDescriptor(java.awt.Component.class.getMethod("show", new Class[] {boolean.class})); // NOI18N
-            methods[METHOD_show133].setDisplayName ( "" );
-            methods[METHOD_size134] = new MethodDescriptor(java.awt.Component.class.getMethod("size", new Class[] {})); // NOI18N
-            methods[METHOD_size134].setDisplayName ( "" );
-            methods[METHOD_toString135] = new MethodDescriptor(java.awt.Component.class.getMethod("toString", new Class[] {})); // NOI18N
-            methods[METHOD_toString135].setDisplayName ( "" );
-            methods[METHOD_transferFocus136] = new MethodDescriptor(java.awt.Component.class.getMethod("transferFocus", new Class[] {})); // NOI18N
-            methods[METHOD_transferFocus136].setDisplayName ( "" );
-            methods[METHOD_transferFocusBackward137] = new MethodDescriptor(java.awt.Component.class.getMethod("transferFocusBackward", new Class[] {})); // NOI18N
-            methods[METHOD_transferFocusBackward137].setDisplayName ( "" );
-            methods[METHOD_transferFocusDownCycle138] = new MethodDescriptor(java.awt.Container.class.getMethod("transferFocusDownCycle", new Class[] {})); // NOI18N
-            methods[METHOD_transferFocusDownCycle138].setDisplayName ( "" );
-            methods[METHOD_transferFocusUpCycle139] = new MethodDescriptor(java.awt.Component.class.getMethod("transferFocusUpCycle", new Class[] {})); // NOI18N
-            methods[METHOD_transferFocusUpCycle139].setDisplayName ( "" );
-            methods[METHOD_unregisterKeyboardAction140] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("unregisterKeyboardAction", new Class[] {javax.swing.KeyStroke.class})); // NOI18N
-            methods[METHOD_unregisterKeyboardAction140].setDisplayName ( "" );
-            methods[METHOD_update141] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("update", new Class[] {java.awt.Graphics.class})); // NOI18N
-            methods[METHOD_update141].setDisplayName ( "" );
-            methods[METHOD_updateUI142] = new MethodDescriptor(javax.swing.JPanel.class.getMethod("updateUI", new Class[] {})); // NOI18N
-            methods[METHOD_updateUI142].setDisplayName ( "" );
-            methods[METHOD_validate143] = new MethodDescriptor(java.awt.Container.class.getMethod("validate", new Class[] {})); // NOI18N
-            methods[METHOD_validate143].setDisplayName ( "" );
+            methods[METHOD_size133] = new MethodDescriptor(java.awt.Component.class.getMethod("size", new Class[] {})); // NOI18N
+            methods[METHOD_size133].setDisplayName ( "" );
+            methods[METHOD_toString134] = new MethodDescriptor(java.awt.Component.class.getMethod("toString", new Class[] {})); // NOI18N
+            methods[METHOD_toString134].setDisplayName ( "" );
+            methods[METHOD_transferFocus135] = new MethodDescriptor(java.awt.Component.class.getMethod("transferFocus", new Class[] {})); // NOI18N
+            methods[METHOD_transferFocus135].setDisplayName ( "" );
+            methods[METHOD_transferFocusBackward136] = new MethodDescriptor(java.awt.Component.class.getMethod("transferFocusBackward", new Class[] {})); // NOI18N
+            methods[METHOD_transferFocusBackward136].setDisplayName ( "" );
+            methods[METHOD_transferFocusDownCycle137] = new MethodDescriptor(java.awt.Container.class.getMethod("transferFocusDownCycle", new Class[] {})); // NOI18N
+            methods[METHOD_transferFocusDownCycle137].setDisplayName ( "" );
+            methods[METHOD_transferFocusUpCycle138] = new MethodDescriptor(java.awt.Component.class.getMethod("transferFocusUpCycle", new Class[] {})); // NOI18N
+            methods[METHOD_transferFocusUpCycle138].setDisplayName ( "" );
+            methods[METHOD_unregisterKeyboardAction139] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("unregisterKeyboardAction", new Class[] {javax.swing.KeyStroke.class})); // NOI18N
+            methods[METHOD_unregisterKeyboardAction139].setDisplayName ( "" );
+            methods[METHOD_update140] = new MethodDescriptor(javax.swing.JComponent.class.getMethod("update", new Class[] {java.awt.Graphics.class})); // NOI18N
+            methods[METHOD_update140].setDisplayName ( "" );
+            methods[METHOD_updateUI141] = new MethodDescriptor(javax.swing.JPanel.class.getMethod("updateUI", new Class[] {})); // NOI18N
+            methods[METHOD_updateUI141].setDisplayName ( "" );
+            methods[METHOD_validate142] = new MethodDescriptor(java.awt.Container.class.getMethod("validate", new Class[] {})); // NOI18N
+            methods[METHOD_validate142].setDisplayName ( "" );
         }
         catch( Exception e) {}//GEN-HEADEREND:Methods
     // Here you can add code for customizing the methods array.
