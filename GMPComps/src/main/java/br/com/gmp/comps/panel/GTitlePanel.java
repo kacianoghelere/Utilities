@@ -21,8 +21,8 @@ import javax.swing.border.Border;
 public class GTitlePanel extends JPanel {
 
     private static final long serialVersionUID = 9104873267039717087L;
-    protected JPanel northPanel;
-    protected JLabel label;
+    protected JPanel titlePanel;
+    protected JLabel titleLabel;
 
     /**
      * Constructs a titled panel.
@@ -55,15 +55,15 @@ public class GTitlePanel extends JPanel {
         initComponents();
         setLayout(new BorderLayout());
 
-        label = new JLabel(title != null ? title : "", JLabel.LEADING);
+        titleLabel = new JLabel(title != null ? title : "", JLabel.LEADING);
         if (icon != null) {
-            label.setIcon(icon);
+            titleLabel.setIcon(icon);
         }
-        label.setForeground(Color.WHITE);
+        titleLabel.setForeground(Color.WHITE);
 
         GradientPanel titlePanel = new GradientPanel(Color.LIGHT_GRAY);
         titlePanel.setLayout(new BorderLayout());
-        titlePanel.add(label, BorderLayout.WEST);
+        titlePanel.add(titleLabel, BorderLayout.WEST);
         int borderOffset = 2;
         if (icon == null) {
             borderOffset += 1;
@@ -87,11 +87,45 @@ public class GTitlePanel extends JPanel {
         }
     }
 
-    public void setTitle(String label, Icon icon) {
-        this.label.setText(label);
-        this.label.setIcon(icon);
+    /**
+     * Retorna o titulo do painel
+     *
+     * @return {@code String} Titulo do painel
+     */
+    public String getTitle() {
+        return this.titleLabel.getText();
     }
 
+    /**
+     * Modifica o titulo do painel
+     *
+     * @param label {@code String} Novo titulo do painel
+     */
+    public void setTitle(String label) {
+        this.titleLabel.setText(label);
+    }
+
+    /**
+     * Retorna o icone do painel
+     *
+     * @return {@code Icon} Icone do painel
+     */
+    public Icon getIcon() {
+        return this.titleLabel.getIcon();
+    }
+
+    /**
+     * Modifica o icone do painel
+     *
+     * @param label {@code Icon} Novo Icone do painel
+     */
+    public void setIcon(Icon label) {
+        this.titleLabel.setIcon(label);
+    }
+
+    /**
+     * Painel de coloração gradiente
+     */
     private static class GradientPanel extends JPanel {
 
         private static final long serialVersionUID = -6385751027379193053L;
