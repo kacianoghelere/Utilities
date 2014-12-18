@@ -26,6 +26,13 @@ public class GTitlePanel extends JPanel {
 
     /**
      * Constructs a titled panel.
+     */
+    public GTitlePanel() {
+        initialize("Title", null, null, null);
+    }
+
+    /**
+     * Constructs a titled panel.
      *
      * @param title Titulo
      * @param icon Icone
@@ -33,7 +40,6 @@ public class GTitlePanel extends JPanel {
      * @param outerBorder Borda externa
      */
     public GTitlePanel(String title, Icon icon, JComponent content, Border outerBorder) {
-        initComponents();
         initialize(title, icon, content, outerBorder);
     }
 
@@ -46,6 +52,7 @@ public class GTitlePanel extends JPanel {
      * @param outerBorder Borda externa
      */
     private void initialize(String title, Icon icon, JComponent content, Border outerBorder) {
+        initComponents();
         setLayout(new BorderLayout());
 
         label = new JLabel(title != null ? title : "", JLabel.LEADING);
@@ -64,11 +71,13 @@ public class GTitlePanel extends JPanel {
         titlePanel.setBorder(BorderFactory.createEmptyBorder(borderOffset, 4, borderOffset, 1));
         add(titlePanel, BorderLayout.NORTH);
 
-        JPanel northPanel = new JPanel();
-        northPanel.setLayout(new BorderLayout());
-        northPanel.add(content, BorderLayout.NORTH);
-        northPanel.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        add(northPanel, BorderLayout.CENTER);
+        JPanel nPanel = new JPanel();
+        nPanel.setLayout(new BorderLayout());
+        if (content != null) {
+            nPanel.add(content, BorderLayout.NORTH);
+        }
+        nPanel.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        add(nPanel, BorderLayout.CENTER);
 
         if (outerBorder == null) {
             setBorder(BorderFactory.createLineBorder(Color.GRAY));
