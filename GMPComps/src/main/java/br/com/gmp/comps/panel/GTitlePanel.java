@@ -61,7 +61,7 @@ public class GTitlePanel extends JPanel {
         }
         label.setForeground(Color.WHITE);
 
-        GradientPanel titlePanel = new GradientPanel(Color.BLACK);
+        GradientPanel titlePanel = new GradientPanel(Color.LIGHT_GRAY);
         titlePanel.setLayout(new BorderLayout());
         titlePanel.add(label, BorderLayout.WEST);
         int borderOffset = 2;
@@ -107,7 +107,8 @@ public class GTitlePanel extends JPanel {
             if (isOpaque()) {
                 // Color controlColor = UIManager.getColor("control");
                 // Color controlColor = new Color(252, 198, 82);
-                Color controlColor = new Color(99, 153, 255);
+//                Color controlColor = new Color(99, 153, 255);
+                Color controlColor = Color.GRAY;
                 int width = getWidth();
                 int height = getHeight();
 
