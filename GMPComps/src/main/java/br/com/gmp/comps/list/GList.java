@@ -15,10 +15,11 @@ import javax.swing.SwingUtilities;
  *
  * @author kaciano
  * @version 1.0
+ * @param <T> Tipo de elemento
  */
-public class GList extends JList {
+public class GList<T> extends JList {
 
-    private GListModel<?> model;
+    private GListModel<T> model;
     private boolean keyDelete;
 
     /**
@@ -32,9 +33,9 @@ public class GList extends JList {
     /**
      * Cria nova instancia de GList
      *
-     * @param model {@code GListModel(?)} Modelo
+     * @param model {@code GListModel(T)} Modelo
      */
-    public GList(GListModel<?> model) {
+    public GList(GListModel<T> model) {
         this.model = model;
     }
 
@@ -78,7 +79,7 @@ public class GList extends JList {
     }
 
     @Override
-    public GListModel<?> getModel() {
+    public GListModel<T> getModel() {
         return model;
     }
 
@@ -87,7 +88,7 @@ public class GList extends JList {
      *
      * @param model {@code GListModel(?)} Modelo
      */
-    public void setModel(GListModel<?> model) {
+    public void setModel(GListModel<T> model) {
         this.model = model;
         super.setModel(this.model);
     }
