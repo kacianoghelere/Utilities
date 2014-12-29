@@ -15,11 +15,11 @@ import javax.swing.SwingUtilities;
  *
  * @author kaciano
  * @version 1.0
- * @param <T> Tipo de elemento
+ * @param <E> Tipo de elemento
  */
-public class GList<T> extends JList {
+public class GList<E> extends JList {
 
-    private GListModel<T> model;
+    private GListModel<E> model;
     private boolean keyDelete;
 
     /**
@@ -35,7 +35,7 @@ public class GList<T> extends JList {
      *
      * @param model {@code GListModel(T)} Modelo
      */
-    public GList(GListModel<T> model) {
+    public GList(GListModel<E> model) {
         this.model = model;
     }
 
@@ -79,7 +79,7 @@ public class GList<T> extends JList {
     }
 
     @Override
-    public GListModel<T> getModel() {
+    public GListModel<E> getModel() {
         return model;
     }
 
@@ -88,7 +88,7 @@ public class GList<T> extends JList {
      *
      * @param model {@code GListModel(?)} Modelo
      */
-    public void setModel(GListModel<T> model) {
+    public void setModel(GListModel<E> model) {
         this.model = model;
         super.setModel(this.model);
     }
@@ -130,7 +130,7 @@ public class GList<T> extends JList {
 
     @Override
     public void setSelectedValue(Object anObject, boolean shouldScroll) {
-        super.setSelectedValue(anObject, shouldScroll); //To change body of generated methods, choose Tools | Templates.
+        super.setSelectedValue(anObject, shouldScroll);
         model.setSelectedValue(anObject);
     }
 
