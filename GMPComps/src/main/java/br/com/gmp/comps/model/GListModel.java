@@ -13,6 +13,7 @@ import javax.swing.AbstractListModel;
 public class GListModel<T> extends AbstractListModel<T> {
 
     private List<T> data;
+    private Object selectedValue;
 
     /**
      * Cria nova instancia de GListModel
@@ -123,6 +124,24 @@ public class GListModel<T> extends AbstractListModel<T> {
      */
     public void setData(List<T> data) {
         this.data = data;
+    }
+
+    /**
+     * Retorna o valor selecionado
+     *
+     * @return {@code Object} Valor selecionado
+     */
+    public Object getSelectedValue() {
+        return selectedValue;
+    }
+
+    /**
+     * Modifica o valor selecionado
+     *
+     * @param selectedValue {@code Object} Valor selecionado
+     */
+    public void setSelectedValue(Object selectedValue) {
+        this.selectedValue = selectedValue;
     }
 
 }

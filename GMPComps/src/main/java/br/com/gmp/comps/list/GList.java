@@ -127,6 +127,12 @@ public class GList extends JList {
         }
     }
 
+    @Override
+    public void setSelectedValue(Object anObject, boolean shouldScroll) {
+        super.setSelectedValue(anObject, shouldScroll); //To change body of generated methods, choose Tools | Templates.
+        model.setSelectedValue(anObject);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
