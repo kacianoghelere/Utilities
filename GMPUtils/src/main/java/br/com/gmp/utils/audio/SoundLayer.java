@@ -22,7 +22,6 @@ import org.jaudiotagger.tag.id3.ID3v1Tag;
  */
 public class SoundLayer implements Runnable {
 
-    private final Logger LOGGER = Logger.getLogger(SoundLayer.class.getName());
     private AudioFile audioFile;
     private String filePath;
     private GAudioPlayer player;
@@ -30,7 +29,6 @@ public class SoundLayer implements Runnable {
     private String namePlayerThread = "AudioPlayerThread";
     private PlaybackListener playbackListener = new PlaybackListener();
     private ID3v1Tag tag;
-    private final String breakLine = "\n---------------------------------------------------";
 
     /**
      * Cria nova instancia de SoundLayer
@@ -88,13 +86,13 @@ public class SoundLayer implements Runnable {
      * Imprime dados
      */
     private void printData() {
-        System.out.println(breakLine
-                + "\n TITLE:\t" + tag.getFirst(FieldKey.TITLE)
-                + "\n ARTIST:\t" + tag.getFirst(FieldKey.ARTIST)
-                + "\n ALBUM:\t" + tag.getFirst(FieldKey.ALBUM)
-                + "\n TRACK:\t" + tag.getFirst(FieldKey.TRACK)
-                + "\n LENGTH:\t" + tag.getFirst(FieldKey.TEMPO)
-                + breakLine);
+        System.out.println("\n---------------------------------------------------"
+                + "\nTitle: " + tag.getFirst(FieldKey.TITLE)
+                + "\nArtist: " + tag.getFirst(FieldKey.ARTIST)
+                + "\nAlbum: " + tag.getFirst(FieldKey.ALBUM)
+                + "\nTrack: " + tag.getFirst(FieldKey.TRACK)
+                + "\nTempo: " + tag.getFirst(FieldKey.TEMPO)
+                + "\n---------------------------------------------------");
     }
 
     /**
@@ -139,21 +137,15 @@ public class SoundLayer implements Runnable {
      * @throws javazoom.jl.decoder.BitstreamException BitstreamException
      * @throws java.io.IOException Exceção de Java I/O
      */
-    public void play() throws BitstreamException, IOException, JavaLayerException {
+    public void play() throws BitstreamException, IOException {
         if (this.player == null) {
             this.playerInitialize();
         } else if (this.player.isPaused()) {
             this.pauseToggle();
-            this.playerInitialize();
         } else if (!this.player.isPaused() || this.player.isComplete()
                 || this.player.isStopped()) {
             this.stop();
             this.playerInitialize();
-        }
-        if (playerThread != null && playerThread.isAlive()) {
-            playerThread.stop();
-            playerThread.destroy();
-            playerThread = null;
         }
         this.playerThread = new Thread(this, namePlayerThread);
         this.playerThread.setDaemon(true);
@@ -175,30 +167,15 @@ public class SoundLayer implements Runnable {
     }
 
     /**
-     * Continua reprodução
-     *
-     * @throws javazoom.jl.decoder.BitstreamException BitstreamException
-     * @throws java.io.IOException Exceção de Java I/O
-     */
-    public void resume() throws BitstreamException, JavaLayerException, IOException {
-        if (this.player != null) {
-            if (this.player.isPaused() && !this.player.isStopped()) {
-                this.player.resume();
-                this.playerInitialize();
-            }
-        }
-    }
-
-    /**
      * Troca o status de pausa
      *
      * @throws javazoom.jl.decoder.BitstreamException BitstreamException
      * @throws java.io.IOException Exceção de Java I/O
      */
-    public void pauseToggle() throws BitstreamException, IOException, JavaLayerException {
+    public void pauseToggle() throws BitstreamException, IOException {
         if (this.player != null) {
             if (this.player.isPaused() && !this.player.isStopped()) {
-                this.resume();
+                this.play();
             } else {
                 this.pause();
             }
@@ -236,7 +213,7 @@ public class SoundLayer implements Runnable {
         try {
             this.player.resume();
         } catch (javazoom.jl.decoder.JavaLayerException | IOException ex) {
-            LOGGER.log(Level.SEVERE, null, ex);
+            Logger.getLogger(SoundLayer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

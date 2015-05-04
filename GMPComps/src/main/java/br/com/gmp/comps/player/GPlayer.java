@@ -252,8 +252,6 @@ public class GPlayer extends JToolBar {
             }
         } catch (IOException | BitstreamException e) {
             Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, e);
-        } catch (JavaLayerException ex) {
-            Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jBPauseActionPerformed
 
