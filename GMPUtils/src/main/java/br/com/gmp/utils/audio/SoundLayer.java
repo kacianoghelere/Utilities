@@ -140,10 +140,7 @@ public class SoundLayer implements Runnable {
     public void play() throws BitstreamException, IOException {
         if (this.player == null) {
             this.playerInitialize();
-        } else if (this.player.isPaused()) {
-            this.pauseToggle();
-        } else if (!this.player.isPaused() || this.player.isComplete()
-                || this.player.isStopped()) {
+        } else if (!this.player.isPaused() || this.player.isComplete() || this.player.isStopped()) {
             this.stop();
             this.playerInitialize();
         }
@@ -202,7 +199,7 @@ public class SoundLayer implements Runnable {
     private void playerInitialize() throws IOException {
         try {
             this.player = new GAudioPlayer(this.filePath);
-            this.player.setPlaybackListener(this.playbackListener);
+            this.player.setPlaybackListener(this.playbackListener);            
         } catch (JavaLayerException e) {
             Logger.getLogger(SoundLayer.class.getName()).log(Level.SEVERE, null, e);
         }

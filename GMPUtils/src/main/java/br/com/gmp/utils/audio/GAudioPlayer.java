@@ -37,7 +37,7 @@ public class GAudioPlayer {
     private boolean stopped;
     private PlaybackListener listener;
     private int frameIndexCurrent;
-    private final int lostFrames = 20;
+    private final int lostFrames = 0;
 
     /**
      * Cria nova instancia de GAudioPlayer
