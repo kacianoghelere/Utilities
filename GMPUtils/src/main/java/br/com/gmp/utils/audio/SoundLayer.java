@@ -155,34 +155,9 @@ public class SoundLayer implements Runnable {
             playerThread.destroy();
             playerThread = null;
         }
-        this.playerThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    player.resume();
-                } catch (javazoom.jl.decoder.JavaLayerException | IOException ex) {
-                    LOGGER.log(Level.SEVERE, null, ex);
-                }
-            }
-        }, namePlayerThread);
+        this.playerThread = new Thread(this, namePlayerThread);
         this.playerThread.setDaemon(true);
         this.playerThread.start();
-    }
-
-    /**
-     * Troca o status de pausa
-     *
-     * @throws javazoom.jl.decoder.BitstreamException BitstreamException
-     * @throws java.io.IOException Exceção de Java I/O
-     */
-    public void pauseToggle() throws BitstreamException, IOException, JavaLayerException {
-        if (this.player != null) {
-            if (this.player.isPaused() && !this.player.isStopped()) {
-                this.resume();
-            } else {
-                this.pause();
-            }
-        }
     }
 
     /**
@@ -209,6 +184,23 @@ public class SoundLayer implements Runnable {
         if (this.player != null) {
             if (this.player.isPaused() && !this.player.isStopped()) {
                 this.player.resume();
+                this.playerInitialize();
+            }
+        }
+    }
+
+    /**
+     * Troca o status de pausa
+     *
+     * @throws javazoom.jl.decoder.BitstreamException BitstreamException
+     * @throws java.io.IOException Exceção de Java I/O
+     */
+    public void pauseToggle() throws BitstreamException, IOException, JavaLayerException {
+        if (this.player != null) {
+            if (this.player.isPaused() && !this.player.isStopped()) {
+                this.resume();
+            } else {
+                this.pause();
             }
         }
     }

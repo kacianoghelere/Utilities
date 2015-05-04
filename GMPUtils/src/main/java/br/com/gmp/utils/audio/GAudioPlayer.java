@@ -36,7 +36,7 @@ public class GAudioPlayer {
     private boolean paused;
     private boolean stopped;
     private PlaybackListener listener;
-    private int currentIndex;
+    private int frameIndexCurrent;
     private final int lostFrames = 20;
 
     /**
@@ -172,10 +172,6 @@ public class GAudioPlayer {
     public boolean play(int indexStart, int indexFinal, int factor) throws JavaLayerException, IOException {
         LOGGER.log(Level.INFO, "STARTING PLAYBACK ON [{0} : {1}]",
                 new Object[]{indexStart, indexFinal});
-        if (bitstream != null) {
-            bitstream.close();
-            bitstream = null;
-        }
         this.bitstream = new Bitstream(this.getAudioInputStream());
 
         this.audioDevice = FactoryRegistry.systemRegistry().createAudioDevice();
@@ -186,12 +182,12 @@ public class GAudioPlayer {
 
         this.paused = false;
         this.stopped = false;
-        this.currentIndex = 0;
+        this.frameIndexCurrent = 0;
 
         while (shouldContinueReadingFrames == true
-                && this.currentIndex < indexStart - factor) {
+                && this.frameIndexCurrent < indexStart - factor) {
             shouldContinueReadingFrames = this.skipFrame();
-            this.currentIndex++;
+            this.frameIndexCurrent++;
         }
 
         if (this.listener != null) {
@@ -204,17 +200,18 @@ public class GAudioPlayer {
             indexFinal = Integer.MAX_VALUE;
         }
 
-        while (shouldContinueReadingFrames == true && this.currentIndex < indexFinal) {
+        while (shouldContinueReadingFrames == true
+                && this.frameIndexCurrent < indexFinal) {
             if (this.paused || this.stopped) {
                 shouldContinueReadingFrames = false;
                 try {
                     Thread.sleep(1);
                 } catch (InterruptedException ex) {
-                    LOGGER.log(Level.SEVERE, null, ex);
+                    Logger.getLogger(GAudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
                 shouldContinueReadingFrames = this.decodeFrame();
-                this.currentIndex++;
+                this.frameIndexCurrent++;
             }
         }
 
@@ -251,8 +248,8 @@ public class GAudioPlayer {
      * @throws java.io.IOException Exceção de Java i/O
      */
     public boolean resume() throws JavaLayerException, IOException {
-        LOGGER.log(Level.INFO, "RESUMING PLAYBACK ON [{0}]", this.currentIndex);
-        return this.play(this.currentIndex);
+        LOGGER.log(Level.INFO, "RESUMING PLAYBACK ON [{0}]", this.frameIndexCurrent);
+        return this.play(this.frameIndexCurrent);
     }
 
     /**
@@ -376,15 +373,6 @@ public class GAudioPlayer {
     }
 
     /**
-     * Retorna o indice atual da reproducao
-     *
-     * @return {@code int} Indice atual da reproducao
-     */
-    public int getCurrentIndex() {
-        return currentIndex;
-    }
-
-    /**
      * Evento para playback listeners
      */
     public static class PlaybackEvent {
@@ -464,8 +452,6 @@ public class GAudioPlayer {
      */
     public static class PlaybackAdapter implements PlaybackListener {
 
-        private final Logger LOGGER = Logger.getLogger(PlaybackAdapter.class.getName());
-
         /**
          * Método de inicio da execução de faixa
          *
@@ -473,7 +459,7 @@ public class GAudioPlayer {
          */
         @Override
         public void playbackStarted(PlaybackEvent event) {
-            LOGGER.info("Playback started");
+            System.err.println("Playback started");
         }
 
         /**
@@ -483,7 +469,7 @@ public class GAudioPlayer {
          */
         @Override
         public void playbackPaused(PlaybackEvent event) {
-            LOGGER.info("Playback paused");
+            System.err.println("Playback paused");
         }
 
         /**
@@ -493,7 +479,7 @@ public class GAudioPlayer {
          */
         @Override
         public void playbackFinished(PlaybackEvent event) {
-            LOGGER.info("Playback stopped");
+            System.err.println("Playback stopped");
         }
     }
 
