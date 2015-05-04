@@ -99,7 +99,7 @@ public class AudioPlayer {
      * @param track {@code File} Arquivo
      * @throws java.io.FileNotFoundException Exceção de arquivo não encontrado
      * @throws javazoom.jl.decoder.JavaLayerException Exceção de JavaLayer
-     * @throws IOException Exceção de IO
+     * @throws IOException Exceção de I/O
      * @throws TagException Exceção de Tags
      * @throws ReadOnlyFileException Exceção de 'Somente Leitura'
      * @throws InvalidAudioFrameException Exceção de tipo de audio invalido
