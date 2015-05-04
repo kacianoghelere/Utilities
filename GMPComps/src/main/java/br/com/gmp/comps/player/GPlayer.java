@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JToolBar;
 import javazoom.jl.decoder.BitstreamException;
+import javazoom.jl.decoder.JavaLayerException;
 
 /**
  * Player de Audio
@@ -239,6 +240,8 @@ public class GPlayer extends JToolBar {
             }
         } catch (IOException | BitstreamException e) {
             Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, e);
+        } catch (JavaLayerException ex) {
+            Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jBPlayActionPerformed
 
@@ -249,6 +252,8 @@ public class GPlayer extends JToolBar {
             }
         } catch (IOException | BitstreamException e) {
             Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, e);
+        } catch (JavaLayerException ex) {
+            Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jBPauseActionPerformed
 

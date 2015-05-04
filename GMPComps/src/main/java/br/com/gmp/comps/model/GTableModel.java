@@ -371,6 +371,24 @@ public class GTableModel<T> extends SimpleTableModel {
     }
 
     /**
+     * Retorna a quantidade de dados do modelo
+     *
+     * @return {@code int} Quantidade de dados do modelo
+     */
+    public int getSize() {
+        return data.size();
+    }
+
+    /**
+     * Retorna se os dados existem
+     *
+     * @return {@code Boolean} Modelo está vazio?
+     */
+    public Boolean isEmpty() {
+        return data.isEmpty();
+    }
+
+    /**
      * Retorna a classe do modelo
      *
      * @return {@code Class} Classe do modelo

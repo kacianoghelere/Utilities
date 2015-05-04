@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javazoom.jl.decoder.BitstreamException;
+import javazoom.jl.decoder.JavaLayerException;
 
 /**
  * Player de audio para multiplos arquivos de audio
@@ -69,6 +70,9 @@ public class GPlayerList extends JPanel {
         this.gTableTracks.setModel(model);
         this.gTableTracks.repaint();
         this.gTableTracks.revalidate();
+        if (!model.isEmpty()) {
+            this.gTableTracks.setRowSelectionInterval(0, 0);
+        }
     }
 
     /**
@@ -102,7 +106,11 @@ public class GPlayerList extends JPanel {
      * Retorna o reprodutor de audio
      *
      */
-    private void loadPlayer() throws IOException {
+    private void loadPlayer() throws IOException, BitstreamException {
+        if (this.layer != null) {
+            this.layer.stop();
+            this.layer = null;
+        }
         this.layer = new SoundLayer(model.getObject(gTableTracks.getSelectedRow()));
     }
 
@@ -249,7 +257,10 @@ public class GPlayerList extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPreviousActionPerformed
-        System.out.println("Not implemented yet.");
+        if (model != null && !model.isEmpty() && gTableTracks.getSelectedRow() != 0) {
+            int prev = gTableTracks.getSelectedRow() - 1;
+            gTableTracks.setRowSelectionInterval(prev, prev);
+        }
     }//GEN-LAST:event_jBPreviousActionPerformed
 
     private void jBPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPlayActionPerformed
@@ -264,6 +275,8 @@ public class GPlayerList extends JPanel {
             }
         } catch (IOException | BitstreamException e) {
             Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, e);
+        } catch (JavaLayerException ex) {
+            Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jBPlayActionPerformed
 
@@ -274,6 +287,8 @@ public class GPlayerList extends JPanel {
             }
         } catch (IOException | BitstreamException e) {
             Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, e);
+        } catch (JavaLayerException ex) {
+            Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jBPauseActionPerformed
 
@@ -289,7 +304,10 @@ public class GPlayerList extends JPanel {
     }//GEN-LAST:event_jBStopActionPerformed
 
     private void jBNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNextActionPerformed
-        System.out.println("Not implemented yet.");
+        if (model != null && !model.isEmpty() && (gTableTracks.getSelectedRow() + 1 != model.getSize())) {
+            int next = gTableTracks.getSelectedRow() + 1;
+            gTableTracks.setRowSelectionInterval(next, next);
+        }
     }//GEN-LAST:event_jBNextActionPerformed
 
 

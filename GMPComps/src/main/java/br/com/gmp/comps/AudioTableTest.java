@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  */
 public class AudioTableTest extends javax.swing.JFrame {
 
-    private String dir = "/home/kaciano/teste/";
+    private String dir = "/home/kaciano/mp3/";
 
     /**
      * Creates new form AudioTableTest
@@ -21,6 +21,7 @@ public class AudioTableTest extends javax.swing.JFrame {
     public AudioTableTest() throws Exception {
         initComponents();
         List<AudioFile> convert = AudioConverter.convert(dir);
+        gPlayer.setNavigate(true);
         gPlayer.build(convert);
     }
 

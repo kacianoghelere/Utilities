@@ -25,17 +25,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="gPlayer1" min="-2" max="-2" attributes="0"/>
+          <Component id="gPlayer" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="gPlayer1" min="-2" pref="25" max="-2" attributes="0"/>
+          <Component id="gPlayer" min="-2" pref="25" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="br.com.gmp.comps.player.GPlayer" name="gPlayer1">
+    <Container class="br.com.gmp.comps.player.GPlayer" name="gPlayer">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
     </Container>
