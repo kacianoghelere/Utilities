@@ -24,6 +24,7 @@ import javazoom.jl.player.FactoryRegistry;
  */
 public class GAudioPlayer {
 
+    private final Logger LOGGER = Logger.getLogger(GAudioPlayer.class.getName());
     private URL urlStream;
     private String audioPath;
     private Bitstream bitstream;
@@ -35,7 +36,7 @@ public class GAudioPlayer {
     private boolean paused;
     private boolean stopped;
     private PlaybackListener listener;
-    private int frameIndexCurrent;
+    private int currentIndex;
     private final int lostFrames = 20;
 
     /**
@@ -161,15 +162,20 @@ public class GAudioPlayer {
     /**
      * Inicia a reprodução de audio
      *
-     * @param frameIndexStart {@code int} Frame inicial
-     * @param frameIndexFinal {@code int} Frame final
-     * @param correctionFactorInFrames {@code int} Fator de correção
+     * @param indexStart {@code int} Frame inicial
+     * @param indexFinal {@code int} Frame final
+     * @param factor {@code int} Fator de correção
      * @return {@code boolean} Reprodução iniciada?
      * @throws JavaLayerException Exceção de JavaLayer
      * @throws java.io.IOException Exceção de Java I/O
      */
-    public boolean play(int frameIndexStart, int frameIndexFinal,
-            int correctionFactorInFrames) throws JavaLayerException, IOException {
+    public boolean play(int indexStart, int indexFinal, int factor) throws JavaLayerException, IOException {
+        LOGGER.log(Level.INFO, "STARTING PLAYBACK ON [{0} : {1}]",
+                new Object[]{indexStart, indexFinal});
+        if (bitstream != null) {
+            bitstream.close();
+            bitstream = null;
+        }
         this.bitstream = new Bitstream(this.getAudioInputStream());
 
         this.audioDevice = FactoryRegistry.systemRegistry().createAudioDevice();
@@ -180,13 +186,12 @@ public class GAudioPlayer {
 
         this.paused = false;
         this.stopped = false;
-        this.frameIndexCurrent = 0;
+        this.currentIndex = 0;
 
         while (shouldContinueReadingFrames == true
-                && this.frameIndexCurrent < frameIndexStart
-                - correctionFactorInFrames) {
+                && this.currentIndex < indexStart - factor) {
             shouldContinueReadingFrames = this.skipFrame();
-            this.frameIndexCurrent++;
+            this.currentIndex++;
         }
 
         if (this.listener != null) {
@@ -195,22 +200,21 @@ public class GAudioPlayer {
                     .getPosition()));
         }
 
-        if (frameIndexFinal < 0) {
-            frameIndexFinal = Integer.MAX_VALUE;
+        if (indexFinal < 0) {
+            indexFinal = Integer.MAX_VALUE;
         }
 
-        while (shouldContinueReadingFrames == true
-                && this.frameIndexCurrent < frameIndexFinal) {
+        while (shouldContinueReadingFrames == true && this.currentIndex < indexFinal) {
             if (this.paused || this.stopped) {
                 shouldContinueReadingFrames = false;
                 try {
                     Thread.sleep(1);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(GAudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
+                    LOGGER.log(Level.SEVERE, null, ex);
                 }
             } else {
                 shouldContinueReadingFrames = this.decodeFrame();
-                this.frameIndexCurrent++;
+                this.currentIndex++;
             }
         }
 
@@ -247,7 +251,8 @@ public class GAudioPlayer {
      * @throws java.io.IOException Exceção de Java i/O
      */
     public boolean resume() throws JavaLayerException, IOException {
-        return this.play(this.frameIndexCurrent);
+        LOGGER.log(Level.INFO, "RESUMING PLAYBACK ON [{0}]", this.currentIndex);
+        return this.play(this.currentIndex);
     }
 
     /**
@@ -271,12 +276,14 @@ public class GAudioPlayer {
      * @throws javazoom.jl.decoder.BitstreamException BitstreamException
      */
     public void pause() throws BitstreamException {
+
         if (!this.stopped) {
             this.paused = true;
             if (this.listener != null) {
+                int position = this.audioDevice.getPosition();
+                LOGGER.log(Level.INFO, "PAUSING PLAYBACK ON {0}", position);
                 this.listener.playbackPaused(new PlaybackEvent(this,
-                        PlaybackEvent.EventType.Instances.Paused,
-                        this.audioDevice.getPosition()));
+                        PlaybackEvent.EventType.Instances.Paused, position));
             }
             this.close();
         }
@@ -288,6 +295,7 @@ public class GAudioPlayer {
      * @throws javazoom.jl.decoder.BitstreamException BitstreamException
      */
     public void stop() throws BitstreamException {
+        LOGGER.info("STOPPING PLAYBACK");
         if (!this.stopped) {
             if (!this.closed) {
                 this.listener.playbackFinished(new PlaybackEvent(this,
@@ -365,6 +373,15 @@ public class GAudioPlayer {
      */
     public boolean isStopped() {
         return stopped;
+    }
+
+    /**
+     * Retorna o indice atual da reproducao
+     *
+     * @return {@code int} Indice atual da reproducao
+     */
+    public int getCurrentIndex() {
+        return currentIndex;
     }
 
     /**
@@ -447,6 +464,8 @@ public class GAudioPlayer {
      */
     public static class PlaybackAdapter implements PlaybackListener {
 
+        private final Logger LOGGER = Logger.getLogger(PlaybackAdapter.class.getName());
+
         /**
          * Método de inicio da execução de faixa
          *
@@ -454,7 +473,7 @@ public class GAudioPlayer {
          */
         @Override
         public void playbackStarted(PlaybackEvent event) {
-            System.err.println("Playback started");
+            LOGGER.info("Playback started");
         }
 
         /**
@@ -464,7 +483,7 @@ public class GAudioPlayer {
          */
         @Override
         public void playbackPaused(PlaybackEvent event) {
-            System.err.println("Playback paused");
+            LOGGER.info("Playback paused");
         }
 
         /**
@@ -474,7 +493,7 @@ public class GAudioPlayer {
          */
         @Override
         public void playbackFinished(PlaybackEvent event) {
-            System.err.println("Playback stopped");
+            LOGGER.info("Playback stopped");
         }
     }
 
