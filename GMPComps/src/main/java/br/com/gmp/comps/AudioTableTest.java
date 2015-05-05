@@ -35,20 +35,47 @@ public class AudioTableTest extends javax.swing.JFrame {
     private void initComponents() {
 
         gPlayer = new br.com.gmp.comps.player.multi.GPlayerList();
+        gPlayer1 = new br.com.gmp.comps.player.multi.GPlayerList();
+        gPlayer2 = new br.com.gmp.comps.player.multi.GPlayerList();
+        gPlayer3 = new br.com.gmp.comps.player.multi.GPlayerList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        gPlayer.setBorder(javax.swing.BorderFactory.createTitledBorder("Ambiente"));
+
+        gPlayer1.setBorder(javax.swing.BorderFactory.createTitledBorder("Música"));
+
+        gPlayer2.setBorder(javax.swing.BorderFactory.createTitledBorder("Sons de fundo"));
+
+        gPlayer3.setBorder(javax.swing.BorderFactory.createTitledBorder("Efeitos"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(gPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(gPlayer2, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                    .addComponent(gPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(gPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(gPlayer3, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(gPlayer1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gPlayer2, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                    .addComponent(gPlayer3, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -97,5 +124,8 @@ public class AudioTableTest extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private br.com.gmp.comps.player.multi.GPlayerList gPlayer;
+    private br.com.gmp.comps.player.multi.GPlayerList gPlayer1;
+    private br.com.gmp.comps.player.multi.GPlayerList gPlayer2;
+    private br.com.gmp.comps.player.multi.GPlayerList gPlayer3;
     // End of variables declaration//GEN-END:variables
 }

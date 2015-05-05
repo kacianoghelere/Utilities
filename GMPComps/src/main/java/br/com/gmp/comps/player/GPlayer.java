@@ -222,6 +222,7 @@ public class GPlayer extends JToolBar {
         gTTrack.setEditable(false);
         gTTrack.setBackground(new java.awt.Color(0, 0, 0));
         gTTrack.setForeground(new java.awt.Color(13, 160, 1));
+        gTTrack.setEnabled(false);
         gTTrack.setMaximumSize(new java.awt.Dimension(23768, 23));
         gTTrack.setMinimumSize(new java.awt.Dimension(200, 23));
         gTTrack.setPreferredSize(new java.awt.Dimension(150, 23));
