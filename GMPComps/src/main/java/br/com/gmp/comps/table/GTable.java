@@ -111,7 +111,7 @@ public class GTable extends JTable implements TableControl, Exporter {
         this.gTableBar.setTable(this);
         this.gTableBar.setVisible(false);
         this.setShowGrid(true);
-        this.setGridColor(Color.gray.darker());
+        this.setGridColor(new Color(163, 163, 163));
         this.loadData();
         this.loadFilter();
     }
