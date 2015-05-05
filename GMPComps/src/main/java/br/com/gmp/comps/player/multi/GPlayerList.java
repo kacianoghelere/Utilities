@@ -144,16 +144,17 @@ public class GPlayerList extends JPanel {
             this.layer.stop();
             this.layer = null;
         }
-        this.layer = new SoundLayer(model.getObject(gTableTracks.getSelectedRow()), new SoundLayer.PlaybackListener() {
-
-            @Override
-            public void playbackFinished(GAudioPlayer.PlaybackEvent playbackEvent) {
-                if (jTBRepeat.isSelected()) {
-                    play();
-                }
-            }
-
-        });
+        this.layer = new SoundLayer(model.getObject(gTableTracks.getSelectedRow()));
+//        this.layer = new SoundLayer(model.getObject(gTableTracks.getSelectedRow()), new SoundLayer.PlaybackListener() {
+//
+//            @Override
+//            public void playbackFinished(GAudioPlayer.PlaybackEvent playbackEvent) {
+//                if (jTBRepeat.isSelected()) {
+//                    play();
+//                }
+//            }
+//
+//        });
     }
 
     /**
