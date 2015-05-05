@@ -178,6 +178,17 @@ public class GDualList<T> extends JPanel {
     }
 
     /**
+     * Retorna os dados na lista destino convertidos para um tipo especifico
+     *
+     * @param <T> Tipo do retorno
+     * @param type {@code Class(T)} Classe do tipo
+     * @return {@code GDualListModel} Modelo de dados
+     */
+    public <T extends Object> GDualListModel<T> getDestinationData(Class<T> type) {
+        return (GDualListModel<T>) destListModel;
+    }
+
+    /**
      * Limpa a lista de fonte
      */
     private void clearSourceSelected() {

@@ -5,7 +5,6 @@ import br.com.gmp.utils.annotations.Ignore;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
@@ -25,10 +24,12 @@ public class AudioFile {
 
     @ColumnName(name = "Titulo")
     private String title;
+    @Ignore
     @ColumnName(name = "Artista")
     private String artist;
     @ColumnName(name = "Album")
     private String album;
+    @Ignore
     @ColumnName(name = "Faixa")
     private String track;
     @Ignore

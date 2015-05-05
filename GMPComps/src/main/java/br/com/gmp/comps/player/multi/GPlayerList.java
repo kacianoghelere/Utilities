@@ -21,6 +21,7 @@ import javazoom.jl.decoder.JavaLayerException;
  */
 public class GPlayerList extends JPanel {
 
+    private final Logger LOGGER = Logger.getLogger(GPlayerList.class.getName());
     private AudioFile track;
     private SoundLayer layer;
     private boolean navigate;
@@ -72,6 +73,37 @@ public class GPlayerList extends JPanel {
         this.gTableTracks.revalidate();
         if (!model.isEmpty()) {
             this.gTableTracks.setRowSelectionInterval(0, 0);
+        }
+    }
+
+    /**
+     * Executa o commando no player de audio
+     *
+     * @param command {@code String} Comando a ser executado
+     * @throws javazoom.jl.decoder.BitstreamException Exceção de Bitstream
+     * @throws java.io.IOException Exceção de I/O
+     */
+    public void execute(String command) throws BitstreamException, IOException {
+        if (layer != null) {
+            switch (command) {
+                case "play":
+                    layer.play();
+                    break;
+                case "resume":
+                    layer.pauseToggle();
+                    break;
+                case "pause":
+                    layer.pause();
+                    break;
+                case "stop":
+                    layer.stop();
+                    break;
+                case "close":
+                    layer.getPlayer().close();
+                    break;
+                default:
+                    LOGGER.warning("Unknown command!");
+            }
         }
     }
 
