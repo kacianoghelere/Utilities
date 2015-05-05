@@ -29,6 +29,7 @@ public class SoundLayer implements Runnable {
     private String namePlayerThread = "AudioPlayerThread";
     private PlaybackListener playbackListener = new PlaybackListener();
     private ID3v1Tag tag;
+    private static final Logger LOGGER = Logger.getLogger(SoundLayer.class.getName());
 
     /**
      * Cria nova instancia de SoundLayer
@@ -52,6 +53,22 @@ public class SoundLayer implements Runnable {
         this.audioFile = audioFile;
         this.filePath = audioFile.getFile().getPath();
         this.tag = audioFile.getTag();
+        playerInitialize();
+        printData();
+    }
+
+    /**
+     * Cria nova instancia de SoundLayer
+     *
+     * @param audioFile {@code String} Caminho do arquivo
+     * @param playbackListener {@code PlaybackListener} Controlador de eventos
+     * @throws java.io.IOException Exceção de Java I/O
+     */
+    public SoundLayer(AudioFile audioFile, PlaybackListener playbackListener) throws IOException {
+        this.audioFile = audioFile;
+        this.filePath = audioFile.getFile().getPath();
+        this.tag = audioFile.getTag();
+        this.playbackListener = playbackListener;
         playerInitialize();
         printData();
     }
@@ -199,7 +216,7 @@ public class SoundLayer implements Runnable {
     private void playerInitialize() throws IOException {
         try {
             this.player = new GAudioPlayer(this.filePath);
-            this.player.setPlaybackListener(this.playbackListener);            
+            this.player.setPlaybackListener(this.playbackListener);
         } catch (JavaLayerException e) {
             Logger.getLogger(SoundLayer.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -217,21 +234,21 @@ public class SoundLayer implements Runnable {
     /**
      * Listener privado para reprodução
      */
-    private static class PlaybackListener extends GAudioPlayer.PlaybackAdapter {
+    public static class PlaybackListener extends GAudioPlayer.PlaybackAdapter {
 
         @Override
         public void playbackStarted(GAudioPlayer.PlaybackEvent playbackEvent) {
-            System.err.println("PlaybackStarted()");
+            LOGGER.info("PlaybackStarted()");
         }
 
         @Override
         public void playbackPaused(GAudioPlayer.PlaybackEvent playbackEvent) {
-            System.err.println("PlaybackPaused()");
+            LOGGER.info("PlaybackPaused()");
         }
 
         @Override
         public void playbackFinished(GAudioPlayer.PlaybackEvent playbackEvent) {
-            System.err.println("PlaybackStopped()");
+            LOGGER.info("PlaybackStopped()");
         }
     }
 

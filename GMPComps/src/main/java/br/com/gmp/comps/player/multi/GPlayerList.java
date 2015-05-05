@@ -2,6 +2,7 @@ package br.com.gmp.comps.player.multi;
 
 import br.com.gmp.comps.player.GPlayer;
 import br.com.gmp.comps.player.multi.model.AudioModel;
+import br.com.gmp.utils.audio.GAudioPlayer;
 import br.com.gmp.utils.audio.SoundLayer;
 import br.com.gmp.utils.audio.file.AudioFile;
 import java.io.IOException;
@@ -143,7 +144,16 @@ public class GPlayerList extends JPanel {
             this.layer.stop();
             this.layer = null;
         }
-        this.layer = new SoundLayer(model.getObject(gTableTracks.getSelectedRow()));
+        this.layer = new SoundLayer(model.getObject(gTableTracks.getSelectedRow()), new SoundLayer.PlaybackListener() {
+
+            @Override
+            public void playbackFinished(GAudioPlayer.PlaybackEvent playbackEvent) {
+                if (jTBRepeat.isSelected()) {
+                    play();
+                }
+            }
+
+        });
     }
 
     /**
@@ -185,6 +195,51 @@ public class GPlayerList extends JPanel {
     }
 
     /**
+     * Executa o arquivo
+     */
+    private void play() {
+        try {
+            loadPlayer();
+            if (layer != null) {
+                if (layer.getPlayer().isPlaying()) {
+                    layer.stop();
+                }
+                layer.play();
+                this.gTTrack.setText(layer.getTitle());
+            }
+        } catch (IOException | BitstreamException e) {
+            Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
+    /**
+     * Pausa a execução do arquivo
+     */
+    private void pause() {
+        try {
+            if (layer != null) {
+                layer.pauseToggle();
+            }
+        } catch (IOException | BitstreamException e) {
+            Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
+    /**
+     * Para a execução do arquivo
+     */
+    private void stop() {
+        try {
+            if (layer != null) {
+                layer.stop();
+                this.gTTrack.setText("");
+            }
+        } catch (Exception e) {
+            Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
+    /**
      *
      */
     @SuppressWarnings("unchecked")
@@ -199,6 +254,8 @@ public class GPlayerList extends JPanel {
         jBPause = new javax.swing.JButton();
         jBStop = new javax.swing.JButton();
         jBNext = new javax.swing.JButton();
+        jTBRepeat = new javax.swing.JToggleButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
         gTTrack = new br.com.gmp.comps.textfield.GTextField();
 
         jScrollPane1.setViewportView(gTableTracks);
@@ -264,6 +321,15 @@ public class GPlayerList extends JPanel {
         });
         jTBControls.add(jBNext);
 
+        jTBRepeat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/switch.png"))); // NOI18N
+        jTBRepeat.setSelected(true);
+        jTBRepeat.setToolTipText("Repetir");
+        jTBRepeat.setFocusable(false);
+        jTBRepeat.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jTBRepeat.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jTBControls.add(jTBRepeat);
+        jTBControls.add(jSeparator1);
+
         gTTrack.setEditable(false);
         gTTrack.setBackground(new java.awt.Color(0, 0, 0));
         gTTrack.setForeground(new java.awt.Color(12, 139, 2));
@@ -297,43 +363,15 @@ public class GPlayerList extends JPanel {
     }//GEN-LAST:event_jBPreviousActionPerformed
 
     private void jBPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPlayActionPerformed
-        try {
-            loadPlayer();
-            if (layer != null) {
-                if (layer.getPlayer().isPlaying()) {
-                    layer.stop();
-                }
-                layer.play();
-                this.gTTrack.setText(layer.getTitle());
-            }
-        } catch (IOException | BitstreamException e) {
-            Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, e);
-        } catch (JavaLayerException ex) {
-            Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        play();
     }//GEN-LAST:event_jBPlayActionPerformed
 
     private void jBPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPauseActionPerformed
-        try {
-            if (layer != null) {
-                layer.pauseToggle();
-            }
-        } catch (IOException | BitstreamException e) {
-            Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, e);
-        } catch (JavaLayerException ex) {
-            Logger.getLogger(GPlayerList.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        pause();
     }//GEN-LAST:event_jBPauseActionPerformed
 
     private void jBStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBStopActionPerformed
-        try {
-            if (layer != null) {
-                layer.stop();
-                this.gTTrack.setText("");
-            }
-        } catch (Exception e) {
-            Logger.getLogger(GPlayer.class.getName()).log(Level.SEVERE, null, e);
-        }
+        stop();
     }//GEN-LAST:event_jBStopActionPerformed
 
     private void jBNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNextActionPerformed
@@ -353,6 +391,8 @@ public class GPlayerList extends JPanel {
     private javax.swing.JButton jBPrevious;
     private javax.swing.JButton jBStop;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar jTBControls;
+    private javax.swing.JToggleButton jTBRepeat;
     // End of variables declaration//GEN-END:variables
 }
