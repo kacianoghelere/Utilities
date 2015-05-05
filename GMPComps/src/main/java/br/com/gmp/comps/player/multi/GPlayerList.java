@@ -83,7 +83,7 @@ public class GPlayerList extends JPanel {
      * @throws javazoom.jl.decoder.BitstreamException Exceção de Bitstream
      * @throws java.io.IOException Exceção de I/O
      */
-    public void execute(String command) throws BitstreamException, IOException {
+    public void execute(String command) throws Exception {
         if (layer != null) {
             switch (command) {
                 case "play":
