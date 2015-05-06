@@ -35,6 +35,7 @@ public class GAudioPlayer {
     private boolean complete;
     private boolean paused;
     private boolean stopped;
+    private boolean repeat;
     private PlaybackListener listener;
     private int frameIndexCurrent;
     private final int lostFrames = 0;
@@ -63,6 +64,23 @@ public class GAudioPlayer {
      */
     public GAudioPlayer(String audioPath) throws JavaLayerException, IOException {
         this.audioPath = audioPath;
+        this.listener = new PlaybackAdapter();
+        this.playing = false;
+        this.audioDevice = FactoryRegistry.systemRegistry().createAudioDevice();
+        this.bitstream = new Bitstream(this.getAudioInputStream());
+    }
+
+    /**
+     * Cria nova instancia de GAudioPlayer
+     *
+     * @param audioPath {@code String} Caminho do arquivo
+     * @param repeat {@code boolean} Repetir
+     * @throws JavaLayerException Exceção de JavaLayer
+     * @throws java.io.IOException Exceção de Java I/O
+     */
+    public GAudioPlayer(String audioPath, boolean repeat) throws JavaLayerException, IOException {
+        this.audioPath = audioPath;
+        this.repeat = repeat;
         this.listener = new PlaybackAdapter();
         this.playing = false;
         this.audioDevice = FactoryRegistry.systemRegistry().createAudioDevice();
@@ -373,6 +391,24 @@ public class GAudioPlayer {
     }
 
     /**
+     * Retorna se o player de audio deve repetir a faixa
+     *
+     * @return {@code boolean} Repetir
+     */
+    public boolean isRepeat() {
+        return repeat;
+    }
+
+    /**
+     * Modifica se o player de audio deve repetir
+     *
+     * @param repeat {@code boolean} Repetir
+     */
+    public void setRepeat(boolean repeat) {
+        this.repeat = repeat;
+    }
+
+    /**
      * Evento para playback listeners
      */
     public static class PlaybackEvent {
@@ -480,6 +516,13 @@ public class GAudioPlayer {
         @Override
         public void playbackFinished(PlaybackEvent event) {
             System.err.println("Playback stopped");
+            if (event.source.isComplete() && event.source.isRepeat()) {
+                try {
+                    event.source.play();
+                } catch (JavaLayerException | IOException ex) {
+                    Logger.getLogger(GAudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }
 

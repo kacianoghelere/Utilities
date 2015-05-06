@@ -144,17 +144,7 @@ public class GPlayerList extends JPanel {
             this.layer.stop();
             this.layer = null;
         }
-        this.layer = new SoundLayer(model.getObject(gTableTracks.getSelectedRow()));
-//        this.layer = new SoundLayer(model.getObject(gTableTracks.getSelectedRow()), new SoundLayer.PlaybackListener() {
-//
-//            @Override
-//            public void playbackFinished(GAudioPlayer.PlaybackEvent playbackEvent) {
-//                if (jTBRepeat.isSelected()) {
-//                    play();
-//                }
-//            }
-//
-//        });
+        this.layer = new SoundLayer(model.getObject(gTableTracks.getSelectedRow()), jTBRepeat.isSelected());
     }
 
     /**
@@ -268,6 +258,7 @@ public class GPlayerList extends JPanel {
         jTBControls.setPreferredSize(new java.awt.Dimension(300, 23));
 
         jBPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/begining.png"))); // NOI18N
+        jBPrevious.setToolTipText("Anterior");
         jBPrevious.setFocusable(false);
         jBPrevious.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBPrevious.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -279,6 +270,7 @@ public class GPlayerList extends JPanel {
         jTBControls.add(jBPrevious);
 
         jBPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/multimedia/unpause.png"))); // NOI18N
+        jBPlay.setToolTipText("Reproduzir");
         jBPlay.setFocusable(false);
         jBPlay.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBPlay.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -290,6 +282,7 @@ public class GPlayerList extends JPanel {
         jTBControls.add(jBPlay);
 
         jBPause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/multimedia/pause.png"))); // NOI18N
+        jBPause.setToolTipText("Pausar");
         jBPause.setFocusable(false);
         jBPause.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBPause.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -301,6 +294,7 @@ public class GPlayerList extends JPanel {
         jTBControls.add(jBPause);
 
         jBStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/progress/stop.png"))); // NOI18N
+        jBStop.setToolTipText("Parar");
         jBStop.setFocusable(false);
         jBStop.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBStop.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -312,6 +306,7 @@ public class GPlayerList extends JPanel {
         jTBControls.add(jBStop);
 
         jBNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentIcons/transition/end.png"))); // NOI18N
+        jBNext.setToolTipText("Próximo");
         jBNext.setFocusable(false);
         jBNext.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBNext.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

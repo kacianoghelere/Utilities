@@ -27,9 +27,9 @@ public class SoundLayer implements Runnable {
     private GAudioPlayer player;
     private Thread playerThread;
     private String namePlayerThread = "AudioPlayerThread";
-    private PlaybackListener playbackListener = new PlaybackListener();
     private ID3v1Tag tag;
     private static final Logger LOGGER = Logger.getLogger(SoundLayer.class.getName());
+    private boolean repeat;
 
     /**
      * Cria nova instancia de SoundLayer
@@ -47,28 +47,14 @@ public class SoundLayer implements Runnable {
      * Cria nova instancia de SoundLayer
      *
      * @param audioFile {@code String} Caminho do arquivo
+     * @param repeat
      * @throws java.io.IOException Exceção de Java I/O
      */
-    public SoundLayer(AudioFile audioFile) throws IOException {
+    public SoundLayer(AudioFile audioFile, boolean repeat) throws IOException {
         this.audioFile = audioFile;
+        this.repeat = repeat;
         this.filePath = audioFile.getFile().getPath();
         this.tag = audioFile.getTag();
-        playerInitialize();
-        printData();
-    }
-
-    /**
-     * Cria nova instancia de SoundLayer
-     *
-     * @param audioFile {@code String} Caminho do arquivo
-     * @param playbackListener {@code PlaybackListener} Controlador de eventos
-     * @throws java.io.IOException Exceção de Java I/O
-     */
-    public SoundLayer(AudioFile audioFile, PlaybackListener playbackListener) throws IOException {
-        this.audioFile = audioFile;
-        this.filePath = audioFile.getFile().getPath();
-        this.tag = audioFile.getTag();
-        this.playbackListener = playbackListener;
         playerInitialize();
         printData();
     }
@@ -216,7 +202,6 @@ public class SoundLayer implements Runnable {
     private void playerInitialize() throws IOException {
         try {
             this.player = new GAudioPlayer(this.filePath);
-            this.player.setPlaybackListener(this.playbackListener);
         } catch (JavaLayerException e) {
             Logger.getLogger(SoundLayer.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -228,27 +213,6 @@ public class SoundLayer implements Runnable {
             this.player.resume();
         } catch (javazoom.jl.decoder.JavaLayerException | IOException ex) {
             Logger.getLogger(SoundLayer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    /**
-     * Listener privado para reprodução
-     */
-    public static class PlaybackListener extends GAudioPlayer.PlaybackAdapter {
-
-        @Override
-        public void playbackStarted(GAudioPlayer.PlaybackEvent playbackEvent) {
-            LOGGER.info("PlaybackStarted()");
-        }
-
-        @Override
-        public void playbackPaused(GAudioPlayer.PlaybackEvent playbackEvent) {
-            LOGGER.info("PlaybackPaused()");
-        }
-
-        @Override
-        public void playbackFinished(GAudioPlayer.PlaybackEvent playbackEvent) {
-            LOGGER.info("PlaybackStopped()");
         }
     }
 
@@ -270,4 +234,21 @@ public class SoundLayer implements Runnable {
         return player;
     }
 
+    /**
+     * Retorna se o player de audio deve repetir a faixa
+     *
+     * @return {@code boolean} Repetir
+     */
+    public boolean isRepeat() {
+        return repeat;
+    }
+
+    /**
+     * Modifica se o player de audio deve repetir
+     *
+     * @param repeat {@code boolean} Repetir
+     */
+    public void setRepeat(boolean repeat) {
+        this.repeat = repeat;
+    }
 }
