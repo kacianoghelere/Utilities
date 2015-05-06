@@ -201,7 +201,7 @@ public class SoundLayer implements Runnable {
      */
     private void playerInitialize() throws IOException {
         try {
-            this.player = new GAudioPlayer(this.filePath);
+            this.player = new GAudioPlayer(this.filePath, this.repeat);
         } catch (JavaLayerException e) {
             Logger.getLogger(SoundLayer.class.getName()).log(Level.SEVERE, null, e);
         }
