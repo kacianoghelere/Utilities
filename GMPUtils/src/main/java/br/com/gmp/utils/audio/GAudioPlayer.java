@@ -228,7 +228,7 @@ public class GAudioPlayer {
                     Logger.getLogger(GAudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
-                shouldContinueReadingFrames = this.decodeFrame();
+                shouldContinueReadingFrames = (this.decodeFrame() || this.repeat);
                 this.frameIndexCurrent++;
             }
         }
@@ -516,7 +516,7 @@ public class GAudioPlayer {
         @Override
         public void playbackFinished(PlaybackEvent event) {
             System.err.println("Playback stopped");
-            if (event.source.isRepeat()) {
+            if (event.source.isComplete() && event.source.isRepeat()) {
                 try {
                     event.source.play();
                 } catch (JavaLayerException | IOException ex) {
