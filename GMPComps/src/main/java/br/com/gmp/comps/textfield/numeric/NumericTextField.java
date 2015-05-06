@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.AbstractDocument.Content;
 import javax.swing.text.AttributeSet;
@@ -88,7 +89,6 @@ public class NumericTextField extends JTextField implements NumericPlainDocument
 
     public void setValue(long l) {
         setText(getFormat().format(l));
-        ;
     }
 
     public void setValue(double d) {
@@ -101,13 +101,14 @@ public class NumericTextField extends JTextField implements NumericPlainDocument
     }
 
     // Override to handle insertion error
-    public void insertFailed(NumericPlainDocument doc, int offset, String str,
-            AttributeSet a) {
+    @Override
+    public void insertFailed(NumericPlainDocument doc, int offset, String str, AttributeSet a) {
         // By default, just beep
         Toolkit.getDefaultToolkit().beep();
     }
 
     // Method to create default model
+    @Override
     protected Document createDefaultModel() {
         return new NumericPlainDocument();
     }
@@ -116,7 +117,7 @@ public class NumericTextField extends JTextField implements NumericPlainDocument
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (Exception evt) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException evt) {
         }
 
         DecimalFormat format = new DecimalFormat("#,###.###");
@@ -134,6 +135,7 @@ public class NumericTextField extends JTextField implements NumericPlainDocument
         f.getContentPane().add(lbl, "West");
 
         tf.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent evt) {
                 try {
                     tf.normalize();
@@ -237,14 +239,14 @@ class NumericPlainDocument extends PlainDocument {
         }
 
         if (result instanceof Long) {
-            result = new Double(result.doubleValue());
+            result = result.doubleValue();
         }
 
         return (Double) result;
     }
 
-    public void insertString(int offset, String str, AttributeSet a)
-            throws BadLocationException {
+    @Override
+    public void insertString(int offset, String str, AttributeSet a) throws BadLocationException {
         if (str == null || str.length() == 0) {
             return;
         }
