@@ -12,7 +12,7 @@ import javax.swing.text.DefaultFormatterFactory;
  * @author kaciano
  * @version 1.0
  */
-public class NumericField extends JFormattedTextField implements Serializable {
+public class NumericField2 extends JFormattedTextField implements Serializable {
 
     private final java.text.DecimalFormat decimal = new java.text.DecimalFormat("#,###,###.00");
     private final javax.swing.text.NumberFormatter numFormatter = new javax.swing.text.NumberFormatter(decimal);
@@ -21,7 +21,7 @@ public class NumericField extends JFormattedTextField implements Serializable {
     /**
      * Cria nova instancia de NumericField
      */
-    public NumericField() {
+    public NumericField2() {
         super();
         FormataNumeric();
     }
@@ -39,7 +39,7 @@ public class NumericField extends JFormattedTextField implements Serializable {
             setFormatterFactory(def);
             numFormatter.setFormat(decimal);
         } catch (Exception e) {
-            Logger.getLogger(NumericField.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(NumericField2.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
