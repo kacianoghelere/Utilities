@@ -94,7 +94,7 @@ public class SoundLayer implements Runnable {
         try {
             this.tag = new MP3File(new File(filePath)).getID3v1Tag();
         } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException ex) {
-            Logger.getLogger(SoundLayer.class.getName()).log(Level.SEVERE, null, ex);
+            LOGGER.log(Level.SEVERE, null, ex);
         }
         printData();
     }

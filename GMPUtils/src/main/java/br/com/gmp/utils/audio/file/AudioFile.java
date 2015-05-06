@@ -20,7 +20,7 @@ import org.jaudiotagger.tag.id3.ID3v1Tag;
  * @author kaciano
  * @version 1.0
  */
-public class AudioFile {
+public class AudioFile implements Comparable<AudioFile> {
 
     @ColumnName(name = "Titulo")
     private String title;
@@ -51,8 +51,8 @@ public class AudioFile {
     public AudioFile(File file) {
         try {
             tag = new MP3File(file).getID3v1Tag();
-            readTag(tag);
             this.file = file;
+            readTag(tag);
         } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException ex) {
             Logger.getLogger(AudioFile.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -64,10 +64,10 @@ public class AudioFile {
      * @param tag {@code ID3v1Tag} Tag
      */
     private void readTag(ID3v1Tag tag) {
-        this.title = tag != null ? tag.getFirst(FieldKey.TITLE) : "";
-        this.artist = tag != null ? tag.getFirst(FieldKey.ARTIST) : "";
-        this.album = tag != null ? tag.getFirst(FieldKey.ALBUM) : "";
-        this.track = tag != null ? tag.getFirst(FieldKey.TRACK) : "";
+        this.title = tag != null ? tag.getFirst(FieldKey.TITLE) + "" : file.getName();
+        this.artist = tag != null ? tag.getFirst(FieldKey.ARTIST) + "" : "";
+        this.album = tag != null ? tag.getFirst(FieldKey.ALBUM) + "" : "";
+        this.track = tag != null ? tag.getFirst(FieldKey.TRACK) + "" : "";
     }
 
     /**
@@ -89,11 +89,7 @@ public class AudioFile {
 
     @Override
     public String toString() {
-        return "AudioFile:"
-                + "\nTitle: " + title
-                + "\nArtist: " + artist
-                + "\nAlbum: " + album
-                + "\nTrack: " + track;
+        return (title == null || title.isEmpty()) ? file.getName() : title;
     }
 
     @Override
@@ -133,7 +129,7 @@ public class AudioFile {
      * @return {@code String} Titulo da faixa de audio
      */
     public String getTitle() {
-        return title;
+        return (title == null || title.isEmpty()) ? file.getName() : title;
     }
 
     /**
@@ -184,7 +180,7 @@ public class AudioFile {
     /**
      * Retorna o numero da faixa de audio
      *
-     * @return  {@code String} Numero da faixa de audio
+     * @return {@code String} Numero da faixa de audio
      */
     public String getTrack() {
         return track;
@@ -233,6 +229,11 @@ public class AudioFile {
      */
     public void setTag(ID3v1Tag tag) {
         this.tag = tag;
+    }
+
+    @Override
+    public int compareTo(AudioFile o) {
+        return this.getTitle().compareTo(o.getTitle());
     }
 
 }
