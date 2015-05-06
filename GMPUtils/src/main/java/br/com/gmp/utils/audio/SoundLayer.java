@@ -99,42 +99,6 @@ public class SoundLayer implements Runnable {
     }
 
     /**
-     * Retorna o titutlo da faixa
-     *
-     * @return {@code String} Titulo da faixa
-     */
-    public String getTitle() {
-        return tag.getFirst(FieldKey.TITLE);
-    }
-
-    /**
-     * Retorna o artista da faixa
-     *
-     * @return {@code String} Artista da faixa
-     */
-    public String getArtist() {
-        return tag.getFirst(FieldKey.ARTIST);
-    }
-
-    /**
-     * Retorna o numero da faixa
-     *
-     * @return {@code String} Numero da faixa
-     */
-    public String getTrack() {
-        return tag.getFirst(FieldKey.TRACK);
-    }
-
-    /**
-     * Retorna o da album faixa
-     *
-     * @return {@code String} Album da faixa
-     */
-    public String getAlbum() {
-        return tag.getFirst(FieldKey.ALBUM);
-    }
-
-    /**
      * Inicia reprodução
      *
      * @throws javazoom.jl.decoder.BitstreamException BitstreamException
@@ -201,7 +165,8 @@ public class SoundLayer implements Runnable {
      */
     private void playerInitialize() throws IOException {
         try {
-            this.player = new GAudioPlayer(this.filePath, this.repeat);
+            LOGGER.log(Level.INFO, "INITIALISING PLAYER[repeat={0}]", repeat);
+            this.player = new GAudioPlayer(this.filePath, new PlaybackListener());
         } catch (JavaLayerException e) {
             Logger.getLogger(SoundLayer.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -223,6 +188,42 @@ public class SoundLayer implements Runnable {
      */
     public ID3v1Tag getTag() {
         return tag;
+    }
+
+    /**
+     * Retorna o titutlo da faixa
+     *
+     * @return {@code String} Titulo da faixa
+     */
+    public String getTitle() {
+        return tag.getFirst(FieldKey.TITLE);
+    }
+
+    /**
+     * Retorna o artista da faixa
+     *
+     * @return {@code String} Artista da faixa
+     */
+    public String getArtist() {
+        return tag.getFirst(FieldKey.ARTIST);
+    }
+
+    /**
+     * Retorna o numero da faixa
+     *
+     * @return {@code String} Numero da faixa
+     */
+    public String getTrack() {
+        return tag.getFirst(FieldKey.TRACK);
+    }
+
+    /**
+     * Retorna o da album faixa
+     *
+     * @return {@code String} Album da faixa
+     */
+    public String getAlbum() {
+        return tag.getFirst(FieldKey.ALBUM);
     }
 
     /**
@@ -251,4 +252,24 @@ public class SoundLayer implements Runnable {
     public void setRepeat(boolean repeat) {
         this.repeat = repeat;
     }
+
+    /**
+     * Listener privado para reprodução
+     */
+    public class PlaybackListener extends GAudioPlayer.PlaybackAdapter {
+
+        @Override
+        public void playbackFinished(GAudioPlayer.PlaybackEvent event) {
+            LOGGER.log(Level.INFO, "PLAYBACK STOPPED(complete={0},repeat={1})",
+                    new Object[]{event.getSource().isComplete(), SoundLayer.this.isRepeat()});
+            if (event.getSource().isComplete() && SoundLayer.this.isRepeat()) {
+                try {
+                    SoundLayer.this.play();
+                } catch (JavaLayerException | IOException ex) {
+                    LOGGER.log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
+
 }

@@ -35,7 +35,6 @@ public class GAudioPlayer {
     private boolean complete;
     private boolean paused;
     private boolean stopped;
-    private boolean repeat;
     private PlaybackListener listener;
     private int frameIndexCurrent;
     private final int lostFrames = 0;
@@ -74,14 +73,13 @@ public class GAudioPlayer {
      * Cria nova instancia de GAudioPlayer
      *
      * @param audioPath {@code String} Caminho do arquivo
-     * @param repeat {@code boolean} Repetir
+     * @param adapter {@code PlaybackAdapter} Listener
      * @throws JavaLayerException Exceção de JavaLayer
      * @throws java.io.IOException Exceção de Java I/O
      */
-    public GAudioPlayer(String audioPath, boolean repeat) throws JavaLayerException, IOException {
+    public GAudioPlayer(String audioPath, PlaybackAdapter adapter) throws JavaLayerException, IOException {
         this.audioPath = audioPath;
-        this.repeat = repeat;
-        this.listener = new PlaybackAdapter();
+        this.listener = adapter;
         this.playing = false;
         this.audioDevice = FactoryRegistry.systemRegistry().createAudioDevice();
         this.bitstream = new Bitstream(this.getAudioInputStream());
@@ -228,7 +226,7 @@ public class GAudioPlayer {
                     Logger.getLogger(GAudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
-                shouldContinueReadingFrames = (this.decodeFrame() || this.repeat);
+                shouldContinueReadingFrames = this.decodeFrame();
                 this.frameIndexCurrent++;
             }
         }
@@ -391,24 +389,6 @@ public class GAudioPlayer {
     }
 
     /**
-     * Retorna se o player de audio deve repetir a faixa
-     *
-     * @return {@code boolean} Repetir
-     */
-    public boolean isRepeat() {
-        return repeat;
-    }
-
-    /**
-     * Modifica se o player de audio deve repetir
-     *
-     * @param repeat {@code boolean} Repetir
-     */
-    public void setRepeat(boolean repeat) {
-        this.repeat = repeat;
-    }
-
-    /**
      * Evento para playback listeners
      */
     public static class PlaybackEvent {
@@ -416,17 +396,17 @@ public class GAudioPlayer {
         /**
          * Fonte de audio
          */
-        public GAudioPlayer source;
+        private GAudioPlayer source;
 
         /**
          * Tipo do evento
          */
-        public EventType eventType;
+        private EventType eventType;
 
         /**
          * Endereço do frame
          */
-        public int frameIndex;
+        private int frameIndex;
 
         /**
          * Cria nova instancia de PlaybackEvent
@@ -481,6 +461,31 @@ public class GAudioPlayer {
                 public static EventType Stopped = new EventType("Stopped");
             }
         }
+
+        public GAudioPlayer getSource() {
+            return source;
+        }
+
+        public void setSource(GAudioPlayer source) {
+            this.source = source;
+        }
+
+        public EventType getEventType() {
+            return eventType;
+        }
+
+        public void setEventType(EventType eventType) {
+            this.eventType = eventType;
+        }
+
+        public int getFrameIndex() {
+            return frameIndex;
+        }
+
+        public void setFrameIndex(int frameIndex) {
+            this.frameIndex = frameIndex;
+        }
+
     }
 
     /**
@@ -516,13 +521,6 @@ public class GAudioPlayer {
         @Override
         public void playbackFinished(PlaybackEvent event) {
             System.err.println("Playback stopped");
-            if (event.source.isComplete() && event.source.isRepeat()) {
-                try {
-                    event.source.play();
-                } catch (JavaLayerException | IOException ex) {
-                    Logger.getLogger(GAudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
         }
     }
 
