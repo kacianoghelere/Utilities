@@ -90,11 +90,11 @@ public class SoundLayer implements Runnable {
      */
     private void printData() {
         System.out.println("\n---------------------------------------------------"
-                + "\nTitle: " + tag.getFirst(FieldKey.TITLE)
-                + "\nArtist: " + tag.getFirst(FieldKey.ARTIST)
-                + "\nAlbum: " + tag.getFirst(FieldKey.ALBUM)
-                + "\nTrack: " + tag.getFirst(FieldKey.TRACK)
-                + "\nTempo: " + tag.getFirst(FieldKey.TEMPO)
+                + "\n TITLE: " + tag.getFirst(FieldKey.TITLE)
+                + "\n ARTIST: " + tag.getFirst(FieldKey.ARTIST)
+                + "\n ALBUM: " + tag.getFirst(FieldKey.ALBUM)
+                + "\n TRACK: " + tag.getFirst(FieldKey.TRACK)
+                + "\n TEMPO: " + tag.getFirst(FieldKey.TEMPO)
                 + "\n---------------------------------------------------");
     }
 
