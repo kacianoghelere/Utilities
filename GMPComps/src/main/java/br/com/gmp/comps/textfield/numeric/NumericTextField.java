@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.gmp.comps.textfield.numeric;
 
 import java.awt.Toolkit;
@@ -24,15 +19,26 @@ import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
 
 /**
+ * Campo com formatacao numerica
  *
  * @author kaciano
  */
 public class NumericTextField extends JTextField implements NumericPlainDocument.InsertErrorListener {
 
+    /**
+     * Cria nova instancia de NumericTextField
+     */
     public NumericTextField() {
         this(null, 0, null);
     }
 
+    /**
+     * Cria nova instancia de NumericTextField
+     *
+     * @param text {@code String} Texto
+     * @param columns {@code int} Colunas
+     * @param format {@code DecimalFormat} Formatacao decimal
+     */
     public NumericTextField(String text, int columns, DecimalFormat format) {
         super(null, text, columns);
 
@@ -44,65 +50,138 @@ public class NumericTextField extends JTextField implements NumericPlainDocument
         numericDoc.addInsertErrorListener(this);
     }
 
+    /**
+     * Cria nova instancia de NumericTextField
+     *
+     * @param columns {@code int} Colunas
+     * @param format {@code DecimalFormat} Formatacao decimal
+     */
     public NumericTextField(int columns, DecimalFormat format) {
         this(null, columns, format);
     }
 
+    /**
+     * Cria nova instancia de NumericTextField
+     *
+     * @param text {@code String} Texto
+     */
     public NumericTextField(String text) {
         this(text, 0, null);
     }
 
+    /**
+     * Cria nova instancia de NumericTextField
+     *
+     * @param text {@code String} Texto
+     * @param columns {@code int} Colunas
+     */
     public NumericTextField(String text, int columns) {
         this(text, columns, null);
     }
 
+    /**
+     * Modifica a Formatacao Decimal
+     *
+     * @param format {@code DecimalFormat} Formatacao Decimal
+     */
     public void setFormat(DecimalFormat format) {
         ((NumericPlainDocument) getDocument()).setFormat(format);
     }
 
+    /**
+     * Retorna a Formatacao Decimal
+     *
+     * @return {@code DecimalFormat} Formatacao Decimal
+     */
     public DecimalFormat getFormat() {
         return ((NumericPlainDocument) getDocument()).getFormat();
     }
 
+    /**
+     * Formato modificado
+     */
     public void formatChanged() {
         // Notify change of format attributes.
         setFormat(getFormat());
     }
 
-    // Methods to get the field value
+    /**
+     * Retorna o valor no formato Long
+     *
+     * @return {@code Long} Valor no formato Long
+     * @throws ParseException
+     */
     public Long getLongValue() throws ParseException {
         return ((NumericPlainDocument) getDocument()).getLongValue();
     }
 
+    /**
+     * Retorna o valor no formato Double
+     *
+     * @return {@code Double} Valor no formato Double
+     * @throws ParseException
+     */
     public Double getDoubleValue() throws ParseException {
         return ((NumericPlainDocument) getDocument()).getDoubleValue();
     }
 
+    /**
+     * Retorna o valor no formato Number
+     *
+     * @return {@code Number no formato Number
+     * @throws ParseException
+     */
     public Number getNumberValue() throws ParseException {
         return ((NumericPlainDocument) getDocument()).getNumberValue();
     }
 
-    // Methods to install numeric values
+    /**
+     * Modifica o valor numerico
+     *
+     * @param number {@code Number} Valor numerico
+     */
     public void setValue(Number number) {
         setText(getFormat().format(number));
     }
 
-    public void setValue(long l) {
-        setText(getFormat().format(l));
+    /**
+     * Modifica o valor numerico
+     *
+     * @param value {@code long} Valor numerico
+     */
+    public void setValue(long value) {
+        setText(getFormat().format(value));
     }
 
-    public void setValue(double d) {
-        setText(getFormat().format(d));
+    /**
+     * Modifica o valor numerico
+     *
+     * @param value {@code double} Valor numerico
+     */
+    public void setValue(double value) {
+        setText(getFormat().format(value));
     }
 
+    /**
+     * Format the value according to the format string
+     *
+     * @throws ParseException
+     */
     public void normalize() throws ParseException {
-        // format the value according to the format string
+        // 
         setText(getFormat().format(getNumberValue()));
     }
 
-    // Override to handle insertion error
+    /**
+     * Metodo de insercao de texto com falha
+     *
+     * @param doc {@code NumericPlainDocument} Documento
+     * @param offset {@code int} Indice
+     * @param string {@code String} Texto
+     * @param attrSet {@code AttributeSet} conjunto de atributos
+     */
     @Override
-    public void insertFailed(NumericPlainDocument doc, int offset, String str, AttributeSet a) {
+    public void insertFailed(NumericPlainDocument doc, int offset, String string, AttributeSet attrSet) {
         // By default, just beep
         Toolkit.getDefaultToolkit().beep();
     }
@@ -113,7 +192,11 @@ public class NumericTextField extends JTextField implements NumericPlainDocument
         return new NumericPlainDocument();
     }
 
-    // Test code
+    /**
+     * Test code
+     *
+     * @param args Argumentos
+     */
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
@@ -154,20 +237,51 @@ public class NumericTextField extends JTextField implements NumericPlainDocument
         f.pack();
         f.setVisible(true);
     }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+    }// </editor-fold>//GEN-END:initComponents
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
 }
 
+/**
+ * Documento de formatacao numerica
+ *
+ * @author kaciano
+ */
 class NumericPlainDocument extends PlainDocument {
 
+    /**
+     * Cria nova instancia de NumericPlainDocument
+     */
     public NumericPlainDocument() {
         setFormat(null);
     }
 
+    /**
+     * Cria nova instancia de NumericPlainDocument
+     *
+     * @param format {@code DecimalFormat} Formatação decimal
+     */
     public NumericPlainDocument(DecimalFormat format) {
         setFormat(format);
     }
 
-    public NumericPlainDocument(AbstractDocument.Content content,
-            DecimalFormat format) {
+    /**
+     * Cria nova instancia de NumericPlainDocument
+     *
+     * @param content {@code AbstractDocument.Content} Conteúdo
+     * @param format {@code DecimalFormat} Formatação decimal
+     */
+    public NumericPlainDocument(AbstractDocument.Content content, DecimalFormat format) {
         super(content);
         setFormat(format);
 
@@ -186,6 +300,11 @@ class NumericPlainDocument extends PlainDocument {
         }
     }
 
+    /**
+     * Modifica o formato decimal
+     *
+     * @param fmt {@code DecimalFormat} Formatação decimal
+     */
     public void setFormat(DecimalFormat fmt) {
         this.format = fmt != null ? fmt : (DecimalFormat) defaultFormat.clone();
 
@@ -203,10 +322,20 @@ class NumericPlainDocument extends PlainDocument {
         negativeSuffixLen = negativeSuffix.length();
     }
 
+    /**
+     * Retorna o formato decimal
+     *
+     * @return {@code DecimalFormat} Formatação decimal
+     */
     public DecimalFormat getFormat() {
         return format;
     }
 
+    /**
+     * Retorna o valor numerico
+     *
+     * @return @throws ParseException
+     */
     public Number getNumberValue() throws ParseException {
         try {
             String content = getText(0, getLength());
@@ -222,6 +351,12 @@ class NumericPlainDocument extends PlainDocument {
         }
     }
 
+    /**
+     * Retorna o valor em formato Long
+     *
+     * @return {@code Long} Valor em formato Long
+     * @throws ParseException
+     */
     public Long getLongValue() throws ParseException {
         Number result = getNumberValue();
         if ((result instanceof Long) == false) {
@@ -231,6 +366,12 @@ class NumericPlainDocument extends PlainDocument {
         return (Long) result;
     }
 
+    /**
+     * Retorna o valor em formato Double
+     *
+     * @return {@code Double} Valor em formato Double
+     * @throws ParseException
+     */
     public Double getDoubleValue() throws ParseException {
         Number result = getNumberValue();
         if ((result instanceof Long) == false
@@ -382,25 +523,45 @@ class NumericPlainDocument extends PlainDocument {
         super.insertString(offset, str, a);
     }
 
-    public void addInsertErrorListener(InsertErrorListener l) {
+    /**
+     * Adiciona novo listener de inserção de erros
+     *
+     * @param listener {@code InsertErrorListener} Listener de inserção de erros
+     */
+    public void addInsertErrorListener(InsertErrorListener listener) {
         if (errorListener == null) {
-            errorListener = l;
+            errorListener = listener;
             return;
         }
         throw new IllegalArgumentException(
                 "InsertErrorListener already registered");
     }
 
-    public void removeInsertErrorListener(InsertErrorListener l) {
-        if (errorListener == l) {
+    /**
+     * Remove listener de inserção de erros
+     *
+     * @param listener {@code InsertErrorListener} Listener de inserção de erros
+     */
+    public void removeInsertErrorListener(InsertErrorListener listener) {
+        if (errorListener == listener) {
             errorListener = null;
         }
     }
 
+    /**
+     * Listener de inserção de erros
+     */
     public interface InsertErrorListener {
 
-        public abstract void insertFailed(NumericPlainDocument doc, int offset,
-                String str, AttributeSet a);
+        /**
+         * Inserção falhou
+         *
+         * @param doc {@code NumericPlainDocument} Documento
+         * @param offset {@code int} Indice
+         * @param string {@code String} Texto
+         * @param attrSet {@code AttributeSet} conjunto de atributos
+         */
+        public abstract void insertFailed(NumericPlainDocument doc, int offset, String string, AttributeSet attrSet);
     }
 
     protected InsertErrorListener errorListener;
@@ -431,17 +592,4 @@ class NumericPlainDocument extends PlainDocument {
 
     protected static DecimalFormat defaultFormat = new DecimalFormat();
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-    }// </editor-fold>//GEN-END:initComponents
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
 }
