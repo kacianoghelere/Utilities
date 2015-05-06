@@ -33,9 +33,7 @@ public class AudioFile implements Comparable<AudioFile> {
     @ColumnName(name = "Faixa")
     private String track;
     @Ignore
-    private File file;
-    @Ignore
-    private ID3v1Tag tag;
+    private String path;
 
     /**
      * Cria nova instancia de AudioFile
@@ -49,25 +47,25 @@ public class AudioFile implements Comparable<AudioFile> {
      * @param file {@code File} Arquivo de audio
      */
     public AudioFile(File file) {
-        try {
-            tag = new MP3File(file).getID3v1Tag();
-            this.file = file;
-            readTag(tag);
-        } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException ex) {
-            Logger.getLogger(AudioFile.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.path = file.getAbsolutePath();
+        readTag(file);
     }
 
     /**
      * Copia os atributos da ID3v1Tag
      *
-     * @param tag {@code ID3v1Tag} Tag
+     * @param file {@code File} Arquivo de audio
      */
-    private void readTag(ID3v1Tag tag) {
-        this.title = tag != null ? tag.getFirst(FieldKey.TITLE) + "" : file.getName();
-        this.artist = tag != null ? tag.getFirst(FieldKey.ARTIST) + "" : "";
-        this.album = tag != null ? tag.getFirst(FieldKey.ALBUM) + "" : "";
-        this.track = tag != null ? tag.getFirst(FieldKey.TRACK) + "" : "";
+    private void readTag(File file) {
+        try {
+            ID3v1Tag tag = new MP3File(file).getID3v1Tag();
+            this.title = tag != null ? tag.getFirst(FieldKey.TITLE) + "" : "";
+            this.artist = tag != null ? tag.getFirst(FieldKey.ARTIST) + "" : "";
+            this.album = tag != null ? tag.getFirst(FieldKey.ALBUM) + "" : "";
+            this.track = tag != null ? tag.getFirst(FieldKey.TRACK) + "" : "";
+        } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException ex) {
+            Logger.getLogger(AudioFile.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -84,12 +82,12 @@ public class AudioFile implements Comparable<AudioFile> {
         this.artist = artist;
         this.album = album;
         this.track = track;
-        this.file = file;
+        this.path = file.getAbsolutePath();
     }
 
     @Override
     public String toString() {
-        return (title == null || title.isEmpty()) ? file.getName() : title;
+        return title;
     }
 
     @Override
@@ -129,7 +127,7 @@ public class AudioFile implements Comparable<AudioFile> {
      * @return {@code String} Titulo da faixa de audio
      */
     public String getTitle() {
-        return (title == null || title.isEmpty()) ? file.getName() : title;
+        return title;
     }
 
     /**
@@ -196,39 +194,21 @@ public class AudioFile implements Comparable<AudioFile> {
     }
 
     /**
-     * Retorna o arquivo da faixa de audio
+     * Retorna o caminho do arquivo da faixa de audio
      *
-     * @return {@code File} Arquivo da faixa de audio
+     * @return {@code String} Caminho do arquivo da faixa de audio
      */
-    public File getFile() {
-        return file;
+    public String getPath() {
+        return path;
     }
 
     /**
-     * Modifica o arquivo da faixa de audio
+     * Modifica o caminho do arquivo da faixa de audio
      *
-     * @param file {@code File} Arquivo da faixa de audio
+     * @param path {@code String} Caminho do arquivo da faixa de audio
      */
-    public void setFile(File file) {
-        this.file = file;
-    }
-
-    /**
-     * Retorna as informações da Tag do arquivo
-     *
-     * @return {@code ID3v1Tag} Tag do arquivo
-     */
-    public ID3v1Tag getTag() {
-        return tag;
-    }
-
-    /**
-     * Modifica as informações da Tag do arquivo
-     *
-     * @param tag {@code ID3v1Tag} Tag do arquivo
-     */
-    public void setTag(ID3v1Tag tag) {
-        this.tag = tag;
+    public void setPath(String path) {
+        this.path = path;
     }
 
     @Override

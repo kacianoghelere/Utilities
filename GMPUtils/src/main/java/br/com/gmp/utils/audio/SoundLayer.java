@@ -1,18 +1,11 @@
 package br.com.gmp.utils.audio;
 
 import br.com.gmp.utils.audio.file.AudioFile;
-import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javazoom.jl.decoder.BitstreamException;
 import javazoom.jl.decoder.JavaLayerException;
-import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
-import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
-import org.jaudiotagger.audio.mp3.MP3File;
-import org.jaudiotagger.tag.FieldKey;
-import org.jaudiotagger.tag.TagException;
-import org.jaudiotagger.tag.id3.ID3v1Tag;
 
 /**
  * Reprodutor de audio
@@ -27,7 +20,6 @@ public class SoundLayer implements Runnable {
     private GAudioPlayer player;
     private Thread playerThread;
     private String namePlayerThread = "AudioPlayerThread";
-    private ID3v1Tag tag;
     private static final Logger LOGGER = Logger.getLogger(SoundLayer.class.getName());
     private boolean repeat;
 
@@ -40,7 +32,6 @@ public class SoundLayer implements Runnable {
     public SoundLayer(String filePath) throws IOException {
         this.filePath = filePath;
         playerInitialize();
-        loadTag();
     }
 
     /**
@@ -53,10 +44,8 @@ public class SoundLayer implements Runnable {
     public SoundLayer(AudioFile audioFile, boolean repeat) throws IOException {
         this.audioFile = audioFile;
         this.repeat = repeat;
-        this.filePath = audioFile.getFile().getPath();
-        this.tag = audioFile.getTag();
+        this.filePath = audioFile.getPath();
         playerInitialize();
-        printData();
     }
 
     /**
@@ -70,32 +59,6 @@ public class SoundLayer implements Runnable {
         this.filePath = filePath;
         this.namePlayerThread = namePlayerThread;
         playerInitialize();
-        loadTag();
-    }
-
-    /**
-     * Carrega os dados da faixa
-     */
-    private void loadTag() {
-        try {
-            this.tag = new MP3File(new File(filePath)).getID3v1Tag();
-        } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException ex) {
-            LOGGER.log(Level.SEVERE, null, ex);
-        }
-        printData();
-    }
-
-    /**
-     * Imprime dados
-     */
-    private void printData() {
-        System.out.println("\n---------------------------------------------------"
-                + "\n TITLE: " + tag.getFirst(FieldKey.TITLE)
-                + "\n ARTIST: " + tag.getFirst(FieldKey.ARTIST)
-                + "\n ALBUM: " + tag.getFirst(FieldKey.ALBUM)
-                + "\n TRACK: " + tag.getFirst(FieldKey.TRACK)
-                + "\n TEMPO: " + tag.getFirst(FieldKey.TEMPO)
-                + "\n---------------------------------------------------");
     }
 
     /**
@@ -182,21 +145,12 @@ public class SoundLayer implements Runnable {
     }
 
     /**
-     * Dados da faixa de audio
-     *
-     * @return {@code ID3v1Tag} Dados da faixa
-     */
-    public ID3v1Tag getTag() {
-        return tag;
-    }
-
-    /**
      * Retorna o titutlo da faixa
      *
      * @return {@code String} Titulo da faixa
      */
     public String getTitle() {
-        return tag.getFirst(FieldKey.TITLE);
+        return audioFile.getTitle();
     }
 
     /**
@@ -205,7 +159,7 @@ public class SoundLayer implements Runnable {
      * @return {@code String} Artista da faixa
      */
     public String getArtist() {
-        return tag.getFirst(FieldKey.ARTIST);
+        return audioFile.getArtist();
     }
 
     /**
@@ -214,7 +168,7 @@ public class SoundLayer implements Runnable {
      * @return {@code String} Numero da faixa
      */
     public String getTrack() {
-        return tag.getFirst(FieldKey.TRACK);
+        return audioFile.getTrack();
     }
 
     /**
@@ -223,7 +177,7 @@ public class SoundLayer implements Runnable {
      * @return {@code String} Album da faixa
      */
     public String getAlbum() {
-        return tag.getFirst(FieldKey.ALBUM);
+        return audioFile.getAlbum();
     }
 
     /**

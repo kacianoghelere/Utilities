@@ -67,7 +67,6 @@ public class AudioConverter {
                     tag = new ID3v1Tag();
                     tag.setTitle(audioFile.getTitle());
                 }
-                audioFile.setTag(tag);
                 tracks.add(audioFile);
             } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException e) {
                 Logger.getLogger(AudioConverter.class.getName()).log(Level.SEVERE, null, e);
