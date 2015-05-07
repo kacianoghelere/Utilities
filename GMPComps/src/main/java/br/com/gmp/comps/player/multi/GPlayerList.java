@@ -5,6 +5,7 @@ import br.com.gmp.comps.player.multi.model.AudioModel;
 import br.com.gmp.utils.audio.GAudioPlayer;
 import br.com.gmp.utils.audio.SoundLayer;
 import br.com.gmp.utils.audio.file.AudioFile;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -183,6 +184,11 @@ public class GPlayerList extends JPanel {
      */
     public AudioModel getModel() {
         return model;
+    }
+
+    @Override
+    public synchronized void addMouseListener(MouseListener listener) {
+        gTableTracks.addMouseListener(listener);
     }
 
     /**

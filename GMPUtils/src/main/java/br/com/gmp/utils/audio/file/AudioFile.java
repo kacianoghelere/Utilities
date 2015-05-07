@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
+import org.jaudiotagger.audio.mp3.MP3AudioHeader;
 import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.TagException;
@@ -29,9 +30,14 @@ public class AudioFile implements Comparable<AudioFile> {
     private String artist;
     @ColumnName(name = "Album")
     private String album;
+    @ColumnName(name = "Duração")
+    private String length;
     @Ignore
     @ColumnName(name = "Faixa")
     private String track;
+    @Ignore
+    @ColumnName(name = "Codificação")
+    private String encoding;
     @Ignore
     private String path;
 
@@ -52,23 +58,6 @@ public class AudioFile implements Comparable<AudioFile> {
     }
 
     /**
-     * Copia os atributos da ID3v1Tag
-     *
-     * @param file {@code File} Arquivo de audio
-     */
-    private void readTag(File file) {
-        try {
-            ID3v1Tag tag = new MP3File(file).getID3v1Tag();
-            this.title = tag != null ? tag.getFirst(FieldKey.TITLE) + "" : "";
-            this.artist = tag != null ? tag.getFirst(FieldKey.ARTIST) + "" : "";
-            this.album = tag != null ? tag.getFirst(FieldKey.ALBUM) + "" : "";
-            this.track = tag != null ? tag.getFirst(FieldKey.TRACK) + "" : "";
-        } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException ex) {
-            Logger.getLogger(AudioFile.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    /**
      * Cria nova instancia de AudioFile
      *
      * @param title {@code String} Titulo da faixa de audio
@@ -83,6 +72,28 @@ public class AudioFile implements Comparable<AudioFile> {
         this.album = album;
         this.track = track;
         this.path = file.getAbsolutePath();
+    }
+
+    /**
+     * Copia os atributos da ID3v1Tag
+     *
+     * @param file {@code File} Arquivo de audio
+     */
+    private void readTag(File file) {
+        try {
+            MP3File mp3File = new MP3File(file);
+            ID3v1Tag tag = mp3File.getID3v1Tag();
+            MP3AudioHeader header = mp3File.getMP3AudioHeader();
+
+            this.title = tag != null ? tag.getFirst(FieldKey.TITLE) + "" : file.getName() + "";
+            this.artist = tag != null ? tag.getFirst(FieldKey.ARTIST) + "" : "";
+            this.album = tag != null ? tag.getFirst(FieldKey.ALBUM) + "" : "";
+            this.track = tag != null ? tag.getFirst(FieldKey.TRACK) + "" : "";
+            this.encoding = tag != null ? tag.getEncoding() + "" : "";
+            this.length = header != null ? header.getTrackLengthAsString() + "" : "0";
+        } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException ex) {
+            Logger.getLogger(AudioFile.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -176,6 +187,24 @@ public class AudioFile implements Comparable<AudioFile> {
     }
 
     /**
+     * Retorna a duração da faixa de audio
+     *
+     * @return {@code String} Duração da faixa de audio
+     */
+    public String getLength() {
+        return length;
+    }
+
+    /**
+     * Modifica a duração da faixa de audio
+     *
+     * @param length {@code String} Duração da faixa de audio
+     */
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    /**
      * Retorna o numero da faixa de audio
      *
      * @return {@code String} Numero da faixa de audio
@@ -191,6 +220,24 @@ public class AudioFile implements Comparable<AudioFile> {
      */
     public void setTrack(String track) {
         this.track = track;
+    }
+
+    /**
+     * Retorna a codificacao da faixa de audio
+     *
+     * @return {@code String} Codificacao da faixa de audio
+     */
+    public String getEncoding() {
+        return encoding;
+    }
+
+    /**
+     * Modifica a codificacao da faixa de audio
+     *
+     * @param encoding {@code String} Codificacao faixa de audio
+     */
+    public void setEncoding(String encoding) {
+        this.encoding = encoding;
     }
 
     /**

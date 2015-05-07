@@ -81,7 +81,7 @@ public class FileUtil {
         if (!file.isFile()) {
             return null;
         }
-        TextBuilder txt = new TextBuilder();        
+        TextBuilder txt = new TextBuilder();
         for (String line : read(file)) {
             txt.append(line + "\n\r");
         }
@@ -121,6 +121,19 @@ public class FileUtil {
             }
         }
         return list;
+    }
+
+    /**
+     * Escreve os dados no arquivo(Sem quebra de linhas)
+     *
+     * @param file file {@code File} Arquivo
+     * @param data {@code String} Dados
+     * @throws IOException Exceção de I/O
+     */
+    public static void write(File file, String data) throws IOException {
+        try (FileWriter fw = new FileWriter(file)) {
+            fw.write(data);
+        }
     }
 
     /**

@@ -57,20 +57,9 @@ public class AudioConverter {
         if (!dir.exists() || !dir.isDirectory()) {
             throw new Exception("O caminho indicado não é um diretório");
         }
-        ID3v1Tag tag;
         for (File file : dir.listFiles(new AudioFileFilter(false))) {
-            try {
-                tag = new MP3File(file).getID3v1Tag();
-
-                AudioFile audioFile = new AudioFile(file);
-                if (tag == null) {
-                    tag = new ID3v1Tag();
-                    tag.setTitle(audioFile.getTitle());
-                }
-                tracks.add(audioFile);
-            } catch (IOException | TagException | ReadOnlyFileException | InvalidAudioFrameException e) {
-                Logger.getLogger(AudioConverter.class.getName()).log(Level.SEVERE, null, e);
-            }
+            AudioFile audioFile = new AudioFile(file);
+            tracks.add(audioFile);
         }
         return tracks;
     }
