@@ -6,10 +6,10 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javazoom.jl.decoder.Bitstream;
 import javazoom.jl.decoder.BitstreamException;
 import javazoom.jl.decoder.Decoder;
+import javazoom.jl.decoder.Equalizer;
 import javazoom.jl.decoder.Header;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.decoder.SampleBuffer;
@@ -24,7 +24,7 @@ import javazoom.jl.player.FactoryRegistry;
  */
 public class GAudioPlayer {
 
-    private final Logger LOGGER = Logger.getLogger(GAudioPlayer.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(GAudioPlayer.class.getName());
     private URL urlStream;
     private String audioPath;
     private Bitstream bitstream;
@@ -191,7 +191,7 @@ public class GAudioPlayer {
         this.bitstream = new Bitstream(this.getAudioInputStream());
 
         this.audioDevice = FactoryRegistry.systemRegistry().createAudioDevice();
-        this.decoder = new Decoder();
+        this.decoder = new Decoder();        
         this.audioDevice.open(this.decoder);
 
         boolean shouldContinueReadingFrames = true;
