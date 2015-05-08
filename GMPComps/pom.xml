@@ -96,5 +96,10 @@
             <version>1.0.0.Final</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>G-Player</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 </project>

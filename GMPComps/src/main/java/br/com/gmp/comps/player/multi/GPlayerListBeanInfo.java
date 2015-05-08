@@ -744,10 +744,10 @@ public class GPlayerListBeanInfo extends SimpleBeanInfo {
     private static java.awt.Image iconColor32 = null;
     private static java.awt.Image iconMono16 = null;
     private static java.awt.Image iconMono32 = null;//GEN-END:IconsDef
-    private static String iconNameC16 = "/ComponentIcons/multimedia/pause.png";//GEN-BEGIN:Icons
-    private static String iconNameC32 = "/ComponentIcons/multimedia/pause.png";
-    private static String iconNameM16 = "/ComponentIcons/multimedia/pause.png";
-    private static String iconNameM32 = "/ComponentIcons/multimedia/pause.png";//GEN-END:Icons
+    private static String iconNameC16 = "/ComponentIcons/multimedia/music2.png";//GEN-BEGIN:Icons
+    private static String iconNameC32 = "/ComponentIcons/multimedia/music2.png";
+    private static String iconNameM16 = "/ComponentIcons/multimedia/music2.png";
+    private static String iconNameM32 = "/ComponentIcons/multimedia/music2.png";//GEN-END:Icons
 
     private static final int defaultPropertyIndex = -1;//GEN-BEGIN:Idx
     private static final int defaultEventIndex = -1;//GEN-END:Idx
