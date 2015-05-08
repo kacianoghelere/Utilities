@@ -1,5 +1,6 @@
 package br.com.gmp.utils.audio;
 
+import br.com.gmp.utils.audio.pressets.Pressets;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -191,7 +192,13 @@ public class GAudioPlayer {
         this.bitstream = new Bitstream(this.getAudioInputStream());
 
         this.audioDevice = FactoryRegistry.systemRegistry().createAudioDevice();
-        this.decoder = new Decoder();        
+
+        Equalizer eq = new Equalizer();
+        eq.setFrom(Pressets.LIVE.getPressets());
+
+        this.decoder = new Decoder();
+        this.decoder.setEqualizer(eq);
+
         this.audioDevice.open(this.decoder);
 
         boolean shouldContinueReadingFrames = true;
@@ -334,7 +341,6 @@ public class GAudioPlayer {
     protected boolean skipFrame() throws JavaLayerException {
         boolean returnValue = false;
         Header header = this.bitstream.readFrame();
-
         if (header != null) {
             this.bitstream.closeFrame();
             returnValue = true;
